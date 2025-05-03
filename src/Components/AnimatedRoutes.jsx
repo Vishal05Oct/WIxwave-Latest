@@ -1,4 +1,4 @@
-// AnimatedRoutes.js
+// AnimatedRoutes.jsx
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import PageWrapper from './PageWrapper';
