@@ -7,7 +7,7 @@ import HCTA from '../Components/H-CTA'
 import OurServices from '../Components/OurServices'
 import Form from '../Components/HomepageForm'
 import CollaborationSection from '../Components/Collaboration'
-import Footer from '../Components/Footer'
+
 function Home() {
   return (
    <>
@@ -20,7 +20,7 @@ function Home() {
     <HCTA />
     <Form />
     <CollaborationSection />
-    <Footer />
+
    </div>
    </>
   )

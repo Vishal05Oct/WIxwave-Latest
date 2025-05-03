@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white pb-12">
+    <footer className="bg-black text-white py-12">
       <div className="container mx-auto px-4">
         {/* Logo and Preview Section */}
         <div className="flex flex-wrap items-center justify-between mb-12">
@@ -40,7 +40,13 @@ const Footer = () => {
                 <a href="/ui-ux-design" className="text-gray-400 hover:text-white">UI/UX Design</a>
               </li>
               <li>
-                <a href="/e-commerce" className="text-gray-400 hover:text-white">E-Commerce Solutions</a>
+                <a href="/seo" className="text-gray-400 hover:text-white">Search Engine Optimisation</a>
+              </li>
+              <li>
+                <a href="/e-commerce" className="text-gray-400 hover:text-white">Social Media Management</a>
+              </li>
+              <li>
+                <a href="/e-commerce" className="text-gray-400 hover:text-white">Performance Marketing</a>
               </li>
             </ul>
           </div>
@@ -88,7 +94,7 @@ const Footer = () => {
         {/* Footer Bottom Section */}
         <div className="border-t border-gray-700 pt-4 mt-8 text-center">
           <p className="text-gray-400 text-sm">
-            &copy; {new Date().getFullYear()} TechDev Solutions. All Rights Reserved.
+            &copy; {new Date().getFullYear()} Wixwave. All Rights Reserved.
           </p>
         </div>
       </div>

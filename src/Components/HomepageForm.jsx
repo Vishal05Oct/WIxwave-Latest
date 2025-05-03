@@ -90,8 +90,8 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="min-h-screen bg-white px-4 py-16">
-      <div className="w-full max-w-screen-xl mx-auto">
+    <section className=" bg-white px-4 py-8">
+      <div className="container mx-auto">
         <form className="w-full space-y-10" onSubmit={handleSubmit}>
           <h2 className="text-center text-3xl sm:text-5xl md:text-6xl font-bold leading-snug text-black">
             Ready to redefine your <br className="sm:block hidden" />
@@ -126,7 +126,7 @@ const ContactForm = () => {
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
-                  placeholder="Company Name"
+                  placeholder="Company/Brand Name"
                   className="w-full border-b border-black placeholder-gray-400 text-base py-3 px-2 focus:outline-none"
                 />
                 {errors.company && <p className="text-red-500 text-sm">{errors.company}</p>}
@@ -193,6 +193,7 @@ const ContactForm = () => {
         <ToastContainer position="top-right" autoClose={3000} />
       </div>
     </section>
+   
   );
 };
 

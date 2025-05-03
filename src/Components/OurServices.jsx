@@ -7,39 +7,41 @@ import 'slick-carousel/slick/slick-theme.css';
 
 const services = [
   {
-    title: 'Mobile & Web Development',
+    title: 'Mobile Apps & Web Development',
     image: 'https://img.freepik.com/free-photo/website-developing-team-working-new-project_1150-11300.jpg',
-    link: '/services/web-development',
+    link: '/services/development',
     delay: 0,
   },
   {
-    title: 'Managed Services',
+    title: 'Search Engine Optimisation',
+    image: 'https://img.freepik.com/free-photo/iot-concept-smart-device-internet-of-things_1150-15269.jpg',
+    link: '/services/seo',
+    delay: 0.4,
+  },
+  {
+    title: 'UI/UX Design',
     image: 'https://img.freepik.com/free-photo/it-experts-working-digital-tablets_1150-14062.jpg',
     link: '/services/it-infrastructure-managed-services',
     delay: 0.1,
   },
   {
-    title: 'Cyber Security',
+    title: 'Social Media Management',
     image: 'https://img.freepik.com/free-photo/technology-security-concept-computer-coding-security-programming-protection_1150-8447.jpg',
-    link: '/services/managed-cybersecurity-services-company',
+    link: '/services/social-media-management',
     delay: 0.2,
   },
+
   {
-    title: 'Cloud Services',
+    title: 'Performance Marketing',
     image: 'https://img.freepik.com/free-photo/businessman-using-cloud-computing-technology-network_1150-12151.jpg',
-    link: '/services/cloud-services',
+    link: '/services/performance-marketing',
     delay: 0.3,
   },
+ 
   {
-    title: 'IoT (Internet of Things)',
-    image: 'https://img.freepik.com/free-photo/iot-concept-smart-device-internet-of-things_1150-15269.jpg',
-    link: '/services/iot-solutions-services',
-    delay: 0.4,
-  },
-  {
-    title: 'Staffing',
+    title: 'Graphics & Branding',
     image: 'https://img.freepik.com/free-photo/hr-team-discussing-job-candidates-applications-office_1150-9825.jpg',
-    link: '/services/hr-staffing-solutions',
+    link: '/services/graphics-branding',
     delay: 0.5,
   },
 ];
@@ -92,7 +94,7 @@ const sliderSettings = {
 
 const ServicesSection = () => {
   return (
-    <div className="py-12 px-5 container mx-auto">
+    <div className="py-4 md:pb-12 px-5 container mx-auto">
       {/* Animated Heading */}
       <motion.h2
         initial="hidden"
@@ -139,7 +141,7 @@ const ServicesSection = () => {
       </div>
 
       {/* Slider for mobile view only */}
-      <div className="md:hidden relative mt-10">
+      <div className="md:hidden relative mt-6">
         <Slider {...sliderSettings}>
           {services.map((service, index) => (
             <a

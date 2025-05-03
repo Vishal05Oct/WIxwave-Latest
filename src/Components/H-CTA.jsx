@@ -6,7 +6,7 @@ const HeroSection = () => {
   const words = title.split(" ");
 
   return (
-    <section className="container mx-auto py-12 px-6 overflow-x-hidden">
+    <section className="container mx-auto py-4 px-6 overflow-x-hidden">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
