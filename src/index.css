@@ -1,1 +1,16 @@
+/* Import font */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+@import 'react-phone-input-2/lib/style.css';
+@import 'react-toastify/dist/ReactToastify.css';
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
+
+
+
+/* Import Tailwind */
 @import "tailwindcss";
+
+/* Apply Josefin Sans font globally */
+body {
+  font-family: 'Josefin Sans', sans-serif;
+}

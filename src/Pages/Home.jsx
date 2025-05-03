@@ -5,6 +5,9 @@ import VideoSection from '../Components/VideoSection'
 import HowWeRoll from '../Components/WeRoll'
 import HCTA from '../Components/H-CTA'
 import OurServices from '../Components/OurServices'
+import Form from '../Components/HomepageForm'
+import CollaborationSection from '../Components/Collaboration'
+import Footer from '../Components/Footer'
 function Home() {
   return (
    <>
@@ -13,8 +16,11 @@ function Home() {
     <HeroSlider />
     <VideoSection />
     <HowWeRoll />
-    <HCTA />
     <OurServices />
+    <HCTA />
+    <Form />
+    <CollaborationSection />
+    <Footer />
    </div>
    </>
   )
