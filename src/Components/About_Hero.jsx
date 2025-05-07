@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const AboutWixwave = () => {
   return (
@@ -12,12 +13,35 @@ const AboutWixwave = () => {
           className="absolute inset-0 w-full h-full object-cover opacity-20 z-0"
         />
 
-        {/* Overlapping Large Lime Text */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center z-10 leading-[1] text-center text-lime-400 font-extrabold text-[8vw] sm:text-[6vw] lg:text-[4vw] pointer-events-none select-none">
-          <span>Hello!</span>
-          <span>We are creative</span>
-          <span>Spaces</span>
-        </div>
+        {/* Animated Lime Text – Now for All Screens */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="absolute inset-0 flex flex-col items-center justify-center z-10 leading-[1] text-center text-lime-400 font-extrabold text-[12vw] sm:text-[8vw] pointer-events-none select-none"
+          >
+          <motion.span
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+          >
+            Hello!
+          </motion.span>
+          <motion.span
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+          >
+            We are creative
+          </motion.span>
+          <motion.span
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9 }}
+          >
+            Spaces
+          </motion.span>
+        </motion.div>
 
         {/* Foreground Content */}
         <div className="relative z-20 max-w-3xl text-center">

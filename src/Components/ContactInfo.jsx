@@ -24,23 +24,23 @@ const ContactInfo = () => {
 
         <div className="flex flex-col sm:flex-row justify-center gap-4 sm:space-x-4 sm:gap-0">
           <motion.a
-            href="tel:+1234567890"
+            href="tel:+919470440744"
             className="bg-black text-white py-3 px-6 rounded-lg text-base sm:text-lg font-semibold inline-block transition transform hover:scale-105 hover:bg-gray-800"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
           >
-            Phone: +1 (234) 567-890
+            Phone: +91 9470440744
           </motion.a>
 
           <motion.a
-            href="mailto:hello@createteam.com"
+            href="mailto:hello@wixwave.co"
             className="bg-white text-blue-800 py-3 px-6 rounded-lg text-base sm:text-lg font-semibold inline-block transition transform hover:scale-105 hover:bg-gray-200"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
           >
-            Email: hello@createteam.com
+            Email: hello@wixwave.co
           </motion.a>
         </div>
       </div>

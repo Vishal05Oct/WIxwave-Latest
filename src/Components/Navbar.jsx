@@ -37,7 +37,7 @@ function Navbar() {
 
   return (
     <nav className="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-full max-w-6xl">
-      <div className="bg-black text-white rounded-full px-6 py-3 flex items-center justify-between container mx-auto shadow-xl backdrop-blur-sm">
+      <div className="bg-[#01001c] rounded-full px-6 py-3 flex items-center justify-between container mx-auto shadow-xl backdrop-blur-sm">
         <Link to="/" onClick={() => setIsOpen(false)}>
           <img
             src="https://res.cloudinary.com/dobbdtftp/image/upload/v1746202311/3_rgrvsx.png"

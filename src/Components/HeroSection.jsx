@@ -63,7 +63,7 @@ const AnimatedHeroSection = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1 }}
         >
-          <button className="text-sm md:text-base px-8 py-3 rounded-full bg-purple-700 text-white hover:bg-purple-800 transition-transform transform hover:scale-105 shadow-lg font-semibold">
+          <button className="text-sm md:text-base px-8 py-3 rounded-full bg-[#050170] text-white hover:bg-purple-800 transition-transform transform hover:scale-105 shadow-lg font-semibold">
             Explore now
           </button>
         </motion.div>

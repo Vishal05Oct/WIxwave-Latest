@@ -7,43 +7,43 @@ import 'slick-carousel/slick/slick-theme.css';
 
 const services = [
   {
-    title: 'Mobile Apps & Web Development',
-    image: 'https://img.freepik.com/free-photo/website-developing-team-working-new-project_1150-11300.jpg',
-    link: '/services/development',
+    title: ' Website Design & Development',
+    image: 'https://img.freepik.com/free-vector/concept-landing-page-website-setup_52683-25031.jpg',
+    link: '/services/web-dev',
     delay: 0,
   },
   {
-    title: 'Search Engine Optimisation',
-    image: 'https://img.freepik.com/free-photo/iot-concept-smart-device-internet-of-things_1150-15269.jpg',
-    link: '/services/seo',
-    delay: 0.4,
-  },
-  {
-    title: 'UI/UX Design',
-    image: 'https://img.freepik.com/free-photo/it-experts-working-digital-tablets_1150-14062.jpg',
-    link: '/services/it-infrastructure-managed-services',
+    title: ' Mobile App Design & Development',
+    image: 'https://res.cloudinary.com/dobbdtftp/image/upload/v1746621737/app_dev_ewptnp.jpg',
+    link: '/services/app-dev',
+    delay: 0,
+  },{
+    title: 'Branding & Graphics',
+    image: 'https://res.cloudinary.com/dobbdtftp/image/upload/v1746621736/Branding_ewbyss.avif',
+    link: '/services/branding-graphics',
     delay: 0.1,
   },
   {
+    title: 'Search Engine Optimisation',
+    image: 'https://res.cloudinary.com/dobbdtftp/image/upload/v1746621736/seo_ph2x6b.avif',
+    link: '/services/seo',
+    delay: 0.4,
+  },
+  
+  {
     title: 'Social Media Management',
-    image: 'https://img.freepik.com/free-photo/technology-security-concept-computer-coding-security-programming-protection_1150-8447.jpg',
+    image: 'https://res.cloudinary.com/dobbdtftp/image/upload/v1746621737/social_media_gseote.avif',
     link: '/services/social-media-management',
     delay: 0.2,
   },
 
   {
     title: 'Performance Marketing',
-    image: 'https://img.freepik.com/free-photo/businessman-using-cloud-computing-technology-network_1150-12151.jpg',
+    image: 'https://res.cloudinary.com/dobbdtftp/image/upload/v1746621736/performance_bkyvvp.avif',
     link: '/services/performance-marketing',
     delay: 0.3,
   },
  
-  {
-    title: 'Graphics & Branding',
-    image: 'https://img.freepik.com/free-photo/hr-team-discussing-job-candidates-applications-office_1150-9825.jpg',
-    link: '/services/graphics-branding',
-    delay: 0.5,
-  },
 ];
 
 

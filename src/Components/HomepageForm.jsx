@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import 'react-toastify/dist/ReactToastify.css';
 
 const ContactForm = () => {
@@ -23,6 +25,12 @@ const ContactForm = () => {
     'SEO',
     'Performance Marketing',
   ];
+
+  const { ref: nameRef, inView: nameInView } = useInView({ triggerOnce: true });
+  const { ref: emailRef, inView: emailInView } = useInView({ triggerOnce: true });
+  const { ref: companyRef, inView: companyInView } = useInView({ triggerOnce: true });
+  const { ref: contactRef, inView: contactInView } = useInView({ triggerOnce: true });
+  const { ref: messageRef, inView: messageInView } = useInView({ triggerOnce: true });
 
   const handleServiceClick = (service) => {
     setSelectedService(service);
@@ -53,7 +61,6 @@ const ContactForm = () => {
     const { name, value } = e.target;
 
     if (name === 'contact') {
-      // Strip non-digits and limit to 10 digits
       const numericValue = value.replace(/\D/g, '');
       if (numericValue.length <= 10) {
         setFormData((prev) => ({ ...prev, [name]: numericValue }));
@@ -85,115 +92,128 @@ const ContactForm = () => {
       toast.error('Please fix the errors in the form.');
     } else {
       toast.success('Form submitted successfully!');
-      // You can add your API submission logic here
     }
   };
 
   return (
-    <section className=" bg-white px-4 py-8">
+    <motion.section
+      className="bg-white px-4 py-8"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 30 }}
+      transition={{ duration: 0.6 }}
+    >
       <div className="container mx-auto">
         <form className="w-full space-y-10" onSubmit={handleSubmit}>
-          <h2 className="text-center text-3xl sm:text-5xl md:text-6xl font-bold leading-snug text-black">
+          <motion.h2
+            className="text-center text-3xl sm:text-5xl md:text-6xl font-bold leading-snug text-black"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+          >
             Ready to redefine your <br className="sm:block hidden" />
             brand experience?
-          </h2>
+          </motion.h2>
 
-          <div className="space-y-6">
-            <input
+          {/* Name Field with Scroll Trigger */}
+          <motion.input
+            ref={nameRef}
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="Name"
+            className="w-full border-b border-black placeholder-gray-400 text-base py-3 px-2 focus:outline-none"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: nameInView ? 1 : 0, y: nameInView ? 0 : 20 }}
+            transition={{ duration: 0.6 }}
+          />
+          {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
+
+          {/* Email Field with Scroll Trigger */}
+          <motion.input
+            ref={emailRef}
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Email"
+            className="w-full border-b border-black placeholder-gray-400 text-base py-3 px-2 focus:outline-none"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: emailInView ? 1 : 0, y: emailInView ? 0 : 20 }}
+            transition={{ duration: 0.6 }}
+          />
+          {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+
+          <div className="flex flex-col sm:flex-row gap-6">
+            {/* Company Field with Scroll Trigger */}
+            <motion.input
+              ref={companyRef}
               type="text"
-              name="name"
-              value={formData.name}
+              name="company"
+              value={formData.company}
               onChange={handleChange}
-              placeholder="Name"
+              placeholder="Company/Brand Name"
               className="w-full border-b border-black placeholder-gray-400 text-base py-3 px-2 focus:outline-none"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: companyInView ? 1 : 0, y: companyInView ? 0 : 20 }}
+              transition={{ duration: 0.6 }}
             />
-            {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
+            {errors.company && <p className="text-red-500 text-sm">{errors.company}</p>}
 
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
+            {/* Contact Field with Scroll Trigger */}
+            <motion.input
+              ref={contactRef}
+              type="text"
+              name="contact"
+              value={formData.contact}
               onChange={handleChange}
-              placeholder="Email"
+              placeholder="Contact Number"
+              inputMode="numeric"
+              maxLength={10}
               className="w-full border-b border-black placeholder-gray-400 text-base py-3 px-2 focus:outline-none"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: contactInView ? 1 : 0, y: contactInView ? 0 : 20 }}
+              transition={{ duration: 0.6 }}
             />
-            {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
-
-            <div className="flex flex-col sm:flex-row gap-6">
-              <div className="w-full">
-                <input
-                  type="text"
-                  name="company"
-                  value={formData.company}
-                  onChange={handleChange}
-                  placeholder="Company/Brand Name"
-                  className="w-full border-b border-black placeholder-gray-400 text-base py-3 px-2 focus:outline-none"
-                />
-                {errors.company && <p className="text-red-500 text-sm">{errors.company}</p>}
-              </div>
-
-              <div className="w-full">
-                <input
-                  type="text"
-                  name="contact"
-                  value={formData.contact}
-                  onChange={handleChange}
-                  placeholder="Contact Number"
-                  inputMode="numeric"
-                  maxLength={10}
-                  className="w-full border-b border-black placeholder-gray-400 text-base py-3 px-2 focus:outline-none"
-                />
-                {errors.contact && <p className="text-red-500 text-sm">{errors.contact}</p>}
-              </div>
-            </div>
+            {errors.contact && <p className="text-red-500 text-sm">{errors.contact}</p>}
           </div>
 
-          <div className="pt-2">
-            <p className="mb-4 font-medium text-base">Choose Your Need</p>
-            <div className="flex flex-wrap gap-3">
-              {services.map((service) => (
-                <button
-                  key={service}
-                  type="button"
-                  onClick={() => handleServiceClick(service)}
-                  className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all border
-                    ${
-                      selectedService === service
-                        ? 'bg-[#6c42f5] text-white border-[#6c42f5]'
-                        : 'bg-gray-100 text-gray-800 border-transparent hover:bg-gray-200'
-                    }`}
-                >
-                  {service}
-                </button>
-              ))}
-            </div>
-          </div>
+          {/* Message Textarea with Scroll Trigger */}
+          <motion.textarea
+            ref={messageRef}
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            placeholder="Tell Us About Your Project"
+            className="w-full border-b border-black placeholder-gray-400 text-base py-3 px-2 h-28 resize-none focus:outline-none"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: messageInView ? 1 : 0, y: messageInView ? 0 : 20 }}
+            transition={{ duration: 0.6 }}
+          ></motion.textarea>
+          {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
 
-          <div>
-            <textarea
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              placeholder="Tell Us About Your Project"
-              className="w-full border-b border-black placeholder-gray-400 text-base py-3 px-2 h-28 resize-none focus:outline-none"
-            ></textarea>
-            {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
-          </div>
-
-          <div className="flex justify-end">
-            <button
+          {/* Submit Button */}
+          <motion.div
+            className="flex justify-end"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 0.6 }}
+          >
+            <motion.button
               type="submit"
-              className="flex items-center gap-2 px-6 py-3 bg-[#6c42f5] text-white text-sm font-semibold rounded-full hover:bg-[#5b38c2] transition-all"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center gap-2 px-6 py-3 bg-[#050170] text-white text-sm font-semibold rounded-full hover:bg-[#5b38c2] transition-all"
             >
               Submit <span className="text-lg">→</span>
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
         </form>
 
         <ToastContainer position="top-right" autoClose={3000} />
       </div>
-    </section>
-   
+    </motion.section>
   );
 };
 

@@ -12,7 +12,7 @@ const HeroSection = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8 }}
-        className="flex flex-col md:flex-row items-center justify-center bg-gradient-to-r from-gray-900 to-purple-900 rounded-3xl p-10 text-white shadow-lg max-w-6xl mx-auto"
+        className="flex flex-col md:flex-row items-center justify-center bg-[#0c34e9] rounded-3xl p-10 text-white shadow-lg max-w-6xl mx-auto"
       >
         <div className="md:w-1/2 w-full mb-8 md:mb-0 md:pr-10 text-center md:text-left flex flex-col justify-center">
           <h1 className="text-3xl md:text-5xl font-bold flex flex-wrap justify-center md:justify-start gap-2">
@@ -40,12 +40,13 @@ const HeroSection = () => {
           </p>
           <div className="flex gap-4 justify-center md:justify-start">
             <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-purple-800 hover:bg-purple-700 px-6 py-3 text-sm rounded-full shadow-lg transition-colors duration-300 font-semibold uppercase tracking-wide"
-            >
-              Contact us
-            </motion.button>
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  className="bg-[#050170] hover:bg-[#0a0a3c] px-6 py-3 text-sm rounded-full shadow-lg transition-colors duration-300 font-semibold uppercase tracking-wide"
+>
+  Contact us
+</motion.button>
+
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

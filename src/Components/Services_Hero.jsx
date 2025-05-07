@@ -1,14 +1,14 @@
 import React from 'react';
 import { motion } from "framer-motion";
 
-const ContactWixwave = () => {
+const ServicesWixwave = () => {
   return (
     <section className="relative w-full min-h-screen bg-white flex items-center justify-center px-4 sm:px-8 py-16 overflow-hidden">
       
       {/* Background Banner Image */}
       <img
-        src="https://img.freepik.com/premium-photo/cropped-hand-woman-holding-telephone-receiver-against-concrete-wall-banner-size-with-copy-space-individual-text_157125-14977.jpg?w=2000"
-        alt="Background"
+        src="https://img.freepik.com/free-photo/business-people-meeting-office-writing-memos-sticky-notes_1150-42511.jpg?t=st=1715064377~exp=1715067977~hmac=6221e6fa86db66dcf60e60eb1dc22f6dbf4ed5eb30a7334df32537b51e0d14c8&w=2000"
+        alt="Services Background"
         className="absolute inset-0 w-full h-full object-cover opacity-20 z-0"
       />
 
@@ -24,7 +24,7 @@ const ContactWixwave = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
         >
-          Let's
+          What
           <br className="block sm:hidden" />
         </motion.span>
         <motion.span
@@ -32,27 +32,26 @@ const ContactWixwave = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9 }}
         >
-          Connect
+          We Offer
         </motion.span>
       </motion.div>
 
       {/* Foreground Content */}
       <div className="relative z-20 max-w-3xl text-center px-4 sm:px-6">
         <h2 className="font-bold tracking-[0.2em] text-black mb-4 text-xl sm:text-2xl">
-          CONTACT US
+          OUR SERVICES
         </h2>
         <p className="text-xl sm:text-xl text-black leading-relaxed mb-6">
-          Have a brilliant idea or just want to say hello? We’re all ears! At Wixwave,
-          we turn your vision into digital reality—let's chat, collaborate, and make waves together.
+          Wixwave crafts tailored digital solutions that drive real business impact. We offer a full suite of services—from responsive website development
+          and custom mobile apps to high-performance UI/UX design and strategic branding.
         </p>
         <p className="text-xl sm:text-xl text-black leading-relaxed">
-          Whether you're looking to build a stunning website, launch a mobile app, or reimagine your brand identity,
-          our team of passionate designers and developers is here to bring your ideas to life. We believe in meaningful
-          collaborations and groundbreaking digital experiences. Ready to start your journey? Drop us a message and let's shape the future together.
+          Our team merges creativity with technology to build engaging, scalable digital experiences. Whether you're looking to launch, grow, or
+          rebrand, we’re here to deliver results that matter. Discover how our expertise can take your business to the next level.
         </p>
       </div>
     </section>
   );
 };
 
-export default ContactWixwave;
+export default ServicesWixwave;

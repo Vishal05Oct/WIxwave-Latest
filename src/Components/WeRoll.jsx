@@ -27,7 +27,7 @@ const HowWeRoll = () => {
         >
           THAT’S HOW{" "}
           <motion.span
-            className="text-indigo-600 inline-block drop-shadow-sm"
+            className="text-[#0c34e9] inline-block drop-shadow-sm"
             initial={{ opacity: 0, rotate: -10 }}
             animate={{ opacity: 1, rotate: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}

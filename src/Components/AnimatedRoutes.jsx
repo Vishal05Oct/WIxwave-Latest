@@ -5,6 +5,7 @@ import PageWrapper from './PageWrapper';
 
 import Home from '../pages/Home';
 import About from '../pages/About';
+import Services from '../Pages/Services';
 import Contact from '../Pages/Contact';
 
 function AnimatedRoutes() {
@@ -15,6 +16,7 @@ function AnimatedRoutes() {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
         <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
+        <Route path="/services" element={<PageWrapper><Services /></PageWrapper>} />
         <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
       </Routes>
     </AnimatePresence>
