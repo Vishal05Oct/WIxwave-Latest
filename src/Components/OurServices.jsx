@@ -19,7 +19,7 @@ const services = [
     delay: 0,
   },{
     title: 'Branding & Graphics',
-    image: 'https://res.cloudinary.com/dobbdtftp/image/upload/v1746621736/Branding_ewbyss.avif',
+    image: 'https://res.cloudinary.com/dobbdtftp/image/upload/v1746641973/designing_nainbu.jpg',
     link: '/services/branding-graphics',
     delay: 0.1,
   },
