@@ -1,19 +1,19 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const AboutWixwave = () => {
+const OurPortfolio = () => {
   return (
     <>
       <section className="relative w-full min-h-screen bg-white flex items-center justify-center px-4 overflow-hidden">
-        
+
         {/* Background Banner Image */}
         <img
-          src="https://img.freepik.com/free-photo/view-arrangement-with-keyboard-notebooks_23-2148847749.jpg?t=st=1746805976~exp=1746809576~hmac=06ada9fe346d4b57580a8206d796555a96668801750b1009be5eaef944f177e9&w=1380"
-          alt="Background"
+          src="https://img.freepik.com/free-photo/desk-with-objects_23-2147982353.jpg?t=st=1746804581~exp=1746808181~hmac=7ca85bffbb1ef15ad9ef4bfc8049fe1a8c49d1eaf7ac479ab9469549d7255655&w=1380"
+          alt="Portfolio Background"
           className="absolute inset-0 w-full h-full object-cover opacity-20 z-0"
         />
 
-        {/* Animated Lime Text – Now for All Screens */}
+        {/* Animated Lime Text */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -25,35 +25,34 @@ const AboutWixwave = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            Hello!
+            Our
           </motion.span>
           <motion.span
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
           >
-            We are creative
+            Creative
           </motion.span>
           <motion.span
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9 }}
           >
-            Spaces
+            Portfolio
           </motion.span>
         </motion.div>
 
         {/* Foreground Content */}
         <div className="relative z-20 max-w-3xl text-center">
           <h2 className="font-bold tracking-[0.2em] text-black mb-4">
-            ABOUT WIXWAVE
+            OUR PORTFOLIO
           </h2>
           <p className="text-xl sm:text-xl text-black leading-relaxed">
-            We are a digital studio specialized in web design and mobile apps. Our team
-            consists of experienced professionals who, over the years of working together,
-            have built a deep knowledge of designing and implementing innovative digital projects.
-            Our work is more than just work—it's our passion. That's why we create unique and
-            engaging solutions that have been recognized and rewarded by various authorities.
+            Explore our diverse range of digital projects crafted with creativity and precision.
+            From visually stunning websites to intuitive mobile applications, our portfolio showcases
+            the innovation and excellence we bring to every project. Each design reflects our passion
+            for delivering impactful digital experiences that resonate with users and elevate brands.
           </p>
         </div>
       </section>
@@ -61,4 +60,4 @@ const AboutWixwave = () => {
   );
 };
 
-export default AboutWixwave;
+export default OurPortfolio;

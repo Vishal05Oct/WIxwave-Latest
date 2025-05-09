@@ -13,8 +13,7 @@ function About_2() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1 }}
                     >
-                        That’s exactly why we are committing our imaginations to ‘a humans before boundaries’ approach.
-                        We believe that if you look carefully enough, you’ll find a great idea in just about everything.
+                        At WixWave, we transform ideas into exceptional digital experiences with world-class web design, cutting-edge app development, and creative digital marketing strategies. We go beyond meeting your expectations—we exceed them, making sure your online presence is as dynamic as your business.
                     </motion.p>
 
                     {/* Animated Paragraph 2 */}
@@ -24,7 +23,7 @@ function About_2() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, delay: 0.3 }}
                     >
-                        This is Tonic 2.0 – Where, like a shot of yellow in a ray of light, we see things anew.
+                        We don’t just build websites; we build immersive digital experiences that elevate your brand. From sleek e-commerce platforms to all-encompassing digital strategies, WixWave is dedicated to making your brand shine in today’s fast-paced digital world.
                     </motion.p>
 
                     {/* Animated Heading */}
@@ -34,7 +33,7 @@ function About_2() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 1, delay: 0.6 }}
                     >
-                        People make us what we are.
+                        Why WixWave?
                     </motion.h2>
 
                     {/* Animated Paragraph 3 */}
@@ -44,24 +43,33 @@ function About_2() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, delay: 0.9 }}
                     >
-                        It is about delivering satisfaction, and not business results. A thought that turns technology & creatives on their head.
-                        Making people experience what you set out to achieve – enhancement and elevation of the human spirit.
+                        What sets us apart? WixWave is where innovation meets strategy. Our expert team fuses cutting-edge technology with visionary design to deliver solutions that not only lead the market but are built to scale. We don’t just design—we craft memorable digital experiences that drive tangible results.
                     </motion.p>
-                </div>
 
-                {/* Animated Image */}
-                <motion.div
-                    className="mt-10 w-full"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: 1.2 }}
-                >
-                    <img
-                        src="https://www.tonicworldwide.com/wp-content/uploads/2024/08/Philosophy-bottom-banner.png"
-                        alt="Tonic 2.0 Banner"
-                        className="w-full h-[50vh] object-cover"
-                    />
-                </motion.div>
+                    {/* Animated Paragraph 4 */}
+                    <motion.p
+                        className="mt-4 text-lg text-gray-800"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1, delay: 1.2 }}
+                    >
+                        Your brand is at the core of everything we do. Our customer-first approach allows us to deeply understand your unique needs, audience, and goals. We then craft tailored digital strategies that ensure your business stays ahead of the curve. From SEO to custom web development, we empower your brand to grow and succeed online.
+                    </motion.p>
+
+                    {/* Animated Image */}
+                    <motion.div
+                        className="mt-10 w-full"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 1, delay: 1.5 }}
+                    >
+                        <img
+                            src="https://taw.agency/static/media/taw-about-banner3.535024bf6be11dad4776.png"
+                            alt="WixWave Team in Action"
+                            className="w-full h-auto object-cover"
+                        />
+                    </motion.div>
+                </div>
             </section>
         </>
     );

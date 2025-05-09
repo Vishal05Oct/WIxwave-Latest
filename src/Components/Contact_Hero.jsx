@@ -17,8 +17,8 @@ const ContactWixwave = () => {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="absolute inset-0 flex flex-col items-center justify-center z-10 leading-[1] text-center text-lime-400 font-extrabold text-[12vw] sm:text-[8vw] pointer-events-none select-none"
-      >
+        className="absolute inset-0 flex flex-col items-center justify-center z-10 leading-[1] text-center text-[#6699ff] font-extrabold text-[12vw] sm:text-[8vw] pointer-events-none select-none"
+>
         <motion.span
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

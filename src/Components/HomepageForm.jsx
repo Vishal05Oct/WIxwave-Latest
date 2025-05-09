@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import 'react-toastify/dist/ReactToastify.css';
 
 const ContactForm = () => {
-  const [selectedService, setSelectedService] = useState('UI / UX Design');
+  const [selectedService, setSelectedService] = useState('Website Design & Development');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -17,12 +17,11 @@ const ContactForm = () => {
   const [errors, setErrors] = useState({});
 
   const services = [
-    'UI / UX Design',
-    'Web Development',
-    'Branding Strategy',
-    'Graphic Design & Illustration',
-    'App Development',
-    'SEO',
+    'Website Design & Development',
+    'Mobile App Design & Development',
+    'Branding & Graphics',
+    'Search Engine Optimisation',
+    'Social Media Management',
     'Performance Marketing',
   ];
 
@@ -92,6 +91,7 @@ const ContactForm = () => {
       toast.error('Please fix the errors in the form.');
     } else {
       toast.success('Form submitted successfully!');
+      // Optionally handle submission here
     }
   };
 
@@ -115,7 +115,7 @@ const ContactForm = () => {
             brand experience?
           </motion.h2>
 
-          {/* Name Field with Scroll Trigger */}
+          {/* Name Field */}
           <motion.input
             ref={nameRef}
             type="text"
@@ -130,7 +130,7 @@ const ContactForm = () => {
           />
           {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
 
-          {/* Email Field with Scroll Trigger */}
+          {/* Email Field */}
           <motion.input
             ref={emailRef}
             type="email"
@@ -146,7 +146,7 @@ const ContactForm = () => {
           {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
 
           <div className="flex flex-col sm:flex-row gap-6">
-            {/* Company Field with Scroll Trigger */}
+            {/* Company Field */}
             <motion.input
               ref={companyRef}
               type="text"
@@ -161,7 +161,7 @@ const ContactForm = () => {
             />
             {errors.company && <p className="text-red-500 text-sm">{errors.company}</p>}
 
-            {/* Contact Field with Scroll Trigger */}
+            {/* Contact Field */}
             <motion.input
               ref={contactRef}
               type="text"
@@ -179,7 +179,29 @@ const ContactForm = () => {
             {errors.contact && <p className="text-red-500 text-sm">{errors.contact}</p>}
           </div>
 
-          {/* Message Textarea with Scroll Trigger */}
+          {/* Choose Your Need */}
+          <div className="mt-8">
+            <h3 className="text-lg font-semibold mb-4">Choose Your Need</h3>
+            <div className="flex flex-wrap gap-4">
+              {services.map((service) => (
+                <motion.button
+                  key={service}
+                  onClick={() => handleServiceClick(service)}
+                  className={`px-6 py-2 rounded-full text-sm font-semibold transition-all ${
+                    selectedService === service
+                      ? 'bg-[#050170] text-white'
+                      : 'bg-gray-200 text-black'
+                  }`}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {service}
+                </motion.button>
+              ))}
+            </div>
+          </div>
+
+          {/* Message Field */}
           <motion.textarea
             ref={messageRef}
             name="message"

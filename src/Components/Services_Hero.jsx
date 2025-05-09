@@ -7,8 +7,8 @@ const ServicesWixwave = () => {
       
       {/* Background Banner Image */}
       <img
-        src="https://img.freepik.com/free-photo/business-people-meeting-office-writing-memos-sticky-notes_1150-42511.jpg?t=st=1715064377~exp=1715067977~hmac=6221e6fa86db66dcf60e60eb1dc22f6dbf4ed5eb30a7334df32537b51e0d14c8&w=2000"
-        alt="Services Background"
+        src="https://img.freepik.com/free-photo/particle-lines-futuristic-network-background_53876-129729.jpg?t=st=1746805732~exp=1746809332~hmac=571c982d3cb4b0a434725d6e6e8573ecd5bb17a1e9e742b2e6fa71f12e968917&w=1380"
+        alt="Futuristic Network Background"
         className="absolute inset-0 w-full h-full object-cover opacity-20 z-0"
       />
 
@@ -17,8 +17,8 @@ const ServicesWixwave = () => {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="absolute inset-0 flex flex-col items-center justify-center z-10 leading-[1] text-center text-lime-400 font-extrabold text-[12vw] sm:text-[8vw] pointer-events-none select-none"
-      >
+        className="absolute inset-0 flex flex-col items-center justify-center z-10 leading-[1] text-center text-[#6699ff] font-extrabold text-[12vw] sm:text-[8vw] pointer-events-none select-none"
+>
         <motion.span
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

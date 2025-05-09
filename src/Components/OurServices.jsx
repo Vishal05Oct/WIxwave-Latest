@@ -9,38 +9,38 @@ const services = [
   {
     title: ' Website Design & Development',
     image: 'https://img.freepik.com/free-vector/concept-landing-page-website-setup_52683-25031.jpg',
-    link: '/services/web-dev',
+    link: '/services',
     delay: 0,
   },
   {
     title: ' Mobile App Design & Development',
     image: 'https://res.cloudinary.com/dobbdtftp/image/upload/v1746621737/app_dev_ewptnp.jpg',
-    link: '/services/app-dev',
+    link: '/services',
     delay: 0,
   },{
     title: 'Branding & Graphics',
     image: 'https://res.cloudinary.com/dobbdtftp/image/upload/v1746641973/designing_nainbu.jpg',
-    link: '/services/branding-graphics',
+    link: '/services',
     delay: 0.1,
   },
   {
     title: 'Search Engine Optimisation',
     image: 'https://res.cloudinary.com/dobbdtftp/image/upload/v1746621736/seo_ph2x6b.avif',
-    link: '/services/seo',
+    link: '/services',
     delay: 0.4,
   },
   
   {
     title: 'Social Media Management',
     image: 'https://res.cloudinary.com/dobbdtftp/image/upload/v1746621737/social_media_gseote.avif',
-    link: '/services/social-media-management',
+    link: '/services',
     delay: 0.2,
   },
 
   {
     title: 'Performance Marketing',
     image: 'https://res.cloudinary.com/dobbdtftp/image/upload/v1746621736/performance_bkyvvp.avif',
-    link: '/services/performance-marketing',
+    link: '/services',
     delay: 0.3,
   },
  

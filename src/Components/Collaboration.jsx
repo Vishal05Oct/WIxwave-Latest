@@ -34,69 +34,79 @@ const CollaborationSection = () => {
 
   return (
     <motion.div
-    className="bg-[#01001c] flex flex-col items-center justify-center px-4 py-12"
-    initial="hidden"
+      className="bg-[#01001c] flex flex-col items-center justify-center px-4 py-12 sm:px-6 md:px-8 lg:px-12"
+      initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
       <motion.div
-        className="bg-[#0c34e9] rounded-3xl text-center px-6 py-16 w-full container mx-auto shadow-2xl"
+        className="relative rounded-3xl text-center px-4 sm:px-6 py-12 sm:py-16 w-full max-w-7xl mx-auto shadow-2xl overflow-hidden"
         variants={itemVariants}
       >
-       <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-black leading-tight">
-  READY TO<br />
-  <span className="inline-block">
-    {"COLLABORATE".split("").map((char, i) => (
-      <motion.span
-        key={i}
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: i * 0.06, type: "spring", stiffness: 100 }}
-        className="inline-block"
-      >
-        {char}
-      </motion.span>
-    ))}
-  </span>
-  <span className="text-black">?</span>
-</h1>
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-20 z-0"
+          style={{
+            backgroundImage: `url('https://res.cloudinary.com/dobbdtftp/image/upload/v1746786161/collaborate_fxgnr6.png')`,
+          }}
+        />
 
+        {/* Foreground Content */}
+        <div className="relative z-10">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight">
+            READY TO<br />
+            <span className="inline-block">
+              {"COLLABORATE".split("").map((char, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: i * 0.06, type: "spring", stiffness: 100 }}
+                  className="inline-block"
+                >
+                  {char}
+                </motion.span>
+              ))}
+            </span>
+            <span className="text-white"> ? </span>
+            <span className="text-[#0c34e9] block sm:inline">LET'S TALK</span>
+          </h1>
 
-        <motion.div
-          className="flex flex-col sm:flex-row justify-center items-center gap-6 mt-12"
-          variants={itemVariants}
-        >
-          <motion.a
-            href="#start-project"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-            className="bg-[#050170] text-white font-bold text-sm px-8 py-4 rounded-full flex items-center justify-center hover:bg-gray-800 transition shadow-md"
+          <motion.div
+            className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 mt-8 sm:mt-12"
+            variants={itemVariants}
           >
-            START PROJECT <span className="ml-2">➔</span>
-          </motion.a>
+            <motion.a
+              href="#start-project"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full sm:w-auto bg-[#050170] text-white font-bold text-sm px-6 py-4 rounded-full flex items-center justify-center hover:bg-gray-800 transition shadow-md"
+            >
+              START PROJECT <span className="ml-2">➔</span>
+            </motion.a>
 
-          <motion.a
-            href="mailto:hello@wixwave.co"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-            className="bg-white text-black font-bold text-sm px-8 py-4 rounded-full flex items-center justify-center hover:bg-gray-200 transition shadow-md"
-          >
-            Hello@wixwave.co <span className="ml-2">➔</span>
-          </motion.a>
-        </motion.div>
+            <motion.a
+              href="mailto:hello@wixwave.co"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full sm:w-auto bg-white text-black font-bold text-sm px-6 py-4 rounded-full flex items-center justify-center hover:bg-gray-200 transition shadow-md"
+            >
+              Hello@wixwave.co <span className="ml-2">➔</span>
+            </motion.a>
+          </motion.div>
+        </div>
       </motion.div>
 
-      {/* Rotating text section */}
+      {/* Rotating contact methods */}
       <motion.div
-        className="flex flex-wrap justify-center gap-4 mt-12 text-3xl font-extrabold"
+        className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-2 sm:gap-4 mt-8 sm:mt-12 text-2xl sm:text-3xl font-extrabold text-center"
         variants={itemVariants}
       >
         <span className="text-white">CONTACT US THROUGH</span>
-
         <AnimatePresence mode="wait">
           <motion.span
             key={rotatingWords[index]}
-            className="text-[#0c34e9]"
+            className="text-[#0c34e9] ml-2"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}

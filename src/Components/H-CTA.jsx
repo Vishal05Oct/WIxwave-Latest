@@ -1,12 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom"; // Make sure this is imported
 
 const HeroSection = () => {
   const title = "We Don’t Just Make Noise. We Move Numbers.";
   const words = title.split(" ");
 
   return (
-    <section className="container mx-auto py-4 px-6 overflow-x-hidden">
+    <section className="container mx-auto py-4 px-6 pt-6 overflow-x-hidden">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -39,21 +40,25 @@ const HeroSection = () => {
             At WIXWAVE, we blend strategy, design, tech, and performance to build campaigns that don’t just look good — they work.
           </p>
           <div className="flex gap-4 justify-center md:justify-start">
-            <motion.button
-  whileHover={{ scale: 1.05 }}
-  whileTap={{ scale: 0.95 }}
-  className="bg-[#050170] hover:bg-[#0a0a3c] px-6 py-3 text-sm rounded-full shadow-lg transition-colors duration-300 font-semibold uppercase tracking-wide"
->
-  Contact us
-</motion.button>
+            <Link to="/contact">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-[#050170] hover:bg-[#0a0a3c] px-6 py-3 text-sm rounded-full shadow-lg transition-colors duration-300 font-semibold uppercase tracking-wide"
+              >
+                Contact us
+              </motion.button>
+            </Link>
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-white text-black border border-gray-300 hover:bg-gray-100 hover:text-gray-900 px-6 py-3 text-sm rounded-full shadow-lg transition-colors duration-300 font-semibold uppercase tracking-wide"
-            >
-              View work
-            </motion.button>
+            <Link to="/portfolio">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-white text-black border border-gray-300 hover:bg-gray-100 hover:text-gray-900 px-6 py-3 text-sm rounded-full shadow-lg transition-colors duration-300 font-semibold uppercase tracking-wide"
+              >
+                View work
+              </motion.button>
+            </Link>
           </div>
         </motion.div>
       </motion.div>
