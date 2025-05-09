@@ -77,7 +77,7 @@ const CollaborationSection = () => {
             variants={itemVariants}
           >
             <motion.a
-              href="#start-project"
+              href="/contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
               className="w-full sm:w-auto bg-[#050170] text-white font-bold text-sm px-6 py-4 rounded-full flex items-center justify-center hover:bg-gray-800 transition shadow-md"
@@ -86,13 +86,21 @@ const CollaborationSection = () => {
             </motion.a>
 
             <motion.a
-              href="mailto:hello@wixwave.co"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full sm:w-auto bg-white text-black font-bold text-sm px-6 py-4 rounded-full flex items-center justify-center hover:bg-gray-200 transition shadow-md"
-            >
-              Hello@wixwave.co <span className="ml-2">➔</span>
-            </motion.a>
+  href="https://wa.me/7479787717"
+  target="_blank"
+  rel="noopener noreferrer"
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.98 }}
+  className="w-full sm:w-auto bg-green-500 text-white font-semibold text-sm px-6 py-4 rounded-full flex items-center justify-center gap-2 hover:bg-green-600 transition shadow-md"
+>
+  <img
+    src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+    alt="WhatsApp"
+    className="w-5 h-5"
+  />
+   Chat With Us
+</motion.a>
+
           </motion.div>
         </div>
       </motion.div>

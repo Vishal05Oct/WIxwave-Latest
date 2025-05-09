@@ -5,8 +5,8 @@ import VideoSection from '../Components/VideoSection'
 import HowWeRoll from '../Components/WeRoll'
 import HCTA from '../Components/H-CTA'
 import OurServices from '../Components/OurServices'
-import Form from '../Components/HomepageForm'
 import CollaborationSection from '../Components/Collaboration'
+import HomepageForm from '../Components/HomepageForm';
 
 function Home() {
   return (
@@ -18,7 +18,7 @@ function Home() {
     <HowWeRoll />
     <OurServices />
     <HCTA />
-    <Form />
+    <HomepageForm page="default" /> 
     <CollaborationSection />
 
    </div>

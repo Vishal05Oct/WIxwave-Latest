@@ -4,7 +4,13 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import 'react-toastify/dist/ReactToastify.css';
 
-const ContactForm = () => {
+const ContactForm = ({ page = 'default' }) => {
+  // Dynamic title based on the page prop
+  const title =
+    page === 'contact'
+      ? 'Let’s Talk! Reach Out and Start the Conversation Today.'
+      : 'Transform Your Vision Into Reality — Let’s Build Together!';
+
   const [selectedService, setSelectedService] = useState('Website Design & Development');
   const [formData, setFormData] = useState({
     name: '',
@@ -111,8 +117,7 @@ const ContactForm = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            Ready to redefine your <br className="sm:block hidden" />
-            brand experience?
+            {title}
           </motion.h2>
 
           {/* Name Field */}
