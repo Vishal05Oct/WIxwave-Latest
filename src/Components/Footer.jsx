@@ -32,24 +32,22 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Our Services</h3>
             <ul>
               <li>
-                <Link to="/web-development" className="text-gray-400 hover:text-white">Web Development</Link>
+                <Link to="/services/web-dev" className="text-gray-400 hover:text-white">Web Development</Link>
               </li>
               <li>
-                <Link to="/app-development" className="text-gray-400 hover:text-white">App Development</Link>
+                <Link to="/services/app-dev" className="text-gray-400 hover:text-white">App Development</Link>
               </li>
               <li>
-                <Link to="/ui-ux-design" className="text-gray-400 hover:text-white">UI/UX Design</Link>
+                <Link to="/services/seo" className="text-gray-400 hover:text-white">Search Engine Optimisation</Link>
               </li>
               <li>
-                <Link to="/seo" className="text-gray-400 hover:text-white">Search Engine Optimisation</Link>
+                <Link to="/services/social-media" className="text-gray-400 hover:text-white">Social Media Management</Link>
               </li>
               <li>
-                <Link to="/social-media" className="text-gray-400 hover:text-white">Social Media Management</Link>
-              </li>
-              <li>
-                <Link to="/performance-marketing" className="text-gray-400 hover:text-white">Performance Marketing</Link>
+                <Link to="/services/paid-ads" className="text-gray-400 hover:text-white">Performance Marketing</Link>
               </li>
             </ul>
+
           </div>
 
           {/* Footer Middle Section */}
@@ -75,16 +73,16 @@ const Footer = () => {
           <div className="w-full sm:w-1/2 lg:w-1/4 mb-6 sm:mb-0">
             <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
             <div className="flex space-x-6 justify-center sm:justify-start">
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-twitter text-2xl text-gray-400 hover:text-white"></i>
+            <a href="https://x.com/Wixwave?t=aNUW1kl498Ht4V-7vT3wuA&s=09" target="_blank" rel="noopener noreferrer">
+                <i className="fab fa-x text-2xl text-gray-400 hover:text-white"></i>
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.facebook.com/people/WixWave-The-Digital-Solutions/61570872845668/" target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-facebook text-2xl text-gray-400 hover:text-white"></i>
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/company/wixwave/" target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-linkedin text-2xl text-gray-400 hover:text-white"></i>
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.instagram.com/wixwave.co/" target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-instagram text-2xl text-gray-400 hover:text-white"></i>
               </a>
             </div>
