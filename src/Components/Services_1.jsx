@@ -8,7 +8,7 @@ const services = [
     title: "Website Design & Development",
     image:
       "https://img.freepik.com/free-vector/concept-landing-page-website-setup_52683-25031.jpg",
-    link: "/services", // Internal link
+    link: "/services/web-dev", // Internal link
     delay: 0,
     tags: ["UI/UX", "Responsive"],
   },

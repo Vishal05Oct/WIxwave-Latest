@@ -1,6 +1,5 @@
 import React from 'react'
 import Hero from '../Components/HeroSection'
-import HeroSlider from '../Components/HeroSlider'
 import VideoSection from '../Components/VideoSection'
 import HowWeRoll from '../Components/WeRoll'
 import HCTA from '../Components/H-CTA'
@@ -13,7 +12,6 @@ function Home() {
    <>
    <div>
     <Hero />
-    <HeroSlider />
     <VideoSection />
     <HowWeRoll />
     <OurServices />
