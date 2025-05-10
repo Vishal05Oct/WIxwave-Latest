@@ -2,57 +2,51 @@ import { ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom"; // Import Link
-
 const services = [
   {
     title: "Website Design & Development",
-    image:
-      "https://img.freepik.com/free-vector/concept-landing-page-website-setup_52683-25031.jpg",
-    link: "/services/web-dev", // Internal link
+    image: "https://img.freepik.com/free-vector/concept-landing-page-website-setup_52683-25031.jpg",
+    link: "/services/web-dev",
     delay: 0,
     tags: ["UI/UX", "Responsive"],
   },
   {
     title: "Mobile App Design & Development",
-    image:
-      "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621737/app_dev_ewptnp.jpg",
-    link: "/services", // Internal link
+    image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621737/app_dev_ewptnp.jpg",
+    link: "/services/app-dev",
     delay: 0,
     tags: ["iOS & Android", "Flutter"],
   },
   {
     title: "Branding & Graphics",
-    image:
-      "https://res.cloudinary.com/dobbdtftp/image/upload/v1746641973/designing_nainbu.jpg",
-    link: "/services", // Internal link
-    delay: 0.1,
+    image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746641973/designing_nainbu.jpg",
+    link: "/services/branding",
+    delay: 0,
     tags: ["Logos", "Identity"],
   },
   {
     title: "Search Engine Optimisation",
-    image:
-      "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621736/seo_ph2x6b.avif",
-    link: "/services", // Internal link
-    delay: 0.4,
+    image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621736/seo_ph2x6b.avif",
+    link: "/services/seo",
+    delay: 0,
     tags: ["Google Ranking", "Keywords"],
   },
   {
     title: "Social Media Management",
-    image:
-      "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621737/social_media_gseote.avif",
-    link: "/services", // Internal link
-    delay: 0.2,
+    image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621737/social_media_gseote.avif",
+    link: "/services/social-media",
+    delay: 0,
     tags: ["Content Strategy", "Engagement"],
   },
   {
     title: "Performance Marketing",
-    image:
-      "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621736/performance_bkyvvp.avif",
-    link: "/services", // Internal link
-    delay: 0.3,
+    image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621736/performance_bkyvvp.avif",
+    link: "/services/paid-ads",
+    delay: 0,
     tags: ["PPC", "Conversion"],
   },
 ];
+
 
 const rotatingWords = [
   "Websites",
