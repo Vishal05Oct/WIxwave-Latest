@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 
 const AppDevEdgeSection = () => {
@@ -28,9 +29,6 @@ const AppDevEdgeSection = () => {
               interfaces and ensure smooth navigation, tailored to your app’s purpose and user
               needs.
             </p>
-            <a href="#" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
-              Explore Our App Design Work
-            </a>
           </div>
           <div className="flex justify-center">
             <div className="">
@@ -61,9 +59,9 @@ const AppDevEdgeSection = () => {
               Whether it's an e-commerce app, a social network, or a custom mobile solution, we
               deliver applications that cater to your unique needs.
             </p>
-            <a href="#" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
-              View App Development Services
-            </a>
+            <Link to="/Contact" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
+      Start Your App Development Journey
+    </Link>
           </div>
         </section>
 

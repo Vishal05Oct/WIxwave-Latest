@@ -29,9 +29,10 @@ const WebDevEdgeSection = () => {
               building from scratch or refreshing your digital presence, we tailor each
               design to your goals.
             </p>
-            <a href="#" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
-              Explore Our Design Work
-            </a>
+            <Link to="/portfolio" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
+            Explore Our Development Work
+            </Link>
+
           </div>
           <div className="flex justify-center">
             <div className="">
@@ -62,9 +63,9 @@ const WebDevEdgeSection = () => {
               Whether it's a custom CMS, an e-commerce platform, or a dynamic web app,
               we deliver solutions that drive results.
             </p>
-            <a href="#" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
-              View Development Services
-            </a>
+            <Link to="/Contact" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
+            Start Your Branding Journey
+            </Link>
           </div>
         </section>
         <h1 className="text-4xl font-bold ">Our Website Development Process</h1>

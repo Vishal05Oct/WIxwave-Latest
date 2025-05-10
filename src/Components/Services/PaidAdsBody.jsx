@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const PerformanceMarketingSection = () => {
@@ -28,9 +29,7 @@ const PerformanceMarketingSection = () => {
             <p>
               Whether you're focusing on conversions, sales, or customer acquisition, we build a strategic framework that adapts to your goals.
             </p>
-            <a href="#" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
-              Start Your Marketing Strategy
-            </a>
+
           </div>
           <div className="flex justify-center">
             <img
@@ -60,9 +59,7 @@ const PerformanceMarketingSection = () => {
             <p>
               Whether it's Google Search, Display Ads, or Social Media Ads, we ensure your campaigns achieve the best ROI possible.
             </p>
-            <a href="#" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
-              Learn About Our Paid Campaigns
-            </a>
+
           </div>
         </section>
 
@@ -80,9 +77,7 @@ const PerformanceMarketingSection = () => {
             <p>
               By optimizing the conversion path, we help you achieve better results with less traffic, making your campaigns more efficient and cost-effective.
             </p>
-            <a href="#" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
-              Boost Your Conversions
-            </a>
+
           </div>
           <div className="flex justify-center">
             <img
@@ -112,9 +107,9 @@ const PerformanceMarketingSection = () => {
             <p>
               We provide transparent reporting and insights to help you understand how your marketing dollars are performing, giving you full visibility into your results.
             </p>
-            <a href="#" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
-              Get Your Performance Report
-            </a>
+            <Link to="/contact" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
+              Start Your Marketing Strategy
+            </Link>
           </div>
         </section>
 

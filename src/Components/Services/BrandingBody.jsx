@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const BrandingGraphicsSection = () => {
@@ -30,9 +31,6 @@ const BrandingGraphicsSection = () => {
               Our goal is to position your brand as a leader in the market, ensuring it stands out with an authentic voice and clear messaging.
               Whether you’re launching a new business or repositioning an existing one, we will create a roadmap that aligns with your business goals.
             </p>
-            <a href="#" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
-              Start Your Branding Journey
-            </a>
           </div>
           <div className="flex justify-center">
             <img
@@ -71,9 +69,10 @@ const BrandingGraphicsSection = () => {
               We also focus on creating designs that are scalable and adaptable across different mediums, whether online or offline. The goal is to
               ensure that your brand consistently communicates the same message, regardless of the platform.
             </p>
-            <a href="#" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
-              Explore Design Services
-            </a>
+            <Link to="/Contact" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
+            Start Your Branding Journey
+            </Link>
+
           </div>
         </section>
 

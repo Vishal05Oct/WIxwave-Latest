@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const SocialMediaManagementSection = () => {
@@ -28,9 +29,6 @@ const SocialMediaManagementSection = () => {
             <p>
               Whether you're looking to grow followers, increase customer engagement, or drive traffic to your website, our data-driven strategy ensures that your brand stands out.
             </p>
-            <a href="#" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
-              Create Your Social Strategy
-            </a>
           </div>
           <div className="flex justify-center">
             <img
@@ -59,9 +57,6 @@ const SocialMediaManagementSection = () => {
             <p>
               We also manage your social media calendar, ensuring that content is published consistently and at the best times to engage your audience.
             </p>
-            <a href="#" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
-              See Our Content Examples
-            </a>
           </div>
         </section>
 
@@ -78,9 +73,7 @@ const SocialMediaManagementSection = () => {
             <p>
               Our team also monitors the performance of your ads, optimizing them for better results and ensuring your advertising budget is spent wisely.
             </p>
-            <a href="#" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
-              Learn More About Social Ads
-            </a>
+
           </div>
           <div className="flex justify-center">
             <img
@@ -109,9 +102,9 @@ const SocialMediaManagementSection = () => {
             <p>
               From engagement rates to conversions, we provide comprehensive reports that allow you to assess the effectiveness of your social media efforts.
             </p>
-            <a href="#" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
-              Track Your Social Impact
-            </a>
+            <Link to="/Contact" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
+            Start Your Branding Journey
+            </Link>
           </div>
         </section>
 

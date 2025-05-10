@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const SeoEdgeSection = () => {
@@ -27,9 +28,7 @@ const SeoEdgeSection = () => {
               Our data-backed research helps us shape a roadmap for on-page, off-page, and technical improvements
               tailored to your business goals.
             </p>
-            <a href="#" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
-              Get Your Free SEO Audit
-            </a>
+
           </div>
           <div className="flex justify-center">
             <img
@@ -57,9 +56,9 @@ const SeoEdgeSection = () => {
               Content is king — and we treat it that way. Our content creation and marketing strategy
               focuses on valuable, keyword-rich articles and link-building to establish your site’s authority.
             </p>
-            <a href="#" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
-              Explore SEO Strategies
-            </a>
+            <Link to="/contact" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
+              Get Your Free SEO Audit
+            </Link>
           </div>
         </section>
 
