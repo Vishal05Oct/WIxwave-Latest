@@ -7,7 +7,7 @@ const SocialMediaMarketing = () => {
       
       {/* Background Banner Image */}
       <img
-        src="https://img.freepik.com/free-photo/social-media-marketing-concept_23-2150383677.jpg?w=2000"
+        src="https://res.cloudinary.com/dobbdtftp/image/upload/v1746891801/Paid_Social_Media_Advertising_lujt2c.jpg"
         alt="Social Media Marketing Background"
         className="absolute inset-0 w-full h-full object-cover opacity-20 z-0"
       />
