@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom'; // <-- import Link from React Router
 
 const containerVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -43,7 +44,6 @@ const CollaborationSection = () => {
         className="relative rounded-3xl text-center px-4 sm:px-6 py-12 sm:py-16 w-full max-w-7xl mx-auto shadow-2xl overflow-hidden"
         variants={itemVariants}
       >
-        {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center opacity-20 z-0"
           style={{
@@ -51,7 +51,6 @@ const CollaborationSection = () => {
           }}
         />
 
-        {/* Foreground Content */}
         <div className="relative z-10">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight">
             READY TO<br />
@@ -76,36 +75,46 @@ const CollaborationSection = () => {
             className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 mt-8 sm:mt-12"
             variants={itemVariants}
           >
-            <motion.a
-              href="/contact"
+            {/* Internal link */}
+            <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full sm:w-auto bg-[#050170] text-white font-bold text-sm px-6 py-4 rounded-full flex items-center justify-center hover:bg-gray-800 transition shadow-md"
+              className="w-full sm:w-auto"
             >
-              START PROJECT <span className="ml-2">➔</span>
-            </motion.a>
+              <Link
+                to="/contact"
+                className="block bg-[#050170] text-white font-bold text-sm px-6 py-4 rounded-full flex items-center justify-center hover:bg-gray-800 transition shadow-md"
+              >
+                START PROJECT <span className="ml-2">➔</span>
+              </Link>
+            </motion.div>
 
-            <motion.a
-  href="https://wa.me/7479787717"
-  target="_blank"
-  rel="noopener noreferrer"
-  whileHover={{ scale: 1.05 }}
-  whileTap={{ scale: 0.98 }}
-  className="w-full sm:w-auto bg-green-500 text-white font-semibold text-sm px-6 py-4 rounded-full flex items-center justify-center gap-2 hover:bg-green-600 transition shadow-md"
->
-  <img
-    src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-    alt="WhatsApp"
-    className="w-5 h-5"
-  />
-   Chat With Us
-</motion.a>
+            {/* External link - cannot use <Link>, fallback to <a> */}
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full sm:w-auto"
+            >
+              <Link
+                to="https://wa.me/7479787717"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-green-500 text-white font-semibold text-sm px-6 py-4 rounded-full flex items-center justify-center gap-2 hover:bg-green-600 transition shadow-md"
+              >
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                  alt="WhatsApp"
+                  className="w-5 h-5"
+                />
+                Chat With Us
+              </Link>
 
+
+            </motion.div>
           </motion.div>
         </div>
       </motion.div>
 
-      {/* Rotating contact methods */}
       <motion.div
         className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-2 sm:gap-4 mt-8 sm:mt-12 text-2xl sm:text-3xl font-extrabold text-center"
         variants={itemVariants}

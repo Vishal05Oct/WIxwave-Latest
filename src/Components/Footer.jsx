@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // ✅ import Link
 
 const Footer = () => {
   return (
@@ -31,22 +32,22 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Our Services</h3>
             <ul>
               <li>
-                <a href="/web-development" className="text-gray-400 hover:text-white">Web Development</a>
+                <Link to="/web-development" className="text-gray-400 hover:text-white">Web Development</Link>
               </li>
               <li>
-                <a href="/app-development" className="text-gray-400 hover:text-white">App Development</a>
+                <Link to="/app-development" className="text-gray-400 hover:text-white">App Development</Link>
               </li>
               <li>
-                <a href="/ui-ux-design" className="text-gray-400 hover:text-white">UI/UX Design</a>
+                <Link to="/ui-ux-design" className="text-gray-400 hover:text-white">UI/UX Design</Link>
               </li>
               <li>
-                <a href="/seo" className="text-gray-400 hover:text-white">Search Engine Optimisation</a>
+                <Link to="/seo" className="text-gray-400 hover:text-white">Search Engine Optimisation</Link>
               </li>
               <li>
-                <a href="/e-commerce" className="text-gray-400 hover:text-white">Social Media Management</a>
+                <Link to="/social-media" className="text-gray-400 hover:text-white">Social Media Management</Link>
               </li>
               <li>
-                <a href="/e-commerce" className="text-gray-400 hover:text-white">Performance Marketing</a>
+                <Link to="/performance-marketing" className="text-gray-400 hover:text-white">Performance Marketing</Link>
               </li>
             </ul>
           </div>
@@ -55,19 +56,18 @@ const Footer = () => {
           <div className="w-full sm:w-1/2 lg:w-1/4 mb-6 sm:mb-0">
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul>
-            <li>
-                <a href="/about" className="text-gray-400 hover:text-white">About Us</a>
-              </li>
-            <li>
-                <a href="/blog" className="text-gray-400 hover:text-white">Blog</a>
+              <li>
+                <Link to="/about" className="text-gray-400 hover:text-white">About Us</Link>
               </li>
               <li>
-                <a href="/portfolio" className="text-gray-400 hover:text-white">Our Portfolio</a>
+                <Link to="/blog" className="text-gray-400 hover:text-white">Blog</Link>
               </li>
               <li>
-                <a href="/contact" className="text-gray-400 hover:text-white">Contact Us</a>
+                <Link to="/portfolio" className="text-gray-400 hover:text-white">Our Portfolio</Link>
               </li>
-              
+              <li>
+                <Link to="/contact" className="text-gray-400 hover:text-white">Contact Us</Link>
+              </li>
             </ul>
           </div>
 

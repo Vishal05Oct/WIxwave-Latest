@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function AboutWixWaveSection() {
   return (
-    <section className="w-full bg-white text-gray-800 px-4 py-12">
+    <section className="w-full bg-white text-gray-800 px-4 py-12 lg:px-24'>
       <div className="container mx-auto flex flex-col lg:flex-row items-start gap-10">
         {/* Left Section - About WixWave */}
         <div className="w-full lg:w-1/2 space-y-6">

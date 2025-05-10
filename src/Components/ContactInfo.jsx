@@ -34,21 +34,20 @@ const ContactInfo = () => {
           </motion.a>
 
           <motion.a
-  href="https://wa.me/7479787717"
-  target="_blank"
-  rel="noopener noreferrer"
-  whileHover={{ scale: 1.05 }}
-  whileTap={{ scale: 0.98 }}
-  className="w-full sm:w-auto bg-green-500 text-white font-semibold text-sm px-6 py-4 rounded-lg flex items-center justify-center gap-2 hover:bg-green-600 transition shadow-md"
->
-  <img
-    src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-    alt="WhatsApp"
-    className="w-5 h-5"
-  />
-  Chat With Us
-</motion.a>
-
+            href="https://wa.me/7479787717"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+            className="w-full sm:w-auto bg-green-500 text-white font-semibold text-sm px-6 py-4 rounded-lg flex items-center justify-center gap-2 hover:bg-green-600 transition shadow-md"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+              alt="WhatsApp"
+              className="w-5 h-5"
+            />
+            Chat With Us
+          </motion.a>
         </div>
       </div>
     </section>

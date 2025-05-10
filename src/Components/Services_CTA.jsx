@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 const ServicesCTA = () => {
   return (
@@ -34,16 +35,20 @@ const ServicesCTA = () => {
           Let's chat about how we can bring your vision to life — no pressure, just possibilities.
         </motion.p>
 
-        <motion.a
-          href="/contact"
-          className="bg-white text-[#0c34e9] py-3 px-8 rounded-lg text-base sm:text-lg font-semibold inline-block transition transform hover:scale-105 hover:bg-gray-200"
+        {/* Replaced <a> with <Link> for internal navigation */}
+        <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
         >
-          Book a Free Consultation
-        </motion.a>
+          <Link
+            to="/contact" // Internal link using `to` for React Router
+            className="bg-white text-[#0c34e9] py-3 px-8 rounded-lg text-base sm:text-lg font-semibold inline-block transition transform hover:scale-105 hover:bg-gray-200"
+          >
+            Book a Free Consultation
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

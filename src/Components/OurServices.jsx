@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // ✅ import Link
 import Slider from 'react-slick';
 import { motion } from 'framer-motion';
 import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
@@ -6,57 +7,20 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const services = [
-  {
-    title: ' Website Design & Development',
-    image: 'https://img.freepik.com/free-vector/concept-landing-page-website-setup_52683-25031.jpg',
-    link: '/services',
-    delay: 0,
-  },
-  {
-    title: ' Mobile App Design & Development',
-    image: 'https://res.cloudinary.com/dobbdtftp/image/upload/v1746621737/app_dev_ewptnp.jpg',
-    link: '/services',
-    delay: 0,
-  },{
-    title: 'Branding & Graphics',
-    image: 'https://res.cloudinary.com/dobbdtftp/image/upload/v1746641973/designing_nainbu.jpg',
-    link: '/services',
-    delay: 0.1,
-  },
-  {
-    title: 'Search Engine Optimisation',
-    image: 'https://res.cloudinary.com/dobbdtftp/image/upload/v1746621736/seo_ph2x6b.avif',
-    link: '/services',
-    delay: 0.4,
-  },
-  
-  {
-    title: 'Social Media Management',
-    image: 'https://res.cloudinary.com/dobbdtftp/image/upload/v1746621737/social_media_gseote.avif',
-    link: '/services',
-    delay: 0.2,
-  },
-
-  {
-    title: 'Performance Marketing',
-    image: 'https://res.cloudinary.com/dobbdtftp/image/upload/v1746621736/performance_bkyvvp.avif',
-    link: '/services',
-    delay: 0.3,
-  },
- 
+  { title: 'Website Design & Development', image: 'https://img.freepik.com/free-vector/concept-landing-page-website-setup_52683-25031.jpg', link: '/services', delay: 0 },
+  { title: 'Mobile App Design & Development', image: 'https://res.cloudinary.com/dobbdtftp/image/upload/v1746621737/app_dev_ewptnp.jpg', link: '/services', delay: 0 },
+  { title: 'Branding & Graphics', image: 'https://res.cloudinary.com/dobbdtftp/image/upload/v1746641973/designing_nainbu.jpg', link: '/services', delay: 0.1 },
+  { title: 'Search Engine Optimisation', image: 'https://res.cloudinary.com/dobbdtftp/image/upload/v1746621736/seo_ph2x6b.avif', link: '/services', delay: 0.4 },
+  { title: 'Social Media Management', image: 'https://res.cloudinary.com/dobbdtftp/image/upload/v1746621737/social_media_gseote.avif', link: '/services', delay: 0.2 },
+  { title: 'Performance Marketing', image: 'https://res.cloudinary.com/dobbdtftp/image/upload/v1746621736/performance_bkyvvp.avif', link: '/services', delay: 0.3 },
 ];
-
 
 const fadeUpVariant = {
   hidden: { opacity: 0, y: 60 },
   visible: (delay = 0) => ({
     opacity: 1,
     y: 0,
-    transition: {
-      delay,
-      duration: 0.8,
-      ease: 'easeOut',
-    },
+    transition: { delay, duration: 0.8, ease: 'easeOut' },
   }),
 };
 
@@ -79,7 +43,6 @@ const PrevArrow = ({ onClick }) => (
   </div>
 );
 
-// Slider settings for mobile
 const sliderSettings = {
   dots: true,
   infinite: true,
@@ -95,7 +58,6 @@ const sliderSettings = {
 const ServicesSection = () => {
   return (
     <div className="py-4 md:pb-12 px-5 container mx-auto">
-      {/* Animated Heading */}
       <motion.h2
         initial="hidden"
         whileInView="visible"
@@ -108,11 +70,9 @@ const ServicesSection = () => {
 
       {/* Grid layout for md and up */}
       <div className="hidden md:grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {services.map((service, index) => (
-          <motion.a
-            href={service.link}
+        {services.map((service) => (
+          <motion.div
             key={service.title}
-            aria-label={`Learn more about ${service.title}`}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -120,32 +80,37 @@ const ServicesSection = () => {
             custom={service.delay}
             className="relative group overflow-hidden rounded-2xl shadow-lg block"
           >
-            <img
-              src={service.image}
-              alt={`${service.title} service image`}
-              className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
-              loading="lazy"
-            />
-           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-8 py-6 text-white">
-  <p className="text-2xl mb-2 font-medium">{service.title}</p>
-  <div className="flex items-center">
-    <p>Explore More</p>
-    <div className="bg-white text-black rounded-full w-10 h-10 flex justify-center items-center text-xl ml-3 transition-all transform hover:bg-purple-500 hover:scale-110 hover:shadow-lg cursor-pointer">
-      <FaArrowRight />
-    </div>
-  </div>
-</div>
-
-          </motion.a>
+            <Link
+              to={service.link}
+              aria-label={`Learn more about ${service.title}`}
+              className="block relative"
+            >
+              <img
+                src={service.image}
+                alt={`${service.title} service image`}
+                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-8 py-6 text-white">
+                <p className="text-2xl mb-2 font-medium">{service.title}</p>
+                <div className="flex items-center">
+                  <p>Explore More</p>
+                  <div className="bg-white text-black rounded-full w-10 h-10 flex justify-center items-center text-xl ml-3 transition-all transform hover:bg-purple-500 hover:scale-110 hover:shadow-lg cursor-pointer">
+                    <FaArrowRight />
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </motion.div>
         ))}
       </div>
 
       {/* Slider for mobile view only */}
       <div className="md:hidden relative mt-6">
         <Slider {...sliderSettings}>
-          {services.map((service, index) => (
-            <a
-              href={service.link}
+          {services.map((service) => (
+            <Link
+              to={service.link}
               key={service.title}
               className="block relative overflow-hidden rounded-2xl shadow-lg"
             >
@@ -164,7 +129,7 @@ const ServicesSection = () => {
                   </div>
                 </div>
               </div>
-            </a>
+            </Link>
           ))}
         </Slider>
       </div>

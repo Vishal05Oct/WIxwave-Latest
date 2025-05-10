@@ -1,13 +1,14 @@
 import { ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom"; // Import Link
 
 const services = [
   {
     title: "Website Design & Development",
     image:
       "https://img.freepik.com/free-vector/concept-landing-page-website-setup_52683-25031.jpg",
-    link: "/services",
+    link: "/services", // Internal link
     delay: 0,
     tags: ["UI/UX", "Responsive"],
   },
@@ -15,7 +16,7 @@ const services = [
     title: "Mobile App Design & Development",
     image:
       "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621737/app_dev_ewptnp.jpg",
-    link: "/services",
+    link: "/services", // Internal link
     delay: 0,
     tags: ["iOS & Android", "Flutter"],
   },
@@ -23,7 +24,7 @@ const services = [
     title: "Branding & Graphics",
     image:
       "https://res.cloudinary.com/dobbdtftp/image/upload/v1746641973/designing_nainbu.jpg",
-    link: "/services",
+    link: "/services", // Internal link
     delay: 0.1,
     tags: ["Logos", "Identity"],
   },
@@ -31,7 +32,7 @@ const services = [
     title: "Search Engine Optimisation",
     image:
       "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621736/seo_ph2x6b.avif",
-    link: "/services",
+    link: "/services", // Internal link
     delay: 0.4,
     tags: ["Google Ranking", "Keywords"],
   },
@@ -39,7 +40,7 @@ const services = [
     title: "Social Media Management",
     image:
       "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621737/social_media_gseote.avif",
-    link: "/services",
+    link: "/services", // Internal link
     delay: 0.2,
     tags: ["Content Strategy", "Engagement"],
   },
@@ -47,7 +48,7 @@ const services = [
     title: "Performance Marketing",
     image:
       "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621736/performance_bkyvvp.avif",
-    link: "/services",
+    link: "/services", // Internal link
     delay: 0.3,
     tags: ["PPC", "Conversion"],
   },
@@ -136,15 +137,16 @@ export default function ServicesSection() {
                   Explore how we help with modern digital solutions tailored for you.
                 </p>
                 <div className="flex items-center justify-between">
-                  <a
-                    href={service.link}
+                  {/* Replace <a> with <Link> */}
+                  <Link
+                    to={service.link}  // Internal link with `to`
                     className="w-10 h-10 flex items-center justify-center bg-blue-600 text-white rounded-full hover:bg-blue-700 transition group"
                   >
                     <ArrowRight
                       size={18}
                       className="group-hover:translate-x-1.5 transition-transform"
                     />
-                  </a>
+                  </Link>
                   {/* Tags (fade in on hover) */}
                   <div className="flex gap-2 flex-wrap opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     {service.tags.map((tag, idx) => (
