@@ -14,3 +14,16 @@
 body {
   font-family: 'Josefin Sans', sans-serif;
 }
+
+
+.outlined-text {
+  color: transparent;
+  -webkit-text-stroke: 1px black;
+  font-weight: 700;
+}
+
+.highlight {
+  background-color: blue; /* Tailwind's yellow-200 */
+  padding: 0 0.2rem;
+  color: white;
+}

@@ -27,32 +27,6 @@ const splitText = (text) =>
     </motion.span>
   ));
 
-const generateShootingStars = (count = 30) => {
-  return [...Array(count)].map((_, i) => {
-    const top = `${Math.random() * 100}%`;
-    const left = `${Math.random() * 100}%`;
-    const delay = Math.random() * 5;
-    const duration = 1 + Math.random() * 1.5;
-
-    return (
-      <motion.div
-        key={i}
-        className="absolute w-0.5 h-1 bg-white z-0 shadow-sm rounded-sm"
-        style={{ top, left, rotate: 45, pointerEvents: "none" }}
-        initial={{ opacity: 0, x: 0, y: 0 }}
-        animate={{ opacity: [0, 1, 0], x: [0, 250], y: [0, 120] }}
-        transition={{
-          duration,
-          ease: "easeInOut",
-          repeat: Infinity,
-          repeatDelay: 4 + Math.random() * 4,
-          delay,
-        }}
-      />
-    );
-  });
-};
-
 const AnimatedHeroSection = ({
   title = "TRANSFORM YOUR BRAND",
   subtitle = "STAND OUT. CONNECT DEEPER.",
@@ -66,37 +40,21 @@ const AnimatedHeroSection = ({
   };
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-white text-black flex items-center justify-center px-6 md:px-20 lg:px-32">
-
-      {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-100 to-white z-0" />
-
-      {/* Stars & Shooting Stars */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        {[1, 2, 3].map((layer) =>
-          [...Array(20)].map((_, i) => (
-            <motion.div
-              key={`layer-${layer}-${i}`}
-              className="absolute bg-black rounded-full"
-              style={{
-                width: `${layer}px`,
-                height: `${layer}px`,
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-                opacity: 0.2 * (4 - layer),
-              }}
-              animate={{ y: [0, -10 * layer, 0] }}
-              transition={{
-                duration: 6 + layer,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: Math.random() * 5,
-              }}
-            />
-          ))
-        )}
-        {generateShootingStars(35)}
-      </div>
+    <div className="relative w-full h-screen overflow-hidden text-black flex items-center justify-center px-6 md:px-20 lg:px-32">
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-[-1]"
+      >
+        <source
+          src="https://cdn.pixabay.com/video/2015/08/08/117-135736418_large.mp4"
+          type="video/mp4"
+        />
+        Your browser does not support the video tag.
+      </video>
 
       {/* Hero Content */}
       <div className="relative z-10 text-center max-w-6xl mx-auto">
@@ -106,12 +64,12 @@ const AnimatedHeroSection = ({
           initial="hidden"
           animate="visible"
         >
-          <div className="text-black">{splitText(title)}</div>
+          <div className="text-white">{splitText(title)}</div>
           <div className="text-[#6699ff] mt-2">{splitText(subtitle)}</div>
         </motion.div>
 
         <motion.p
-          className="text-base sm:text-lg md:text-xl text-gray-700 mb-10 leading-relaxed font-medium"
+          className="text-base sm:text-lg md:text-xl text-white mb-10 leading-relaxed font-medium"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
