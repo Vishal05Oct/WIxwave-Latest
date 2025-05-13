@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import 'react-toastify/dist/ReactToastify.css';
+import emailjs from '@emailjs/browser';
 
 const ContactForm = ({ page = 'default' }) => {
-  // Dynamic title based on the page prop
   const title =
     page === 'contact'
       ? 'Let’s Talk! Reach Out and Start the Conversation Today.'
@@ -21,6 +21,7 @@ const ContactForm = ({ page = 'default' }) => {
   });
 
   const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const services = [
     'Website Design & Development',
@@ -37,9 +38,11 @@ const ContactForm = ({ page = 'default' }) => {
   const { ref: contactRef, inView: contactInView } = useInView({ triggerOnce: true });
   const { ref: messageRef, inView: messageInView } = useInView({ triggerOnce: true });
 
-  const handleServiceClick = (service) => {
-    setSelectedService(service);
-  };
+  useEffect(() => {
+    emailjs.init('OMoSpn_Pj_4xgb9S6'); // Make sure this is your actual PUBLIC KEY
+  }, []);
+
+  const handleServiceClick = (service) => setSelectedService(service);
 
   const validateField = (name, value) => {
     switch (name) {
@@ -65,39 +68,57 @@ const ContactForm = ({ page = 'default' }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    if (name === 'contact') {
-      const numericValue = value.replace(/\D/g, '');
-      if (numericValue.length <= 10) {
-        setFormData((prev) => ({ ...prev, [name]: numericValue }));
-        const error = validateField(name, numericValue);
-        setErrors((prev) => ({ ...prev, [name]: error }));
-      }
-      return;
-    }
-
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    const error = validateField(name, value);
-    setErrors((prev) => ({ ...prev, [name]: error }));
+    const cleanedValue = name === 'contact' ? value.replace(/\D/g, '').slice(0, 10) : value;
+    setFormData((prev) => ({ ...prev, [name]: cleanedValue }));
+    setErrors((prev) => ({ ...prev, [name]: validateField(name, cleanedValue) }));
   };
 
   const validate = () => {
     const newErrors = {};
-    Object.entries(formData).forEach(([name, value]) => {
-      const error = validateField(name, value);
-      if (error) newErrors[name] = error;
+    Object.entries(formData).forEach(([key, val]) => {
+      const error = validateField(key, val);
+      if (error) newErrors[key] = error;
     });
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const serviceId = 'service_t080o6s';
+    const templateId = 'template_8kufyia';
+
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       toast.error('Please fix the errors in the form.');
-    } else {
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      await emailjs.send(serviceId, templateId, {
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        contact: formData.contact,
+        message: formData.message,
+        service: selectedService,
+      });
+
       toast.success('Form submitted successfully!');
-      // Optionally handle submission here
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        contact: '',
+        message: '',
+      });
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      toast.error('There was an error submitting the form.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -120,10 +141,9 @@ const ContactForm = ({ page = 'default' }) => {
             {title}
           </motion.h2>
 
-          {/* Name Field */}
+          {/* Input Fields */}
           <motion.input
             ref={nameRef}
-            type="text"
             name="name"
             value={formData.name}
             onChange={handleChange}
@@ -135,11 +155,10 @@ const ContactForm = ({ page = 'default' }) => {
           />
           {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
 
-          {/* Email Field */}
           <motion.input
             ref={emailRef}
-            type="email"
             name="email"
+            type="email"
             value={formData.email}
             onChange={handleChange}
             placeholder="Email"
@@ -151,10 +170,8 @@ const ContactForm = ({ page = 'default' }) => {
           {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
 
           <div className="flex flex-col sm:flex-row gap-6">
-            {/* Company Field */}
             <motion.input
               ref={companyRef}
-              type="text"
               name="company"
               value={formData.company}
               onChange={handleChange}
@@ -166,10 +183,8 @@ const ContactForm = ({ page = 'default' }) => {
             />
             {errors.company && <p className="text-red-500 text-sm">{errors.company}</p>}
 
-            {/* Contact Field */}
             <motion.input
               ref={contactRef}
-              type="text"
               name="contact"
               value={formData.contact}
               onChange={handleChange}
@@ -184,12 +199,13 @@ const ContactForm = ({ page = 'default' }) => {
             {errors.contact && <p className="text-red-500 text-sm">{errors.contact}</p>}
           </div>
 
-          {/* Choose Your Need */}
+          {/* Services */}
           <div className="mt-8">
             <h3 className="text-lg font-semibold mb-4">Choose Your Need</h3>
             <div className="flex flex-wrap gap-4">
               {services.map((service) => (
                 <motion.button
+                  type="button"
                   key={service}
                   onClick={() => handleServiceClick(service)}
                   className={`px-6 py-2 rounded-full text-sm font-semibold transition-all ${
@@ -206,7 +222,7 @@ const ContactForm = ({ page = 'default' }) => {
             </div>
           </div>
 
-          {/* Message Field */}
+          {/* Message */}
           <motion.textarea
             ref={messageRef}
             name="message"
@@ -220,7 +236,7 @@ const ContactForm = ({ page = 'default' }) => {
           ></motion.textarea>
           {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
 
-          {/* Submit Button */}
+          {/* Submit */}
           <motion.div
             className="flex justify-end"
             initial={{ opacity: 0, y: 20 }}
@@ -229,15 +245,17 @@ const ContactForm = ({ page = 'default' }) => {
           >
             <motion.button
               type="submit"
+              disabled={isSubmitting}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 px-6 py-3 bg-[#050170] text-white text-sm font-semibold rounded-full hover:bg-[#5b38c2] transition-all"
+              className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all ${
+                isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#050170] text-white hover:bg-[#5b38c2]'
+              }`}
             >
-              Submit <span className="text-lg">→</span>
+              {isSubmitting ? 'Submitting...' : 'Submit'} <span className="text-lg">→</span>
             </motion.button>
           </motion.div>
         </form>
-
         <ToastContainer position="top-right" autoClose={3000} />
       </div>
     </motion.section>
