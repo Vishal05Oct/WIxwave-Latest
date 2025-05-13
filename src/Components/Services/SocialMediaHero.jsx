@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 
 const SocialMediaMarketing = () => {
   return (
-    <section className="relative w-full min-h-screen bg-white flex items-center justify-center px-4 sm:px-8 py-16 overflow-hidden">
+    <section className="relative w-full bg-white flex items-center justify-center px-4 sm:px-8 py-16 overflow-hidden">
       
       {/* Background Banner Image */}
       <img
-        src="https://res.cloudinary.com/dobbdtftp/image/upload/v1746891801/Paid_Social_Media_Advertising_lujt2c.jpg"
+        src=""
         alt="Social Media Marketing Background"
         className="absolute inset-0 w-full h-full object-cover opacity-20 z-0"
       />

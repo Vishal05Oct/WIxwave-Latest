@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 
 const projects = [
   {
@@ -56,7 +55,8 @@ const ShowcaseProjects = () => {
           Explore the journey of creativity, design, and innovation through our latest digital projects.
         </p>
 
-        <div className="grid grid-cols-2 gap-6 sm:gap-10">
+        {/* Responsive grid: 1 column mobile, 2 columns from sm+ */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10">
           {projects.map((project, index) => (
             <motion.div
               key={index}
@@ -78,8 +78,8 @@ const ShowcaseProjects = () => {
               <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-5">
                 <h3 className="text-white text-xl font-semibold">{project.title}</h3>
               </div>
-              <Link
-                to={project.url}
+              <a
+                href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="absolute inset-0"

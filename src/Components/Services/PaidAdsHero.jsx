@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 
 const PaidAds = () => {
   return (
-    <section className="relative w-full min-h-screen bg-white flex items-center justify-center px-4 sm:px-8 py-16 overflow-hidden">
+    <section className="relative w-full  bg-white flex items-center justify-center px-4 sm:px-8 py-16 overflow-hidden">
       
       {/* Background Banner Image */}
       <img
-        src="https://res.cloudinary.com/dobbdtftp/image/upload/v1746890833/18879909_v1030-063_r0hcsk.jpg"
+        src=""
         alt="Paid Ads Background"
         className="absolute inset-0 w-full h-full object-cover z-0"
       />

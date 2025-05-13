@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 
 const BrandingGraphics = () => {
   return (
-    <section className="relative w-full min-h-screen bg-white flex items-center justify-center px-4 sm:px-8 py-16 overflow-hidden">
+    <section className="relative w-full bg-white flex items-center justify-center px-4 sm:px-8 py-16 overflow-hidden">
       
       {/* Background Banner Image */}
       <img
-        src="https://img.freepik.com/free-photo/branding-identity-corporate-logo-design-concept_53876-124098.jpg?w=2000"
+        src=""
         alt="Branding & Graphics Background"
         className="absolute inset-0 w-full h-full object-cover opacity-20 z-0"
       />
