@@ -3,8 +3,8 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import PageWrapper from './PageWrapper';
 
-import Home from '../pages/Home';
-import About from '../pages/About';
+import Home from '../Pages/Home';
+import About from '../Pages/About';
 import Services from '../Pages/Services';
 import Contact from '../Pages/Contact';
 import Portfolio from '../Pages/Portfolio';
