@@ -11,7 +11,7 @@ import Portfolio from '../Pages/Portfolio';
 import Blogs from '../Pages/Blogs';
 import WebDev from '../Pages/WebDev';
 import AppDev from '../Pages/AppDev';
-import SEO from '../Pages/SEO';
+import SEO from '../Pages/Seo';
 import Branding from '../Pages/Branding';
 import SocialMedia from '../Pages/SocialMedia';
 import PaidAds from '../Pages/PaidAds';
@@ -34,7 +34,6 @@ function AnimatedRoutes() {
         <Route path="/services/branding" element={<PageWrapper><Branding /></PageWrapper>} />
         <Route path="/services/social-media" element={<PageWrapper><SocialMedia /></PageWrapper>} />
         <Route path="/services/paid-ads" element={<PageWrapper><PaidAds /></PageWrapper>} />
-        {/* Add more routes as needed */}
       </Routes>
     </AnimatePresence>
   );
