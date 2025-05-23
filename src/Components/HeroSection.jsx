@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
 const containerVariant = {
@@ -18,22 +18,26 @@ const wordVariant = {
 
 const splitText = (text) =>
   text.split(" ").map((word, i) => (
-    <motion.span
-      key={i}
-      variants={wordVariant}
-      className="inline-block mr-2"
-    >
+    <motion.span key={i} variants={wordVariant} className="inline-block mr-2">
       {word}
     </motion.span>
   ));
 
 const AnimatedHeroSection = ({
   title = "TRANSFORM YOUR BRAND",
-  subtitle = "STAND OUT. CONNECT DEEPER.",
-  description = "We craft bold narratives that break through the noise. From strategy to story, we give your brand a powerful voice that resonates.",
   buttonText = "Start Your Journey",
 }) => {
   const navigate = useNavigate();
+
+  const rotatingWords = ["ELEVATE", "IGNITE", "THRIVE", "DISRUPT", "SHINE"];
+  const [wordIndex, setWordIndex] = React.useState(0);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setWordIndex((prevIndex) => (prevIndex + 1) % rotatingWords.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleClick = () => {
     navigate("/services");
@@ -65,21 +69,33 @@ const AnimatedHeroSection = ({
           animate="visible"
         >
           <div className="text-white">{splitText(title)}</div>
-          <div className="text-[#6699ff] mt-2">{splitText(subtitle)}</div>
         </motion.div>
 
-        <motion.p
-          className="text-base sm:text-lg md:text-xl text-white mb-10 leading-relaxed font-medium"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.6 }}
+        {/* Rotating Word Subtitle */}
+        <motion.div
+          className="text-white text-2xl md:text-4xl font-semibold flex justify-center items-center gap-3 mt-4 h-[48px]"
+          variants={containerVariant}
+          initial="hidden"
+          animate="visible"
         >
-          {description}
-        </motion.p>
+          <span>We Help You</span>
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={rotatingWords[wordIndex]}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.6 }}
+              className="text-[#66aaff] font-bold"
+            >
+              {rotatingWords[wordIndex]}
+            </motion.span>
+          </AnimatePresence>
+        </motion.div>
 
         <motion.button
           onClick={handleClick}
-          className="px-8 py-3 text-lg rounded-full bg-[#050170] text-white hover:bg-blue-900 transition-transform transform hover:scale-105 font-semibold shadow-xl"
+          className="px-8 py-3 text-lg rounded-full bg-[#050170] mt-6 text-white hover:bg-blue-900 transition-transform transform hover:scale-105 font-semibold shadow-xl"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 1 }}
