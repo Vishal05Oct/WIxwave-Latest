@@ -50,13 +50,13 @@ const HeroSection = () => {
               </motion.button>
             </Link>
 
-            <Link to="/portfolio">
+            <Link to="/blog">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-white text-black border border-gray-300 hover:bg-gray-100 hover:text-gray-900 px-6 py-3 text-sm rounded-full shadow-lg transition-colors duration-300 font-semibold uppercase tracking-wide"
               >
-                View work
+                Our Blogs
               </motion.button>
             </Link>
           </div>

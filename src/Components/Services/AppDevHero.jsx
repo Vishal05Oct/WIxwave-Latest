@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 
 const AppDesignDevelopment = () => {
   return (
-    <section className="relative w-full  bg-white flex items-center justify-center px-4 sm:px-8 py-16 overflow-hidden">
+    <section className="relative w-full min-h-screen bg-white flex items-center justify-center px-4 sm:px-8 py-16 overflow-hidden">
       
       {/* Background Banner Image */}
       <img
-        src=""
+        src="https://res.cloudinary.com/dobbdtftp/image/upload/v1748027541/fahim-muntashir-pAgCpLoYXdQ-unsplash_nz2vwf.jpg"
         alt="App Design & Development Background"
         className="absolute inset-0 w-full h-full object-cover opacity-20 z-0"
       />

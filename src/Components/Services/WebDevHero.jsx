@@ -7,7 +7,7 @@ const WebsiteDesignDevelopment = () => {
       
       {/* Background Banner Image */}
       <img
-        src="https://img.freepik.com/premium-photo/web-design-development-concept-banner-with-coding-screen-mockup_670147-4463.jpg?w=2000"
+        src="https://cdn.pixabay.com/photo/2017/08/05/12/58/computer-2583383_1280.jpg"
         alt="Website Design & Development Background"
         className="absolute inset-0 w-full h-full object-cover opacity-20 z-0"
       />

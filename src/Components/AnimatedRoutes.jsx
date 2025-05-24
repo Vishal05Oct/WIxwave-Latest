@@ -2,7 +2,6 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import PageWrapper from './PageWrapper';
-
 import Home from '../Pages/Home';
 import About from '../Pages/About';
 import Services from '../Pages/Services';

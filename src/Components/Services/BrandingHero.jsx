@@ -3,13 +3,13 @@ import { motion } from "framer-motion";
 
 const BrandingGraphics = () => {
   return (
-    <section className="relative w-full bg-white flex items-center justify-center px-4 sm:px-8 py-16 overflow-hidden">
+      <section className="relative w-full min-h-screen bg-white flex items-center justify-center px-4 overflow-hidden">
       
       {/* Background Banner Image */}
       <img
-        src=""
+        src="https://img.freepik.com/free-photo/design-creative-inspiration-art-style-concept_53876-120035.jpg?t=st=1748001639~exp=1748005239~hmac=2609688957d003d3854390badd47052a929177ead74f98f072d4ab5971f1eab8&w=1380"
         alt="Branding & Graphics Background"
-        className="absolute inset-0 w-full h-full object-cover opacity-20 z-0"
+          className="absolute inset-0 w-full h-full object-cover opacity-20 z-0"
       />
 
       {/* Overlapping Text */}

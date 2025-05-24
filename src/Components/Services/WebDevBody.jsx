@@ -16,31 +16,43 @@ const WebDevEdgeSection = () => {
           </p>
         </section>
 
-        <section className="grid md:grid-cols-2 gap-10 items-center">
-          <div className="space-y-6">
-            <h2 className="text-2xl font-semibold">Cutting-Edge Web Design</h2>
-            <p>
-              Great design isn't just about aesthetics—it's about creating seamless user
-              experiences. Our design team combines creativity with strategy to craft
-              websites that are both visually engaging and functionally effective.
-            </p>
-            <p>
-              We use a user-centered approach to design responsive layouts, define
-              intuitive navigation, and bring brands to life online. Whether you're
-              building from scratch or refreshing your digital presence, we tailor each
-              design to your goals.
-            </p>
-            <Link to="/portfolio" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
-            Explore Our Development Work
-            </Link>
-
-          </div>
-          <div className="flex justify-center">
-            <div className="">
-              <img src="https://img.freepik.com/free-photo/medium-shot-man-designing-websites_23-2149930943.jpg?t=st=1746872802~exp=1746876402~hmac=9c2ea94137f907849ab31fa87263894324422c2cb75c24d350c6866177ecb9c3&w=1380" alt="Web Design Illustration"  />
-            </div>
-          </div>
-        </section>
+       <section className="grid md:grid-cols-2 gap-10 items-center">
+  <div className="space-y-6">
+    <h2 className="text-2xl font-semibold">Cutting-Edge Web Design</h2>
+    <p>
+      Great design isn't just about aesthetics—it's about creating seamless user
+      experiences. Our design team combines creativity with strategy to craft
+      websites that are both visually engaging and functionally effective.
+    </p>
+    <p>
+      We use a user-centered approach to design responsive layouts, define
+      intuitive navigation, and bring brands to life online. Whether you're
+      building from scratch or refreshing your digital presence, we tailor each
+      design to your goals.
+    </p>
+    <p>
+      Our team collaborates closely with you throughout the process, leveraging modern
+      frameworks like Tailwind CSS, Figma, and Webflow to ensure your vision is executed with precision.
+    </p>
+    <ul className="list-disc list-inside text-gray-700 space-y-1">
+      <li>Mobile-first, responsive design</li>
+      <li>Conversion-optimized user flows</li>
+      <li>Seamless handoff to development</li>
+      <li>Consistent brand identity and visual storytelling</li>
+    </ul>
+    <Link to="/portfolio" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
+      Explore Our Development Work
+    </Link>
+  </div>
+  <div className="flex justify-center">
+    <div>
+      <img
+        src="https://res.cloudinary.com/dobbdtftp/image/upload/v1748030245/budka-damdinsuren-xPjsMamUBK4-unsplash_smpxeh.jpg"
+        alt="Web Design Illustration"
+      />
+    </div>
+  </div>
+</section>
 
         <section className="grid md:grid-cols-2 gap-10 items-center">
           <div className="flex justify-center">

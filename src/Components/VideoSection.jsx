@@ -15,7 +15,7 @@ const VideoSection = () => {
   const scale = useTransform(scrollYProgress, [0.9, 1], [1, 0.9]);
 
   return (
-    <div className="container mx-auto flex items-center justify-center px-4">
+    <div className="container mx-auto flex items-center py-12 justify-center px-4">
       <div className="w-full">
         <motion.div
           ref={ref}

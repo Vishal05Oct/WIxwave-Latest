@@ -15,7 +15,7 @@ export default function AboutWixWaveSection() {
           >
             About{" "}
             <span className="font-extrabold">
-              <span className="bg-yellow-200 underline">WixWave</span>
+              <span className="bg-SKY-200 underline">WixWave</span>
             </span>
             : Shaping Tomorrow’s Digital Landscape
           </motion.h2>

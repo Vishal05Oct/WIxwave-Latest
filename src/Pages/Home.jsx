@@ -1,9 +1,9 @@
-import React from 'react'
 import Hero from '../Components/HeroSection'
 import Slider from '../Components/HeroSlider'
 import VideoSection from '../Components/VideoSection'
 import HowWeRoll from '../Components/WeRoll'
 import WeAre from '../Components/WeAre'
+import Concept from '../Components/Concept'
 import HCTA from '../Components/H-CTA'
 import OurServices from '../Components/OurServices'
 import CollaborationSection from '../Components/Collaboration'
@@ -19,6 +19,7 @@ function Home() {
     <HowWeRoll />
     <WeAre />
     <OurServices />
+    <Concept />
     <HCTA />
     <HomepageForm page="default" /> 
     <CollaborationSection />

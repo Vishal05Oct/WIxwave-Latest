@@ -17,25 +17,44 @@ const AppDevEdgeSection = () => {
         </section>
 
         <section className="grid md:grid-cols-2 gap-10 items-center">
-          <div className="space-y-6">
-            <h2 className="text-2xl font-semibold">Innovative App Design</h2>
-            <p>
-              Our design process focuses on creating beautiful, user-centric mobile applications
-              that engage users and solve real-world problems. From wireframing to high-fidelity
-              prototypes, we focus on every detail to ensure your app delivers the best experience.
-            </p>
-            <p>
-              We incorporate the latest design trends and best practices to craft intuitive user
-              interfaces and ensure smooth navigation, tailored to your app’s purpose and user
-              needs.
-            </p>
-          </div>
-          <div className="flex justify-center">
-            <div className="">
-              <img src="https://img.freepik.com/free-photo/medium-shot-app-developers-working_23-2149930943.jpg" alt="App Design Illustration" />
-            </div>
-          </div>
-        </section>
+  <div className="space-y-6">
+    <h2 className="text-2xl font-semibold">Innovative App Design</h2>
+    <p>
+      Our design process focuses on creating beautiful, user-centric mobile applications
+      that engage users and solve real-world problems. From wireframing to high-fidelity
+      prototypes, we focus on every detail to ensure your app delivers the best experience.
+    </p>
+    <p>
+      We incorporate the latest design trends and best practices to craft intuitive user
+      interfaces and ensure smooth navigation, tailored to your app’s purpose and user
+      needs.
+    </p>
+    <p>
+      Collaboration is at the heart of our workflow. We work closely with stakeholders
+      to gather feedback early and often, allowing us to iterate quickly and effectively.
+      This ensures that the final product aligns with your vision and user expectations.
+    </p>
+    <p>
+      Our team leverages powerful design tools like Figma, Adobe XD, and Sketch to
+      streamline the process and maintain pixel-perfect accuracy across all platforms.
+      We prioritize accessibility, responsiveness, and performance in every design decision.
+    </p>
+    <p>
+      Whether you're launching a new product or revamping an existing one, our goal is to
+      help you stand out in a competitive market with an app that's not just functional,
+      but delightful to use.
+    </p>
+  </div>
+  <div className="flex justify-center">
+    <div>
+      <img
+        src="https://res.cloudinary.com/dobbdtftp/image/upload/v1748027929/App_Design_unlsqr.jpg"
+        alt="App Design Illustration"
+      />
+    </div>
+  </div>
+</section>
+
 
         <section className="grid md:grid-cols-2 gap-10 items-center">
           <div className="flex justify-center">

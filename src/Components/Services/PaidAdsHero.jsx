@@ -3,13 +3,13 @@ import { motion } from "framer-motion";
 
 const PaidAds = () => {
   return (
-    <section className="relative w-full  bg-white flex items-center justify-center px-4 sm:px-8 py-16 overflow-hidden">
+      <section className="relative w-full min-h-screen bg-white flex items-center justify-center px-4 overflow-hidden">
       
       {/* Background Banner Image */}
       <img
-        src=""
+        src="https://res.cloudinary.com/dobbdtftp/image/upload/v1748002505/Performance_Banner_m3ohab.jpg"
         alt="Paid Ads Background"
-        className="absolute inset-0 w-full h-full object-cover z-0"
+          className="absolute inset-0 w-full h-full object-cover opacity-20 z-0"
       />
 
       {/* Overlapping Text */}

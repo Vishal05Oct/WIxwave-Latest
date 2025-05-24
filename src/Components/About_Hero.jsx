@@ -8,7 +8,7 @@ const AboutWixwave = () => {
         
         {/* Background Banner Image */}
         <img
-          src="https://img.freepik.com/free-photo/view-arrangement-with-keyboard-notebooks_23-2148847749.jpg?t=st=1746805976~exp=1746809576~hmac=06ada9fe346d4b57580a8206d796555a96668801750b1009be5eaef944f177e9&w=1380"
+          src="https://res.cloudinary.com/dobbdtftp/image/upload/v1748001205/About_Us_-_Image_vz0rso.jpg"
           alt="Background"
           className="absolute inset-0 w-full h-full object-cover opacity-20 z-0"
         />
