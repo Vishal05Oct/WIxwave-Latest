@@ -87,7 +87,7 @@ export default function SimpleLogoSlider() {
         Technologies We Work With
         <motion.span
           layoutId="underline"
-          className="block h-1 w-48 mx-auto mt-2 rounded bg-gradient-to-r from-purple-500 via-pink-500 to-red-500"
+          className="block h-1 w-48 mx-auto mt-2 rounded bg-[#0c34e9]"
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 1.2, ease: "easeOut", delay: 0.7 }}
