@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom'; // <-- import Link from React Router
+import { Link } from 'react-router-dom';
 
 const containerVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -21,7 +21,7 @@ const itemVariants = {
   visible: { opacity: 1, y: 0 },
 };
 
-const rotatingWords = ['EMAIL', 'LINKEDIN', 'INSTAGRAM', 'WHATSAPP'];
+const rotatingWords = ['EMAIL', 'LINKEDIN', 'WHATSAPP', 'WIXWAVE.COM'];
 
 const CollaborationSection = () => {
   const [index, setIndex] = useState(0);
@@ -52,10 +52,10 @@ const CollaborationSection = () => {
         />
 
         <div className="relative z-10">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight">
-            READY TO<br />
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight">
+            BUILD WITH<br />
             <span className="inline-block">
-              {"COLLABORATE".split("").map((char, i) => (
+              {"WIXWAVE".split("").map((char, i) => (
                 <motion.span
                   key={i}
                   initial={{ opacity: 0, scale: 0.8 }}
@@ -68,8 +68,8 @@ const CollaborationSection = () => {
               ))}
             </span>
             <span className="text-white"> ? </span>
-            <span className="text-[#0c34e9] block sm:inline">LET'S TALK</span>
-          </h1>
+            <span className="text-[#0c34e9] block sm:inline">LET'S CONNECT</span>
+          </h2>
 
           <motion.div
             className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 mt-8 sm:mt-12"
@@ -85,18 +85,18 @@ const CollaborationSection = () => {
                 to="/contact"
                 className="block bg-[#050170] text-white font-bold text-sm px-6 py-4 rounded-full flex items-center justify-center hover:bg-gray-800 transition shadow-md"
               >
-                START PROJECT <span className="ml-2">➔</span>
+                START WITH WIXWAVE <span className="ml-2">➔</span>
               </Link>
             </motion.div>
 
-            {/* External link - cannot use <Link>, fallback to <a> */}
+            {/* External link */}
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
               className="w-full sm:w-auto"
             >
-              <Link
-                to="https://wa.me/7479787717"
+              <a
+                href="https://wa.me/7479787717"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block bg-green-500 text-white font-semibold text-sm px-6 py-4 rounded-full flex items-center justify-center gap-2 hover:bg-green-600 transition shadow-md"
@@ -107,9 +107,7 @@ const CollaborationSection = () => {
                   className="w-5 h-5"
                 />
                 Chat With Us
-              </Link>
-
-
+              </a>
             </motion.div>
           </motion.div>
         </div>

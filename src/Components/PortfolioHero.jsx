@@ -8,7 +8,7 @@ const OurPortfolio = () => {
 
         {/* Background Banner Image */}
         <img
-          src="https://img.freepik.com/free-photo/desk-with-objects_23-2147982353.jpg?t=st=1746804581~exp=1746808181~hmac=7ca85bffbb1ef15ad9ef4bfc8049fe1a8c49d1eaf7ac479ab9469549d7255655&w=1380"
+          src="https://res.cloudinary.com/dobbdtftp/image/upload/v1748202730/computer-1846056_1920_irp1x9.jpg"
           alt="Portfolio Background"
           className="absolute inset-0 w-full h-full object-cover opacity-20 z-0"
         />

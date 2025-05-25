@@ -15,15 +15,15 @@ const sliderItems = [
     alt: "Node.js",
   },
   {
-    logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg",
+    logo: "https://img.icons8.com/?size=512&id=kg46nzoJrmTR&format=png",
     alt: "Express.js",
   },
   {
-    logo: "https://webimages.mongodb.com/_com_assets/cms/mongodb_logo1-76twgcu2dm.png",
+    logo: "https://cdn.iconscout.com/icon/free/png-256/free-mongodb-logo-icon-download-in-svg-png-gif-file-formats--wordmark-programming-langugae-freebies-pack-logos-icons-1175138.png?f=webp&w=256",
     alt: "MongoDB",
   },
   {
-    logo: "https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png",
+    logo: "https://img.icons8.com/?size=512&id=7I3BjCqe9rjG&format=png",
     alt: "Flutter",
   },
   {
@@ -51,7 +51,7 @@ const sliderItems = [
     alt: "Google Cloud",
   },
   {
-    logo: "https://1000logos.net/wp-content/uploads/2021/10/Meta-Logo.png",
+    logo: "https://img.icons8.com/?size=512&id=PvvcWRWxRKSR&format=png",
     alt: "Meta",
   },
   {
