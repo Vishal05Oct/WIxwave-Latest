@@ -70,9 +70,6 @@ const AnimatedHeroSection = () => {
 
   const handleClick = () => navigate("/services");
 
-  const toggleTheme = () =>
-    setTheme((prev) => (prev === "modern"));
-
   return (
     <div className="relative w-full h-screen overflow-hidden text-black flex items-center justify-center px-4 sm:px-10 md:px-20 lg:px-32">
       <video
@@ -88,9 +85,6 @@ const AnimatedHeroSection = () => {
         />
         Your browser does not support the video tag.
       </video>
-
-      {/* Toggle Theme Button */}
-
 
       <div className="relative z-10 text-center max-w-6xl mx-auto">
         <motion.div
@@ -124,15 +118,17 @@ const AnimatedHeroSection = () => {
           {paragraph}
         </motion.p>
 
-        <motion.button
-          onClick={handleClick}
-          className="px-6 sm:px-8 py-3 text-base sm:text-lg rounded-full bg-[#050170] text-white hover:bg-blue-900 transition-transform transform hover:scale-105 font-semibold shadow-xl"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 1 }}
-        >
-          {button}
-        </motion.button>
+        <div className="flex justify-center gap-6">
+          <motion.button
+            onClick={handleClick}
+            className="inline-block px-4 sm:px-6 py-2 sm:py-3 text-base sm:text-lg rounded-full bg-[#050170] text-white hover:bg-blue-900 transition-transform transform hover:scale-105 font-semibold shadow-xl focus:outline-none focus:ring-4 focus:ring-[#66aaff]"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 1 }}
+          >
+            {button}
+          </motion.button>
+        </div>
       </div>
 
       <style>

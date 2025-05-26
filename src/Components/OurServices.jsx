@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // ✅ import Link
+import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import { motion } from 'framer-motion';
-import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
+import { FaArrowRight, FaChevronRight, FaChevronLeft } from 'react-icons/fa';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -45,7 +45,6 @@ const services = [
   },
 ];
 
-
 const fadeUpVariant = {
   hidden: { opacity: 0, y: 60 },
   visible: (delay = 0) => ({
@@ -55,23 +54,25 @@ const fadeUpVariant = {
   }),
 };
 
-// Custom arrow components
-const NextArrow = ({ onClick }) => (
-  <div
+// Custom mobile arrows with different style/icons
+const MobileNextArrow = ({ onClick }) => (
+  <button
     onClick={onClick}
-    className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-white text-black p-3 rounded-full shadow-lg cursor-pointer transition-transform hover:scale-110"
+    aria-label="Next slide"
+    className="absolute right-1 top-1/2 transform -translate-y-1/2 z-20 bg-blue-600  text-white p-2 rounded-full shadow-md cursor-pointer transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-purple-400"
   >
-    <FaArrowRight size={16} />
-  </div>
+    <FaChevronRight size={20} />
+  </button>
 );
 
-const PrevArrow = ({ onClick }) => (
-  <div
+const MobilePrevArrow = ({ onClick }) => (
+  <button
     onClick={onClick}
-    className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-white text-black p-3 rounded-full shadow-lg cursor-pointer transition-transform hover:scale-110"
+    aria-label="Previous slide"
+    className="absolute left-1 top-1/2 transform -translate-y-1/2 z-20 bg-blue-600  text-white p-2 rounded-full shadow-md cursor-pointer transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-purple-400"
   >
-    <FaArrowLeft size={16} />
-  </div>
+    <FaChevronLeft size={20} />
+  </button>
 );
 
 const sliderSettings = {
@@ -82,8 +83,8 @@ const sliderSettings = {
   slidesToScroll: 1,
   arrows: true,
   lazyLoad: 'ondemand',
-  nextArrow: <NextArrow />,
-  prevArrow: <PrevArrow />,
+  nextArrow: <MobileNextArrow />,
+  prevArrow: <MobilePrevArrow />,
 };
 
 const ServicesSection = () => {

@@ -25,9 +25,12 @@ const ContactInfo = () => {
         <div className="flex flex-col sm:flex-row justify-center gap-4 sm:space-x-4 sm:gap-0">
           <motion.a
             href="tel:+919470440744"
+            aria-label="Call phone number +91 9470440744"
             className="bg-black text-white py-3 px-6 rounded-lg text-base sm:text-lg font-semibold inline-block transition transform hover:scale-105 hover:bg-gray-800"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
             transition={{ duration: 1 }}
           >
             Phone: +91 9470440744
@@ -37,6 +40,7 @@ const ContactInfo = () => {
             href="https://wa.me/7479787717"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Chat with us on WhatsApp"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
             className="w-full sm:w-auto bg-green-500 text-white font-semibold text-sm px-6 py-4 rounded-lg flex items-center justify-center gap-2 hover:bg-green-600 transition shadow-md"

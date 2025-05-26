@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const containerVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -8,7 +8,7 @@ const containerVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      type: 'spring',
+      type: "spring",
       stiffness: 50,
       damping: 20,
       staggerChildren: 0.2,
@@ -21,7 +21,40 @@ const itemVariants = {
   visible: { opacity: 1, y: 0 },
 };
 
-const rotatingWords = ['EMAIL', 'LINKEDIN', 'WHATSAPP', 'INSTAGRAM'];
+const rotatingWords = ["EMAIL", "LINKEDIN", "WHATSAPP", "INSTAGRAM"];
+
+const AnimatedLetters = ({ text }) => (
+  <>
+    {text.split("").map((char, i) => (
+      <motion.span
+        key={i}
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: i * 0.06, type: "spring", stiffness: 100 }}
+        style={{ display: "inline-block" }}
+      >
+        {char}
+      </motion.span>
+    ))}
+  </>
+);
+
+const RotatingWord = ({ word }) => (
+  <AnimatePresence mode="wait" initial={false}>
+    <motion.span
+      key={word}
+      aria-live="polite"
+      className="text-[#0c34e9] ml-2"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.4 }}
+      style={{ willChange: "transform, opacity" }}
+    >
+      {word}
+    </motion.span>
+  </AnimatePresence>
+);
 
 const CollaborationSection = () => {
   const [index, setIndex] = useState(0);
@@ -48,24 +81,17 @@ const CollaborationSection = () => {
           className="absolute inset-0 bg-cover bg-center opacity-20 z-0"
           style={{
             backgroundImage: `url('https://res.cloudinary.com/dobbdtftp/image/upload/v1746786161/collaborate_fxgnr6.png')`,
+            willChange: "opacity",
           }}
+          aria-hidden="true"
         />
 
         <div className="relative z-10">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight">
-            BUILD WITH<br />
+            BUILD WITH
+            <br />
             <span className="inline-block">
-              {"WIXWAVE".split("").map((char, i) => (
-                <motion.span
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: i * 0.06, type: "spring", stiffness: 100 }}
-                  className="inline-block"
-                >
-                  {char}
-                </motion.span>
-              ))}
+              <AnimatedLetters text="WIXWAVE" />
             </span>
             <span className="text-white"> ? </span>
             <span className="text-[#0c34e9] block sm:inline">LET'S CONNECT</span>
@@ -75,7 +101,6 @@ const CollaborationSection = () => {
             className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 mt-8 sm:mt-12"
             variants={itemVariants}
           >
-            {/* Internal link */}
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
@@ -89,7 +114,6 @@ const CollaborationSection = () => {
               </Link>
             </motion.div>
 
-            {/* External link */}
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
@@ -118,18 +142,7 @@ const CollaborationSection = () => {
         variants={itemVariants}
       >
         <span className="text-white">CONTACT US THROUGH</span>
-        <AnimatePresence mode="wait">
-          <motion.span
-            key={rotatingWords[index]}
-            className="text-[#0c34e9] ml-2"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.4 }}
-          >
-            {rotatingWords[index]}
-          </motion.span>
-        </AnimatePresence>
+        <RotatingWord word={rotatingWords[index]} />
       </motion.div>
     </motion.div>
   );

@@ -1,18 +1,33 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom"; // Make sure this is imported
+import { Link } from "react-router-dom";
+
+const containerVariant = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0 }
+};
+
+const wordVariant = {
+  hover: { scale: 1.2, color: '#d1d5db', transition: { type: 'spring', stiffness: 300 } }
+};
+
+const contentVariant = {
+  hidden: { opacity: 0, x: 50 },
+  visible: { opacity: 1, x: 0 }
+};
 
 const HeroSection = () => {
-  const title = "We Don’t Just Make Noise. We Move Numbers.";
-  const words = title.split(" ");
+  const title = useMemo(() => "We Don’t Just Make Noise. We Move Numbers.", []);
+  const words = useMemo(() => title.split(" "), [title]);
 
   return (
     <section className="container mx-auto py-4 px-6 pt-6 overflow-x-hidden">
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8 }}
+        variants={containerVariant}
         className="flex flex-col md:flex-row items-center justify-center bg-[#0c34e9] rounded-3xl p-10 text-white shadow-lg max-w-6xl mx-auto"
       >
         <div className="md:w-1/2 w-full mb-8 md:mb-0 md:pr-10 text-center md:text-left flex flex-col justify-center">
@@ -20,27 +35,29 @@ const HeroSection = () => {
             {words.map((word, index) => (
               <motion.span
                 key={index}
-                whileHover={{ scale: 1.2, color: '#d1d5db' }}
-                transition={{ type: 'spring', stiffness: 300 }}
-                className="inline-block cursor-pointer"
+                variants={wordVariant}
+                whileHover="hover"
+                className="inline-block cursor-pointer will-change-transform will-change-color"
               >
                 {word}
               </motion.span>
             ))}
           </h1>
         </div>
+
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.4 }}
+          variants={contentVariant}
           className="md:w-1/2 w-full text-sm md:text-base text-gray-300 flex flex-col justify-center"
         >
           <p className="mb-6 text-center md:text-left">
             At WIXWAVE, we blend strategy, design, tech, and performance to build campaigns that don’t just look good — they work.
           </p>
           <div className="flex gap-4 justify-center md:justify-start">
-            <Link to="/contact">
+            <Link to="/contact" aria-label="Contact Us">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -50,7 +67,7 @@ const HeroSection = () => {
               </motion.button>
             </Link>
 
-            <Link to="/blog">
+            <Link to="/blog" aria-label="Our Blogs">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -66,4 +83,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default React.memo(HeroSection);

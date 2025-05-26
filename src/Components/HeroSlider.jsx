@@ -72,8 +72,10 @@ const sliderItems = [
   },
 ];
 
-export default function SimpleLogoSlider() {
-  const duplicatedItems = [...sliderItems, ...sliderItems]; // for infinite loop
+const duplicatedItems = [...sliderItems, ...sliderItems]; // for infinite loop
+
+const SimpleLogoSlider = React.memo(() => {
+  const [isPaused, setIsPaused] = React.useState(false);
 
   return (
     <div className="bg-white py-10">
@@ -96,16 +98,25 @@ export default function SimpleLogoSlider() {
       </motion.h2>
 
       {/* Logo Slider */}
-      <div className="overflow-hidden w-full">
+      <div
+        className="overflow-hidden w-full"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        aria-label="Technologies logo slider"
+      >
         <motion.div
-          className="flex min-w-max gap-10"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{
-            repeat: Infinity,
-            repeatType: "loop",
-            duration: 40,
-            ease: "linear",
-          }}
+          className="flex min-w-max gap-10 will-change-transform"
+          animate={isPaused ? {} : { x: ["0%", "-50%"] }}
+          transition={
+            isPaused
+              ? {}
+              : {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 40,
+                  ease: "linear",
+                }
+          }
         >
           {duplicatedItems.map(({ logo, alt }, index) => (
             <img
@@ -114,6 +125,8 @@ export default function SimpleLogoSlider() {
               alt={alt}
               className="w-20 h-20 object-contain flex-shrink-0"
               draggable={false}
+              loading="lazy"
+              tabIndex={-1}
               onError={(e) => {
                 e.currentTarget.onerror = null;
                 e.currentTarget.src =
@@ -125,4 +138,6 @@ export default function SimpleLogoSlider() {
       </div>
     </div>
   );
-}
+});
+
+export default SimpleLogoSlider;

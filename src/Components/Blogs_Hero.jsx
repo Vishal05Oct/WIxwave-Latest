@@ -1,15 +1,21 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { memo } from "react";
+import { motion } from "framer-motion";
 
 const OurBlogs = () => {
+  const animatedTexts = ["Our", "Insightful", "Blogs"];
+
   return (
     <>
-      <section className="relative w-full min-h-screen bg-white flex items-center justify-center px-4 overflow-hidden">
-
+      <section
+        aria-label="Introduction to Our Blogs"
+        className="relative w-full min-h-screen bg-white flex items-center justify-center px-4 overflow-hidden"
+      >
         {/* Background Banner Image */}
         <img
           src="https://img.freepik.com/free-photo/blogging-writing-blog-concepts-ideas-white-worktable_53876-127643.jpg?t=st=1746809000~exp=1746812600~hmac=52fcd87a5e01c7c3c5c28c20dca2ec2cc2ee0d6cc626845712362cfb2023a32f&w=1380"
-          alt="Blog Background"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
           className="absolute inset-0 w-full h-full object-cover opacity-20 z-0"
         />
 
@@ -18,37 +24,27 @@ const OurBlogs = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
+          style={{ willChange: "transform, opacity" }}
           className="absolute inset-0 flex flex-col items-center justify-center z-10 leading-[1] text-center text-[#6699ff] font-extrabold text-[12vw] sm:text-[8vw] pointer-events-none select-none"
->
-          <motion.span
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-          >
-            Our
-          </motion.span>
-          <motion.span
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-          >
-            Insightful
-          </motion.span>
-          <motion.span
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9 }}
-          >
-            Blogs
-          </motion.span>
+        >
+          {animatedTexts.map((text, i) => (
+            <motion.span
+              key={text}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 * (i + 1) }}
+            >
+              {text}
+            </motion.span>
+          ))}
         </motion.div>
 
         {/* Foreground Content */}
-        <div className="relative z-20 max-w-3xl text-center">
-          <h2 className="font-bold tracking-[0.2em] text-black mb-4">
+        <div className="relative z-20 max-w-3xl text-center px-2">
+          <h2 className="font-bold tracking-[0.2em] text-black mb-4 text-xl sm:text-2xl md:text-3xl lg:text-4xl">
             OUR BLOGS
           </h2>
-          <p className="text-xl sm:text-xl text-black leading-relaxed">
+          <p className="text-lg sm:text-xl text-black leading-relaxed">
             Dive into our collection of blogs where we share insights, trends, and stories
             from the digital world. From design inspiration to development tips, our articles
             offer valuable knowledge and a glimpse into our creative process and industry expertise.
@@ -57,7 +53,10 @@ const OurBlogs = () => {
       </section>
 
       {/* Coming Soon Section */}
-      <section className="w-full py-24 bg-gray-100 flex items-center justify-center text-center px-4">
+      <section
+        aria-label="Blogs Coming Soon Notice"
+        className="w-full py-24 bg-gray-100 flex items-center justify-center text-center px-4"
+      >
         <div className="max-w-2xl">
           <h3 className="text-3xl sm:text-4xl font-bold text-blue-700 mb-4">
             Stay Tuned for Our Blogs! <br />
@@ -72,4 +71,4 @@ const OurBlogs = () => {
   );
 };
 
-export default OurBlogs;
+export default memo(OurBlogs);

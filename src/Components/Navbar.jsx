@@ -21,7 +21,7 @@ function Navbar() {
       animate={{ rotate: isOpen ? 180 : 0 }}
       transition={{ duration: 0.3 }}
     >
-      {isOpen ? <BiX /> : <BiMenu />}
+      {isOpen ? <BiX aria-hidden="true" /> : <BiMenu aria-hidden="true" />}
     </motion.div>
   );
 
@@ -35,23 +35,32 @@ function Navbar() {
   };
 
   return (
-    <nav className="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-full max-w-6xl">
+    <nav
+      className="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-full max-w-6xl"
+      aria-label="Primary navigation"
+    >
       <div className="bg-[#01001c] rounded-full px-6 py-3 flex items-center justify-between container mx-auto shadow-xl backdrop-blur-sm">
-        <Link to="/" onClick={() => setIsOpen(false)}>
+        <Link to="/" onClick={() => setIsOpen(false)} aria-label="Homepage">
           <img
             src="https://res.cloudinary.com/dobbdtftp/image/upload/v1746202311/3_rgrvsx.png"
-            alt="Logo"
+            alt="Company Logo"
             className="h-8 w-auto cursor-pointer"
           />
         </Link>
 
-        <ul className="hidden md:flex gap-6 relative text-sm font-medium">
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex gap-6 relative text-sm font-medium" role="menubar">
           {navLinks.map(({ label, path }) => {
             const isActive = location.pathname === path;
-
             return (
-              <li key={label} className="cursor-pointer relative">
-                <Link to={path} onClick={() => setIsOpen(false)}>
+              <li key={label} role="none" className="cursor-pointer relative">
+                <Link
+                  to={path}
+                  onClick={() => setIsOpen(false)}
+                  role="menuitem"
+                  aria-current={isActive ? 'page' : undefined}
+                  tabIndex={0}
+                >
                   <motion.span
                     animate={{
                       color: isActive ? '#fff' : '#aaa',
@@ -74,6 +83,7 @@ function Navbar() {
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.95 }}
                       transition={{ duration: 0.3, ease: 'easeOut' }}
+                      aria-hidden="true"
                     />
                   )}
                 </Link>
@@ -82,18 +92,25 @@ function Navbar() {
           })}
         </ul>
 
+        {/* Mobile Menu Toggle Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="text-white text-2xl md:hidden"
           aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isOpen}
+          aria-controls="mobile-menu"
         >
           <MenuIcon isOpen={isOpen} />
         </button>
       </div>
 
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.ul
+            id="mobile-menu"
+            role="menu"
+            aria-label="Mobile primary navigation"
             initial={{ opacity: 0, x: '100%' }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
@@ -105,8 +122,15 @@ function Navbar() {
                 key={label}
                 whileHover={{ scale: 1.05 }}
                 className={getLinkClasses(path)}
+                role="none"
               >
-                <Link to={path} onClick={() => setIsOpen(false)}>
+                <Link
+                  to={path}
+                  onClick={() => setIsOpen(false)}
+                  role="menuitem"
+                  aria-current={location.pathname === path ? 'page' : undefined}
+                  tabIndex={0}
+                >
                   {label}
                 </Link>
               </motion.li>
