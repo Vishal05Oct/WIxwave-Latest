@@ -21,7 +21,7 @@ const itemVariants = {
   visible: { opacity: 1, y: 0 },
 };
 
-const rotatingWords = ['EMAIL', 'LINKEDIN', 'WHATSAPP', 'WIXWAVE.COM'];
+const rotatingWords = ['EMAIL', 'LINKEDIN', 'WHATSAPP', 'INSTAGRAM'];
 
 const CollaborationSection = () => {
   const [index, setIndex] = useState(0);
