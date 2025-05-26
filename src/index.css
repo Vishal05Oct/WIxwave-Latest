@@ -27,3 +27,7 @@ body {
   padding: 0 0.2rem;
   color: white;
 }
+
+html, body {
+  overflow-x: hidden;
+}

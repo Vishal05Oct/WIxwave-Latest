@@ -3,16 +3,20 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const containerVariant = {
-  hidden: { opacity: 0, y: 50 },
+  hidden: { opacity: 0, y: 20 },  // reduced from y: 50
   visible: { opacity: 1, y: 0 }
 };
 
 const wordVariant = {
-  hover: { scale: 1.2, color: '#d1d5db', transition: { type: 'spring', stiffness: 300 } }
+  hover: {
+    scale: 1.1, // reduced scale to avoid overflow
+    color: '#d1d5db',
+    transition: { type: 'spring', stiffness: 300 }
+  }
 };
 
 const contentVariant = {
-  hidden: { opacity: 0, x: 50 },
+  hidden: { opacity: 0, x: 20 }, // reduced from x: 50
   visible: { opacity: 1, x: 0 }
 };
 
@@ -28,7 +32,7 @@ const HeroSection = () => {
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8 }}
         variants={containerVariant}
-        className="flex flex-col md:flex-row items-center justify-center bg-[#0c34e9] rounded-3xl p-10 text-white shadow-lg max-w-6xl mx-auto"
+        className="flex flex-col md:flex-row items-center justify-center bg-[#0c34e9] rounded-3xl p-10 text-white shadow-lg max-w-6xl mx-auto overflow-x-hidden"
       >
         <div className="md:w-1/2 w-full mb-8 md:mb-0 md:pr-10 text-center md:text-left flex flex-col justify-center">
           <h1 className="text-3xl md:text-5xl font-bold flex flex-wrap justify-center md:justify-start gap-2">
@@ -37,7 +41,7 @@ const HeroSection = () => {
                 key={index}
                 variants={wordVariant}
                 whileHover="hover"
-                className="inline-block cursor-pointer will-change-transform will-change-color"
+                className="inline-block cursor-pointer will-change-transform transform-gpu"
               >
                 {word}
               </motion.span>
