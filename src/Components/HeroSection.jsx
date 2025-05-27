@@ -80,7 +80,7 @@ const AnimatedHeroSection = () => {
 
       <div className="relative z-10 text-center max-w-5xl mx-auto">
         <motion.h1
-          className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight mb-6"
+          className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight"
           variants={containerVariant}
           initial="hidden"
           animate="visible"
@@ -89,7 +89,7 @@ const AnimatedHeroSection = () => {
         </motion.h1>
 
         <motion.div
-          className="text-lg sm:text-2xl md:text-3xl font-semibold flex justify-center items-center gap-3 mb-4 min-h-[40px]"
+          className="text-lg sm:text-2xl md:text-3xl font-semibold flex justify-center items-center gap-3  min-h-[40px]"
           variants={containerVariant}
           initial="hidden"
           animate="visible"
@@ -102,7 +102,7 @@ const AnimatedHeroSection = () => {
         </motion.div>
 
         <motion.p
-          className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed font-medium mb-10"
+          className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed font-medium mb-4"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
