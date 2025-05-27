@@ -23,29 +23,19 @@ const splitText = (text) =>
     </motion.span>
   ));
 
-const themes = {
-  modern: {
-    heading: "BUILD A BRAND THAT WINS HEARTS",
-    subtitle: "We Help You",
-    rotatingWords: ["STAND OUT", "CONNECT", "INSPIRE", "LEAD", "GROW"],
-    paragraph:
-      "We design brands with emotion, impact, and clarity—making your business unforgettable in a crowded world.",
-    button: "Let’s Build Together",
-  },
-  luxury: {
-    heading: "CRAFT AN ICONIC BRAND EXPERIENCE",
-    subtitle: "We Curate Brands That",
-    rotatingWords: ["ELEVATE", "EMPOWER", "ENCHANT", "INFLUENCE", "THRIVE"],
-    paragraph:
-      "We blend strategy with sophistication to craft timeless brand identities—designed to captivate, inspire, and command admiration in every market.",
-    button: "Let’s Create Excellence",
-  },
+const theme = {
+  heading: "INNOVATE. EXECUTE. SUCCEED.",
+  subtitle: "Build Launch Scale",
+  rotatingWords: ["PLANS", "PROJECTS", "BRANDS", "REACH", "GROWTH"],
+  paragraph:
+    "Innovation fuels growth. Execution ensures success. Together, we build brands that stand out and thrive in a competitive digital world.",
+  button: "Start Your Journey",
 };
 
 const AnimatedHeroSection = () => {
   const navigate = useNavigate();
-  const [theme, setTheme] = React.useState("luxury");
-  const { heading, subtitle, rotatingWords, paragraph, button } = themes[theme];
+
+  const { heading, subtitle, rotatingWords, paragraph, button } = theme;
 
   const [wordIndex, setWordIndex] = React.useState(0);
   const [typedWord, setTypedWord] = React.useState("");
@@ -64,20 +54,22 @@ const AnimatedHeroSection = () => {
         }, 1600);
       }
     }, 80);
-
     return () => clearInterval(typing);
   }, [wordIndex, rotatingWords]);
 
   const handleClick = () => navigate("/services");
 
   return (
-    <div className="relative w-full h-screen overflow-hidden text-black flex items-center justify-center px-4 sm:px-10 md:px-20 lg:px-32">
+    <section
+      aria-label="Hero Section"
+      className="relative w-full min-h-screen overflow-hidden flex items-center justify-center px-6 sm:px-10 md:px-16 lg:px-28 text-white"
+    >
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover z-[-1]"
+        className="absolute inset-0 w-full h-full object-cover  z-[-1]"
       >
         <source
           src="https://cdn.pixabay.com/video/2015/08/08/117-135736418_large.mp4"
@@ -86,18 +78,18 @@ const AnimatedHeroSection = () => {
         Your browser does not support the video tag.
       </video>
 
-      <div className="relative z-10 text-center max-w-6xl mx-auto">
-        <motion.div
-          className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight mb-6 text-white"
+      <div className="relative z-10 text-center max-w-5xl mx-auto">
+        <motion.h1
+          className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight mb-6"
           variants={containerVariant}
           initial="hidden"
           animate="visible"
         >
           {splitText(heading)}
-        </motion.div>
+        </motion.h1>
 
         <motion.div
-          className="text-white text-xl sm:text-3xl md:text-4xl font-semibold flex justify-center items-center gap-3 mt-4 min-h-[50px]"
+          className="text-lg sm:text-2xl md:text-3xl font-semibold flex justify-center items-center gap-3 mb-4 min-h-[40px]"
           variants={containerVariant}
           initial="hidden"
           animate="visible"
@@ -110,7 +102,7 @@ const AnimatedHeroSection = () => {
         </motion.div>
 
         <motion.p
-          className="text-sm sm:text-lg md:text-xl text-white mb-10 mt-6 leading-relaxed font-medium max-w-3xl mx-auto"
+          className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed font-medium mb-10"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
@@ -118,13 +110,14 @@ const AnimatedHeroSection = () => {
           {paragraph}
         </motion.p>
 
-        <div className="flex justify-center gap-6">
+        <div className="flex justify-center">
           <motion.button
             onClick={handleClick}
-            className="inline-block px-4 sm:px-6 py-2 sm:py-3 text-base sm:text-lg rounded-full bg-[#050170] text-white hover:bg-blue-900 transition-transform transform hover:scale-105 font-semibold shadow-xl focus:outline-none focus:ring-4 focus:ring-[#66aaff]"
+            className="px-6 py-3 rounded-full bg-[#050170] text-white text-lg font-semibold hover:bg-blue-900 transition-transform transform hover:scale-105 shadow-xl focus:outline-none focus:ring-4 focus:ring-[#66aaff]"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 1 }}
+            aria-label="Navigate to services"
           >
             {button}
           </motion.button>
@@ -140,9 +133,19 @@ const AnimatedHeroSection = () => {
           .animate-blink {
             animation: blink 1s step-start infinite;
           }
+          /* Responsive tweaks */
+          @media (max-width: 640px) {
+            h1 {
+              font-size: 2rem !important;
+            }
+            div[aria-label="Hero Section"] {
+              padding-left: 1.5rem !important;
+              padding-right: 1.5rem !important;
+            }
+          }
         `}
       </style>
-    </div>
+    </section>
   );
 };
 
