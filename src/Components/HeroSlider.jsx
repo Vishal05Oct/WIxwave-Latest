@@ -72,7 +72,7 @@ const sliderItems = [
   },
 ];
 
-const duplicatedItems = [...sliderItems, ...sliderItems]; // for infinite loop
+const duplicatedItems = [...sliderItems, ...sliderItems];
 
 const SimpleLogoSlider = React.memo(() => {
   const [isPaused, setIsPaused] = React.useState(false);
@@ -84,7 +84,7 @@ const SimpleLogoSlider = React.memo(() => {
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
-        className="text-4xl font-extrabold text-center mb-8 text-black relative"
+        className="text-2xl sm:text-4xl font-extrabold text-center mb-8 text-black relative"
       >
         Technologies We Work With
         <motion.span
@@ -123,7 +123,7 @@ const SimpleLogoSlider = React.memo(() => {
               key={index}
               src={logo}
               alt={alt}
-              className="w-20 h-20 object-contain flex-shrink-0"
+              className="w-12 h-12 sm:w-20 sm:h-20 object-contain flex-shrink-0"
               draggable={false}
               loading="lazy"
               tabIndex={-1}
