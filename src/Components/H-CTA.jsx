@@ -35,7 +35,7 @@ const HeroSection = () => {
         className="flex flex-col md:flex-row items-center justify-center bg-[#0c34e9] rounded-3xl p-10 text-white shadow-lg max-w-6xl mx-auto overflow-x-hidden"
       >
         <div className="md:w-1/2 w-full mb-8 md:mb-0 md:pr-10 text-center md:text-left flex flex-col justify-center">
-          <h1 className="text-3xl md:text-5xl font-bold flex flex-wrap justify-center md:justify-start gap-2">
+          <h3 className="text-3xl md:text-5xl font-bold flex flex-wrap justify-center md:justify-start gap-2">
             {words.map((word, index) => (
               <motion.span
                 key={index}
@@ -46,7 +46,7 @@ const HeroSection = () => {
                 {word}
               </motion.span>
             ))}
-          </h1>
+          </h3>
         </div>
 
         <motion.div
