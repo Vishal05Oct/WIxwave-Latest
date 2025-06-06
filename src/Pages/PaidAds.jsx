@@ -6,14 +6,24 @@ function PaidAds() {
   useEffect(() => {
     document.title = 'Paid Advertising Services | Google & Facebook Ads by Wixwave';
     const metaDescription = document.querySelector('meta[name="description"]');
+    const description = 'Maximize your ROI with Wixwave\'s paid ads, Google Ads, Facebook campaigns, and digital marketing expertise.';
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Maximize your ROI with Wixwave’s paid ads, Google Ads, Facebook campaigns, and digital marketing expertise.');
+      metaDescription.setAttribute('content', description);
     } else {
       const meta = document.createElement('meta');
       meta.name = 'description';
-      meta.content = 'Maximize your ROI with Wixwave’s paid ads, Google Ads, Facebook campaigns, and digital marketing expertise.';
+      meta.content = description;
       document.head.appendChild(meta);
     }
+    // Set canonical tag
+    const canonicalUrl = 'https://wixwave.co/services/paid-ads';
+    let link = document.querySelector("link[rel='canonical']");
+    if (!link) {
+      link = document.createElement('link');
+      link.setAttribute('rel', 'canonical');
+      document.head.appendChild(link);
+    }
+    link.setAttribute('href', canonicalUrl);
   }, []);
 
   return (

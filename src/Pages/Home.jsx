@@ -22,6 +22,15 @@ function Home() {
       meta.content = 'Wixwave empowers businesses in Gurgaon and Patna with expert web design, app development, SEO, branding, and digital marketing. Start your digital journey with our local team.';
       document.head.appendChild(meta);
     }
+    // Set canonical tag
+    const canonicalUrl = 'https://wixwave.co/';
+    let link = document.querySelector("link[rel='canonical']");
+    if (!link) {
+      link = document.createElement('link');
+      link.setAttribute('rel', 'canonical');
+      document.head.appendChild(link);
+    }
+    link.setAttribute('href', canonicalUrl);
   }, []);
 
   return (

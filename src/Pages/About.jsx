@@ -7,14 +7,24 @@ export default function About() {
   useEffect(() => {
     document.title = 'About Wixwave | Creative Digital Agency & Expert Team';
     const metaDescription = document.querySelector('meta[name="description"]');
+    const description = 'Discover Wixwave\'s story, values, and talented team. We help businesses thrive with web, app, SEO, and branding excellence.';
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Discover Wixwave’s story, values, and talented team. We help businesses thrive with web, app, SEO, and branding excellence.');
+      metaDescription.setAttribute('content', description);
     } else {
       const meta = document.createElement('meta');
       meta.name = 'description';
-      meta.content = 'Discover Wixwave’s story, values, and talented team. We help businesses thrive with web, app, SEO, and branding excellence.';
+      meta.content = description;
       document.head.appendChild(meta);
     }
+    // Set canonical tag
+    const canonicalUrl = 'https://wixwave.co/about';
+    let link = document.querySelector("link[rel='canonical']");
+    if (!link) {
+      link = document.createElement('link');
+      link.setAttribute('rel', 'canonical');
+      document.head.appendChild(link);
+    }
+    link.setAttribute('href', canonicalUrl);
   }, []);
 
   return (
