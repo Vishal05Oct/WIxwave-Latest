@@ -120,8 +120,8 @@ const ServicesSection = () => {
               <img
                 src={service.image}
                 alt={`${service.title} service image`}
-                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
+                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-8 py-6 text-white">
                 <p className="text-2xl mb-2 font-medium">{service.title}</p>
@@ -148,9 +148,9 @@ const ServicesSection = () => {
             >
               <img
                 src={service.image}
-                alt={`${service.title} service image`}
-                className="w-full h-64 object-cover"
+                alt={service.title}
                 loading="lazy"
+                className="w-full h-56 object-cover rounded-lg shadow-md mb-4"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-6 py-4 text-white">
                 <p className="text-xl font-semibold">{service.title}</p>

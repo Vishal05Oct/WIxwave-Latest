@@ -1,13 +1,13 @@
-import React from "react";
+import React, { memo } from "react";
 
-export default function TonicSection() {
+const TonicSection = memo(function TonicSection() {
     return (
         <div className="container mx-auto flex items-center justify-center bg-white px-4 py-8 overflow-hidden">
             <div className="w-full grid grid-cols-1 md:grid-cols-2 items-center justify-items-center">
                 {/* Left Section */}
                 <div className="container mx-auto">
                     <h2 className="font-light leading-tight text-black text-[5rem] sm:text-[6rem] md:text-[6rem]">
-                        <span className="outlined-text">We’re</span>
+                        <span className="outlined-text">We're</span>
                         <br />
                         <span className="font-bold text-[#0c34e9]">Wixwave</span>
                     </h2>
@@ -28,4 +28,6 @@ export default function TonicSection() {
             </div>
         </div>
     );
-}
+});
+
+export default TonicSection;

@@ -70,9 +70,9 @@ const ShowcaseProjects = () => {
                 <img
                   src={project.image}
                   alt={project.title}
+                  loading="lazy"
                   className="w-full absolute top-0 left-0 object-cover transition-transform duration-[12000ms] ease-in-out group-hover:translate-y-[calc(-100%+300px)]"
                   style={{ height: 'auto', minHeight: '100%' }}
-                  loading="lazy"
                 />
               </div>
               <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-5">

@@ -1,7 +1,8 @@
 // src/components/PageWrapper.jsx
 import { motion } from 'framer-motion';
+import { memo } from 'react';
 
-function PageWrapper({ children }) {
+const PageWrapper = memo(function PageWrapper({ children }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -12,6 +13,6 @@ function PageWrapper({ children }) {
       {children}
     </motion.div>
   );
-}
+});
 
 export default PageWrapper;

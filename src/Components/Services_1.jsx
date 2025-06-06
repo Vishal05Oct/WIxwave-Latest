@@ -115,6 +115,7 @@ export default function ServicesSection() {
               <img
                 src={service.image}
                 alt={service.title}
+                loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover"
                 onError={(e) =>
                   (e.currentTarget.src = "https://via.placeholder.com/400x300")

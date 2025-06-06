@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BiMenu, BiX } from 'react-icons/bi';
 import { Link, useLocation } from 'react-router-dom';
@@ -11,7 +11,7 @@ const navLinks = [
   { label: 'Contact', path: '/contact' },
 ];
 
-function Navbar() {
+const Navbar = memo(function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
@@ -140,6 +140,6 @@ function Navbar() {
       </AnimatePresence>
     </nav>
   );
-}
+});
 
 export default Navbar;

@@ -8,8 +8,22 @@ import HCTA from '../Components/H-CTA'
 import OurServices from '../Components/OurServices'
 import CollaborationSection from '../Components/Collaboration'
 import HomepageForm from '../Components/HomepageForm';
+import { useEffect } from 'react'
 
 function Home() {
+  useEffect(() => {
+    document.title = 'Wixwave | Web Design, App Development, SEO & Digital Marketing in Gurgaon & Patna';
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Wixwave empowers businesses in Gurgaon and Patna with expert web design, app development, SEO, branding, and digital marketing. Start your digital journey with our local team.');
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = 'Wixwave empowers businesses in Gurgaon and Patna with expert web design, app development, SEO, branding, and digital marketing. Start your digital journey with our local team.';
+      document.head.appendChild(meta);
+    }
+  }, []);
+
   return (
    <>
    <div>
