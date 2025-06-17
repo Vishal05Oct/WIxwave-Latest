@@ -39,7 +39,7 @@ const ContactForm = ({ page = 'default' }) => {
   const { ref: messageRef, inView: messageInView } = useInView({ triggerOnce: true });
 
   useEffect(() => {
-    emailjs.init('OMoSpn_Pj_4xgb9S6'); // Make sure this is your actual PUBLIC KEY
+    emailjs.init('OMoSpn_Pj_4xgb9S6'); // Your public key
   }, []);
 
   const handleServiceClick = (service) => setSelectedService(service);
@@ -67,7 +67,6 @@ const ContactForm = ({ page = 'default' }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     const cleanedValue = name === 'contact' ? value.replace(/\D/g, '').slice(0, 10) : value;
     setFormData((prev) => ({ ...prev, [name]: cleanedValue }));
     setErrors((prev) => ({ ...prev, [name]: validateField(name, cleanedValue) }));
@@ -84,6 +83,7 @@ const ContactForm = ({ page = 'default' }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const serviceId = 'service_t080o6s';
     const templateId = 'template_8kufyia';
 
@@ -104,6 +104,7 @@ const ContactForm = ({ page = 'default' }) => {
         contact: formData.contact,
         message: formData.message,
         service: selectedService,
+        to_email: 'wixwave.co@gmail.com', // 👈 this is crucial if your template expects it
       });
 
       toast.success('Form submitted successfully!');
@@ -141,7 +142,6 @@ const ContactForm = ({ page = 'default' }) => {
             {title}
           </motion.h2>
 
-          {/* Input Fields */}
           <motion.input
             ref={nameRef}
             name="name"
@@ -199,7 +199,6 @@ const ContactForm = ({ page = 'default' }) => {
             {errors.contact && <p className="text-red-500 text-sm">{errors.contact}</p>}
           </div>
 
-          {/* Services */}
           <div className="mt-8">
             <h3 className="text-lg font-semibold mb-4">Choose Your Need</h3>
             <div className="flex flex-wrap gap-4">
@@ -222,7 +221,6 @@ const ContactForm = ({ page = 'default' }) => {
             </div>
           </div>
 
-          {/* Message */}
           <motion.textarea
             ref={messageRef}
             name="message"
@@ -236,7 +234,6 @@ const ContactForm = ({ page = 'default' }) => {
           ></motion.textarea>
           {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
 
-          {/* Submit */}
           <motion.div
             className="flex justify-end"
             initial={{ opacity: 0, y: 20 }}

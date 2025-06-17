@@ -1,100 +1,106 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const HowWeRoll = () => {
-  const containerVariants = {
-    hidden: {},
-    show: {
-      transition: {
-        staggerChildren: 0.2,
-      },
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.25,
     },
-  };
+  },
+};
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-  };
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
 
+const cards = [
+  {
+    title: "STRATEGY",
+    text: "We develop goal-driven strategies rooted in data and market insights. Align your brand with long-term success through actionable and measurable planning.",
+    colSpan: "md:col-span-1",
+    bg: "bg-gradient-to-br from-[#e0f2ff] to-[#ffffff]",
+  },
+  {
+    title: "DESIGN",
+    text: "We craft intuitive, responsive, and visually stunning designs that engage users and elevate brand perception across digital platforms. With a focus on UX/UI principles and branding consistency, our designs build trust and enhance conversions across every touchpoint.",
+    colSpan: "md:col-span-2",
+    bg: "bg-gradient-to-br from-[#fff0da] to-[#ffffff]",
+  },
+  {
+    title: "TECHNOLOGY",
+    text: "Utilizing modern frameworks and best practices, we build scalable, secure, and high-performance digital solutions that stand the test of time. From custom web apps to mobile-first responsive websites, our technology stack ensures optimal performance, SEO, and accessibility across all devices.",
+    colSpan: "md:col-span-2",
+    bg: "bg-gradient-to-br from-[#eaffea] to-[#ffffff]",
+  },
+  {
+    title: "PERFORMANCE",
+    text: "Our team focuses on continuous optimization and real-time analytics to ensure your digital assets drive ROI and exceed performance benchmarks.",
+    colSpan: "md:col-span-1",
+    bg: "bg-gradient-to-br from-[#ffeef0] to-[#ffffff]",
+  },
+];
+
+const HowWeRoll = () => {
   return (
-    <div className="text-black py-12 font-[Futura, sans-serif]">
-      <div className="container mx-auto px-4">
+    <section className="relative py-12 bg-white font-[Futura, sans-serif] overflow-hidden">
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Title */}
         <motion.h2
-          className="text-4xl font-bold mb-8 text-left leading-tight tracking-normal uppercase text-gray-900"
           initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
+          whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-4xl md:text-5xl font-extrabold uppercase text-gray-900 tracking-tight leading-tight mb-10"
         >
           THAT’S HOW{" "}
           <motion.span
-            className="text-[#0c34e9] inline-block drop-shadow-sm"
-            initial={{ opacity: 0, rotate: -10 }}
-            animate={{ opacity: 1, rotate: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            initial={{ opacity: 0, rotate: -5 }}
+            whileInView={{ opacity: 1, rotate: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="inline-block text-[#0c34e9] drop-shadow-md"
           >
             WE ROLL!
           </motion.span>{" "}
           ✨
         </motion.h2>
 
+        {/* Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6"
           variants={containerVariants}
           initial="hidden"
-          animate="show"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6"
         >
-          {[
-            {
-              title: "STRATEGY",
-              text: "We develop actionable strategies rooted in research and foresight, giving your brand a clear, confident path forward. Our planning ensures resilience and relevance in a fast-changing market.",
-              colSpan: "col-span-1 md:col-span-1",
-            },
-            {
-              title: "DESIGN",
-              text: "Our creative approach fuses beauty with usability, creating designs that resonate deeply with your audience. Every detail is intentional, building trust and recognition across platforms.",
-              colSpan: "col-span-2 md:col-span-2",
-            },
-            {
-              title: "TECHNOLOGY",
-              text: "We engineer future-ready solutions, leveraging the latest frameworks and tools to build reliable, fast, and scalable products that meet evolving digital demands.",
-              colSpan: "col-span-2 md:col-span-2",
-            },
-            {
-              title: "PERFORMANCE",
-              text: "We focus on results, using data-driven insights and constant refinement to push your growth forward and ensure your brand consistently outperforms expectations.",
-              colSpan: "col-span-1 md:col-span-1",
-            },
-          ].map((item, idx) => (
-            <motion.div
-              key={idx}
-              className={`${item.colSpan} border rounded-xl p-5 shadow-md flex flex-col justify-start transition-transform hover:scale-102 hover:shadow-md duration-300 bg-white`}
+          {cards.map((card, i) => (
+            <motion.article
+              key={i}
               variants={cardVariants}
-              whileHover={{ rotate: 0.5 }}
+              whileHover={{ y: -4, scale: 1.015 }}
+              className={`${card.colSpan} ${card.bg} p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300`}
             >
-              <motion.h3
-                className="text-xl font-bold mb-3 tracking-normal uppercase text-gray-800"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 * (idx + 1) }}
-              >
-                {item.title}
-              </motion.h3>
-              <motion.p
-                className="text-sm mb-3 leading-relaxed text-gray-700"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3 * (idx + 1) }}
-              >
-                {item.text}
-              </motion.p>
-            </motion.div>
+              <h3 className="text-xl font-bold uppercase mb-3 text-gray-800 tracking-wide">
+                {card.title}
+              </h3>
+              <p className="text-base text-gray-700 leading-relaxed">
+                {card.text}
+              </p>
+            </motion.article>
           ))}
         </motion.div>
       </div>
-    </div>
+
+      {/* Background blobs */}
+      <div className="absolute top-0 left-0 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply blur-3xl opacity-20 animate-pulse -z-10" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-pink-100 rounded-full mix-blend-multiply blur-3xl opacity-20 animate-ping -z-10" />
+    </section>
   );
 };
 
 export default HowWeRoll;
-
-// This component uses Framer Motion for animations and is styled with Tailwind CSS. It creates a responsive grid layout with animated cards that describe the company's approach to strategy, design, technology, and performance. The text is styled to be clear and engaging, with a focus on readability and visual hierarchy.

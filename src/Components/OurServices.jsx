@@ -1,172 +1,154 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Slider from 'react-slick';
-import { motion } from 'framer-motion';
-import { FaArrowRight, FaChevronRight, FaChevronLeft } from 'react-icons/fa';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import React from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
+
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
 
 const services = [
-  { 
-    title: 'Website Design & Development', 
-    image: 'https://img.freepik.com/free-vector/concept-landing-page-website-setup_52683-25031.jpg', 
-    link: '/services/web-dev', 
-    delay: 0 
+  {
+    title: "Website Design & Development",
+    text: "Custom websites tailored to your brand, optimized for SEO and performance.",
+    image: "https://img.freepik.com/free-vector/concept-landing-page-website-setup_52683-25031.jpg",
+    link: "/services/web-dev",
+    bg: "bg-[#f0f7ff]",
   },
-  { 
-    title: 'Mobile App Design & Development', 
-    image: 'https://res.cloudinary.com/dobbdtftp/image/upload/v1746621737/app_dev_ewptnp.jpg', 
-    link: '/services/app-dev', 
-    delay: 0 
+  {
+    title: "App Design & Development",
+    text: "Scalable mobile applications built with top UI/UX practices for iOS and Android.",
+    image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621737/app_dev_ewptnp.jpg",
+    link: "/services/app-dev",
+    bg: "bg-[#f0f7ff]",
   },
-  { 
-    title: 'Branding & Graphics', 
-    image: 'https://res.cloudinary.com/dobbdtftp/image/upload/v1746641973/designing_nainbu.jpg', 
-    link: '/services/branding', 
-    delay: 0 
+  {
+    title: "Branding & Graphics",
+    text: "Crafting impactful identities, from logos to full brand experiences.",
+    image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746641973/designing_nainbu.jpg",
+    link: "/services/branding",
+    bg: "bg-[#f0f7ff]",
   },
-  { 
-    title: 'Search Engine Optimisation', 
-    image: 'https://res.cloudinary.com/dobbdtftp/image/upload/v1746621736/seo_ph2x6b.avif', 
-    link: '/services/seo', 
-    delay: 0 
+  {
+    title: "Search Engine Optimisation",
+    text: "Drive traffic with ethical SEO techniques and data-backed strategies.",
+    image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621736/seo_ph2x6b.avif",
+    link: "/services/seo",
+    bg: "bg-[#f0f7ff]",
   },
-  { 
-    title: 'Social Media Management', 
-    image: 'https://res.cloudinary.com/dobbdtftp/image/upload/v1746621737/social_media_gseote.avif', 
-    link: '/services/social-media', 
-    delay: 0 
+  {
+    title: "Social Media Management",
+    text: "Grow your brand through strategic content and engagement.",
+    image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621737/social_media_gseote.avif",
+    link: "/services/social-media",
+    bg: "bg-[#f0f7ff]",
   },
-  { 
-    title: 'Performance Marketing', 
-    image: 'https://res.cloudinary.com/dobbdtftp/image/upload/v1746621736/performance_bkyvvp.avif', 
-    link: '/services/paid-ads', 
-    delay: 0 
+  {
+    title: "Performance Marketing",
+    text: "Data-driven paid ad strategies focused on ROI and growth.",
+    image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621736/performance_bkyvvp.avif",
+    link: "/services/paid-ads",
+    bg: "bg-[#f0f7ff]",
   },
 ];
 
-const fadeUpVariant = {
-  hidden: { opacity: 0, y: 60 },
-  visible: (delay = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay, duration: 0.8, ease: 'easeOut' },
-  }),
-};
-
-// Custom mobile arrows with different style/icons
-const MobileNextArrow = ({ onClick }) => (
-  <button
-    onClick={onClick}
-    aria-label="Next slide"
-    className="absolute right-1 top-1/2 transform -translate-y-1/2 z-20 bg-blue-600  text-white p-2 rounded-full shadow-md cursor-pointer transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-purple-400"
-  >
-    <FaChevronRight size={20} />
-  </button>
-);
-
-const MobilePrevArrow = ({ onClick }) => (
-  <button
-    onClick={onClick}
-    aria-label="Previous slide"
-    className="absolute left-1 top-1/2 transform -translate-y-1/2 z-20 bg-blue-600  text-white p-2 rounded-full shadow-md cursor-pointer transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-purple-400"
-  >
-    <FaChevronLeft size={20} />
-  </button>
-);
-
-const sliderSettings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  arrows: true,
-  lazyLoad: 'ondemand',
-  nextArrow: <MobileNextArrow />,
-  prevArrow: <MobilePrevArrow />,
-};
-
-const ServicesSection = () => {
+const HowWeRoll = () => {
   return (
-    <div className="py-4 md:pb-12 px-5 container mx-auto">
-      <motion.h2
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeUpVariant}
-        className="text-4xl md:text-5xl font-bold lg:mb-8 text-gray-900 relative inline-block"
-      >
-        <span className="relative z-10">Our Services</span>
-      </motion.h2>
-
-      {/* Grid layout for md and up */}
-      <div className="hidden md:grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {services.map((service) => (
-          <motion.div
-            key={service.title}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUpVariant}
-            custom={service.delay}
-            className="relative group overflow-hidden rounded-2xl shadow-lg block"
+    <section
+      className="relative lg:py-10 bg-white overflow-hidden"
+      aria-labelledby="our-services-heading"
+    >
+      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+        <motion.h2
+          id="our-services-heading"
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="text-2xl md:text-4xl font-extrabold uppercase text-gray-900 mb-4"
+        >
+          OUR{" "}
+          <motion.span
+            initial={{ opacity: 0, rotate: -5 }}
+            whileInView={{ opacity: 1, rotate: 0 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="inline-block text-[#0c34e9] drop-shadow-sm"
           >
-            <Link
-              to={service.link}
-              aria-label={`Learn more about ${service.title}`}
-              className="block relative"
+            SERVICES
+          </motion.span>
+        </motion.h2>
+
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 lg:gap-8"
+        >
+          {services.map((card, i) => (
+            <motion.article
+              key={`service-${i}`}
+              variants={cardVariants}
+              whileHover={{ y: -4, scale: 1.01 }}
+              className={`group ${card.bg} p-4 md:p-5 lg:p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300`}
             >
-              <img
-                src={service.image}
-                alt={`${service.title} service image`}
-                loading="lazy"
-                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-8 py-6 text-white">
-                <p className="text-2xl mb-2 font-medium">{service.title}</p>
-                <div className="flex items-center">
-                  <p>Explore More</p>
-                  <div className="bg-white text-black rounded-full w-10 h-10 flex justify-center items-center text-xl ml-3 transition-all transform hover:bg-purple-500 hover:scale-110 hover:shadow-lg cursor-pointer">
-                    <FaArrowRight />
-                  </div>
+              <Link
+                to={card.link}
+                className="block w-full h-full"
+                aria-label={card.title}
+                title={card.title}
+                rel="prefetch"
+              >
+                <div className="overflow-hidden rounded-lg mb-3">
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-44 md:h-48 lg:h-52 object-cover rounded-lg group-hover:scale-105 transition duration-500"
+                  />
                 </div>
-              </div>
-            </Link>
-          </motion.div>
-        ))}
+                <h3 className="text-base md:text-lg font-semibold uppercase text-gray-800 mb-2">
+                  {card.title}
+                </h3>
+                <p className="text-sm md:text-base text-gray-700 mb-3 leading-snug">
+                  {card.text}
+                </p>
+                <div className="flex items-center gap-1.5 text-blue-600 font-semibold text-sm">
+                  <span>Explore More</span>
+                  <FaArrowRight className="transition-transform group-hover:translate-x-1" />
+                </div>
+              </Link>
+            </motion.article>
+          ))}
+        </motion.div>
       </div>
 
-      {/* Slider for mobile view only */}
-      <div className="md:hidden relative mt-6">
-        <Slider {...sliderSettings}>
-          {services.map((service) => (
-            <Link
-              to={service.link}
-              key={service.title}
-              className="block relative overflow-hidden rounded-2xl shadow-lg"
-            >
-              <img
-                src={service.image}
-                alt={service.title}
-                loading="lazy"
-                className="w-full h-56 object-cover rounded-lg shadow-md mb-4"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-6 py-4 text-white">
-                <p className="text-xl font-semibold">{service.title}</p>
-                <div className="flex items-center mt-2">
-                  <span>Explore More</span>
-                  <div className="bg-white text-black rounded-full w-8 h-8 flex justify-center items-center text-base ml-2">
-                    <FaArrowRight />
-                  </div>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </Slider>
-      </div>
-    </div>
+      {/* Decorative Blobs - Accessibility hidden */}
+      <div
+        aria-hidden="true"
+        className="absolute top-0 left-0 w-56 h-56 md:w-64 md:h-64 bg-blue-100 rounded-full mix-blend-multiply blur-3xl opacity-20 animate-pulse -z-10"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute bottom-0 right-0 w-64 h-64 md:w-72 md:h-72 bg-pink-100 rounded-full mix-blend-multiply blur-3xl opacity-20 animate-ping -z-10"
+      />
+    </section>
   );
 };
 
-export default ServicesSection;
+export default HowWeRoll;

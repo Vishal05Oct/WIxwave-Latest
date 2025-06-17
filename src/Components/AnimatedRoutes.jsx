@@ -1,9 +1,9 @@
-// AnimatedRoutes.jsx
 import { Routes, Route, useLocation } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
-import PageWrapper from './PageWrapper';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Suspense, lazy } from 'react';
+import PageWrapper from './PageWrapper';
 
+// Lazy-loaded pages
 const Home = lazy(() => import('../Pages/Home'));
 const About = lazy(() => import('../Pages/About'));
 const Services = lazy(() => import('../Pages/Services'));
@@ -17,12 +17,58 @@ const Branding = lazy(() => import('../Pages/Branding'));
 const SocialMedia = lazy(() => import('../Pages/SocialMedia'));
 const PaidAds = lazy(() => import('../Pages/PaidAds'));
 
+// Branded Loader
+const Loader = () => {
+  const dotVariants = {
+    initial: { opacity: 0 },
+    animate: {
+      opacity: [0, 1, 0],
+      transition: {
+        repeat: Infinity,
+        duration: 1,
+        ease: 'easeInOut',
+        staggerChildren: 0.25,
+      },
+    },
+  };
+
+  return (
+    <div className="w-full h-screen flex flex-col items-center justify-center bg-white">
+      <motion.div
+        className="w-24 h-24 rounded-full bg-blue-600 flex items-center justify-center mb-4"
+        animate={{ opacity: [1, 0.5, 1] }}
+        transition={{ repeat: Infinity, duration: 1.5 }}
+      >
+        <img
+          src="https://res.cloudinary.com/dobbdtftp/image/upload/v1746202311/3_rgrvsx.png"
+          alt="WixWave Logo"
+          className="w-14 h-14 object-contain"
+        />
+      </motion.div>
+
+      <div className="text-gray-600 text-lg font-medium flex items-center space-x-1">
+        <span>WixWave is loading</span>
+        <motion.div
+          className="flex space-x-1"
+          variants={dotVariants}
+          initial="initial"
+          animate="animate"
+        >
+          <motion.span>.</motion.span>
+          <motion.span>.</motion.span>
+          <motion.span>.</motion.span>
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+
 function AnimatedRoutes() {
   const location = useLocation();
 
   return (
     <AnimatePresence mode="wait">
-      <Suspense fallback={<div className="w-full h-screen flex items-center justify-center text-2xl">Loading...</div>}>
+      <Suspense fallback={<Loader />}>
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
           <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
