@@ -16,6 +16,7 @@ const SEO = lazy(() => import('../Pages/Seo'));
 const Branding = lazy(() => import('../Pages/Branding'));
 const SocialMedia = lazy(() => import('../Pages/SocialMedia'));
 const PaidAds = lazy(() => import('../Pages/PaidAds'));
+const ThankYou = lazy(() => import('../Pages/ThankYou'));
 
 // Branded Loader
 const Loader = () => {
@@ -82,6 +83,7 @@ function AnimatedRoutes() {
           <Route path="/services/branding" element={<PageWrapper><Branding /></PageWrapper>} />
           <Route path="/services/social-media" element={<PageWrapper><SocialMedia /></PageWrapper>} />
           <Route path="/services/paid-ads" element={<PageWrapper><PaidAds /></PageWrapper>} />
+          <Route path="/thank-you" element={<PageWrapper><ThankYou /></PageWrapper>} />
         </Routes>
       </Suspense>
     </AnimatePresence>
