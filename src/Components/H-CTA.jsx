@@ -71,7 +71,7 @@ const HeroSection = () => {
               </motion.button>
             </Link>
 
-            <Link to="/blog" aria-label="Our Blogs">
+            <Link to="/portfolio" aria-label="Our Portfolio">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
