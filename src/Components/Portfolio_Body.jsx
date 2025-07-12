@@ -23,7 +23,7 @@ const projects = [
     category: 'React',
   },
   {
-    title: 'Suta',
+    title: 'Suta ',
     url: 'https:/suta.in/',
     image: 'https://res.cloudinary.com/dobbdtftp/image/upload/v1751686816/Suta_qtq4xn.png',
     category: 'Shopify',
