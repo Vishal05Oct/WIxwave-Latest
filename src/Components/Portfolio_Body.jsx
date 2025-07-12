@@ -24,7 +24,7 @@ const projects = [
   },
   {
     title: 'Suta ',
-    url: 'https:/suta.in/',
+    url: 'https://suta.in/',
     image: 'https://res.cloudinary.com/dobbdtftp/image/upload/v1751686816/Suta_qtq4xn.png',
     category: 'Shopify',
   },
