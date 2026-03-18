@@ -51,22 +51,6 @@ const OurBlogs = () => {
           </p>
         </div>
       </section>
-
-      {/* Coming Soon Section */}
-      <section
-        aria-label="Blogs Coming Soon Notice"
-        className="w-full py-24 bg-gray-100 flex items-center justify-center text-center px-4"
-      >
-        <div className="max-w-2xl">
-          <h3 className="text-3xl sm:text-4xl font-bold text-blue-700 mb-4">
-            Stay Tuned for Our Blogs! <br />
-            Our blogs will be published soon...
-          </h3>
-          <p className="text-lg text-gray-600">
-            Stay tuned for updates! We're working on something insightful and inspiring for you.
-          </p>
-        </div>
-      </section>
     </>
   );
 };

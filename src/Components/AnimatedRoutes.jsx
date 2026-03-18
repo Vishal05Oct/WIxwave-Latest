@@ -10,6 +10,8 @@ const Services = lazy(() => import('../Pages/Services'));
 const Contact = lazy(() => import('../Pages/Contact'));
 const Portfolio = lazy(() => import('../Pages/Portfolio'));
 const Blogs = lazy(() => import('../Pages/Blogs'));
+const BlogPost1 = lazy(() => import('../Pages/blogpost1'));
+const BlogPost2 = lazy(() => import('../Pages/blogpost2'));
 const WebDev = lazy(() => import('../Pages/WebDev'));
 const AppDev = lazy(() => import('../Pages/AppDev'));
 const SEO = lazy(() => import('../Pages/Seo'));
@@ -78,6 +80,8 @@ function AnimatedRoutes() {
           <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
           <Route path="/portfolio" element={<PageWrapper><Portfolio /></PageWrapper>} />
           <Route path="/blog" element={<PageWrapper><Blogs /></PageWrapper>} />
+          <Route path="/blog/website-technology-seo" element={<PageWrapper><BlogPost1 /></PageWrapper>} />
+          <Route path="/blog/ui-ux-trends-2026" element={<PageWrapper><BlogPost2 /></PageWrapper>} />
           <Route path="/services/web-dev" element={<PageWrapper><WebDev /></PageWrapper>} />
           <Route path="/services/app-dev" element={<PageWrapper><AppDev /></PageWrapper>} />
           <Route path="/services/seo" element={<PageWrapper><SEO /></PageWrapper>} />
