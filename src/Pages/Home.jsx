@@ -40,9 +40,9 @@ function Home() {
     <Slider />
     <VideoSection />
     <HowWeRoll />
-    <WeAre />
     <OurServices />
     <Concept />
+     <WeAre />
     <HCTA />
     <HomepageForm page="default" /> 
     <CollaborationSection />

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 const ServicesCTA = () => {
   return (
-    <section className="py-20 bg-gradient-to-r from-[#0c34e9] to-[#0c34e9] text-center overflow-hidden">
+    <section className="py-16 bg-gradient-to-r from-[#0c34e9] to-[#0c34e9] text-center overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-white">
         <motion.h2
           initial={{ opacity: 0, y: -60 }}

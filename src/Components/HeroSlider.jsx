@@ -1,143 +1,146 @@
-import React from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const sliderItems = [
-  {
-    logo: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
-    alt: "React",
-  },
-  {
-    logo: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-    alt: "JavaScript",
-  },
-  {
-    logo: "https://img.icons8.com/?size=512&id=hsPbhkOH4FMe&format=png",
-    alt: "Node.js",
-  },
-  {
-    logo: "https://img.icons8.com/?size=512&id=kg46nzoJrmTR&format=png",
-    alt: "Express.js",
-  },
-  {
-    logo: "https://cdn.iconscout.com/icon/free/png-256/free-mongodb-logo-icon-download-in-svg-png-gif-file-formats--wordmark-programming-langugae-freebies-pack-logos-icons-1175138.png?f=webp&w=256",
-    alt: "MongoDB",
-  },
-  {
-    logo: "https://img.icons8.com/?size=512&id=7I3BjCqe9rjG&format=png",
-    alt: "Flutter",
-  },
-  {
-    logo: "https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg",
-    alt: "Figma",
-  },
-  {
-    logo: "https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg",
-    alt: "Tailwind CSS",
-  },
-  {
-    logo: "https://angular.io/assets/images/logos/angular/angular.svg",
-    alt: "Angular",
-  },
-  {
-    logo: "https://s.w.org/style/images/about/WordPress-logotype-wmark.png",
-    alt: "WordPress",
-  },
-  {
-    logo: "https://cdn.worldvectorlogo.com/logos/shopify.svg",
-    alt: "Shopify",
-  },
-  {
-    logo: "https://img.icons8.com/?size=512&id=fpGM2cINbbu4&format=png",
-    alt: "Google Cloud",
-  },
-  {
-    logo: "https://img.icons8.com/?size=512&id=PvvcWRWxRKSR&format=png",
-    alt: "Meta",
-  },
-  {
-    logo: "https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg",
-    alt: "Adobe Photoshop",
-  },
-  {
-    logo: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg",
-    alt: "Adobe Illustrator",
-  },
-  {
-    logo: "https://img.icons8.com/?size=512&id=iWw83PVcBpLw&format=png",
-    alt: "Canva",
-  },
-  {
-    logo: "https://img.icons8.com/color/96/000000/amazon-web-services.png",
-    alt: "AWS",
-  },
-];
+gsap.registerPlugin(ScrollTrigger);
 
-const duplicatedItems = [...sliderItems, ...sliderItems];
+export default function AboutSection() {
+  const sectionRef = useRef();
+  const headingRef = useRef();
+  const statsRef = useRef([]);
 
-const SimpleLogoSlider = React.memo(() => {
-  const [isPaused, setIsPaused] = React.useState(false);
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const el = headingRef.current;
+      const text = el.textContent;
+      const words = text.split(" ");
+
+      el.innerHTML = "";
+
+      words.forEach((word) => {
+        const span = document.createElement("span");
+        span.className = "word";
+        span.textContent = word + " ";
+        span.style.opacity = "0.2";
+        span.style.display = "inline";
+        span.style.whiteSpace = "normal";
+        el.appendChild(span);
+      });
+
+      const wordElements = el.querySelectorAll(".word");
+
+      gsap.to(wordElements, {
+        opacity: 1,
+        color: "#000",
+        stagger: 0.025,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 80%",
+          end: "top 30%",
+          scrub: true,
+        },
+      });
+
+      statsRef.current.forEach((el) => {
+        const endValue = parseInt(el.getAttribute("data-value"));
+        let obj = { val: 0 };
+
+        gsap.to(obj, {
+          val: endValue,
+          duration: 2,
+          ease: "power1.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 90%",
+          },
+          onUpdate: () => {
+            el.innerText =
+              Math.floor(obj.val) + (el.dataset.suffix || "");
+          },
+        });
+      });
+
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <div className="bg-white py-10">
-      {/* Title */}
-      <motion.h2
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
-        className="text-2xl sm:text-4xl font-extrabold text-center mb-8 text-black relative"
-      >
-        Technologies We Work With
-        <motion.span
-          layoutId="underline"
-          className="block h-1 w-48 mx-auto mt-2 rounded bg-[#0c34e9]"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 1.2, ease: "easeOut", delay: 0.7 }}
-          style={{ transformOrigin: "left" }}
-        />
-      </motion.h2>
+    <section
+      ref={sectionRef}
+      className="w-full"
+      style={{
+        paddingTop: "clamp(60px, 12vh, 140px)",
+        paddingBottom: "clamp(60px, 12vh, 140px)",
+      }}
+    >
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16">
 
-      {/* Logo Slider */}
-      <div
-        className="overflow-hidden w-full"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-        aria-label="Technologies logo slider"
-      >
-        <motion.div
-          className="flex min-w-max gap-10 will-change-transform"
-          animate={isPaused ? {} : { x: ["0%", "-50%"] }}
-          transition={
-            isPaused
-              ? {}
-              : {
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  duration: 40,
-                  ease: "linear",
-                }
-          }
-        >
-          {duplicatedItems.map(({ logo, alt }, index) => (
-            <img
-              key={index}
-              src={logo}
-              alt={alt}
-              className="w-12 h-12 sm:w-20 sm:h-20 object-contain flex-shrink-0"
-              draggable={false}
-              loading="lazy"
-              tabIndex={-1}
-              onError={(e) => {
-                e.currentTarget.onerror = null;
-                e.currentTarget.src =
-                  "https://via.placeholder.com/80?text=No+Image";
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-y-5 md:gap-y-10 gap-x-8">
+
+          {/* LEFT */}
+          <div className="md:col-span-1 flex md:items-start items-center">
+            <p className="text-[11px] sm:text-sm text-gray-500 flex items-center gap-2">
+              <span className="w-2 h-2 bg-blue-600 rounded-full shrink-0"></span>
+              About Wixwave
+            </p>
+          </div>
+
+          {/* RIGHT */}
+          <div className="md:col-span-4 flex flex-col">
+
+            {/* HEADING */}
+            <h1
+              ref={headingRef}
+              className="font-medium tracking-tight text-gray-300 break-words"
+              style={{
+                fontSize: "clamp(17px, 4.8vw, 44px)", // ✅ slightly smaller mobile
+                lineHeight: "clamp(1.6, 1.3vw, 1.2)", // ✅ more breathing
               }}
-            />
-          ))}
-        </motion.div>
-      </div>
-    </div>
-  );
-});
+            >
+              Wixwave crafts powerful digital solutions that help businesses grow, scale, and stand out in a competitive market. From innovative website development to data-driven marketing strategies, we combine creativity with technology to deliver impactful results that drive real growth.
+            </h1>
 
-export default SimpleLogoSlider;
+            {/* STATS */}
+            <div
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3"
+              style={{
+                marginTop: "clamp(28px, 7vh, 70px)", // ✅ more spacing from text
+                gap: "clamp(18px, 4vw, 36px)",
+              }}
+            >
+              {[
+                { label: "Happy Clients", value: 600, suffix: "+" },
+                { label: "Projects Delivered", value: 200, suffix: "+" },
+                { label: "Client Satisfaction", value: 95, suffix: "%" },
+              ].map((item, i) => (
+                <div key={i} className="flex flex-col">
+                  <p className="text-[11px] sm:text-sm text-gray-700 flex items-center gap-2 mb-2">
+                    <span className="w-2 h-2 bg-blue-600 rounded-full shrink-0"></span>
+                    {item.label}
+                  </p>
+
+                  <div className="w-full h-[1px] bg-gray-300 mb-2 sm:mb-3"></div>
+
+                  <h2
+                    ref={(el) => (statsRef.current[i] = el)}
+                    data-value={item.value}
+                    data-suffix={item.suffix}
+                    className="font-semibold text-blue-700 leading-none"
+                    style={{
+                      fontSize: "clamp(24px, 8vw, 64px)", // ✅ reduced dominance
+                    }}
+                  >
+                    0
+                  </h2>
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

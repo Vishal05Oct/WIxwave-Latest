@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const ContactInfo = () => {
   return (
-    <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-800 text-center">
+    <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-center">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-white">
         <motion.h2
           initial={{ opacity: 0, y: -50 }}

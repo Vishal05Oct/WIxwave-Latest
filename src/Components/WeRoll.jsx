@@ -1,106 +1,153 @@
-import React from "react";
-import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
+import { useState } from "react";
 
-const containerVariants = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.25,
+export default function HowWeWork() {
+  const [mouse, setMouse] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setMouse({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
+  const steps = [
+    {
+      number: "01",
+      title: "Understanding Your Vision",
+      desc: "We begin with discussions to understand your goals, audience, and business challenges.",
     },
-  },
-};
+    {
+      number: "02",
+      title: "Strategy & Creative Planning",
+      desc: "Our team builds a roadmap covering design, development, and marketing strategy.",
+    },
+    {
+      number: "03",
+      title: "Design & Development",
+      desc: "We transform ideas into powerful digital products using modern technologies.",
+    },
+    {
+      number: "04",
+      title: "Launch & Growth",
+      desc: "After launch we continuously optimize performance and scale your business.",
+    },
+  ];
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
-};
-
-const cards = [
-  {
-    title: "STRATEGY",
-    text: "We develop goal-driven strategies rooted in data and market insights. Align your brand with long-term success through actionable and measurable planning.",
-    colSpan: "md:col-span-1",
-    bg: "bg-gradient-to-br from-[#e0f2ff] to-[#ffffff]",
-  },
-  {
-    title: "DESIGN",
-    text: "We craft intuitive, responsive, and visually stunning designs that engage users and elevate brand perception across digital platforms. With a focus on UX/UI principles and branding consistency, our designs build trust and enhance conversions across every touchpoint.",
-    colSpan: "md:col-span-2",
-    bg: "bg-gradient-to-br from-[#fff0da] to-[#ffffff]",
-  },
-  {
-    title: "TECHNOLOGY",
-    text: "Utilizing modern frameworks and best practices, we build scalable, secure, and high-performance digital solutions that stand the test of time. From custom web apps to mobile-first responsive websites, our technology stack ensures optimal performance, SEO, and accessibility across all devices.",
-    colSpan: "md:col-span-2",
-    bg: "bg-gradient-to-br from-[#eaffea] to-[#ffffff]",
-  },
-  {
-    title: "PERFORMANCE",
-    text: "Our team focuses on continuous optimization and real-time analytics to ensure your digital assets drive ROI and exceed performance benchmarks.",
-    colSpan: "md:col-span-1",
-    bg: "bg-gradient-to-br from-[#ffeef0] to-[#ffffff]",
-  },
-];
-
-const HowWeRoll = () => {
   return (
-    <section className="relative py-12 bg-white font-[Futura, sans-serif] overflow-hidden">
-      <div className="container mx-auto px-4 relative z-10">
-        {/* Title */}
-        <motion.h2
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-extrabold uppercase text-gray-900 tracking-tight leading-tight mb-10"
-        >
-          THAT’S HOW{" "}
-          <motion.span
-            initial={{ opacity: 0, rotate: -5 }}
-            whileInView={{ opacity: 1, rotate: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="inline-block text-[#0c34e9] drop-shadow-md"
-          >
-            WE ROLL!
-          </motion.span>{" "}
-          ✨
-        </motion.h2>
+    <section
+      onMouseMove={handleMouseMove}
+      className="relative overflow-hidden"
+      style={{
+        paddingTop: "clamp(60px, 10vh, 120px)",
+        paddingBottom: "clamp(60px, 10vh, 120px)",
+      }}
+    >
+      {/* CONTAINER */}
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16">
 
-        {/* Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6"
+        {/* HEADER */}
+        <div
+          className="flex justify-between items-start"
+          style={{
+            marginBottom: "clamp(32px, 6vh, 80px)", // ✅ balanced spacing
+            gap: "clamp(16px, 3vw, 40px)",
+          }}
         >
-          {cards.map((card, i) => (
-            <motion.article
-              key={i}
-              variants={cardVariants}
-              whileHover={{ y: -4, scale: 1.015 }}
-              className={`${card.colSpan} ${card.bg} p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300`}
+          {/* LEFT */}
+          <div className="max-w-[65%] sm:max-w-[75%]">
+            <p className="text-[10px] sm:text-xs uppercase tracking-widest text-[#3b82f6] font-semibold mb-2">
+              Our Process
+            </p>
+
+            <h2 className="text-[20px] sm:text-[24px] md:text-[36px] lg:text-[42px] font-bold text-[#1a1a1a] leading-[1.2]">
+              How We Turn Ideas
+              <br />
+              Into Digital Success
+            </h2>
+          </div>
+
+          {/* RIGHT */}
+          <div className="text-right shrink-0">
+            <p className="text-[20px] sm:text-[26px] md:text-[32px] font-bold text-[#3b82f6]">
+              100%
+            </p>
+
+            <p className="text-[10px] sm:text-xs text-[#555] mt-1 leading-tight">
+              Client Satisfaction
+              <br />
+              Our Top Priority
+            </p>
+
+            <div className="flex justify-end mt-2">
+              <svg
+                className="w-[70px] sm:w-[110px] md:w-[140px]"
+                height="12"
+                viewBox="0 0 150 12"
+              >
+                <path
+                  d="M0 0 L0 12 L150 12 L150 0"
+                  stroke="#1a1a1a"
+                  strokeWidth="1"
+                  fill="none"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        {/* STEPS */}
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4"
+          style={{
+            gap: "clamp(20px, 3vw, 32px)", // ✅ uniform spacing
+            marginBottom: "clamp(40px, 8vh, 80px)",
+          }}
+        >
+          {steps.map((step, index) => (
+            <div
+              key={index}
+              className="group transition-all duration-300 hover:-translate-y-1"
             >
-              <h3 className="text-xl font-bold uppercase mb-3 text-gray-800 tracking-wide">
-                {card.title}
-              </h3>
-              <p className="text-base text-gray-700 leading-relaxed">
-                {card.text}
-              </p>
-            </motion.article>
-          ))}
-        </motion.div>
-      </div>
+              <div className="flex items-center mb-3">
+                <span className="bg-[#2563eb] text-white text-[10px] uppercase px-2.5 py-1 rounded-l-full">
+                  Step
+                </span>
 
-      {/* Background blobs */}
-      <div className="absolute top-0 left-0 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply blur-3xl opacity-20 animate-pulse -z-10" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-pink-100 rounded-full mix-blend-multiply blur-3xl opacity-20 animate-ping -z-10" />
+                <span className="bg-[#1e3a8a] text-white text-xs px-2.5 py-1 rounded-r-full font-semibold">
+                  {step.number}
+                </span>
+              </div>
+
+              <h3 className="text-[15px] sm:text-[16px] font-semibold text-[#1a1a1a] mb-2 group-hover:text-[#2563eb] transition">
+                {step.title}
+              </h3>
+
+              <p className="text-[12px] sm:text-[13px] text-[#555] leading-relaxed">
+                {step.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="flex justify-center">
+          <div className="w-full max-w-xl bg-white/70 backdrop-blur rounded-full px-5 sm:px-6 py-3 flex flex-col sm:flex-row items-center justify-between shadow-sm gap-2 sm:gap-4">
+
+            <p className="text-[11px] sm:text-xs text-[#555] text-center sm:text-left">
+              Ready to start your project with us?
+            </p>
+
+            <button className="flex items-center gap-1.5 text-sm font-semibold text-[#1a1a1a] hover:text-[#2563eb] transition">
+              Start Project
+              <ArrowUpRight className="w-4 h-4" />
+            </button>
+
+          </div>
+        </div>
+
+      </div>
     </section>
   );
-};
-
-export default HowWeRoll;
+}

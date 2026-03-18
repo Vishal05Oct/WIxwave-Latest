@@ -1,154 +1,144 @@
-import React from "react";
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { FaArrowRight } from "react-icons/fa";
+import { ArrowUpRight } from "lucide-react";
 
-const containerVariants = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.2,
+export default function ServicesSection() {
+  const services = [
+    {
+      title: "Website Design & Development",
+      text: "Custom websites tailored to your brand, optimized for SEO and performance.",
+      image: "https://img.freepik.com/free-vector/concept-landing-page-website-setup_52683-25031.jpg",
+      link: "/services/web-dev",
     },
-  },
-};
+    {
+      title: "App Design & Development",
+      text: "Scalable mobile applications built with top UI/UX practices for iOS and Android.",
+      image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621737/app_dev_ewptnp.jpg",
+      link: "/services/app-dev",
+    },
+    {
+      title: "Branding & Graphics",
+      text: "Crafting impactful identities, from logos to full brand experiences.",
+      image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746641973/designing_nainbu.jpg",
+      link: "/services/branding",
+    },
+    {
+      title: "Search Engine Optimisation",
+      text: "Drive traffic with ethical SEO techniques and data-backed strategies.",
+      image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621736/seo_ph2x6b.avif",
+      link: "/services/seo",
+    },
+    {
+      title: "Social Media Management",
+      text: "Grow your brand through strategic content and engagement.",
+      image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621737/social_media_gseote.avif",
+      link: "/services/social-media",
+    },
+    {
+      title: "Performance Marketing",
+      text: "Data-driven paid ad strategies focused on ROI and growth.",
+      image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621736/performance_bkyvvp.avif",
+      link: "/services/paid-ads",
+    },
+  ];
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
-  },
-};
-
-const services = [
-  {
-    title: "Website Design & Development",
-    text: "Custom websites tailored to your brand, optimized for SEO and performance.",
-    image: "https://img.freepik.com/free-vector/concept-landing-page-website-setup_52683-25031.jpg",
-    link: "/services/web-dev",
-    bg: "bg-[#f0f7ff]",
-  },
-  {
-    title: "App Design & Development",
-    text: "Scalable mobile applications built with top UI/UX practices for iOS and Android.",
-    image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621737/app_dev_ewptnp.jpg",
-    link: "/services/app-dev",
-    bg: "bg-[#f0f7ff]",
-  },
-  {
-    title: "Branding & Graphics",
-    text: "Crafting impactful identities, from logos to full brand experiences.",
-    image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746641973/designing_nainbu.jpg",
-    link: "/services/branding",
-    bg: "bg-[#f0f7ff]",
-  },
-  {
-    title: "Search Engine Optimisation",
-    text: "Drive traffic with ethical SEO techniques and data-backed strategies.",
-    image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621736/seo_ph2x6b.avif",
-    link: "/services/seo",
-    bg: "bg-[#f0f7ff]",
-  },
-  {
-    title: "Social Media Management",
-    text: "Grow your brand through strategic content and engagement.",
-    image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621737/social_media_gseote.avif",
-    link: "/services/social-media",
-    bg: "bg-[#f0f7ff]",
-  },
-  {
-    title: "Performance Marketing",
-    text: "Data-driven paid ad strategies focused on ROI and growth.",
-    image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621736/performance_bkyvvp.avif",
-    link: "/services/paid-ads",
-    bg: "bg-[#f0f7ff]",
-  },
-];
-
-const HowWeRoll = () => {
   return (
     <section
-      className="relative lg:py-10 bg-white overflow-hidden"
-      aria-labelledby="our-services-heading"
+      className="w-full"
+      style={{
+        paddingTop: "clamp(60px, 10vh, 120px)",
+        paddingBottom: "clamp(60px, 10vh, 120px)",
+      }}
     >
-      <div className="container mx-auto px-4 md:px-6 lg:px-8">
-        <motion.h2
-          id="our-services-heading"
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-          className="text-2xl md:text-4xl font-extrabold uppercase text-gray-900 mb-4"
-        >
-          OUR{" "}
-          <motion.span
-            initial={{ opacity: 0, rotate: -5 }}
-            whileInView={{ opacity: 1, rotate: 0 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="inline-block text-[#0c34e9] drop-shadow-sm"
-          >
-            SERVICES
-          </motion.span>
-        </motion.h2>
+      {/* ✅ CONSISTENT CONTAINER */}
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16">
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 lg:gap-8"
+        {/* TOP */}
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 items-start"
+          style={{
+            gap: "clamp(24px, 5vw, 80px)",
+            marginBottom: "clamp(40px, 8vh, 100px)",
+          }}
         >
-          {services.map((card, i) => (
-            <motion.article
-              key={`service-${i}`}
-              variants={cardVariants}
-              whileHover={{ y: -4, scale: 1.01 }}
-              className={`group ${card.bg} p-4 md:p-5 lg:p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300`}
+          {/* LEFT */}
+          <div>
+            <p className="flex items-center gap-2 text-xs sm:text-sm text-blue-600 mb-3">
+              <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+              Services
+            </p>
+
+            <h2
+              className="font-semibold text-[#0b0b2c]"
+              style={{
+                fontSize: "clamp(28px, 6vw, 64px)", // ✅ perfect scaling
+                lineHeight: "1.05",
+              }}
             >
-              <Link
-                to={card.link}
-                className="block w-full h-full"
-                aria-label={card.title}
-                title={card.title}
-                rel="prefetch"
-              >
-                <div className="overflow-hidden rounded-lg mb-3">
-                  <img
-                    src={card.image}
-                    alt={card.title}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-44 md:h-48 lg:h-52 object-cover rounded-lg group-hover:scale-105 transition duration-500"
-                  />
-                </div>
-                <h3 className="text-base md:text-lg font-semibold uppercase text-gray-800 mb-2">
-                  {card.title}
-                </h3>
-                <p className="text-sm md:text-base text-gray-700 mb-3 leading-snug">
-                  {card.text}
-                </p>
-                <div className="flex items-center gap-1.5 text-blue-600 font-semibold text-sm">
-                  <span>Explore More</span>
-                  <FaArrowRight className="transition-transform group-hover:translate-x-1" />
-                </div>
-              </Link>
-            </motion.article>
-          ))}
-        </motion.div>
-      </div>
+              Everything you <br /> need to grow.
+            </h2>
+          </div>
 
-      {/* Decorative Blobs - Accessibility hidden */}
-      <div
-        aria-hidden="true"
-        className="absolute top-0 left-0 w-56 h-56 md:w-64 md:h-64 bg-blue-100 rounded-full mix-blend-multiply blur-3xl opacity-20 animate-pulse -z-10"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute bottom-0 right-0 w-64 h-64 md:w-72 md:h-72 bg-pink-100 rounded-full mix-blend-multiply blur-3xl opacity-20 animate-ping -z-10"
-      />
+          {/* RIGHT */}
+          <div className="flex flex-col md:items-end">
+            <p className="text-[#5a5a6a] max-w-md mb-5 text-[13px] sm:text-[15px] leading-relaxed text-left md:text-right">
+              From strategy to execution, we offer a full suite of marketing services designed to grow your brand, reach your audience, and drive real results.
+            </p>
+
+            <Link
+              to="/contact"
+              className="flex items-center gap-3 bg-[#2d2dfc] text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-medium hover:scale-105 transition"
+            >
+              Contact us
+              <span className="bg-white text-[#2d2dfc] p-1.5 sm:p-2 rounded-full">
+                <ArrowUpRight size={14} className="sm:w-4 sm:h-4" />
+              </span>
+            </Link>
+          </div>
+        </div>
+
+        {/* CARDS */}
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+          style={{
+            gap: "clamp(16px, 2.5vw, 28px)", // ✅ consistent spacing
+          }}
+        >
+          {services.map((item, i) => (
+            <Link
+              to={item.link}
+              key={i}
+              className="relative bg-[#ececf1] rounded-2xl p-5 sm:p-6 min-h-[220px] sm:min-h-[240px] flex flex-col justify-end overflow-hidden group hover:bg-[#e4e4ea] transition"
+            >
+              {/* DOT */}
+              <div className="absolute top-4 left-4 w-2 h-2 bg-blue-600 rounded-full"></div>
+
+              {/* NUMBER */}
+              <span className="absolute top-3 right-4 text-[40px] sm:text-[56px] md:text-[64px] font-semibold text-[#dcdce3] opacity-50">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+
+              {/* IMAGE */}
+              <img
+                src={item.image}
+                alt={item.title}
+                className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-10 transition duration-500"
+              />
+
+              {/* CONTENT */}
+              <div className="relative z-10">
+                <h3 className="text-[15px] sm:text-[17px] font-semibold text-[#0b0b2c] mb-1">
+                  {item.title}
+                </h3>
+
+                <p className="text-[12px] sm:text-[14px] text-[#6b6b7a] leading-relaxed">
+                  {item.text}
+                </p>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+      </div>
     </section>
   );
-};
-
-export default HowWeRoll;
+}

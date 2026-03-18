@@ -1,164 +1,113 @@
-import { ArrowRight } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom"; // Import Link
-const services = [
-  {
-    title: "Website Design & Development",
-    image: "https://img.freepik.com/free-vector/concept-landing-page-website-setup_52683-25031.jpg",
-    link: "/services/web-dev",
-    delay: 0,
-    tags: ["UI/UX", "Responsive"],
-  },
-  {
-    title: "Mobile App Design & Development",
-    image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621737/app_dev_ewptnp.jpg",
-    link: "/services/app-dev",
-    delay: 0,
-    tags: ["iOS & Android", "Flutter"],
-  },
-  {
-    title: "Branding & Graphics",
-    image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746641973/designing_nainbu.jpg",
-    link: "/services/branding",
-    delay: 0,
-    tags: ["Logos", "Identity"],
-  },
-  {
-    title: "Search Engine Optimisation",
-    image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621736/seo_ph2x6b.avif",
-    link: "/services/seo",
-    delay: 0,
-    tags: ["Google Ranking", "Keywords"],
-  },
-  {
-    title: "Social Media Management",
-    image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621737/social_media_gseote.avif",
-    link: "/services/social-media",
-    delay: 0,
-    tags: ["Content Strategy", "Engagement"],
-  },
-  {
-    title: "Performance Marketing",
-    image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621736/performance_bkyvvp.avif",
-    link: "/services/paid-ads",
-    delay: 0,
-    tags: ["PPC", "Conversion"],
-  },
-];
+import { Link } from "react-router-dom";
+import PageWrapper from "../components/PageWrapper";
 
-
-const rotatingWords = [
-  "Websites",
-  "Apps",
-  "Brands",
-  "SEO",
-  "Marketing",
-  "Design",
-  "Graphics",
-  "Strategy",
-  "Growth",
-  "Optimization",
-  "Social Media",
-];
-
-export default function ServicesSection() {
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentWordIndex((prev) => (prev + 1) % rotatingWords.length);
-    }, 2000);
-    return () => clearInterval(interval);
-  }, []);
+export default function Services() {
+  const services = [
+    {
+      title: "Website Design & Development",
+      text: "Custom websites tailored to your brand, optimized for SEO and performance.",
+      image: "https://img.freepik.com/free-vector/concept-landing-page-website-setup_52683-25031.jpg",
+      link: "/services/web-dev",
+    },
+    {
+      title: "App Design & Development",
+      text: "Scalable mobile applications built with top UI/UX practices for iOS and Android.",
+      image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621737/app_dev_ewptnp.jpg",
+      link: "/services/app-dev",
+    },
+    {
+      title: "Branding & Graphics",
+      text: "Crafting impactful identities, from logos to full brand experiences.",
+      image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746641973/designing_nainbu.jpg",
+      link: "/services/branding",
+    },
+    {
+      title: "Search Engine Optimisation",
+      text: "Drive traffic with ethical SEO techniques and data-backed strategies.",
+      image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621736/seo_ph2x6b.avif",
+      link: "/services/seo",
+    },
+    {
+      title: "Social Media Management",
+      text: "Grow your brand through strategic content and engagement.",
+      image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621737/social_media_gseote.avif",
+      link: "/services/social-media",
+    },
+    {
+      title: "Performance Marketing",
+      text: "Data-driven paid ad strategies focused on ROI and growth.",
+      image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746621736/performance_bkyvvp.avif",
+      link: "/services/paid-ads",
+    },
+  ];
 
   return (
-    <section className=" py-16 px-4 md:px-8">
-      <div className="container mx-auto px-4">
-        {/* Title */}
-        <motion.h2
-          className="text-3xl md:text-4xl font-extrabold text-left text-gray-900 flex flex-wrap items-center gap-2 mb-12"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <span className="text-gray-800">We deliver</span>
-          <span className="relative inline-flex items-center justify-start text-blue-600 min-w-[100px] h-[1.2em] overflow-hidden">
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={rotatingWords[currentWordIndex]}
-                initial={{ y: "100%", opacity: 0 }}
-                animate={{ y: "0%", opacity: 1 }}
-                exit={{ y: "-100%", opacity: 0 }}
-                transition={{ duration: 0.4 }}
-                className="whitespace-nowrap"
-              >
-                {rotatingWords[currentWordIndex]}
-              </motion.span>
-            </AnimatePresence>
-          </span>
-          <span className="text-gray-800">that inspire</span>
-        </motion.h2>
+    <PageWrapper>
+      <section className="bg-[#f5f5f7] py-16 px-6 md:px-16 min-h-screen">
 
-        {/* Services Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: service.delay, type: "spring", stiffness: 80 }}
-              className="relative h-80 rounded-2xl overflow-hidden shadow-lg group transform transition-transform duration-500 hover:scale-105"
+        {/* TOP SECTION (PERFECT ALIGNMENT) */}
+        <div className="grid md:grid-cols-2 gap-10 items-start mb-16">
+          
+          {/* LEFT */}
+          <div className="max-w-[600px]">
+            <p className="flex items-center gap-2 text-sm text-blue-600 mb-4">
+              <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+              Our Services
+            </p>
+
+            <h1 className="text-[40px] md:text-[64px] font-semibold leading-[1.05] tracking-tight text-[#0b0b2c]">
+              Powerful services <br /> built for scale
+            </h1>
+          </div>
+
+          {/* RIGHT */}
+          <div className="flex md:justify-end">
+            <p className="text-[#5a5a6a] max-w-[420px] text-[15px] leading-[1.8] mt-2 md:mt-14">
+              We combine strategy, design, and technology to deliver impactful digital solutions. 
+              Every service is crafted to help your business grow faster, smarter, and more efficiently.
+            </p>
+          </div>
+
+        </div>
+
+        {/* SERVICES GRID */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {services.map((item, i) => (
+            <Link
+              to={item.link}
+              key={i}
+              className="relative bg-[#ececf1] rounded-2xl p-6 h-[280px] flex flex-col justify-end overflow-hidden group hover:bg-[#e4e4ea] transition"
             >
-              {/* Image */}
+              {/* TOP DOT */}
+              <div className="absolute top-5 left-5 w-2 h-2 bg-blue-600 rounded-full"></div>
+
+              {/* NUMBER */}
+              <span className="absolute top-5 right-6 text-[64px] font-semibold text-[#dcdce3] opacity-50">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+
+              {/* HOVER IMAGE */}
               <img
-                src={service.image}
-                alt={service.title}
-                loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover"
-                onError={(e) =>
-                  (e.currentTarget.src = "https://via.placeholder.com/400x300")
-                }
+                src={item.image}
+                alt={item.title}
+                className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-10 transition duration-500"
               />
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent transition-opacity group-hover:opacity-90" />
-              {/* Content */}
-              <div className="relative z-10 p-6 flex flex-col h-full justify-end text-white">
-                <h3 className="text-xl font-semibold mb-2 text-shadow">
-                  {service.title}
+
+              {/* CONTENT */}
+              <div className="relative z-10">
+                <h3 className="text-[20px] font-semibold text-[#0b0b2c] mb-2">
+                  {item.title}
                 </h3>
-                <p className="text-sm mb-4 opacity-80">
-                  Explore how we help with modern digital solutions tailored for you.
+
+                <p className="text-[14px] text-[#6b6b7a] leading-relaxed">
+                  {item.text}
                 </p>
-                <div className="flex items-center justify-between">
-                  {/* Replace <a> with <Link> */}
-                  <Link
-                    to={service.link}  // Internal link with `to`
-                    className="w-10 h-10 flex items-center justify-center bg-blue-600 text-white rounded-full hover:bg-blue-700 transition group"
-                  >
-                    <ArrowRight
-                      size={18}
-                      className="group-hover:translate-x-1.5 transition-transform"
-                    />
-                  </Link>
-                  {/* Tags (fade in on hover) */}
-                  <div className="flex gap-2 flex-wrap opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    {service.tags.map((tag, idx) => (
-                      <span
-                        key={idx}
-                        className="px-3 py-1 bg-white/30 text-white text-sm rounded-full backdrop-blur-sm border border-white/20 hover:bg-white/50 hover:text-gray-900 transition"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
               </div>
-            </motion.div>
+            </Link>
           ))}
         </div>
-      </div>
-    </section>
+
+      </section>
+    </PageWrapper>
   );
 }
