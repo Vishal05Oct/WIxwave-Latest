@@ -1,30 +1,23 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Hero from '../Components/Services/SeoHero'
 import Body from '../Components/Services/SeoBody'
+import useSeo from '../hooks/useSeo'
 
 function Seo() {
-  useEffect(() => {
-    document.title = 'SEO Services | Boost Google Rankings & Website Traffic | Wixwave';
-    const metaDescription = document.querySelector('meta[name="description"]');
-    const description = 'Improve your website\'s Google ranking and traffic with Wixwave\'s SEO, web design, app development, and digital marketing.';
-    if (metaDescription) {
-      metaDescription.setAttribute('content', description);
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = 'description';
-      meta.content = description;
-      document.head.appendChild(meta);
-    }
-    // Set canonical tag
-    const canonicalUrl = 'https://wixwave.co/services/seo';
-    let link = document.querySelector("link[rel='canonical']");
-    if (!link) {
-      link = document.createElement('link');
-      link.setAttribute('rel', 'canonical');
-      document.head.appendChild(link);
-    }
-    link.setAttribute('href', canonicalUrl);
-  }, []);
+  useSeo({
+    title: 'SEO Services in Patna & Gurugram (Gurgaon) | Wixwave',
+    description:
+      "Boost rankings and leads with Wixwave's SEO services in Patna and Gurugram (Gurgaon): technical SEO, on-page optimization, content strategy, and performance improvements.",
+    canonical: 'https://wixwave.co/services/seo',
+    keywords: ['seo services patna', 'seo services gurugram', 'seo services gurgaon', 'local seo'],
+    robots: 'index,follow',
+    og: {
+      url: 'https://wixwave.co/services/seo',
+      type: 'website',
+      siteName: 'Wixwave',
+      locale: 'en_IN',
+    },
+  });
 
   return (
 <>

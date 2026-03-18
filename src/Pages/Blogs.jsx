@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import Hero from '../Components/Blogs_Hero'
+import useSeo from '../hooks/useSeo'
 
 // ✅ DATA INSIDE SAME FILE
 export const blogPosts = [
@@ -31,53 +32,27 @@ export const blogPosts = [
 ];
 
 const Blogs = () => {
-
-  useEffect(() => {
-    document.title = 'Wixwave Blog | Best IT & Website Development Company in Patna, Gurugram';
-
-    const description =
-      "Stay ahead with Wixwave's blog — insights from the best IT and website development company in Patna and Gurugram.";
-
-    const setMeta = (name, content) => {
-      let tag = document.querySelector(`meta[name="${name}"]`);
-      if (!tag) {
-        tag = document.createElement('meta');
-        tag.setAttribute('name', name);
-        document.head.appendChild(tag);
-      }
-      tag.setAttribute('content', content);
-    };
-
-    setMeta('description', description);
-    setMeta('keywords',
-      'IT company Patna, website development company Patna, website development company Gurugram, web design, app development, SEO, digital marketing'
-    );
-
-    const setOg = (property, content) => {
-      let tag = document.querySelector(`meta[property="${property}"]`);
-      if (!tag) {
-        tag = document.createElement('meta');
-        tag.setAttribute('property', property);
-        document.head.appendChild(tag);
-      }
-      tag.setAttribute('content', content);
-    };
-
-    setOg('og:title', document.title);
-    setOg('og:description', description);
-    setOg('og:type', 'website');
-    setOg('og:url', 'https://wixwave.co/blog');
-    setOg('og:image', blogPosts[0]?.image);
-
-    let link = document.querySelector("link[rel='canonical']");
-    if (!link) {
-      link = document.createElement('link');
-      link.setAttribute('rel', 'canonical');
-      document.head.appendChild(link);
-    }
-    link.setAttribute('href', 'https://wixwave.co/blog');
-
-  }, []);
+  useSeo({
+    title: 'Wixwave Blog | Website Development & SEO Insights (Patna & Gurugram)',
+    description:
+      "Stay ahead with Wixwave's blog: practical insights on website development, technology, and SEO for businesses in Patna and Gurugram (Gurgaon).",
+    canonical: 'https://wixwave.co/blog',
+    keywords: [
+      'website development company patna',
+      'website development company gurugram',
+      'website development company gurgaon',
+      'seo tips',
+      'web development blog',
+    ],
+    robots: 'index,follow',
+    og: {
+      url: 'https://wixwave.co/blog',
+      type: 'website',
+      image: blogPosts[0]?.image,
+      siteName: 'Wixwave',
+      locale: 'en_IN',
+    },
+  });
 
   // ✅ SORT LATEST FIRST
   const sortedPosts = [...blogPosts].sort(
@@ -118,6 +93,8 @@ const Blogs = () => {
                 <img
                   src={post.image}
                   alt={post.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-56 object-cover"
                 />
 

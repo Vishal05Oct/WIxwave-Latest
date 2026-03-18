@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaFacebook, FaLinkedin, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { FaFacebook, FaLinkedin, FaInstagram, FaTwitter, FaGoogle } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -123,6 +123,15 @@ const Footer = () => {
                 className="text-gray-400 hover:text-white text-2xl focus:outline-none focus:ring-2 focus:ring-white rounded"
               >
                 <FaInstagram />
+              </a>
+              <a
+                href="https://www.google.com/maps/place/Wixwave/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit our Google Business profile"
+                className="text-gray-400 hover:text-white text-2xl focus:outline-none focus:ring-2 focus:ring-white rounded"
+              >
+                <FaGoogle />
               </a>
             </div>
           </div>

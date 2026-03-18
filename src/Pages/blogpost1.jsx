@@ -1,33 +1,57 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
+import useSeo from "../hooks/useSeo";
 
 export default function BlogPost1() {
-  useEffect(() => {
-    const title = "Website + Technology: SEO Wins That Compound | Wixwave Blog";
-    document.title = title;
+  const title = "Website + Technology: SEO Wins That Compound | Wixwave Blog";
+  const description =
+    "Learn how modern website performance, clean architecture, and smart tech decisions improve SEO: Core Web Vitals, structured data, indexability, and content systems that scale.";
+  const canonicalUrl = "https://wixwave.co/blog/website-technology-seo";
+  const heroImage =
+    "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1600&q=80";
 
-    const description =
-      "Learn how modern website performance, clean architecture, and smart tech decisions improve SEO: Core Web Vitals, structured data, indexability, and content systems that scale.";
-
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", description);
-    } else {
-      const meta = document.createElement("meta");
-      meta.name = "description";
-      meta.content = description;
-      document.head.appendChild(meta);
-    }
-
-    const canonicalUrl = "https://wixwave.co/blog/website-technology-seo";
-    let link = document.querySelector("link[rel='canonical']");
-    if (!link) {
-      link = document.createElement("link");
-      link.setAttribute("rel", "canonical");
-      document.head.appendChild(link);
-    }
-    link.setAttribute("href", canonicalUrl);
-  }, []);
+  useSeo({
+    title,
+    description,
+    canonical: canonicalUrl,
+    keywords: [
+      "seo 2026",
+      "core web vitals",
+      "structured data",
+      "technical seo",
+      "website development",
+      "patna",
+      "gurugram",
+      "gurgaon",
+    ],
+    robots: "index,follow",
+    og: {
+      url: canonicalUrl,
+      type: "article",
+      image: heroImage,
+      siteName: "Wixwave",
+      locale: "en_IN",
+    },
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: "Website + Technology: SEO Wins That Compound (A Practical Playbook)",
+      description,
+      mainEntityOfPage: canonicalUrl,
+      image: [heroImage],
+      datePublished: "2026-03-19",
+      author: {
+        "@type": "Organization",
+        name: "Wixwave",
+        url: "https://wixwave.co",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Wixwave",
+        url: "https://wixwave.co",
+      },
+    },
+  });
 
   return (
     <main className="bg-white">
@@ -56,7 +80,7 @@ export default function BlogPost1() {
       <section className="container mx-auto px-4 pb-12">
         <div className="rounded-2xl overflow-hidden border border-gray-200 bg-gray-50">
           <img
-            src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1600&q=80"
+            src={heroImage}
             alt="Laptop showing analytics and code, representing SEO and website technology."
             loading="lazy"
             className="w-full h-[220px] sm:h-[320px] object-cover"
