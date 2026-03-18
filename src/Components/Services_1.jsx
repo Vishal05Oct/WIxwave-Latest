@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import PageWrapper from "../components/PageWrapper";
+import PageWrapper from "./PageWrapper";
 
 export default function Services() {
   const services = [
