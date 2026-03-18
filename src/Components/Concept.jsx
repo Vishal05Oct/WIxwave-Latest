@@ -27,7 +27,7 @@ export default function ClientsSection() {
 
       gsap.to(el, {
         x: -totalWidth / 2,
-        duration: 25,
+        duration: window.innerWidth < 768 ? 35 : 25, // ✅ slower on mobile
         ease: "none",
         repeat: -1,
       });
@@ -37,10 +37,10 @@ export default function ClientsSection() {
   }, []);
 
   return (
-    <section className="py-16 px-6 md:px-16 overflow-hidden">
+    <section className="py-12 md:py-16 px-4 md:px-16 overflow-hidden">
       
       {/* HEADER */}
-      <div className="grid md:grid-cols-2 gap-10 mb-16 items-center">
+      <div className="grid md:grid-cols-2 gap-8 md:gap-10 mb-12 md:mb-16 items-center">
         
         <div>
           <p className="flex items-center gap-2 text-sm text-blue-600 mb-3">
@@ -48,13 +48,13 @@ export default function ClientsSection() {
             Trusted by Brands
           </p>
 
-          <h2 className="text-[40px] md:text-[64px] font-semibold leading-[1.05] text-[#0b0b2c]">
+          <h2 className="text-[28px] sm:text-[34px] md:text-[64px] font-semibold leading-[1.1] md:leading-[1.05] text-[#0b0b2c]">
             Our Premium <br /> Clientele
           </h2>
         </div>
 
         <div className="flex flex-col md:items-end">
-          <p className="text-[#5a5a6a] max-w-md mb-6 text-[15px] leading-relaxed">
+          <p className="text-[#5a5a6a] max-w-full md:max-w-md mb-5 md:mb-6 text-[14px] md:text-[15px] leading-relaxed">
             We collaborate with growing brands and institutions to deliver impactful digital solutions that drive real business growth.
           </p>
         </div>
@@ -64,13 +64,13 @@ export default function ClientsSection() {
       <div className="relative">
         
         {/* Fade edges */}
-        <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-[#f5f6fa] to-transparent z-10"></div>
-        <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-[#f5f6fa] to-transparent z-10"></div>
+        <div className="absolute left-0 top-0 h-full w-12 md:w-24 bg-gradient-to-r from-[#f5f6fa] to-transparent z-10"></div>
+        <div className="absolute right-0 top-0 h-full w-12 md:w-24 bg-gradient-to-l from-[#f5f6fa] to-transparent z-10"></div>
 
         <div className="overflow-hidden">
           <div
             ref={trackRef}
-            className="flex gap-16 w-max min-w-[200%] items-center whitespace-nowrap"
+            className="flex gap-8 md:gap-16 w-max min-w-[200%] items-center whitespace-nowrap"
           >
             {[...logos, ...logos, ...logos].map((logo, i) => (
               <img
@@ -79,10 +79,11 @@ export default function ClientsSection() {
                 alt="client"
                 onError={(e) => (e.target.style.display = "none")}
                 className="
-                  h-12 md:h-14
+                  h-10 sm:h-11 md:h-14
                   w-auto
                   object-contain
-                  opacity-70 grayscale
+                  opacity-80 md:opacity-70
+                  grayscale
                   hover:opacity-100 hover:grayscale-0
                   hover:scale-110
                   transition duration-300
