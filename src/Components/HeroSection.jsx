@@ -86,8 +86,9 @@ const AnimatedHeroSection = () => {
   const handleClick = () => navigate("/services");
 
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center px-6 md:px-16 lg:px-28 text-white overflow-hidden bg-[#01001c]">
+    <section className="relative w-full min-h-screen flex items-center justify-center px-6 md:px-16 lg:px-28 text-white overflow-hidden">
 
+      
       {/* 🎥 Video Background */}
       {!videoError && (
         <video
@@ -97,7 +98,7 @@ const AnimatedHeroSection = () => {
           muted
           playsInline
           preload="metadata"
-          className="absolute inset-0 w-full h-full object-cover z-0 opacity-60"
+          className="absolute inset-0 w-full h-full object-cover z-0 "
           onError={() => setVideoError(true)}
         >
           <source
