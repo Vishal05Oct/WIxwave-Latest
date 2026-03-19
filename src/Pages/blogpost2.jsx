@@ -24,6 +24,7 @@ export default function BlogPost2() {
 
   useSeo({ title, description, canonical: canonicalUrl });
 
+  // Scroll Progress
   useEffect(() => {
     const handleScroll = () => {
       const total =
@@ -35,6 +36,7 @@ export default function BlogPost2() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Reading Time
   useEffect(() => {
     if (contentRef.current) {
       const words = contentRef.current.innerText.trim().split(/\s+/).length;
@@ -47,200 +49,173 @@ export default function BlogPost2() {
   };
 
   return (
-    <main className="bg-white">
+    <main>
 
-      {/* Progress */}
+      {/* Progress Bar */}
       <div className="fixed top-0 left-0 w-full h-[3px] bg-gray-200 z-50">
         <div className="h-full bg-blue-600" style={{ width: `${progress}%` }} />
       </div>
 
-      {/* HERO */}
+      {/* HERO (MATCHED) */}
       <section className="relative">
         <img
           src={heroImage}
           alt="UI UX Trends 2026"
-          className="w-full h-[320px] sm:h-[500px] lg:h-[600px] object-cover"
+          className="w-full h-[420px] sm:h-[520px] lg:h-[600px] object-cover"
         />
+
         <div className="absolute inset-0 bg-black/60" />
 
-        <div className="absolute inset-0 flex items-center">
-          <div className="max-w-7xl mx-auto px-4 text-white">
-            <Link to="/blog" className="text-sm opacity-80 hover:underline">
+        <div className="absolute inset-0 flex items-end sm:items-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 pb-8 sm:pb-0 text-white">
+
+            <Link to="/blog" className="text-xs sm:text-sm opacity-80 hover:underline">
               ← Back to Blogs
             </Link>
 
-            <h1 className="mt-4 text-4xl sm:text-6xl lg:text-7xl font-bold">
+            <h1 className="mt-3 text-2xl sm:text-4xl lg:text-6xl font-bold leading-snug max-w-[95%] sm:max-w-3xl">
               Top UI/UX Trends in 2026
             </h1>
 
-            <p className="mt-5 text-lg sm:text-xl max-w-3xl opacity-90">
-              Discover the future of UI/UX design in 2026, including AI-driven interfaces, immersive experiences, and user-centric design strategies.
+            <p className="mt-3 text-sm sm:text-lg max-w-[95%] sm:max-w-2xl opacity-90">
+              Explore how AI-driven interfaces, immersive experiences, and user-centric design are shaping the future of digital products.
             </p>
 
-            <p className="mt-5 text-sm opacity-70">
+            <p className="mt-3 text-xs sm:text-sm opacity-70">
               Mar 15, 2026 • {readingTime} min read
             </p>
+
           </div>
         </div>
       </section>
 
-      {/* CONTENT */}
+      {/* CONTENT (MATCHED WIDTH + SPACING) */}
       <div
         ref={contentRef}
-        className="max-w-7xl mx-auto px-4 py-16 space-y-14"
+        className="max-w-3xl lg:max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 space-y-10 sm:space-y-14"
       >
 
         {/* Intro */}
-        <section className="space-y-6">
-          <p className="text-lg text-gray-700 leading-relaxed">
-            UI/UX design trends in 2026 are redefining how users interact with digital products. With rapid advancements in artificial intelligence, immersive technologies, and user behavior analytics, modern design is no longer limited to visual appeal. Instead, it focuses on delivering seamless, intuitive, and highly personalized user experiences.
+        <section className="space-y-5">
+          <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+            UI/UX design trends in 2026 are transforming how users interact with digital products. Modern interfaces are no longer static — they are intelligent, adaptive, and deeply personalized based on user behavior and preferences.
           </p>
 
-          <p className="text-lg text-gray-700 leading-relaxed">
-            Businesses that adopt modern UI/UX strategies gain a competitive edge by improving user engagement, reducing friction, and increasing conversions. The future of user experience design lies in creating systems that adapt to users rather than forcing users to adapt to interfaces.
+          <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+            Businesses that invest in modern user experience design benefit from higher engagement, better retention, and increased conversions. The future of UX lies in creating seamless digital journeys that feel intuitive and natural.
           </p>
         </section>
 
         {/* AI */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-bold">
+        <section className="space-y-5">
+          <h2 className="text-2xl sm:text-3xl font-bold">
             AI-Driven UI/UX Design
           </h2>
 
-          <p className="text-gray-700 leading-relaxed">
-            Artificial intelligence is transforming UI/UX design by enabling dynamic and adaptive interfaces. AI-driven UX systems analyze user behavior, preferences, and interaction patterns to deliver personalized experiences in real time.
+          <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+            Artificial intelligence is revolutionizing UI/UX by enabling dynamic and personalized user experiences. Interfaces can now adapt in real time based on user behavior.
           </p>
 
-          <ul className="list-disc pl-6 space-y-2 text-gray-700">
-            <li>Adaptive user interfaces based on behavior</li>
-            <li>Predictive UX and smart recommendations</li>
-            <li>AI-powered chatbots and conversational UI</li>
+          <ul className="list-disc pl-6 space-y-2 text-gray-700 text-sm sm:text-base">
+            <li>Adaptive user interfaces</li>
+            <li>Predictive recommendations</li>
+            <li>AI-powered chat systems</li>
           </ul>
-
-          <p className="text-gray-700 leading-relaxed">
-            This shift towards intelligent design improves user satisfaction and significantly enhances engagement metrics.
-          </p>
         </section>
 
         {/* AR VR */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-bold">
-            Immersive Experiences with AR & VR
+        <section className="space-y-5">
+          <h2 className="text-2xl sm:text-3xl font-bold">
+            Immersive AR & VR Experiences
           </h2>
 
-          <p className="text-gray-700 leading-relaxed">
-            Augmented reality (AR) and virtual reality (VR) are becoming essential components of modern UI/UX design. These technologies enable users to interact with digital environments in a more engaging and realistic way.
+          <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+            Augmented and virtual reality are creating immersive user experiences that go beyond traditional screens.
           </p>
 
-          <ul className="list-disc pl-6 space-y-2 text-gray-700">
-            <li>AR product visualization</li>
-            <li>Virtual showrooms and experiences</li>
-            <li>Mixed reality user interfaces</li>
+          <ul className="list-disc pl-6 space-y-2 text-gray-700 text-sm sm:text-base">
+            <li>AR product previews</li>
+            <li>Virtual environments</li>
+            <li>Interactive experiences</li>
           </ul>
-
-          <p className="text-gray-700 leading-relaxed">
-            Immersive design enhances user engagement and creates memorable experiences that drive brand loyalty.
-          </p>
         </section>
 
         {/* Micro */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-bold">
-            Micro-Interactions & Motion Design
+        <section className="space-y-5">
+          <h2 className="text-2xl sm:text-3xl font-bold">
+            Micro-Interactions & Motion
           </h2>
 
-          <p className="text-gray-700 leading-relaxed">
-            Micro-interactions play a crucial role in modern UI/UX design by providing instant feedback and guiding user behavior. Subtle animations improve usability and create a more engaging experience.
+          <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+            Micro-interactions enhance usability by providing instant feedback and guiding users through interfaces.
           </p>
 
-          <ul className="list-disc pl-6 space-y-2 text-gray-700">
-            <li>Hover and click animations</li>
-            <li>Smooth transitions and feedback states</li>
-            <li>Loading indicators and interaction cues</li>
+          <ul className="list-disc pl-6 space-y-2 text-gray-700 text-sm sm:text-base">
+            <li>Hover animations</li>
+            <li>Feedback transitions</li>
+            <li>Loading states</li>
           </ul>
-
-          <p className="text-gray-700 leading-relaxed">
-            Well-designed motion enhances usability without overwhelming users.
-          </p>
         </section>
 
         {/* Dark Mode */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-bold">
+        <section className="space-y-5">
+          <h2 className="text-2xl sm:text-3xl font-bold">
             Dark Mode & Personalization
           </h2>
 
-          <p className="text-gray-700 leading-relaxed">
-            Dark mode and customizable UI themes are now standard in modern applications. They improve accessibility, reduce eye strain, and allow users to personalize their experience.
-          </p>
-
-          <ul className="list-disc pl-6 space-y-2 text-gray-700">
-            <li>Auto dark mode switching</li>
-            <li>High contrast accessibility options</li>
-            <li>User-controlled themes</li>
-          </ul>
-
-          <p className="text-gray-700 leading-relaxed">
-            Personalization enhances user satisfaction and retention.
+          <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+            Personalization and dark mode improve accessibility and user comfort while enhancing engagement.
           </p>
         </section>
 
-        {/* Ethical */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-bold">
-            Ethical UX & Privacy-First Design
+        {/* Ethical UX */}
+        <section className="space-y-5">
+          <h2 className="text-2xl sm:text-3xl font-bold">
+            Ethical UX & Privacy
           </h2>
 
-          <p className="text-gray-700 leading-relaxed">
-            Ethical UX design focuses on transparency, privacy, and user trust. As data concerns grow, businesses must prioritize user privacy and responsible design practices.
-          </p>
-
-          <ul className="list-disc pl-6 space-y-2 text-gray-700">
-            <li>Transparent data usage policies</li>
-            <li>Minimal data collection</li>
-            <li>User-controlled privacy settings</li>
-          </ul>
-
-          <p className="text-gray-700 leading-relaxed">
-            Trust-driven design leads to stronger brand relationships and long-term success.
+          <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+            Ethical design focuses on transparency, privacy, and building user trust in digital experiences.
           </p>
         </section>
 
-        {/* FAQ */}
+        {/* FAQ (MATCHED) */}
         <section className="mt-20">
-          <h2 className="text-3xl font-bold mb-8">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">
             Frequently Asked Questions
           </h2>
 
           <div className="divide-y border rounded-xl overflow-hidden">
-
             {[
               {
-                q: "What are the top UI/UX trends in 2026?",
-                a: "AI-driven design, immersive UX, and ethical design are key trends.",
+                q: "What are UI/UX trends in 2026?",
+                a: "AI, immersive design, and ethical UX are key trends.",
               },
               {
-                q: "Why is UI/UX design important?",
-                a: "It improves user experience, engagement, and conversions.",
+                q: "Why is UI/UX important?",
+                a: "It improves engagement, usability, and conversions.",
               },
               {
                 q: "What is ethical UX?",
-                a: "Design focused on user privacy and transparency.",
+                a: "Design that focuses on transparency and user privacy.",
               },
             ].map((item, i) => {
               const isOpen = activeIndex === i;
 
               return (
-                <div key={i} className="px-5 py-4">
+                <div key={i} className="px-4 sm:px-5 py-4">
                   <button
                     onClick={() => toggleFAQ(i)}
                     className="w-full flex justify-between items-center text-left"
                   >
-                    <span className="font-medium">{item.q}</span>
+                    <span className="font-medium text-sm sm:text-base">
+                      {item.q}
+                    </span>
 
                     <motion.span
                       animate={{ rotate: isOpen ? 45 : 0 }}
-                      className="text-xl"
+                      transition={{ type: "spring", stiffness: 120 }}
+                      className="text-lg"
                     >
                       +
                     </motion.span>
@@ -253,7 +228,7 @@ export default function BlogPost2() {
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                       >
-                        <p className="mt-3 text-sm text-gray-600">
+                        <p className="mt-3 text-sm text-gray-600 leading-relaxed">
                           {item.a}
                         </p>
                       </motion.div>
@@ -262,13 +237,12 @@ export default function BlogPost2() {
                 </div>
               );
             })}
-
           </div>
         </section>
 
         {/* CTA */}
-        <div className="p-8 bg-blue-600 text-white rounded-2xl text-center">
-          <h3 className="text-2xl font-bold">
+        <div className="p-6 sm:p-8 bg-blue-600 text-white rounded-2xl text-center">
+          <h3 className="text-xl sm:text-2xl font-bold">
             Want Modern UI/UX for Your Business?
           </h3>
           <p className="mt-2 opacity-90">
@@ -276,7 +250,7 @@ export default function BlogPost2() {
           </p>
           <Link
             to="/contact"
-            className="inline-block mt-5 bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold"
+            className="inline-block mt-4 bg-white text-blue-600 px-5 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold"
           >
             Get Free Consultation
           </Link>
@@ -286,3 +260,4 @@ export default function BlogPost2() {
     </main>
   );
 }
+

@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -14,7 +15,7 @@ export default function BlogPost1() {
     "Website Technology & SEO in 2026: Wins That Compound | Wixwave Blog";
 
   const description =
-    "Learn how website technology, Core Web Vitals, technical SEO, structured data, and scalable systems drive compounding SEO growth in 2026.";
+    "Learn how website performance, Core Web Vitals, technical SEO, structured data, and scalable systems drive long-term SEO growth in 2026.";
 
   const canonicalUrl =
     "https://wixwave.co/blog/website-technology-seo/";
@@ -49,9 +50,9 @@ export default function BlogPost1() {
   };
 
   return (
-    <main className="bg-white">
+    <main>
 
-      {/* Progress */}
+      {/* Top Progress Bar */}
       <div className="fixed top-0 left-0 w-full h-[3px] bg-gray-200 z-50">
         <div className="h-full bg-blue-600" style={{ width: `${progress}%` }} />
       </div>
@@ -61,27 +62,30 @@ export default function BlogPost1() {
         <img
           src={heroImage}
           alt="Website Technology SEO 2026"
-          className="w-full h-[320px] sm:h-[500px] lg:h-[600px] object-cover"
+          className="w-full h-[420px] sm:h-[520px] lg:h-[600px] object-cover"
         />
+
         <div className="absolute inset-0 bg-black/60" />
 
-        <div className="absolute inset-0 flex items-center">
-          <div className="max-w-7xl mx-auto px-4 text-white">
-            <Link to="/blog" className="text-sm opacity-80 hover:underline">
+        <div className="absolute inset-0 flex items-end sm:items-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 pb-8 sm:pb-0 text-white">
+
+            <Link to="/blog" className="text-xs sm:text-sm opacity-80 hover:underline">
               ← Back to Blogs
             </Link>
 
-            <h1 className="mt-4 text-4xl sm:text-6xl lg:text-7xl font-bold">
+            <h1 className="mt-3 text-2xl sm:text-4xl lg:text-6xl font-bold leading-snug max-w-[95%] sm:max-w-3xl">
               Website Technology & SEO in 2026: Wins That Compound
             </h1>
 
-            <p className="mt-5 text-lg sm:text-xl max-w-3xl opacity-90">
-              Discover how website performance, technical SEO, and scalable systems create long-term organic growth.
+            <p className="mt-3 text-sm sm:text-lg max-w-[95%] sm:max-w-2xl opacity-90">
+              Discover how performance, technical SEO, and scalable systems create long-term organic growth.
             </p>
 
-            <p className="mt-5 text-sm opacity-70">
+            <p className="mt-3 text-xs sm:text-sm opacity-70">
               Mar 19, 2026 • {readingTime} min read
             </p>
+
           </div>
         </div>
       </section>
@@ -89,164 +93,123 @@ export default function BlogPost1() {
       {/* CONTENT */}
       <div
         ref={contentRef}
-        className="max-w-7xl mx-auto px-4 py-16 space-y-14"
+        className="max-w-3xl lg:max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 space-y-10 sm:space-y-14"
       >
 
         {/* Intro */}
-        <section className="space-y-6">
-          <p className="text-lg text-gray-700 leading-relaxed">
-            Website technology and SEO in 2026 are deeply interconnected. Modern search engines no longer evaluate websites based only on keywords or backlinks — they analyze how your website performs, how fast it loads, and how users interact with it. This shift has made technical SEO, performance optimization, and user experience critical ranking factors.
+        <section className="space-y-5">
+          <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+            Website technology and SEO in 2026 are deeply interconnected. Search engines evaluate performance, user experience, and technical structure rather than just keywords or backlinks.
           </p>
 
-          <p className="text-lg text-gray-700 leading-relaxed">
-            Businesses that invest in strong website foundations — including fast loading speeds, clean architecture, and scalable content systems — gain a long-term competitive advantage. These improvements compound over time, meaning every new page benefits from the system you build today.
+          <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+            A fast, optimized website builds a strong foundation where every page ranks better over time, creating compounding SEO growth.
           </p>
         </section>
 
         {/* Core Web Vitals */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-bold">
-            Core Web Vitals & Website Performance
+        <section className="space-y-5">
+          <h2 className="text-2xl sm:text-3xl font-bold">
+            Core Web Vitals & Performance
           </h2>
 
-          <p className="text-gray-700 leading-relaxed">
-            Core Web Vitals are a crucial part of technical SEO and directly impact search rankings. These metrics measure real user experience, focusing on loading speed, interactivity, and visual stability.
+          <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+            Core Web Vitals are essential for modern SEO, measuring real-world user experience.
           </p>
 
-          <ul className="list-disc pl-6 space-y-2 text-gray-700">
-            <li><strong>LCP (Largest Contentful Paint):</strong> Measures how quickly main content loads.</li>
-            <li><strong>FID (First Input Delay):</strong> Tracks how fast users can interact.</li>
-            <li><strong>CLS (Cumulative Layout Shift):</strong> Ensures visual stability.</li>
+          <ul className="list-disc pl-6 space-y-2 text-gray-700 text-sm sm:text-base">
+            <li>LCP improves loading speed</li>
+            <li>FID ensures quick interaction</li>
+            <li>CLS prevents layout shifts</li>
           </ul>
 
-          <p className="text-gray-700 leading-relaxed">
-            Optimizing Core Web Vitals improves both SEO rankings and user experience, leading to better engagement and higher conversions.
+          <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+            Optimizing these metrics improves both rankings and conversions.
           </p>
         </section>
 
         {/* Architecture */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-bold">
+        <section className="space-y-5">
+          <h2 className="text-2xl sm:text-3xl font-bold">
             Website Architecture & Crawlability
           </h2>
 
-          <p className="text-gray-700 leading-relaxed">
-            A well-structured website helps search engines crawl and index your content efficiently. Clean architecture ensures that your most important pages receive proper visibility and ranking potential.
+          <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+            Clean website structure ensures better crawling and indexing.
           </p>
 
-          <ul className="list-disc pl-6 space-y-2 text-gray-700">
-            <li>SEO-friendly URL structure</li>
-            <li>Strong internal linking strategy</li>
-            <li>Proper heading hierarchy (H1–H3)</li>
+          <ul className="list-disc pl-6 space-y-2 text-gray-700 text-sm sm:text-base">
+            <li>SEO-friendly URLs</li>
+            <li>Internal linking strategy</li>
+            <li>Proper heading hierarchy</li>
           </ul>
-
-          <p className="text-gray-700 leading-relaxed">
-            When architecture is optimized, authority flows across your website, making it easier for all pages to rank.
-          </p>
         </section>
 
         {/* Structured Data */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-bold">
+        <section className="space-y-5">
+          <h2 className="text-2xl sm:text-3xl font-bold">
             Structured Data & Search Visibility
           </h2>
 
-          <p className="text-gray-700 leading-relaxed">
-            Structured data, also known as schema markup, helps search engines understand your content more clearly. It provides context that improves indexing and enables rich search results.
-          </p>
-
-          <ul className="list-disc pl-6 space-y-2 text-gray-700">
-            <li>Rich snippets increase CTR</li>
-            <li>Better indexing and understanding</li>
-            <li>Enhanced search visibility</li>
-          </ul>
-
-          <p className="text-gray-700 leading-relaxed">
-            Implementing structured data is one of the most effective ways to improve search performance without changing content.
-          </p>
-        </section>
-
-        {/* Content Systems */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-bold">
-            Scalable Content Systems for SEO
-          </h2>
-
-          <p className="text-gray-700 leading-relaxed">
-            Modern SEO success depends on structured content strategies rather than random blog posts. High-performing websites use pillar pages supported by topic clusters to build authority.
-          </p>
-
-          <ul className="list-disc pl-6 space-y-2 text-gray-700">
-            <li>Pillar pages targeting broad topics</li>
-            <li>Cluster content covering subtopics</li>
-            <li>Internal linking between pages</li>
-          </ul>
-
-          <p className="text-gray-700 leading-relaxed">
-            This approach strengthens topical authority and improves rankings across your entire website.
+          <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+            Structured data improves search visibility and enables rich results.
           </p>
         </section>
 
         {/* Compounding SEO */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-bold">
-            Why SEO Growth Compounds Over Time
+        <section className="space-y-5">
+          <h2 className="text-2xl sm:text-3xl font-bold">
+            Why SEO Growth Compounds
           </h2>
 
-          <p className="text-gray-700 leading-relaxed">
-            SEO is a long-term strategy that builds momentum. Unlike paid advertising, where traffic stops when spending stops, SEO continues to generate results over time.
+          <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+            SEO builds authority over time, unlike paid ads which stop when spending stops.
           </p>
 
-          <ul className="list-disc pl-6 space-y-2 text-gray-700">
-            <li>Authority increases with content</li>
-            <li>Organic traffic grows consistently</li>
-            <li>Rankings improve over time</li>
+          <ul className="list-disc pl-6 space-y-2 text-gray-700 text-sm sm:text-base">
+            <li>Consistent traffic growth</li>
+            <li>Improved rankings</li>
+            <li>Long-term authority</li>
           </ul>
-
-          <p className="text-gray-700 leading-relaxed">
-            This compounding effect makes SEO one of the most powerful growth channels for modern businesses.
-          </p>
         </section>
 
-        {/* FAQ ANIMATED */}
+        {/* FAQ */}
         <section className="mt-20">
-          <h2 className="text-3xl font-bold mb-8">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">
             Frequently Asked Questions
           </h2>
 
           <div className="divide-y border rounded-xl overflow-hidden">
             {[
               {
-                q: "What is technical SEO in 2026?",
-                a: "Technical SEO includes performance, structure, and optimization factors that impact rankings.",
+                q: "What is technical SEO?",
+                a: "Technical SEO focuses on performance, structure, and optimization.",
               },
               {
                 q: "Why are Core Web Vitals important?",
-                a: "They measure user experience and directly influence search rankings.",
+                a: "They measure user experience and impact rankings.",
               },
               {
                 q: "What is structured data?",
-                a: "It helps search engines understand content and show rich results.",
-              },
-              {
-                q: "Why does SEO compound?",
-                a: "Because improvements build authority and rankings over time.",
+                a: "It helps search engines understand content better.",
               },
             ].map((item, i) => {
               const isOpen = activeIndex === i;
 
               return (
-                <div key={i} className="px-5 py-4">
+                <div key={i} className="px-4 sm:px-5 py-4">
                   <button
                     onClick={() => toggleFAQ(i)}
                     className="w-full flex justify-between items-center text-left"
                   >
-                    <span className="font-medium">{item.q}</span>
+                    <span className="font-medium text-sm sm:text-base">
+                      {item.q}
+                    </span>
 
                     <motion.span
                       animate={{ rotate: isOpen ? 45 : 0 }}
                       transition={{ type: "spring", stiffness: 120 }}
-                      className="text-xl"
+                      className="text-lg"
                     >
                       +
                     </motion.span>
@@ -259,7 +222,7 @@ export default function BlogPost1() {
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                       >
-                        <p className="mt-3 text-sm text-gray-600">
+                        <p className="mt-3 text-sm text-gray-600 leading-relaxed">
                           {item.a}
                         </p>
                       </motion.div>
@@ -272,8 +235,8 @@ export default function BlogPost1() {
         </section>
 
         {/* CTA */}
-        <div className="p-8 bg-blue-600 text-white rounded-2xl text-center">
-          <h3 className="text-2xl font-bold">
+        <div className="p-6 sm:p-8 bg-blue-600 text-white rounded-2xl text-center">
+          <h3 className="text-xl sm:text-2xl font-bold">
             Ready to Build an SEO System That Compounds?
           </h3>
           <p className="mt-2 opacity-90">
@@ -281,7 +244,7 @@ export default function BlogPost1() {
           </p>
           <Link
             to="/contact"
-            className="inline-block mt-5 bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold"
+            className="inline-block mt-4 bg-white text-blue-600 px-5 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold"
           >
             Get Free Consultation
           </Link>
