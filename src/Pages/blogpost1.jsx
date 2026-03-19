@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -52,7 +51,7 @@ export default function BlogPost1() {
   return (
     <main>
 
-      {/* Top Progress Bar */}
+      {/* Progress Bar */}
       <div className="fixed top-0 left-0 w-full h-[3px] bg-gray-200 z-50">
         <div className="h-full bg-blue-600" style={{ width: `${progress}%` }} />
       </div>
@@ -70,21 +69,29 @@ export default function BlogPost1() {
         <div className="absolute inset-0 flex items-end sm:items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 pb-8 sm:pb-0 text-white">
 
-            <Link to="/blog" className="text-xs sm:text-sm opacity-80 hover:underline">
-              ← Back to Blogs
-            </Link>
+            {/* ✅ INNER WRAPPER FOR PERFECT ALIGNMENT */}
+            <div className="max-w-7xl">
 
-            <h1 className="mt-3 text-2xl sm:text-4xl lg:text-6xl font-bold leading-snug max-w-[95%] sm:max-w-3xl">
-              Website Technology & SEO in 2026: Wins That Compound
-            </h1>
+              <Link
+                to="/blog"
+                className="text-xs sm:text-sm opacity-80 hover:underline"
+              >
+                ← Back to Blogs
+              </Link>
 
-            <p className="mt-3 text-sm sm:text-lg max-w-[95%] sm:max-w-2xl opacity-90">
-              Discover how performance, technical SEO, and scalable systems create long-term organic growth.
-            </p>
+              <h1 className="mt-3 text-2xl sm:text-4xl lg:text-6xl font-bold leading-snug">
+                Website Technology & SEO in 2026: Wins That Compound
+              </h1>
 
-            <p className="mt-3 text-xs sm:text-sm opacity-70">
-              Mar 19, 2026 • {readingTime} min read
-            </p>
+              <p className="mt-3 text-sm sm:text-lg opacity-90">
+                Discover how performance, technical SEO, and scalable systems create long-term organic growth.
+              </p>
+
+              <p className="mt-3 text-xs sm:text-sm opacity-70">
+                Mar 19, 2026 • {readingTime} min read
+              </p>
+
+            </div>
 
           </div>
         </div>
@@ -122,10 +129,6 @@ export default function BlogPost1() {
             <li>FID ensures quick interaction</li>
             <li>CLS prevents layout shifts</li>
           </ul>
-
-          <p className="text-base sm:text-lg leading-relaxed text-gray-700">
-            Optimizing these metrics improves both rankings and conversions.
-          </p>
         </section>
 
         {/* Architecture */}

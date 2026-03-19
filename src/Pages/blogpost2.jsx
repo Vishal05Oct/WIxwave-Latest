@@ -56,7 +56,7 @@ export default function BlogPost2() {
         <div className="h-full bg-blue-600" style={{ width: `${progress}%` }} />
       </div>
 
-      {/* HERO (MATCHED) */}
+      {/* HERO */}
       <section className="relative">
         <img
           src={heroImage}
@@ -68,28 +68,33 @@ export default function BlogPost2() {
 
         <div className="absolute inset-0 flex items-end sm:items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 pb-8 sm:pb-0 text-white">
+            <div className="max-w-7xl">
 
-            <Link to="/blog" className="text-xs sm:text-sm opacity-80 hover:underline">
-              ← Back to Blogs
-            </Link>
+              <Link
+                to="/blog"
+                className="text-xs sm:text-sm opacity-80 hover:underline"
+              >
+                ← Back to Blogs
+              </Link>
 
-            <h1 className="mt-3 text-2xl sm:text-4xl lg:text-6xl font-bold leading-snug max-w-[95%] sm:max-w-3xl">
-              Top UI/UX Trends in 2026
-            </h1>
+              <h1 className="mt-3 text-2xl sm:text-4xl lg:text-6xl font-bold leading-snug">
+                Top UI/UX Trends in 2026: Future of Design & User Experience
+              </h1>
 
-            <p className="mt-3 text-sm sm:text-lg max-w-[95%] sm:max-w-2xl opacity-90">
-              Explore how AI-driven interfaces, immersive experiences, and user-centric design are shaping the future of digital products.
-            </p>
+              <p className="mt-3 text-sm sm:text-lg opacity-90">
+                Explore UI/UX trends in 2026 including AI-driven design, immersive UX, micro-interactions, and privacy-first experiences.
+              </p>
 
-            <p className="mt-3 text-xs sm:text-sm opacity-70">
-              Mar 15, 2026 • {readingTime} min read
-            </p>
+              <p className="mt-3 text-xs sm:text-sm opacity-70">
+                Mar 15, 2026 • {readingTime} min read
+              </p>
 
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CONTENT (MATCHED WIDTH + SPACING) */}
+      {/* CONTENT */}
       <div
         ref={contentRef}
         className="max-w-3xl lg:max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 space-y-10 sm:space-y-14"
@@ -98,28 +103,32 @@ export default function BlogPost2() {
         {/* Intro */}
         <section className="space-y-5">
           <p className="text-base sm:text-lg leading-relaxed text-gray-700">
-            UI/UX design trends in 2026 are transforming how users interact with digital products. Modern interfaces are no longer static — they are intelligent, adaptive, and deeply personalized based on user behavior and preferences.
+            It starts with a simple moment — a user opens your website. Within seconds, they decide whether to stay or leave. In 2026, this decision is driven not just by design, but by the entire user experience. UI/UX design has become a critical factor in SEO, engagement, and business growth.
           </p>
 
           <p className="text-base sm:text-lg leading-relaxed text-gray-700">
-            Businesses that invest in modern user experience design benefit from higher engagement, better retention, and increased conversions. The future of UX lies in creating seamless digital journeys that feel intuitive and natural.
+            Today’s users expect fast, intuitive, and personalized experiences. Businesses that embrace modern UI/UX trends are not just improving design — they are building digital ecosystems that convert visitors into customers.
           </p>
         </section>
 
         {/* AI */}
         <section className="space-y-5">
           <h2 className="text-2xl sm:text-3xl font-bold">
-            AI-Driven UI/UX Design
+            AI-Driven UI/UX Design: Intelligent Experiences
           </h2>
 
           <p className="text-base sm:text-lg leading-relaxed text-gray-700">
-            Artificial intelligence is revolutionizing UI/UX by enabling dynamic and personalized user experiences. Interfaces can now adapt in real time based on user behavior.
+            Artificial intelligence is redefining user experience in 2026. Interfaces are becoming smarter, adapting in real-time based on user behavior, preferences, and intent.
+          </p>
+
+          <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+            AI-driven UI/UX improves engagement, reduces friction, and enhances personalization — making it one of the most important design trends for businesses aiming to scale.
           </p>
 
           <ul className="list-disc pl-6 space-y-2 text-gray-700 text-sm sm:text-base">
-            <li>Adaptive user interfaces</li>
-            <li>Predictive recommendations</li>
-            <li>AI-powered chat systems</li>
+            <li>Adaptive layouts based on user interaction</li>
+            <li>Predictive UX for faster navigation</li>
+            <li>AI-powered chat systems for better support</li>
           </ul>
         </section>
 
@@ -130,30 +139,34 @@ export default function BlogPost2() {
           </h2>
 
           <p className="text-base sm:text-lg leading-relaxed text-gray-700">
-            Augmented and virtual reality are creating immersive user experiences that go beyond traditional screens.
+            Augmented Reality and Virtual Reality are transforming digital experiences. Users can now interact with products and environments in a more engaging and realistic way.
+          </p>
+
+          <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+            These immersive experiences increase user retention and significantly improve conversion rates in industries like e-commerce, real estate, and education.
           </p>
 
           <ul className="list-disc pl-6 space-y-2 text-gray-700 text-sm sm:text-base">
             <li>AR product previews</li>
-            <li>Virtual environments</li>
-            <li>Interactive experiences</li>
+            <li>Virtual showrooms</li>
+            <li>Interactive 3D environments</li>
           </ul>
         </section>
 
         {/* Micro */}
         <section className="space-y-5">
           <h2 className="text-2xl sm:text-3xl font-bold">
-            Micro-Interactions & Motion
+            Micro-Interactions & Motion Design
           </h2>
 
           <p className="text-base sm:text-lg leading-relaxed text-gray-700">
-            Micro-interactions enhance usability by providing instant feedback and guiding users through interfaces.
+            Micro-interactions bring interfaces to life. Small animations and transitions guide users, provide feedback, and enhance usability.
           </p>
 
           <ul className="list-disc pl-6 space-y-2 text-gray-700 text-sm sm:text-base">
-            <li>Hover animations</li>
-            <li>Feedback transitions</li>
-            <li>Loading states</li>
+            <li>Smooth hover effects</li>
+            <li>Interactive button feedback</li>
+            <li>Loading animations</li>
           </ul>
         </section>
 
@@ -164,22 +177,41 @@ export default function BlogPost2() {
           </h2>
 
           <p className="text-base sm:text-lg leading-relaxed text-gray-700">
-            Personalization and dark mode improve accessibility and user comfort while enhancing engagement.
+            Dark mode and personalization enhance user comfort and accessibility. Custom experiences keep users engaged longer and improve overall satisfaction.
           </p>
         </section>
 
         {/* Ethical UX */}
         <section className="space-y-5">
           <h2 className="text-2xl sm:text-3xl font-bold">
-            Ethical UX & Privacy
+            Ethical UX & Privacy-First Design
           </h2>
 
           <p className="text-base sm:text-lg leading-relaxed text-gray-700">
-            Ethical design focuses on transparency, privacy, and building user trust in digital experiences.
+            Users today value transparency and privacy. Ethical UX focuses on trust, data protection, and honest design practices.
+          </p>
+
+          <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+            Businesses that adopt privacy-first design build stronger relationships and long-term customer loyalty.
           </p>
         </section>
 
-        {/* FAQ (MATCHED) */}
+        {/* Conclusion */}
+        <section className="space-y-5">
+          <h2 className="text-2xl sm:text-3xl font-bold">
+            The Future of UI/UX: Experience Drives Growth
+          </h2>
+
+          <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+            UI/UX design in 2026 is no longer optional — it is a competitive advantage. From AI-driven personalization to immersive experiences, modern design directly impacts SEO rankings, engagement, and conversions.
+          </p>
+
+          <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+            Businesses that invest in user experience today will dominate tomorrow’s digital landscape.
+          </p>
+        </section>
+
+        {/* FAQ */}
         <section className="mt-20">
           <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">
             Frequently Asked Questions
@@ -189,15 +221,15 @@ export default function BlogPost2() {
             {[
               {
                 q: "What are UI/UX trends in 2026?",
-                a: "AI, immersive design, and ethical UX are key trends.",
+                a: "AI-driven design, immersive UX, and personalization are key trends.",
               },
               {
-                q: "Why is UI/UX important?",
-                a: "It improves engagement, usability, and conversions.",
+                q: "Why is UI/UX important for SEO?",
+                a: "Better UX improves engagement, which helps rankings.",
               },
               {
                 q: "What is ethical UX?",
-                a: "Design that focuses on transparency and user privacy.",
+                a: "Design focused on privacy, transparency, and user trust.",
               },
             ].map((item, i) => {
               const isOpen = activeIndex === i;
@@ -214,7 +246,6 @@ export default function BlogPost2() {
 
                     <motion.span
                       animate={{ rotate: isOpen ? 45 : 0 }}
-                      transition={{ type: "spring", stiffness: 120 }}
                       className="text-lg"
                     >
                       +
@@ -223,12 +254,8 @@ export default function BlogPost2() {
 
                   <AnimatePresence>
                     {isOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                      >
-                        <p className="mt-3 text-sm text-gray-600 leading-relaxed">
+                      <motion.div>
+                        <p className="mt-3 text-sm text-gray-600">
                           {item.a}
                         </p>
                       </motion.div>
@@ -260,4 +287,3 @@ export default function BlogPost2() {
     </main>
   );
 }
-
