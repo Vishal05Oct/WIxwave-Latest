@@ -62,14 +62,15 @@ const AnimatedHeroSection = () => {
   return (
     <section
       aria-label="Hero Section"
-      className="relative w-full min-h-screen overflow-hidden flex items-center justify-center px-6 sm:px-10 md:px-16 lg:px-28 text-white"
+      className="relative w-full min-h-screen overflow-hidden flex items-center justify-center px-6 sm:px-10 md:px-16 lg:px-28 text-white bg-[#01001c]"
     >
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover  z-[-1]"
+        poster="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80"
+        className="absolute inset-0 w-full h-full object-cover z-0"
       >
         <source
           src="https://cdn.pixabay.com/video/2015/08/08/117-135736418_large.mp4"

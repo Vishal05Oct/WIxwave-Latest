@@ -25,7 +25,7 @@ const HeroSection = () => {
   const words = useMemo(() => title.split(" "), [title]);
 
   return (
-    <section className="container mx-auto py-4 px-6 pt-6 overflow-x-hidden">
+    <section className="container mx-auto py-12 md:py-16 px-6 overflow-x-hidden">
       <motion.div
         initial="hidden"
         whileInView="visible"

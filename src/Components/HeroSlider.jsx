@@ -83,11 +83,7 @@ export default function AboutSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-full"
-      style={{
-        paddingTop: "clamp(60px, 12vh, 140px)",
-        paddingBottom: "clamp(60px, 12vh, 140px)",
-      }}
+      className="w-full py-12 md:py-16"
     >
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16">
 
