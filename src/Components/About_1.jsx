@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { OptimizedImage } from "./OptimizedImage";
 
 export default function AboutWixWaveSection() {
   return (
@@ -70,14 +71,19 @@ export default function AboutWixWaveSection() {
 
         {/* Right Section - Image */}
         <div className="w-full lg:w-1/2">
-          <motion.img
-            src="https://res.cloudinary.com/dobbdtftp/image/upload/v1746784531/about_images_w0f97r.png"
-            alt="WixWave digital agency team collaborating on website and app development projects"
-            className="w-full h-full object-cover"
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 1 }}
-          />
+          >
+            <OptimizedImage
+              src="https://res.cloudinary.com/dobbdtftp/image/upload/v1746784531/about_images_w0f97r.png"
+              alt="WixWave digital agency team collaborating on website and app development projects"
+              className="w-full h-full object-cover"
+              width={600}
+              height={400}
+            />
+          </motion.div>
         </div>
       </div>
     </section>
