@@ -19,10 +19,10 @@ function Portfolio() {
   });
 
   return (
-<>
-<Hero/>
-<PortfolioBody/>
-</>
+    <main id="main" className="bg-white" aria-label="Main content">
+      <Hero />
+      <PortfolioBody />
+    </main>
   )
 }
 

@@ -5,7 +5,7 @@ const ThankYouPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 flex flex-col items-center justify-center p-6">
+    <main id="main" className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 flex flex-col items-center justify-center p-6" aria-label="Main content">
       {/* Floating subtle bubbles */}
       {[...Array(6)].map((_, i) => (
         <motion.div
@@ -146,7 +146,7 @@ const ThankYouPage = () => {
           Contact us on WhatsApp
         </a>
       </motion.p>
-    </div>
+    </main>
   );
 };
 

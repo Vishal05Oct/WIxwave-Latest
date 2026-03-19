@@ -118,10 +118,10 @@ const ShowcaseProjects = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Heading */}
-        <h2 className="text-5xl font-bold text-left mb-4" style={{ color: '#0c34e9' }}>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-left mb-3 sm:mb-4" style={{ color: '#0c34e9' }}>
           Our Projects
         </h2>
-        <p className="text-left text-gray-600 text-lg mb-8 sm:mb-12 lg:mb-14">
+        <p className="text-left text-gray-600 text-base sm:text-lg mb-8 sm:mb-12 lg:mb-14">
           Explore the journey of creativity, design, and innovation through our latest digital projects.
         </p>
 

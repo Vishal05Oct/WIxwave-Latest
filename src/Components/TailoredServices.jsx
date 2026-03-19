@@ -33,7 +33,11 @@ export default function ServicesSection() {
       </div>
 
       <div className="relative max-w-7xl mx-auto">
-        <button onClick={handlePrev} className="absolute -left-10 top-1/2 -translate-y-1/2 z-10 bg-white/10 p-2 rounded-full hover:bg-white/20 shadow-lg transition-all duration-300 hover:scale-110">
+        <button
+          onClick={handlePrev}
+          className="absolute left-2 sm:-left-10 top-1/2 -translate-y-1/2 z-10 bg-white/10 p-2 rounded-full hover:bg-white/20 shadow-lg transition-all duration-300 hover:scale-110"
+          aria-label="Previous services"
+        >
           <ChevronLeft size={28} />
         </button>
 
@@ -54,7 +58,11 @@ export default function ServicesSection() {
           })}
         </div>
 
-        <button onClick={handleNext} className="absolute -right-10 top-1/2 -translate-y-1/2 z-10 bg-white/10 p-2 rounded-full hover:bg-white/20 shadow-lg transition-all duration-300 hover:scale-110">
+        <button
+          onClick={handleNext}
+          className="absolute right-2 sm:-right-10 top-1/2 -translate-y-1/2 z-10 bg-white/10 p-2 rounded-full hover:bg-white/20 shadow-lg transition-all duration-300 hover:scale-110"
+          aria-label="Next services"
+        >
           <ChevronRight size={28} />
         </button>
       </div>

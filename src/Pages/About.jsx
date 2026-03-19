@@ -20,12 +20,10 @@ export default function About() {
   });
 
   return (
-   <>
-   <div>
-    <Hero/>
-    <About1/>
-    <About2/>
-    </div>
-    </>
+    <main id="main" className="bg-white" aria-label="Main content">
+      <Hero />
+      <About1 />
+      <About2 />
+    </main>
   )
 }

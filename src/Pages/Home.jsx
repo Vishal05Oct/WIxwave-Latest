@@ -55,10 +55,7 @@ function Home() {
   });
 
   return (
-
-
-   <>
-   <div>
+    <main id="main" className="bg-white" aria-label="Main content">
       <Hero />
       <Slider />
       <VideoSection />
@@ -70,8 +67,7 @@ function Home() {
       <HCTA />
       <HomepageForm page="default" />
       <CollaborationSection />
-    </div>
-   </>
+    </main>
   )
 }
 

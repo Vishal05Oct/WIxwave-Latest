@@ -27,12 +27,10 @@ function Branding() {
   }, []);
 
   return (
-    <>
-      <div>
-        <Hero />
-        <Body />
-      </div>
-    </>
+    <main id="main" className="bg-white" aria-label="Main content">
+      <Hero />
+      <Body />
+    </main>
   )
 }
 

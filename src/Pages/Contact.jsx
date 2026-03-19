@@ -20,13 +20,11 @@ function Contact() {
   });
 
   return (
-    <>
-      <div>
-        <Hero /> {/* Hero section at the top */}
-        <ContactForm page="contact" /> {/* Contact form with 'contact' title */}
-        <ContactInfo /> {/* Contact information */}
-      </div>
-    </>
+    <main id="main" className="bg-white" aria-label="Main content">
+      <Hero /> {/* Hero section at the top */}
+      <ContactForm page="contact" /> {/* Contact form with 'contact' title */}
+      <ContactInfo /> {/* Contact information */}
+    </main>
   );
 }
 

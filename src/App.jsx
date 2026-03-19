@@ -55,6 +55,13 @@ function App() {
   return (
     <Router>
       <CursorSpotlight>
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-white focus:px-3 focus:py-2 focus:rounded-md focus:text-blue-700"
+        >
+          Skip to main content
+        </a>
+
         <ScrollToTop />
         <Navbar />
         <AnimatedRoutes />

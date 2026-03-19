@@ -30,14 +30,12 @@ function Services() {
   });
 
   return (
-    <>
-    <div>
+    <main id="main" className="bg-white" aria-label="Main content">
       <Hero />
       <Body />
       <FAQ />
       <CTA />
-      </div>
-      </>
+    </main>
   )
 }
 

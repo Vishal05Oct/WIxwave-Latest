@@ -36,10 +36,10 @@ const Navbar = memo(function Navbar() {
 
   return (
     <nav
-      className="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-full max-w-6xl"
+      className="fixed top-3 sm:top-5 left-1/2 -translate-x-1/2 z-50 w-full max-w-6xl px-4 md:px-0"
       aria-label="Primary navigation"
     >
-      <div className="bg-[#01001c] rounded-full px-6 py-3 flex items-center justify-between container mx-auto shadow-xl backdrop-blur-sm">
+      <div className="bg-[#01001c] rounded-full px-4 sm:px-6 py-3 flex items-center justify-between shadow-xl backdrop-blur-sm">
         <Link to="/" onClick={() => setIsOpen(false)} aria-label="Homepage">
           <img
             src="https://res.cloudinary.com/dobbdtftp/image/upload/v1746202311/3_rgrvsx.png"

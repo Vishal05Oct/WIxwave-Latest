@@ -27,10 +27,10 @@ function AppDev() {
   }, []);
 
   return (
-<>
-<Hero/>
-<Body/> 
-</>
+    <main id="main" className="bg-white" aria-label="Main content">
+      <Hero />
+      <Body />
+    </main>
   )
 }
 

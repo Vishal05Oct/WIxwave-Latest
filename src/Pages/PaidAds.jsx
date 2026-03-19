@@ -27,12 +27,10 @@ function PaidAds() {
   }, []);
 
   return (
-    <>
-    <div>
+    <main id="main" className="bg-white" aria-label="Main content">
       <Hero />
       <Body />
-    </div>
-    </>
+    </main>
   )
 }
 

@@ -60,13 +60,13 @@ const Blogs = () => {
   );
 
   return (
-    <>
+    <main id="main" className="bg-white" aria-label="Main content">
       <Hero />
 
-      <section className="py-12 md:py-16 px-4 md:px-16 bg-white">
+      <section className="py-10 sm:py-12 md:py-16 px-4 md:px-16 bg-white">
 
         {/* HEADER */}
-        <div className="flex items-end justify-between gap-4 flex-wrap mb-10">
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-2 md:gap-4 mb-8 md:mb-10">
           <div>
             <h2 className="text-[28px] sm:text-[34px] md:text-[48px] font-semibold text-[#0b0b2c]">
               Latest posts
@@ -95,10 +95,10 @@ const Blogs = () => {
                   alt={post.title}
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-56 object-cover"
+                  className="w-full h-48 sm:h-56 object-cover"
                 />
 
-                <div className="p-5 md:p-6">
+                <div className="p-4 sm:p-5 md:p-6">
 
                   <div className="flex items-center gap-3 flex-wrap">
                     <span className="inline-flex items-center rounded-full bg-blue-50 text-blue-700 px-3 py-1 text-xs font-semibold">
@@ -128,7 +128,7 @@ const Blogs = () => {
         </div>
 
       </section>
-    </>
+    </main>
   )
 }
 

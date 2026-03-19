@@ -152,14 +152,26 @@ const ContactForm = ({ page = 'default' }) => {
             animate={{ opacity: nameInView ? 1 : 0, y: nameInView ? 0 : 20 }}
             transition={{ duration: 0.5 }}
           >
+            <label htmlFor="contact-name" className="sr-only">
+              Name
+            </label>
             <input
+              id="contact-name"
               name="name"
               value={formData.name}
               onChange={handleChange}
               placeholder="Your Name"
-              className={`w-full p-3 border-b-2 ${errors.name ? 'border-red-500' : 'border-gray-300'} focus:border-blue-500 outline-none transition-colors`}
+              required
+              aria-required="true"
+              aria-invalid={!!errors.name}
+              aria-describedby={errors.name ? 'contact-name-error' : undefined}
+              className={`w-full p-3 border-b-2 ${errors.name ? 'border-red-500' : 'border-gray-300'} focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-white outline-none transition-colors`}
             />
-            {errors.name && <p className="mt-1 text-red-500 text-sm">{errors.name}</p>}
+            {errors.name && (
+              <p id="contact-name-error" className="mt-1 text-red-500 text-sm" role="alert">
+                {errors.name}
+              </p>
+            )}
           </motion.div>
 
           {/* Email Field */}
@@ -169,15 +181,27 @@ const ContactForm = ({ page = 'default' }) => {
             animate={{ opacity: emailInView ? 1 : 0, y: emailInView ? 0 : 20 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
+            <label htmlFor="contact-email" className="sr-only">
+              Email Address
+            </label>
             <input
+              id="contact-email"
               name="email"
               type="email"
               value={formData.email}
               onChange={handleChange}
               placeholder="Email Address"
-              className={`w-full p-3 border-b-2 ${errors.email ? 'border-red-500' : 'border-gray-300'} focus:border-blue-500 outline-none transition-colors`}
+              required
+              aria-required="true"
+              aria-invalid={!!errors.email}
+              aria-describedby={errors.email ? 'contact-email-error' : undefined}
+              className={`w-full p-3 border-b-2 ${errors.email ? 'border-red-500' : 'border-gray-300'} focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-white outline-none transition-colors`}
             />
-            {errors.email && <p className="mt-1 text-red-500 text-sm">{errors.email}</p>}
+            {errors.email && (
+              <p id="contact-email-error" className="mt-1 text-red-500 text-sm" role="alert">
+                {errors.email}
+              </p>
+            )}
           </motion.div>
 
           {/* Company & Contact Fields */}
@@ -188,15 +212,27 @@ const ContactForm = ({ page = 'default' }) => {
               animate={{ opacity: companyInView ? 1 : 0, y: companyInView ? 0 : 20 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <input
-                name="company"
-                value={formData.company}
-                onChange={handleChange}
-                placeholder="Company Name"
-                className={`w-full p-3 border-b-2 ${errors.company ? 'border-red-500' : 'border-gray-300'} focus:border-blue-500 outline-none transition-colors`}
-              />
-              {errors.company && <p className="mt-1 text-red-500 text-sm">{errors.company}</p>}
-            </motion.div>
+              <label htmlFor="contact-company" className="sr-only">
+              Company Name
+            </label>
+            <input
+              id="contact-company"
+              name="company"
+              value={formData.company}
+              onChange={handleChange}
+              placeholder="Company Name"
+              required
+              aria-required="true"
+              aria-invalid={!!errors.company}
+              aria-describedby={errors.company ? 'contact-company-error' : undefined}
+              className={`w-full p-3 border-b-2 ${errors.company ? 'border-red-500' : 'border-gray-300'} focus:border-blue-500 outline-none transition-colors`}
+            />
+            {errors.company && (
+              <p id="contact-company-error" className="mt-1 text-red-500 text-sm" role="alert">
+                {errors.company}
+              </p>
+            )}
+          </motion.div>
 
             <motion.div
               ref={contactRef}
@@ -204,16 +240,28 @@ const ContactForm = ({ page = 'default' }) => {
               animate={{ opacity: contactInView ? 1 : 0, y: contactInView ? 0 : 20 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
+              <label htmlFor="contact-phone" className="sr-only">
+                Phone Number
+              </label>
               <input
+                id="contact-phone"
                 name="contact"
                 value={formData.contact}
                 onChange={handleChange}
                 placeholder="Phone Number"
-                inputMode="numeric"
+                inputMode="tel"
                 maxLength={10}
+                required
+                aria-required="true"
+                aria-invalid={!!errors.contact}
+                aria-describedby={errors.contact ? 'contact-phone-error' : undefined}
                 className={`w-full p-3 border-b-2 ${errors.contact ? 'border-red-500' : 'border-gray-300'} focus:border-blue-500 outline-none transition-colors`}
               />
-              {errors.contact && <p className="mt-1 text-red-500 text-sm">{errors.contact}</p>}
+              {errors.contact && (
+                <p id="contact-phone-error" className="mt-1 text-red-500 text-sm" role="alert">
+                  {errors.contact}
+                </p>
+              )}
             </motion.div>
           </div>
 
@@ -224,12 +272,20 @@ const ContactForm = ({ page = 'default' }) => {
             transition={{ delay: 0.4 }}
             className="pt-4"
           >
-            <h3 className="text-lg font-medium mb-3">What service are you interested in?</h3>
-            <div className="flex flex-wrap gap-3">
+            <h3 id="service-selection-label" className="text-lg font-medium mb-3">
+              What service are you interested in?
+            </h3>
+            <div
+              role="radiogroup"
+              aria-labelledby="service-selection-label"
+              className="flex flex-wrap gap-3"
+            >
               {services.map((service) => (
                 <motion.button
                   key={service}
                   type="button"
+                  role="radio"
+                  aria-checked={selectedService === service}
                   onClick={() => setSelectedService(service)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                     selectedService === service
@@ -253,15 +309,27 @@ const ContactForm = ({ page = 'default' }) => {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="pt-4"
           >
+            <label htmlFor="contact-message" className="sr-only">
+              Message
+            </label>
             <textarea
+              id="contact-message"
               name="message"
               value={formData.message}
               onChange={handleChange}
               placeholder="Tell us about your project..."
               rows={4}
+              required
+              aria-required="true"
+              aria-invalid={!!errors.message}
+              aria-describedby={errors.message ? 'contact-message-error' : undefined}
               className={`w-full p-3 border-2 rounded-lg ${errors.message ? 'border-red-500' : 'border-gray-300'} focus:border-blue-500 outline-none transition-colors`}
             />
-            {errors.message && <p className="mt-1 text-red-500 text-sm">{errors.message}</p>}
+            {errors.message && (
+              <p id="contact-message-error" className="mt-1 text-red-500 text-sm" role="alert">
+                {errors.message}
+              </p>
+            )}
           </motion.div>
 
           {/* Submit Button */}

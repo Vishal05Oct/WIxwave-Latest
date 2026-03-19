@@ -123,28 +123,6 @@ const AnimatedHeroSection = () => {
           </motion.button>
         </div>
       </div>
-
-      <style>
-        {`
-          @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-          }
-          .animate-blink {
-            animation: blink 1s step-start infinite;
-          }
-          /* Responsive tweaks */
-          @media (max-width: 640px) {
-            h1 {
-              font-size: 2rem !important;
-            }
-            div[aria-label="Hero Section"] {
-              padding-left: 1.5rem !important;
-              padding-right: 1.5rem !important;
-            }
-          }
-        `}
-      </style>
     </section>
   );
 };

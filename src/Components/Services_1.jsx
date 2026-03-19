@@ -55,7 +55,7 @@ export default function Services() {
               Our Services
             </p>
 
-            <h1 className="text-[40px] md:text-[64px] font-semibold leading-[1.05] tracking-tight text-[#0b0b2c]">
+            <h1 className="text-[32px] sm:text-[40px] md:text-[64px] font-semibold leading-[1.1] md:leading-[1.05] tracking-tight text-[#0b0b2c]">
               Powerful services <br /> built for scale
             </h1>
           </div>
@@ -76,13 +76,13 @@ export default function Services() {
             <Link
               to={item.link}
               key={i}
-              className="relative bg-[#ececf1] rounded-2xl p-6 h-[280px] flex flex-col justify-end overflow-hidden group hover:bg-[#e4e4ea] transition"
+              className="relative bg-[#ececf1] rounded-2xl p-5 sm:p-6 h-auto md:h-[280px] min-h-[220px] flex flex-col justify-end overflow-hidden group hover:bg-[#e4e4ea] transition"
             >
               {/* TOP DOT */}
               <div className="absolute top-5 left-5 w-2 h-2 bg-blue-600 rounded-full"></div>
 
               {/* NUMBER */}
-              <span className="absolute top-5 right-6 text-[64px] font-semibold text-[#dcdce3] opacity-50">
+              <span className="absolute top-4 sm:top-5 right-4 sm:right-6 text-[44px] sm:text-[64px] font-semibold text-[#dcdce3] opacity-50">
                 {String(i + 1).padStart(2, "0")}
               </span>
 
@@ -95,11 +95,11 @@ export default function Services() {
 
               {/* CONTENT */}
               <div className="relative z-10">
-                <h3 className="text-[20px] font-semibold text-[#0b0b2c] mb-2">
+                <h3 className="text-[16px] sm:text-[18px] md:text-[20px] font-semibold text-[#0b0b2c] mb-2">
                   {item.title}
                 </h3>
 
-                <p className="text-[14px] text-[#6b6b7a] leading-relaxed">
+                <p className="text-[13px] sm:text-[14px] text-[#6b6b7a] leading-relaxed">
                   {item.text}
                 </p>
               </div>
