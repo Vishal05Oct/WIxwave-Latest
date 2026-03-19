@@ -49,6 +49,21 @@ function setJsonLd(id, json) {
   script.textContent = jsonString;
 }
 
+function setMultipleJsonLd(jsonLdArray) {
+  // Remove existing JSON-LD scripts
+  const existingScripts = document.querySelectorAll('script[type="application/ld+json"]');
+  existingScripts.forEach(script => script.remove());
+
+  if (!jsonLdArray || !Array.isArray(jsonLdArray)) return;
+
+  jsonLdArray.forEach((jsonLd, index) => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.textContent = JSON.stringify(jsonLd);
+    document.head.appendChild(script);
+  });
+}
+
 export default function useSeo({
   title,
   description,
@@ -58,6 +73,7 @@ export default function useSeo({
   og = {},
   twitter = {},
   jsonLd,
+  jsonLdArray,
 }) {
   useEffect(() => {
     if (title) document.title = title;
@@ -116,7 +132,11 @@ export default function useSeo({
     setMetaTag("twitter:description", resolvedTwitterDescription);
     setMetaTag("twitter:image", resolvedTwitterImage);
 
-    setJsonLd("seo-json-ld", jsonLd);
+    if (jsonLdArray) {
+      setMultipleJsonLd(jsonLdArray);
+    } else {
+      setJsonLd("seo-json-ld", jsonLd);
+    }
   }, [
     title,
     description,
@@ -127,5 +147,6 @@ export default function useSeo({
     JSON.stringify(og),
     JSON.stringify(twitter),
     JSON.stringify(jsonLd),
+    JSON.stringify(jsonLdArray),
   ]);
 }

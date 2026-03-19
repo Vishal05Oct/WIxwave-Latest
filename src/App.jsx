@@ -4,9 +4,13 @@ import ScrollToTop from "./Components/ScrollToTop";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import CursorSpotlight from "./Components/CursorSpotlight";
+import ExitIntentModal from "./Components/ExitIntentModal";
+import StickyCtaBar from "./Components/StickyCtaBar";
 import useSeo from "./hooks/useSeo";
+import { usePerformanceMonitoring } from "./hooks/usePerformanceMonitoring";
 
 function App() {
+  usePerformanceMonitoring();
   useSeo({
     title: "Wixwave | The Digital Solutions",
     description:
@@ -66,6 +70,8 @@ function App() {
         <Navbar />
         <AnimatedRoutes />
         <Footer />
+        <ExitIntentModal />
+        <StickyCtaBar />
       </CursorSpotlight>
     </Router>
   );

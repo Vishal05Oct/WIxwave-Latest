@@ -134,7 +134,7 @@ const ContactForm = ({ page = 'default' }) => {
       transition={{ duration: 0.5 }}
     >
       <div className="container mx-auto">
-        <form onSubmit={handleSubmit} className="w-full space-y-8">
+        <form id="contact-form" onSubmit={handleSubmit} className="w-full space-y-8">
           {/* Form Title */}
           <motion.h2
             className="text-center text-3xl sm:text-4xl font-bold text-gray-900 mb-12"
