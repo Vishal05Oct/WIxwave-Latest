@@ -1,7 +1,21 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import useSeo from "../hooks/useSeo";
 
 const ThankYouPage = () => {
+  useSeo({
+    title: "Thank You | Wixwave",
+    description: "Thank you for reaching out. We received your message and will get back to you shortly.",
+    canonical: "https://wixwave.co/thank-you",
+    robots: "noindex,nofollow",
+    og: {
+      url: "https://wixwave.co/thank-you",
+      type: "website",
+      siteName: "Wixwave",
+      locale: "en_IN",
+    },
+  });
+
   const navigate = useNavigate();
 
   return (

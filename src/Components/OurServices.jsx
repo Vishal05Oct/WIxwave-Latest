@@ -43,38 +43,46 @@ export default function ServicesSection() {
 
   return (
     <section className="py-12 md:py-16 px-4 md:px-16">
-      {/* Top */}
+      
+      {/* 🔹 TOP */}
       <div className="grid md:grid-cols-2 gap-8 md:gap-10 mb-12 md:mb-16">
+
+        {/* LEFT */}
         <div>
           <p className="flex items-center gap-2 text-sm text-blue-600 mb-3">
             <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
             Services
           </p>
 
-          {/* FIX: responsive heading */}
           <h2 className="text-[28px] sm:text-[34px] md:text-[64px] font-semibold leading-[1.1] md:leading-[1.05] text-[#0b0b2c]">
             Everything you <br /> need to grow.
           </h2>
         </div>
 
-        <div className="flex flex-col md:items-end">
+        {/* RIGHT */}
+        <div className="flex flex-col items-start md:items-end">
+
           <p className="text-[#5a5a6a] max-w-md mb-5 md:mb-6 text-[14px] md:text-[15px] leading-relaxed">
             From strategy to execution, we offer a full suite of marketing services designed to grow your brand, reach your audience, and drive real results.
           </p>
 
+          {/* 🔥 FINAL BUTTON FIX */}
           <Link
             to="/contact"
-            className="flex items-center gap-3 bg-[#2d2dfc] text-white px-5 md:px-6 py-2.5 md:py-3 rounded-full text-sm font-medium hover:scale-105 transition"
+            style={{ width: "fit-content" }}
+            className="inline-flex items-center gap-2 bg-[#2d2dfc] text-white px-4 md:px-6 py-2 md:py-3 rounded-full text-sm font-medium hover:scale-105 transition shrink-0 max-w-max"
           >
             Contact us
-            <span className="bg-white text-[#2d2dfc] p-2 rounded-full">
-              <ArrowUpRight size={16} />
+            <span className="bg-white text-[#2d2dfc] p-1.5 md:p-2 rounded-full flex items-center justify-center">
+              <ArrowUpRight size={14} />
             </span>
           </Link>
+
         </div>
+
       </div>
 
-      {/* Cards */}
+      {/* 🔹 CARDS */}
       <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
         {services.map((item, i) => (
           <Link
@@ -110,6 +118,7 @@ export default function ServicesSection() {
           </Link>
         ))}
       </div>
+
     </section>
   );
 }

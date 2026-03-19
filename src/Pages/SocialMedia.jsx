@@ -1,30 +1,30 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Hero from '../Components/Services/SocialMediaHero'
 import Body from '../Components/Services/SocialMediaBody'
+import useSeo from '../hooks/useSeo'
 
 function SocialMedia() {
-  useEffect(() => {
-    document.title = 'Social Media Marketing | Grow Your Brand Online with Wixwave';
-    const metaDescription = document.querySelector('meta[name="description"]');
-    const description = 'Wixwave’s social media marketing grows your audience and engagement. Content creation, strategy, and management for all platforms.';
-    if (metaDescription) {
-      metaDescription.setAttribute('content', description);
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = 'description';
-      meta.content = description;
-      document.head.appendChild(meta);
-    }
-    // Set canonical tag
-    const canonicalUrl = 'https://wixwave.co/services/social-media';
-    let link = document.querySelector("link[rel='canonical']");
-    if (!link) {
-      link = document.createElement('link');
-      link.setAttribute('rel', 'canonical');
-      document.head.appendChild(link);
-    }
-    link.setAttribute('href', canonicalUrl);
-  }, []);
+  useSeo({
+    title: 'Social Media Marketing | Grow Your Brand Online with Wixwave',
+    description:
+      'Wixwave’s social media marketing grows your audience and engagement. Content creation, strategy, and management for all platforms.',
+    canonical: 'https://wixwave.co/services/social-media',
+    keywords: [
+      'social media marketing',
+      'social media agency',
+      'content marketing',
+      'social media management',
+      'social media strategy',
+    ],
+    og: {
+      url: 'https://wixwave.co/services/social-media',
+      type: 'website',
+      siteName: 'Wixwave',
+      locale: 'en_IN',
+      image:
+        'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1600&q=80',
+    },
+  });
 
   return (
     <main id="main" className="bg-white" aria-label="Main content">

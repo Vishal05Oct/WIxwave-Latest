@@ -1,9 +1,12 @@
 import { useEffect } from "react";
 
 function setMetaTag(name, content, isProperty = false) {
-  if (!content) return;
   const selector = isProperty ? `meta[property="${name}"]` : `meta[name="${name}"]`;
   let tag = document.querySelector(selector);
+  if (!content) {
+    if (tag) tag.remove();
+    return;
+  }
   if (!tag) {
     tag = document.createElement("meta");
     if (isProperty) {
@@ -17,8 +20,11 @@ function setMetaTag(name, content, isProperty = false) {
 }
 
 function setLinkRel(rel, href) {
-  if (!href) return;
   let link = document.querySelector(`link[rel='${rel}']`);
+  if (!href) {
+    if (link) link.remove();
+    return;
+  }
   if (!link) {
     link = document.createElement("link");
     link.setAttribute("rel", rel);
@@ -28,9 +34,12 @@ function setLinkRel(rel, href) {
 }
 
 function setJsonLd(id, json) {
-  if (!json) return;
-  const jsonString = JSON.stringify(json);
   let script = document.getElementById(id);
+  if (!json) {
+    if (script) script.remove();
+    return;
+  }
+  const jsonString = JSON.stringify(json);
   if (!script) {
     script = document.createElement("script");
     script.id = id;
@@ -53,30 +62,61 @@ export default function useSeo({
   useEffect(() => {
     if (title) document.title = title;
 
-    if (description) setMetaTag("description", description);
-    if (keywords) setMetaTag("keywords", Array.isArray(keywords) ? keywords.join(", ") : keywords);
-    if (robots) setMetaTag("robots", robots);
+    const currentUrl =
+      typeof window !== "undefined"
+        ? `${window.location.origin}${window.location.pathname}`
+        : undefined;
+    const resolvedCanonical = canonical || currentUrl;
 
-    const resolvedOgTitle = og.title || title;
-    const resolvedOgDescription = og.description || description;
-    if (resolvedOgTitle) setMetaTag("og:title", resolvedOgTitle, true);
-    if (resolvedOgDescription) setMetaTag("og:description", resolvedOgDescription, true);
-    if (og.type) setMetaTag("og:type", og.type, true);
-    if (og.url || canonical) setMetaTag("og:url", og.url || canonical, true);
-    if (og.image) setMetaTag("og:image", og.image, true);
-    if (og.siteName) setMetaTag("og:site_name", og.siteName, true);
-    if (og.locale) setMetaTag("og:locale", og.locale, true);
+    const resolvedRobots = robots ?? "index,follow";
 
-    if (canonical) setLinkRel("canonical", canonical);
+    const resolvedOg = {
+      type: "website",
+      siteName: "Wixwave",
+      locale: "en_IN",
+      image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746202311/3_rgrvsx.png",
+      ...og,
+    };
 
-    const resolvedTwitterTitle = twitter.title || title;
-    const resolvedTwitterDescription = twitter.description || description;
-    if (twitter.card || og.image) setMetaTag("twitter:card", twitter.card || "summary_large_image");
-    if (resolvedTwitterTitle) setMetaTag("twitter:title", resolvedTwitterTitle);
-    if (resolvedTwitterDescription) setMetaTag("twitter:description", resolvedTwitterDescription);
-    if (twitter.image || og.image) setMetaTag("twitter:image", twitter.image || og.image);
+    const resolvedOgTitle = resolvedOg.title || title;
+    const resolvedOgDescription = resolvedOg.description || description;
+    const resolvedOgUrl = resolvedOg.url || resolvedCanonical;
+    const resolvedOgImage = resolvedOg.image;
 
-    if (jsonLd) setJsonLd("seo-json-ld", jsonLd);
+    const resolvedTwitter = {
+      card: "summary_large_image",
+      ...twitter,
+    };
+
+    const resolvedTwitterTitle =
+      resolvedTwitter.title || resolvedOgTitle || title;
+    const resolvedTwitterDescription =
+      resolvedTwitter.description || resolvedOgDescription || description;
+    const resolvedTwitterImage = resolvedTwitter.image || resolvedOgImage;
+
+    setMetaTag("description", description);
+    setMetaTag(
+      "keywords",
+      Array.isArray(keywords) ? keywords.join(", ") : keywords
+    );
+    setMetaTag("robots", resolvedRobots);
+
+    setMetaTag("og:title", resolvedOgTitle, true);
+    setMetaTag("og:description", resolvedOgDescription, true);
+    setMetaTag("og:type", resolvedOg.type, true);
+    setMetaTag("og:url", resolvedOgUrl, true);
+    setMetaTag("og:image", resolvedOgImage, true);
+    setMetaTag("og:site_name", resolvedOg.siteName, true);
+    setMetaTag("og:locale", resolvedOg.locale, true);
+
+    setLinkRel("canonical", resolvedCanonical);
+
+    setMetaTag("twitter:card", resolvedTwitter.card);
+    setMetaTag("twitter:title", resolvedTwitterTitle);
+    setMetaTag("twitter:description", resolvedTwitterDescription);
+    setMetaTag("twitter:image", resolvedTwitterImage);
+
+    setJsonLd("seo-json-ld", jsonLd);
   }, [
     title,
     description,
