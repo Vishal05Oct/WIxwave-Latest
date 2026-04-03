@@ -20,8 +20,8 @@ const highlights = [
 
 export default function About_1() {
   return (
-    <section className="bg-[#f8fbff] py-12 px-4 sm:px-6 md:px-12 lg:px-20">
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-16 items-start">
+    <section className="bg-[#f8fbff] py-8 px-4 sm:px-6 md:px-12 lg:px-20">
+      <div className="container mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-16 items-start">
         <div>
           <span className="inline-flex items-center rounded-full bg-blue-100 text-blue-700 px-4 py-1 text-sm font-semibold">
             Why brands choose Wixwave

@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 const capabilities = [
@@ -12,8 +11,8 @@ const capabilities = [
 
 export default function About_2() {
   return (
-    <section className="bg-white py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12 lg:px-20">
-      <div className="max-w-7xl mx-auto rounded-[32px] overflow-hidden bg-[#0b0b2c] text-white">
+    <section className="bg-[#f4f7ff] py-8 sm:py-16 md:py-20 px-4 sm:px-6 md:px-12 lg:px-20">
+      <div className="container mx-auto rounded-[32px] overflow-hidden bg-[#0b0b2c] text-white">
         <div className="grid lg:grid-cols-[1.1fr_0.9fr]">
           <div className="p-8 sm:p-10 md:p-14 lg:p-16">
             <span className="inline-flex items-center rounded-full bg-white/10 border border-white/15 px-4 py-1 text-sm font-medium text-blue-100">

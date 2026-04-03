@@ -9,8 +9,8 @@ const milestones = [
 
 export default function About_4() {
   return (
-    <section className="bg-white py-14 sm:py-16 md:py-20 px-4 sm:px-6 md:px-12 lg:px-20">
-      <div className="max-w-7xl mx-auto rounded-[28px] border border-slate-200 bg-gradient-to-br from-white via-[#f8fbff] to-[#eef4ff] p-6 sm:p-8 md:p-10 lg:p-12">
+    <section className="bg-[#f4f7ff] py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-12 lg:px-20">
+      <div className="container mx-auto rounded-[28px] border border-slate-200 bg-gradient-to-br from-white via-[#f8fbff] to-[#eef4ff] p-6 sm:p-8 md:p-10 lg:p-12">
         <div className="grid lg:grid-cols-[1fr_0.9fr] gap-8 lg:gap-10 items-center">
           <div>
             <span className="inline-flex items-center rounded-full bg-blue-100 text-blue-700 px-4 py-1 text-sm font-semibold">

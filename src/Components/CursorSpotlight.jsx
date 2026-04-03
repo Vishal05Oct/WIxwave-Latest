@@ -1,8 +1,9 @@
-import { useState, useRef, useCallback, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function CursorSpotlight({ children }) {
-  const [mouse, setMouse] = useState({ x: 0, y: 0 });
-  const timeoutRef = useRef(null);
+  const spotlightRef = useRef(null);
+  const mouse = useRef({ x: 0, y: 0 });
+  const rafRef = useRef(null);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
@@ -11,40 +12,43 @@ export default function CursorSpotlight({ children }) {
 
     const handleChange = (e) => setPrefersReducedMotion(e.matches);
     mediaQuery.addEventListener("change", handleChange);
+
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
 
-  const handleMouseMove = useCallback((e) => {
+  useEffect(() => {
     if (prefersReducedMotion) return;
 
-    // Clear previous timeout
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    const update = () => {
+      if (spotlightRef.current) {
+        spotlightRef.current.style.background = `radial-gradient(
+          900px circle at ${mouse.current.x}px ${mouse.current.y}px,
+          rgba(59,130,246,0.15),
+          transparent 30%
+        )`;
+      }
+      rafRef.current = requestAnimationFrame(update);
+    };
 
-    // Debounce: update only every 50ms instead of every mousemove
-    timeoutRef.current = setTimeout(() => {
-      setMouse({
-        x: e.clientX,
-        y: e.clientY
-      });
-    }, 50);
+    rafRef.current = requestAnimationFrame(update);
+
+    return () => cancelAnimationFrame(rafRef.current);
   }, [prefersReducedMotion]);
 
-  // Skip rendering cursor effect on devices that prefer reduced motion
+  const handleMouseMove = (e) => {
+    mouse.current.x = e.clientX;
+    mouse.current.y = e.clientY;
+  };
+
   if (prefersReducedMotion) {
     return <div className="relative min-h-screen">{children}</div>;
   }
 
   return (
-    <div
-      className="relative min-h-screen"
-      onMouseMove={handleMouseMove}
-    >
-      {/* Use will-change for GPU acceleration */}
+    <div className="relative min-h-screen" onMouseMove={handleMouseMove}>
       <div
+        ref={spotlightRef}
         className="pointer-events-none fixed inset-0 z-30 will-change-transform"
-        style={{
-          background: `radial-gradient(900px circle at ${mouse.x}px ${mouse.y}px, rgba(59,130,246,0.15), transparent 30%)`
-        }}
       />
       {children}
     </div>

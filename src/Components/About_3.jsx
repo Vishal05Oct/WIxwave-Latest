@@ -28,8 +28,8 @@ const process = [
 
 export default function About_3() {
   return (
-    <section className="bg-[#f4f7ff] py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12 lg:px-20">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-[#f4f7ff] py-8 sm:py-16 md:py-20 px-4 sm:px-6 md:px-12 lg:px-20">
+      <div className="container mx-auto">
         <div className="max-w-3xl">
           <span className="inline-flex items-center rounded-full bg-white text-blue-700 px-4 py-1 text-sm font-semibold border border-blue-100">
             Our values & process
