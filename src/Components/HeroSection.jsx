@@ -112,6 +112,8 @@ const AnimatedHeroSection = () => {
         </video>
       )}
 
+
+
       {/* 🌟 Content */}
       <div className="relative z-10 text-center max-w-5xl">
         
