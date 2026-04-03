@@ -56,7 +56,7 @@ function Home() {
 
   return (
     <main id="main" className="bg-white" aria-label="Main content">
-      <Hero />
+      {/* <Hero /> */}
       <Slider />
       <VideoSection />
       <HowWeRoll />
