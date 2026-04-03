@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 
 function setMetaTag(name, content, isProperty = false) {
   const selector = isProperty ? `meta[property="${name}"]` : `meta[name="${name}"]`;
@@ -50,13 +50,12 @@ function setJsonLd(id, json) {
 }
 
 function setMultipleJsonLd(jsonLdArray) {
-  // Remove existing JSON-LD scripts
   const existingScripts = document.querySelectorAll('script[type="application/ld+json"]');
-  existingScripts.forEach(script => script.remove());
+  existingScripts.forEach((script) => script.remove());
 
   if (!jsonLdArray || !Array.isArray(jsonLdArray)) return;
 
-  jsonLdArray.forEach((jsonLd, index) => {
+  jsonLdArray.forEach((jsonLd) => {
     const script = document.createElement("script");
     script.type = "application/ld+json";
     script.textContent = JSON.stringify(jsonLd);
@@ -75,46 +74,54 @@ export default function useSeo({
   jsonLd,
   jsonLdArray,
 }) {
-  useEffect(() => {
-    if (title) document.title = title;
+  const currentUrl =
+    typeof window !== "undefined"
+      ? `${window.location.origin}${window.location.pathname}`
+      : undefined;
 
-    const currentUrl =
-      typeof window !== "undefined"
-        ? `${window.location.origin}${window.location.pathname}`
-        : undefined;
-    const resolvedCanonical = canonical || currentUrl;
+  const keywordContent = useMemo(
+    () => (Array.isArray(keywords) ? keywords.join(", ") : keywords),
+    [keywords]
+  );
 
-    const resolvedRobots = robots ?? "index,follow";
+  const resolvedCanonical = canonical || currentUrl;
+  const resolvedRobots = robots ?? "index,follow";
 
-    const resolvedOg = {
+  const resolvedOg = useMemo(
+    () => ({
       type: "website",
       siteName: "Wixwave",
       locale: "en_IN",
       image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746202311/3_rgrvsx.png",
       ...og,
-    };
+    }),
+    [og]
+  );
 
-    const resolvedOgTitle = resolvedOg.title || title;
-    const resolvedOgDescription = resolvedOg.description || description;
-    const resolvedOgUrl = resolvedOg.url || resolvedCanonical;
-    const resolvedOgImage = resolvedOg.image;
+  const resolvedOgTitle = resolvedOg.title || title;
+  const resolvedOgDescription = resolvedOg.description || description;
+  const resolvedOgUrl = resolvedOg.url || resolvedCanonical;
+  const resolvedOgImage = resolvedOg.image;
 
-    const resolvedTwitter = {
+  const resolvedTwitter = useMemo(
+    () => ({
       card: "summary_large_image",
       ...twitter,
-    };
+    }),
+    [twitter]
+  );
 
-    const resolvedTwitterTitle =
-      resolvedTwitter.title || resolvedOgTitle || title;
-    const resolvedTwitterDescription =
-      resolvedTwitter.description || resolvedOgDescription || description;
-    const resolvedTwitterImage = resolvedTwitter.image || resolvedOgImage;
+  const resolvedTwitterTitle =
+    resolvedTwitter.title || resolvedOgTitle || title;
+  const resolvedTwitterDescription =
+    resolvedTwitter.description || resolvedOgDescription || description;
+  const resolvedTwitterImage = resolvedTwitter.image || resolvedOgImage;
+
+  useEffect(() => {
+    if (title) document.title = title;
 
     setMetaTag("description", description);
-    setMetaTag(
-      "keywords",
-      Array.isArray(keywords) ? keywords.join(", ") : keywords
-    );
+    setMetaTag("keywords", keywordContent);
     setMetaTag("robots", resolvedRobots);
 
     setMetaTag("og:title", resolvedOgTitle, true);
@@ -134,19 +141,26 @@ export default function useSeo({
 
     if (jsonLdArray) {
       setMultipleJsonLd(jsonLdArray);
-    } else {
-      setJsonLd("seo-json-ld", jsonLd);
+      return;
     }
+
+    setJsonLd("seo-json-ld", jsonLd);
   }, [
     title,
     description,
-    canonical,
-    keywords,
-    robots,
-    // stabilize object deps to avoid reruns on new literals
-    JSON.stringify(og),
-    JSON.stringify(twitter),
-    JSON.stringify(jsonLd),
-    JSON.stringify(jsonLdArray),
+    keywordContent,
+    resolvedRobots,
+    resolvedCanonical,
+    resolvedOg,
+    resolvedOgTitle,
+    resolvedOgDescription,
+    resolvedOgUrl,
+    resolvedOgImage,
+    resolvedTwitter,
+    resolvedTwitterTitle,
+    resolvedTwitterDescription,
+    resolvedTwitterImage,
+    jsonLd,
+    jsonLdArray,
   ]);
 }

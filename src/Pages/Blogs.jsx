@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import Hero from '../Components/Blogs_Hero'
 import useSeo from '../hooks/useSeo'
 
-// ✅ DATA INSIDE SAME FILE
 export const blogPosts = [
   {
     id: 1,
@@ -29,7 +28,7 @@ export const blogPosts = [
     image:
       "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1600&q=80",
   },
-];
+]
 
 const Blogs = () => {
   useSeo({
@@ -52,20 +51,17 @@ const Blogs = () => {
       siteName: 'Wixwave',
       locale: 'en_IN',
     },
-  });
+  })
 
-  // ✅ SORT LATEST FIRST
   const sortedPosts = [...blogPosts].sort(
     (a, b) => new Date(b.date) - new Date(a.date)
-  );
+  )
 
   return (
     <main id="main" className="bg-white" aria-label="Main content">
       <Hero />
 
       <section className="py-10 sm:py-12 md:py-16 px-4 md:px-16 bg-white">
-
-        {/* HEADER */}
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-2 md:gap-4 mb-8 md:mb-10">
           <div>
             <h2 className="text-[28px] sm:text-[34px] md:text-[48px] font-semibold text-[#0b0b2c]">
@@ -81,7 +77,6 @@ const Blogs = () => {
           </span>
         </div>
 
-        {/* POSTS */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {sortedPosts.map((post) => (
             <article
@@ -89,7 +84,6 @@ const Blogs = () => {
               className="group rounded-2xl border border-gray-200 overflow-hidden bg-white hover:shadow-xl transition"
             >
               <Link to={`/blog/${post.slug}`} className="block">
-
                 <img
                   src={post.image}
                   alt={post.title}
@@ -99,7 +93,6 @@ const Blogs = () => {
                 />
 
                 <div className="p-4 sm:p-5 md:p-6">
-
                   <div className="flex items-center gap-3 flex-wrap">
                     <span className="inline-flex items-center rounded-full bg-blue-50 text-blue-700 px-3 py-1 text-xs font-semibold">
                       {post.tags.join(" • ")}
@@ -120,13 +113,11 @@ const Blogs = () => {
                   <div className="mt-4 text-[#2d2dfc] font-medium group-hover:underline">
                     Read post →
                   </div>
-
                 </div>
               </Link>
             </article>
           ))}
         </div>
-
       </section>
     </main>
   )

@@ -1,92 +1,75 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { Link } from "react-router-dom";
 
-function About_2() {
+const capabilities = [
+  "Custom website design and development",
+  "Mobile app planning and product execution",
+  "Technical SEO and performance optimisation",
+  "Brand identity systems and creative assets",
+  "Conversion-focused landing pages and funnels",
+  "Growth support for scaling local and national brands",
+];
+
+export default function About_2() {
   return (
-    <section
-      className="px-6 py-12 lg:px-24"
-      aria-label="About WixWave digital agency services and expertise"
-    >
-      <div className="container mx-auto">
-        <article>
-          {/* Animated Paragraph 1 */}
-          <motion.p
-            className="text-lg text-gray-800"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-          >
-            At WixWave, we transform ideas into exceptional digital experiences with world-class web design,
-            cutting-edge app development, and creative digital marketing strategies. We go beyond meeting your
-            expectations—we exceed them, making sure your online presence is as dynamic as your business.
-          </motion.p>
+    <section className="bg-white py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12 lg:px-20">
+      <div className="max-w-7xl mx-auto rounded-[32px] overflow-hidden bg-[#0b0b2c] text-white">
+        <div className="grid lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="p-8 sm:p-10 md:p-14 lg:p-16">
+            <span className="inline-flex items-center rounded-full bg-white/10 border border-white/15 px-4 py-1 text-sm font-medium text-blue-100">
+              Our approach
+            </span>
 
-          {/* Animated Paragraph 2 */}
-          <motion.p
-            className="mt-6 text-lg text-gray-800"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
-          >
-            We don’t just build websites; we create immersive digital experiences that elevate your brand.
-            From sleek e-commerce platforms to comprehensive digital strategies, WixWave is dedicated to making
-            your brand shine in today’s fast-paced digital world.
-          </motion.p>
+            <h2 className="mt-5 text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+              Built for brands that need more than just a website.
+            </h2>
 
-          {/* Animated Heading */}
-          <motion.header
-            className="mt-8"
-            initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.6 }}
-          >
-            <h2 className="text-2xl font-extrabold text-black">Why WixWave?</h2>
-          </motion.header>
+            <p className="mt-5 text-blue-50/90 text-base sm:text-lg leading-relaxed max-w-2xl">
+              We help businesses create a stronger digital presence with
+              thoughtful strategy, modern design, and dependable execution.
+              Whether you are launching something new or improving an existing
+              platform, we focus on solutions that are fast, clear, and
+              conversion-ready.
+            </p>
 
-          {/* Animated Paragraph 3 */}
-          <motion.p
-            className="mt-4 text-lg text-gray-800"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.9 }}
-          >
-            What sets us apart? WixWave is where innovation meets strategy. Our expert team fuses
-            cutting-edge technology with visionary design to deliver scalable digital solutions.
-            We don’t just design—we craft memorable digital experiences that drive measurable results.
-          </motion.p>
+            <div className="mt-8 grid sm:grid-cols-2 gap-3">
+              {capabilities.map((item) => (
+                <div
+                  key={item}
+                  className="rounded-2xl bg-white/5 border border-white/10 px-4 py-4 text-sm sm:text-base text-blue-50"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
 
-          {/* Animated Paragraph 4 */}
-          <motion.p
-            className="mt-4 text-lg text-gray-800"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.2 }}
-          >
-            Your brand is at the core of everything we do. Our customer-first approach helps us deeply
-            understand your unique needs, audience, and goals. We then craft tailored digital strategies,
-            including SEO and custom web development, to empower your brand’s growth and success online.
-          </motion.p>
-        </article>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center rounded-full bg-white text-[#0b0b2c] px-6 py-3 font-semibold hover:bg-blue-50 transition-colors"
+              >
+                Talk to our team
+              </Link>
+              <Link
+                to="/services"
+                className="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 font-semibold text-white hover:bg-white/10 transition-colors"
+              >
+                Explore services
+              </Link>
+            </div>
+          </div>
 
-        {/* Animated Image */}
-        <motion.figure
-          className="mt-10 w-full"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
-        >
-          <img
-            src="https://taw.agency/static/media/taw-about-banner3.535024bf6be11dad4776.png"
-            alt="WixWave digital agency team collaborating on projects"
-            className="w-full h-auto object-cover"
-          />
-          <figcaption className="sr-only">
-            WixWave team in action collaborating on web design and app development projects.
-          </figcaption>
-        </motion.figure>
+          <div className="relative min-h-[320px] lg:min-h-full">
+            <img
+              src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80"
+              alt="Wixwave team planning digital growth strategy"
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0b0b2c] via-[#0b0b2c]/35 to-transparent lg:bg-gradient-to-l lg:from-transparent lg:via-[#0b0b2c]/15 lg:to-[#0b0b2c]/70" />
+          </div>
+        </div>
       </div>
     </section>
   );
 }
-
-export default About_2;

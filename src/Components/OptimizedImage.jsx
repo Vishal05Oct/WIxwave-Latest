@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 
-export const getOptimizedImageUrl = (cloudinaryUrl, width, quality = 80, format = 'auto') => {
-  if (!cloudinaryUrl.includes('cloudinary')) return cloudinaryUrl;
+const getOptimizedImageUrl = (cloudinaryUrl, width, quality = 80, format = 'auto') => {
+  if (!cloudinaryUrl.includes('cloudinary')) return cloudinaryUrl
 
-  // Extract upload position and insert transformation params
-  const [baseUrl, uploadPath] = cloudinaryUrl.split('/upload/');
-  return `${baseUrl}/upload/w_${width},q_${quality},f_${format},c_fill/${uploadPath}`;
-};
+  const [baseUrl, uploadPath] = cloudinaryUrl.split('/upload/')
+  return `${baseUrl}/upload/w_${width},q_${quality},f_${format},c_fill/${uploadPath}`
+}
 
-export const getResponsiveImageSrcSet = (cloudinaryUrl) => {
+const getResponsiveImageSrcSet = (cloudinaryUrl) => {
   return [
     { width: 480, descriptor: '480w' },
     { width: 768, descriptor: '768w' },
@@ -16,14 +15,14 @@ export const getResponsiveImageSrcSet = (cloudinaryUrl) => {
     { width: 1400, descriptor: '1400w' }
   ].map(({ width, descriptor }) =>
     `${getOptimizedImageUrl(cloudinaryUrl, width)} ${descriptor}`
-  ).join(', ');
-};
+  ).join(', ')
+}
 
-export const OptimizedImage = React.memo(({ src, alt, className, width, height, priority = false }) => {
-  const [isLoaded, setIsLoaded] = useState(false);
+const OptimizedImage = React.memo(({ src, alt, className, width, height, priority = false }) => {
+  const [isLoaded, setIsLoaded] = useState(false)
 
-  const srcSet = getResponsiveImageSrcSet(src);
-  const defaultSrc = getOptimizedImageUrl(src, 800);
+  const srcSet = getResponsiveImageSrcSet(src)
+  const defaultSrc = getOptimizedImageUrl(src, 800)
 
   return (
     <img
@@ -38,5 +37,7 @@ export const OptimizedImage = React.memo(({ src, alt, className, width, height, 
       onLoad={() => setIsLoaded(true)}
       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px"
     />
-  );
-});
+  )
+})
+
+export default OptimizedImage

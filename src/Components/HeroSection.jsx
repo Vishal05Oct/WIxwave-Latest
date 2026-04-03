@@ -41,42 +41,14 @@ const AnimatedHeroSection = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [videoError, setVideoError] = useState(false);
 
-  const [wordIndex, setWordIndex] = useState(0);
-  const [typedWord, setTypedWord] = useState("");
+  const { heading, paragraph, button } = theme;
 
-  const { heading, subtitle, rotatingWords, paragraph, button } = theme;
-
-  // 📱 Responsive check
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // ✨ Typing Animation (optimized)
-  useEffect(() => {
-    let timeout;
-    let i = 0;
-    const word = rotatingWords[wordIndex];
-
-    const type = () => {
-      if (i <= word.length) {
-        setTypedWord(word.slice(0, i));
-        i++;
-        timeout = setTimeout(type, 70);
-      } else {
-        timeout = setTimeout(() => {
-          setWordIndex((prev) => (prev + 1) % rotatingWords.length);
-          setTypedWord("");
-        }, 1500);
-      }
-    };
-
-    type();
-    return () => clearTimeout(timeout);
-  }, [wordIndex]);
-
-  // ▶️ Autoplay fix
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.play().catch(() => {});
@@ -87,9 +59,6 @@ const AnimatedHeroSection = () => {
 
   return (
     <section className="relative w-full min-h-screen flex items-center justify-center px-6 md:px-16 lg:px-28 text-white overflow-hidden">
-
-      
-      {/* 🎥 Video Background */}
       {!videoError && (
         <video
           ref={videoRef}
@@ -112,11 +81,7 @@ const AnimatedHeroSection = () => {
         </video>
       )}
 
-
-
-      {/* 🌟 Content */}
       <div className="relative z-10 text-center max-w-5xl">
-        
         <motion.h1
           className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight"
           variants={containerVariant}
@@ -125,8 +90,6 @@ const AnimatedHeroSection = () => {
         >
           {splitText(heading)}
         </motion.h1>
-
-
 
         <motion.p
           className="mt-6 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
@@ -150,7 +113,6 @@ const AnimatedHeroSection = () => {
             {button}
           </button>
         </motion.div>
-
       </div>
     </section>
   );

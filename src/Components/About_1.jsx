@@ -1,89 +1,82 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { OptimizedImage } from "./OptimizedImage";
 
-export default function AboutWixWaveSection() {
+const highlights = [
+  {
+    title: "Strategy-led execution",
+    description:
+      "Every engagement starts with clarity around goals, audience, and measurable outcomes so design and development move in the same direction.",
+  },
+  {
+    title: "Performance-first builds",
+    description:
+      "We create fast, responsive websites and digital experiences that support SEO, improve user trust, and convert traffic into qualified leads.",
+  },
+  {
+    title: "Long-term growth mindset",
+    description:
+      "From launch to optimisation, we focus on systems that are maintainable, scalable, and aligned with how your business grows online.",
+  },
+];
+
+export default function About_1() {
   return (
-    <section
-      className="w-full bg-white text-gray-800 px-4 py-12 lg:px-24"
-      aria-label="About WixWave digital agency and its innovative services"
-    >
-      <div className="container mx-auto flex flex-col lg:flex-row items-start gap-10">
-        {/* Left Section - About WixWave */}
-        <article className="w-full lg:w-1/2 space-y-6">
-          <header>
-            <motion.h2
-              className="text-2xl lg:text-4xl font-bold leading-tight"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
+    <section className="bg-[#f8fbff] py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-12 lg:px-20">
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-16 items-start">
+        <div>
+          <span className="inline-flex items-center rounded-full bg-blue-100 text-blue-700 px-4 py-1 text-sm font-semibold">
+            Why brands choose Wixwave
+          </span>
+
+          <h2 className="mt-5 text-3xl sm:text-4xl md:text-5xl font-bold text-[#0b0b2c] leading-tight">
+            We blend design, technology, and marketing into one growth-focused
+            digital workflow.
+          </h2>
+
+          <p className="mt-5 text-base sm:text-lg text-[#4f5873] leading-relaxed max-w-2xl">
+            Wixwave partners with startups, local businesses, and ambitious
+            brands to build digital experiences that look premium and perform in
+            the real world. Our process connects strategy, user experience,
+            engineering, and visibility so every project is built to deliver
+            impact—not just aesthetics.
+          </p>
+
+          <div className="mt-8 grid sm:grid-cols-3 gap-4">
+            <div className="rounded-2xl bg-white border border-blue-100 p-5 shadow-sm">
+              <p className="text-3xl font-bold text-[#0b0b2c]">50+</p>
+              <p className="mt-2 text-sm text-[#5d6785]">Projects shaped with a practical business-first approach.</p>
+            </div>
+            <div className="rounded-2xl bg-white border border-blue-100 p-5 shadow-sm">
+              <p className="text-3xl font-bold text-[#0b0b2c]">360°</p>
+              <p className="mt-2 text-sm text-[#5d6785]">Support across web, apps, SEO, branding, and campaigns.</p>
+            </div>
+            <div className="rounded-2xl bg-white border border-blue-100 p-5 shadow-sm">
+              <p className="text-3xl font-bold text-[#0b0b2c]">100%</p>
+              <p className="mt-2 text-sm text-[#5d6785]">Custom solutions tailored to audience, goals, and budget.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid gap-4">
+          {highlights.map((item, index) => (
+            <article
+              key={item.title}
+              className="rounded-3xl bg-white border border-slate-200 p-6 sm:p-7 shadow-sm hover:shadow-md transition-shadow"
             >
-              About{" "}
-              <span className="font-extrabold">
-                <span className="bg-SKY-200 underline">WixWave</span>
-              </span>
-              : Shaping Tomorrow’s Digital Landscape with Expert Website & App Development
-            </motion.h2>
-          </header>
-
-          <motion.p
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-          >
-            At WixWave, we don’t just build websites; we create groundbreaking digital experiences
-            that captivate, engage, and convert. Our expert team specializes in custom website
-            design, app development, and digital marketing solutions that forge lasting connections
-            between brands and their audiences.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.4 }}
-          >
-            As innovative digital strategists and creative visionaries, we combine technology,
-            creativity, and marketing to deliver impactful results. Whether you're a startup
-            looking to disrupt or an established brand aiming to innovate, WixWave has the
-            tailored digital solutions you need to succeed.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-          >
-            Innovation drives everything we do. Every line of code, pixel, and strategy is crafted
-            to elevate your brand’s online presence and make it unforgettable in the competitive
-            digital world.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4 }}
-          >
-            WixWave isn’t just a digital agency — we’re your growth partner. From data-driven
-            strategies to visually stunning designs, we help you create an impactful digital
-            footprint that drives business success.
-          </motion.p>
-        </article>
-
-        {/* Right Section - Image */}
-        <div className="w-full lg:w-1/2">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 1 }}
-          >
-            <OptimizedImage
-              src="https://res.cloudinary.com/dobbdtftp/image/upload/v1746784531/about_images_w0f97r.png"
-              alt="WixWave digital agency team collaborating on website and app development projects"
-              className="w-full h-full object-cover"
-              width={600}
-              height={400}
-            />
-          </motion.div>
+              <div className="flex items-start gap-4">
+                <div className="shrink-0 w-11 h-11 rounded-2xl bg-[#050170] text-white flex items-center justify-center font-semibold">
+                  {String(index + 1).padStart(2, "0")}
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-[#0b0b2c]">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-[#5d6785] leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>

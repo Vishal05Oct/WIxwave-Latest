@@ -38,14 +38,7 @@ export const usePerformanceMonitoring = () => {
       }
     });
 
-    try {
-      perfObserver.observe({ entryTypes: ['paint', 'largest-contentful-paint', 'first-input', 'layout-shift'] });
-    } catch (e) {
-      console.log('PerformanceObserver not supported');
-    }
-
-    // Send to analytics (Google Analytics or custom endpoint)
-    window.addEventListener('unload', () => {
+    const handleUnload = () => {
       const perfData = performance.getEntriesByType('navigation')[0];
       if (perfData && window.gtag) {
         window.gtag('event', 'page_performance', {
@@ -58,8 +51,20 @@ export const usePerformanceMonitoring = () => {
           LCP: perfData.loadEventEnd - perfData.fetchStart
         });
       }
-    });
+    };
 
-    return () => perfObserver.disconnect();
+    try {
+      perfObserver.observe({ entryTypes: ['paint', 'largest-contentful-paint', 'first-input', 'layout-shift'] });
+    } catch {
+      console.log('PerformanceObserver not supported');
+    }
+
+    // Send to analytics (Google Analytics or custom endpoint)
+    window.addEventListener('unload', handleUnload);
+
+    return () => {
+      perfObserver.disconnect();
+      window.removeEventListener('unload', handleUnload);
+    };
   }, []);
 };
