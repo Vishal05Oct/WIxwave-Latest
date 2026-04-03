@@ -126,18 +126,7 @@ const AnimatedHeroSection = () => {
           {splitText(heading)}
         </motion.h1>
 
-        <motion.div
-          className="mt-4 text-lg sm:text-2xl md:text-3xl font-semibold flex justify-center gap-3 min-h-[40px]"
-          variants={containerVariant}
-          initial="hidden"
-          animate="visible"
-        >
-          <span>{subtitle}</span>
-          <span className="text-[#66aaff] font-bold relative">
-            {typedWord}
-            <span className="absolute left-full top-0 ml-1 w-[2px] h-full bg-[#66aaff] animate-pulse" />
-          </span>
-        </motion.div>
+
 
         <motion.p
           className="mt-6 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
