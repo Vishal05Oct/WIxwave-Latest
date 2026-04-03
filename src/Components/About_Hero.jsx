@@ -5,7 +5,7 @@ const AboutWixwave = () => {
   return (
     <section
       aria-label="About WixWave digital studio specializing in web design and mobile apps"
-      className="relative w-full min-h-screen bg-white flex items-center justify-center px-4 overflow-hidden"
+      className="relative w-full  bg-white flex items-center justify-center px-4 overflow-hidden"
     >
       {/* Background Banner Image */}
       <img
