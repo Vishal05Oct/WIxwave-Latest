@@ -27,8 +27,6 @@ const splitText = (text) =>
 
 const theme = {
   heading: "INNOVATE. EXECUTE. SUCCEED.",
-  subtitle: "Build Launch Scale",
-  rotatingWords: ["PLANS", "PROJECTS", "BRANDS", "REACH", "GROWTH"],
   paragraph:
     "Innovation fuels growth. Execution ensures success. Together, we build brands that stand out and dominate the digital world.",
   button: "Start Your Journey",

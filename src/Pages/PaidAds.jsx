@@ -1,4 +1,3 @@
-import React from 'react'
 import Hero from '../Components/Services/PaidAdsHero'
 import Body from '../Components/Services/PaidAdsBody'
 import useSeo from '../hooks/useSeo'

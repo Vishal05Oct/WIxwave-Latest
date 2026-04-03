@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import Hero from '../Components/Blogs_Hero'
 import useSeo from '../hooks/useSeo'

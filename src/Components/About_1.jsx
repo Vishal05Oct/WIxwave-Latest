@@ -1,5 +1,3 @@
-import React from "react";
-
 const highlights = [
   {
     title: "Strategy-led execution",

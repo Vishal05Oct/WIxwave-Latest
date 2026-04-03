@@ -1,4 +1,3 @@
-import React from 'react';
 import Hero from '../Components/Contact_Hero'; // Hero component
 import ContactForm from '../Components/HomepageForm'; // Form component (for Contact Page)
 import ContactInfo from '../Components/ContactInfo'; // Contact info section

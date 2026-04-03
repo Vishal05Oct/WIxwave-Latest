@@ -1,4 +1,3 @@
-import React from 'react'
 import Hero from '../Components/PortfolioHero'
 import PortfolioBody from '../Components/Portfolio_Body'
 import useSeo from '../hooks/useSeo'

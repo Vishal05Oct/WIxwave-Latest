@@ -1,4 +1,3 @@
-import React from 'react'
 import Hero from '../Components/Services/SeoHero'
 import Body from '../Components/Services/SeoBody'
 import useSeo from '../hooks/useSeo'

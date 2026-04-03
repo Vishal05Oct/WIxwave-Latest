@@ -9,7 +9,6 @@ import OurServices from '../Components/OurServices'
 import Insight from '../Components/Insight'
 import CollaborationSection from '../Components/Collaboration'
 import HomepageForm from '../Components/HomepageForm';
-import React from 'react'
 import useSeo from '../hooks/useSeo'
 
 function Home() {
