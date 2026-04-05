@@ -55,9 +55,10 @@ const deferredImports = async () => {
       requestIdleCallback(async () => {
         try {
           await Promise.allSettled([
-            import('three'),
-            import('@react-three/fiber'),
-            import('@react-three/drei'),
+            // Removed Three.js preloading - only load when actually needed
+            // import('three'),
+            // import('@react-three/fiber'),
+            // import('@react-three/drei'),
             import('lenis'),
             import('aos'),
           ]);
@@ -71,9 +72,10 @@ const deferredImports = async () => {
       setTimeout(async () => {
         try {
           await Promise.allSettled([
-            import('three'),
-            import('@react-three/fiber'),
-            import('@react-three/drei'),
+            // Removed Three.js preloading - only load when actually needed
+            // import('three'),
+            // import('@react-three/fiber'),
+            // import('@react-three/drei'),
             import('lenis'),
             import('aos'),
           ]);
