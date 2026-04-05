@@ -1,13 +1,16 @@
 import { BrowserRouter as Router } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import AnimatedRoutes from "./Components/AnimatedRoutes";
 import ScrollToTop from "./Components/ScrollToTop";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import CursorSpotlight from "./Components/CursorSpotlight";
-import ExitIntentModal from "./Components/ExitIntentModal";
-import StickyCtaBar from "./Components/StickyCtaBar";
 import useSeo from "./hooks/useSeo";
 import { usePerformanceMonitoring } from "./hooks/usePerformanceMonitoring";
+
+// Lazy load non-critical components to reduce initial bundle
+const ExitIntentModal = lazy(() => import("./Components/ExitIntentModal").then(m => ({ default: m.ExitIntentModal })));
+const StickyCtaBar = lazy(() => import("./Components/StickyCtaBar").then(m => ({ default: m.StickyCtaBar })));
 
 function App() {
   usePerformanceMonitoring();
@@ -70,8 +73,12 @@ function App() {
         <Navbar />
         <AnimatedRoutes />
         <Footer />
-        <ExitIntentModal />
-        <StickyCtaBar />
+        
+        {/* Lazy-load non-critical modal components */}
+        <Suspense fallback={null}>
+          <ExitIntentModal />
+          <StickyCtaBar />
+        </Suspense>
       </CursorSpotlight>
     </Router>
   );

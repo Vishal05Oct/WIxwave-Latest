@@ -24,16 +24,31 @@ export default function BlogPost1() {
 
   useSeo({ title, description, canonical: canonicalUrl });
 
-  // Scroll Progress
+  // Scroll Progress - Cache total height to avoid forced reflow on every scroll
   useEffect(() => {
+    let cachedTotal = null;
+    
     const handleScroll = () => {
-      const total =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
-      setProgress((window.scrollY / total) * 100);
+      // Only calculate total height once (it won't change during scroll)
+      if (cachedTotal === null) {
+        cachedTotal =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight;
+      }
+      setProgress((window.scrollY / cachedTotal) * 100);
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    
+    // Recalculate on window resize
+    const handleResize = () => {
+      cachedTotal = null;
+    };
+    
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   // Reading Time

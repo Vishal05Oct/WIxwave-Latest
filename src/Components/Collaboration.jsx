@@ -80,7 +80,8 @@ const CollaborationSection = () => {
         <div
           className="absolute inset-0 bg-cover bg-center opacity-20 z-0"
           style={{
-            backgroundImage: `url('https://res.cloudinary.com/dobbdtftp/image/upload/v1746786161/collaborate_fxgnr6.png')`,
+            backgroundImage: `url('https://res.cloudinary.com/dobbdtftp/image/upload/q_auto,f_webp,w_1400,dpr_auto/v1746786161/collaborate_fxgnr6.png')`,
+            filter: 'brightness(0.95)',
             willChange: "opacity",
           }}
           aria-hidden="true"

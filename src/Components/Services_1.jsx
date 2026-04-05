@@ -6,7 +6,7 @@ export default function Services() {
     {
       title: "Website Design & Development",
       text: "Custom websites tailored to your brand, optimized for SEO and performance.",
-      image: "https://img.freepik.com/free-vector/concept-landing-page-website-setup_52683-25031.jpg",
+      image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746202311/our-services.jpg",
       link: "/services/web-dev",
     },
     {
@@ -18,7 +18,7 @@ export default function Services() {
     {
       title: "Branding & Graphics",
       text: "Crafting impactful identities, from logos to full brand experiences.",
-      image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746641973/designing_nainbu.jpg",
+      image: "https://res.cloudinary.com/dobbdtftp/image/upload/q_auto,f_webp,w_800/v1746641973/designing_nainbu.jpg",
       link: "/services/branding",
     },
     {

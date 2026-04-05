@@ -1,16 +1,32 @@
 import { ArrowUpRight } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 
 export default function HowWeWork() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
+  const rectRef = useRef(null);
+  const rafRef = useRef(null);
 
-  const handleMouseMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    setMouse({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top
+  const handleMouseMove = useCallback((e) => {
+    // Cancel previous animation frame to prevent excessive updates
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    
+    rafRef.current = requestAnimationFrame(() => {
+      // Cache rect to avoid multiple getBoundingClientRect calls
+      if (!rectRef.current) {
+        rectRef.current = e.currentTarget.getBoundingClientRect();
+      }
+      const rect = rectRef.current;
+      setMouse({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top
+      });
     });
-  };
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    rectRef.current = null;
+  }, []);
 
   const steps = [
     {
@@ -38,6 +54,7 @@ export default function HowWeWork() {
   return (
     <section
       onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       className="relative overflow-hidden py-12 md:py-16"
     >
       {/* SAME WIDTH */}

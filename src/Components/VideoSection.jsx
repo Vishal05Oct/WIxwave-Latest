@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 const VideoSection = () => {
   const imageUrl =
-    "https://res.cloudinary.com/dobbdtftp/image/upload/v1746662767/new_ood_dpwh3p.png";
+    "https://res.cloudinary.com/dobbdtftp/image/upload/q_auto,f_webp,w_1400/v1746662767/new_ood_dpwh3p.png";
   const ref = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -25,6 +25,7 @@ const VideoSection = () => {
           <img
             src={imageUrl}
             alt="Moodboard Template"
+            loading="lazy"
             className="w-full h-full object-cover"
           />
         </motion.div>

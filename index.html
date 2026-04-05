@@ -5,19 +5,26 @@
     <link rel="icon" type="image/svg+xml" href="/Favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0b0b2c" />
-    <link rel="preconnect" href="https://res.cloudinary.com" />
+    
+    <!-- DNS prefetch for external domains to establish early connections -->
     <link rel="dns-prefetch" href="https://res.cloudinary.com" />
-    <link rel="preload" as="image" href="https://res.cloudinary.com/dobbdtftp/image/upload/v1746202311/3_rgrvsx.png">
-    <link rel="preload" as="font" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    
+    <!-- Preconnect to critical third-party origins -->
+    <link rel="preconnect" href="https://res.cloudinary.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" as="image" href="https://res.cloudinary.com/dobbdtftp/image/upload/v1746202311/3_rgrvsx.png" fetchpriority="high">
+    
+    <!-- Load Google Fonts asynchronously to avoid render blocking -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"></noscript>
+    
     <title>WixWave | The Digital Solutions</title>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'GA_MEASUREMENT_ID');
-    </script>
   </head>
   <body>
     <div id="root"></div>
