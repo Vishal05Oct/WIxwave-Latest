@@ -8,8 +8,8 @@ const BrandingGraphics = () => {
       {/* Background Banner Image */}
       <img
         src="https://img.freepik.com/free-photo/design-creative-inspiration-art-style-concept_53876-120035.jpg?t=st=1748001639~exp=1748005239~hmac=2609688957d003d3854390badd47052a929177ead74f98f072d4ab5971f1eab8&w=1380"
-        alt="Branding & Graphics Background"
-          className="absolute inset-0 w-full h-full object-cover opacity-20 z-0"
+        alt="Creative design workspace with artistic elements and inspiration"
+        className="absolute inset-0 w-full h-full object-cover opacity-20 z-0"
       />
 
       {/* Overlapping Text */}

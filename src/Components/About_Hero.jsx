@@ -10,7 +10,7 @@ const AboutWixwave = () => {
       {/* Background Banner Image */}
       <img
         src="https://res.cloudinary.com/dobbdtftp/image/upload/v1748001205/About_Us_-_Image_vz0rso.jpg"
-        alt=""
+        alt="Creative digital studio workspace with modern design elements"
         aria-hidden="true"
         loading="lazy"
         className="absolute inset-0 w-full h-full object-cover opacity-20 z-0"

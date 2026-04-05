@@ -13,7 +13,7 @@ const OurBlogs = () => {
         {/* Background Banner Image */}
         <img
           src="https://img.freepik.com/free-photo/blogging-writing-blog-concepts-ideas-white-worktable_53876-127643.jpg?t=st=1746809000~exp=1746812600~hmac=52fcd87a5e01c7c3c5c28c20dca2ec2cc2ee0d6cc626845712362cfb2023a32f&w=1380"
-          alt=""
+          alt="Blog writing workspace with laptop and notebook"
           aria-hidden="true"
           loading="lazy"
           className="absolute inset-0 w-full h-full object-cover opacity-20 z-0"

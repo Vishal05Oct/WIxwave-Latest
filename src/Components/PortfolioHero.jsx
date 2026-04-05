@@ -8,7 +8,7 @@ const OurPortfolio = () => {
         {/* Background Banner Image */}
         <img
           src="https://res.cloudinary.com/dobbdtftp/image/upload/v1748202730/computer-1846056_1920_irp1x9.jpg"
-          alt="Portfolio Background"
+          alt="Modern computer workstation with creative design elements"
           className="absolute inset-0 w-full h-full object-cover opacity-20 z-0"
         />
 

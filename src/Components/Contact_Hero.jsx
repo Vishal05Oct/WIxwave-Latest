@@ -7,7 +7,7 @@ const ContactWixwave = () => {
       {/* Background Banner Image */}
       <img
         src="https://img.freepik.com/premium-photo/cropped-hand-woman-holding-telephone-receiver-against-concrete-wall-banner-size-with-copy-space-individual-text_157125-14977.jpg?w=2000"
-        alt="Background"
+        alt="Person holding telephone receiver for contact communication"
         className="absolute inset-0 w-full h-full object-cover opacity-20 z-0"
       />
 

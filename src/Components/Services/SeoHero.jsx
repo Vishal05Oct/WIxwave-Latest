@@ -8,7 +8,7 @@ const SEOSection = () => {
       {/* Background Banner Image */}
       <img
         src="https://res.cloudinary.com/dobbdtftp/image/upload/v1748001903/SEO_Banner_kzxiiu.jpg"
-        alt="SEO Background"
+        alt="Search engine optimization analytics and ranking dashboard"
         className="absolute inset-0 w-full h-full object-cover opacity-20 z-0"
       />
 

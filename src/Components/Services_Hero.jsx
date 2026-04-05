@@ -7,7 +7,7 @@ const ServicesWixwave = () => {
       {/* Background Banner Image */}
       <img
         src="https://img.freepik.com/free-photo/particle-lines-futuristic-network-background_53876-129729.jpg?t=st=1746805732~exp=1746809332~hmac=571c982d3cb4b0a434725d6e6e8573ecd5bb17a1e9e742b2e6fa71f12e968917&w=1380"
-        alt="Futuristic Network Background"
+        alt="Futuristic digital network with particle connections"
         className="absolute inset-0 w-full h-full object-cover opacity-20 z-0"
       />
 

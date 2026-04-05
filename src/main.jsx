@@ -34,6 +34,18 @@ const initializeGoogleAnalytics = async () => {
   }
 };
 
+// Register service worker for caching
+const registerServiceWorker = async () => {
+  if ('serviceWorker' in navigator && import.meta.env.PROD) {
+    try {
+      const registration = await navigator.serviceWorker.register('/sw.js');
+      console.log('SW registered:', registration);
+    } catch (error) {
+      console.log('SW registration failed:', error);
+    }
+  }
+};
+
 // Defer non-critical imports to after hydration
 const deferredImports = async () => {
   // These heavy libraries will be loaded after the initial render
@@ -83,3 +95,4 @@ root.render(
 // Start loading non-critical resources and analytics after hydration
 deferredImports();
 initializeGoogleAnalytics();
+registerServiceWorker();

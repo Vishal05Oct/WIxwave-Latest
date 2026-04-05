@@ -7,7 +7,7 @@ const PaidAds = () => {
       {/* Background Banner Image */}
       <img
         src="https://res.cloudinary.com/dobbdtftp/image/upload/v1748002505/Performance_Banner_m3ohab.jpg"
-        alt="Paid Ads Background"
+        alt="Digital marketing performance analytics and advertising dashboard"
         loading="lazy"
         className="absolute inset-0 w-full h-full object-cover opacity-20 z-0"
       />

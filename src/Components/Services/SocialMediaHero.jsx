@@ -8,7 +8,7 @@ const SocialMediaMarketing = () => {
       {/* Background Banner Image */}
       <img
         src="https://res.cloudinary.com/dobbdtftp/image/upload/v1748002151/Social_Media_Banner_w9ac9z.jpg"
-        alt="Social Media Marketing Background"
+        alt="Social media marketing dashboard with engagement analytics"
         className="absolute inset-0 w-full h-full object-cover opacity-20 z-0"
       />
 

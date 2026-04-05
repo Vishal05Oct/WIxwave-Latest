@@ -8,7 +8,7 @@ const AppDesignDevelopment = () => {
       {/* Background Banner Image */}
       <img
         src="https://res.cloudinary.com/dobbdtftp/image/upload/v1748027541/fahim-muntashir-pAgCpLoYXdQ-unsplash_nz2vwf.jpg"
-        alt="App Design & Development Background"
+        alt="Mobile app development workspace with laptop and design tools"
         className="absolute inset-0 w-full h-full object-cover opacity-20 z-0"
       />
 
