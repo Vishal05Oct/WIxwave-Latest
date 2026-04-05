@@ -65,7 +65,7 @@ const AnimatedHeroSection = () => {
   const handleClick = () => navigate("/services");
 
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center px-6 md:px-16 lg:px-28 text-white overflow-hidden bg-gradient-to-br from-blue-900 via-slate-900 to-black">
+    <section className="relative w-full min-h-screen flex items-center justify-center px-6 md:px-16 lg:px-28 text-white overflow-hidden">
       {!videoError && (
         <video
           ref={videoRef}
