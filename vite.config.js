@@ -32,8 +32,8 @@ export default defineConfig({
     chunkSizeWarningLimit: 500,
     // Split CSS to reduce main bundle blocking time
     cssCodeSplit: true,
-    // Reduce initial CSS payload
-    minify: 'terser',
+    // Use esbuild for minification (built-in, faster than terser)
+    minify: 'esbuild',
     // Optimize dependency loading
     target: 'esnext',
   },
