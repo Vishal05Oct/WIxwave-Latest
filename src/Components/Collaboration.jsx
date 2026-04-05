@@ -44,7 +44,7 @@ const RotatingWord = ({ word }) => (
     <motion.span
       key={word}
       aria-live="polite"
-      className="text-[#0c34e9] ml-2"
+      className="text-white ml-2"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
@@ -95,7 +95,7 @@ const CollaborationSection = () => {
               <AnimatedLetters text="WIXWAVE" />
             </span>
             <span className="text-white"> ? </span>
-            <span className="text-[#0c34e9] block sm:inline">LET'S CONNECT</span>
+            <span className="text-white block sm:inline">LET'S CONNECT</span>
           </h2>
 
           <motion.div
