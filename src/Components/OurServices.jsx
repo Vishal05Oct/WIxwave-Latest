@@ -6,7 +6,7 @@ export default function ServicesSection() {
     {
       title: "Website Design & Development",
       text: "Custom websites tailored to your brand, optimized for SEO and performance.",
-      image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746202311/our-services.jpg",
+      image: "https://img.freepik.com/premium-vector/website-development-web-design-programming-coding-php-mysql-development-cms-development_566886-2697.jpg?w=1480",
       link: "/services/web-dev",
     },
     {
@@ -111,7 +111,7 @@ export default function ServicesSection() {
                 {item.title}
               </h3>
 
-              <p className="text-[13px] md:text-[14px] text-[#6b6b7a] leading-relaxed">
+              <p className="text-[13px] md:text-[14px] text-[#4a4a5a] leading-relaxed">
                 {item.text}
               </p>
             </div>

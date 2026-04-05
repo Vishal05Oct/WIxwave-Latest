@@ -65,7 +65,7 @@ export default function HowWeWork() {
 
           {/* LEFT */}
           <div>
-            <p className="text-[10px] sm:text-xs uppercase tracking-widest text-[#3b82f6] font-semibold mb-2 md:mb-3">
+            <p className="text-[10px] sm:text-xs uppercase tracking-widest text-[#1a1a1a] font-semibold mb-2 md:mb-3">
               Our Process
             </p>
 

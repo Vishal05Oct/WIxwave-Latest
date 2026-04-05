@@ -80,7 +80,7 @@ export default function Insight() {
                 </h3>
 
                 {/* Excerpt */}
-                <p className="mt-1 text-[#6b6b7a] text-[13px] leading-relaxed line-clamp-2">
+                <p className="mt-1 text-[#4a4a5a] text-[13px] leading-relaxed line-clamp-2">
                   {post.excerpt}
                 </p>
 

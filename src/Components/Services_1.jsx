@@ -99,7 +99,7 @@ export default function Services() {
                   {item.title}
                 </h3>
 
-                <p className="text-[13px] sm:text-[14px] text-[#6b6b7a] leading-relaxed">
+                <p className="text-[13px] sm:text-[14px] text-[#4a4a5a] leading-relaxed">
                   {item.text}
                 </p>
               </div>

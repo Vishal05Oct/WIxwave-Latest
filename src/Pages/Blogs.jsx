@@ -105,7 +105,7 @@ const Blogs = () => {
                     {post.title}
                   </h3>
 
-                  <p className="mt-2 text-[#6b6b7a] text-[14px] leading-relaxed">
+                  <p className="mt-2 text-[#4a4a5a] text-[14px] leading-relaxed">
                     {post.excerpt}
                   </p>
 

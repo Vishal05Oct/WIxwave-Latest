@@ -151,7 +151,7 @@ export default function TechStack() {
 
         {/* DEVELOPMENT */}
         <div>
-          <h3 className="text-xs tracking-[0.3em] text-gray-400 mb-4 uppercase">
+          <h3 className="text-xs tracking-[0.3em] text-gray-600 mb-4 uppercase">
             Development
           </h3>
 
@@ -175,7 +175,7 @@ export default function TechStack() {
 
         {/* DESIGN */}
         <div>
-          <h3 className="text-xs tracking-[0.3em] text-gray-400 mb-4 uppercase">
+          <h3 className="text-xs tracking-[0.3em] text-gray-600 mb-4 uppercase">
             Branding & Designing
           </h3>
 
