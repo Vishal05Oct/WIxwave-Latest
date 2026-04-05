@@ -38,7 +38,7 @@ export const usePerformanceMonitoring = () => {
       }
     });
 
-    const handleUnload = () => {
+    const handlePageHide = () => {
       const perfData = performance.getEntriesByType('navigation')[0];
       if (perfData && window.gtag) {
         window.gtag('event', 'page_performance', {
@@ -60,11 +60,12 @@ export const usePerformanceMonitoring = () => {
     }
 
     // Send to analytics (Google Analytics or custom endpoint)
-    window.addEventListener('unload', handleUnload);
+    // Use pagehide instead of deprecated unload event
+    window.addEventListener('pagehide', handlePageHide);
 
     return () => {
       perfObserver.disconnect();
-      window.removeEventListener('unload', handleUnload);
+      window.removeEventListener('pagehide', handlePageHide);
     };
   }, []);
 };
