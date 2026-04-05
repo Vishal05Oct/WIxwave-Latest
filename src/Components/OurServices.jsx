@@ -94,7 +94,7 @@ export default function ServicesSection() {
             <div className="absolute top-4 md:top-5 left-4 md:left-5 w-2 h-2 bg-blue-600 rounded-full"></div>
 
             {/* Number */}
-            <span className="absolute top-4 md:top-5 right-4 md:right-6 text-[40px] md:text-[64px] font-semibold text-[#dcdce3] opacity-50">
+            <span className="absolute top-4 md:top-5 right-4 md:right-6 text-[40px] md:text-[64px] font-semibold text-[#4a4a5a] opacity-70">
               {String(i + 1).padStart(2, "0")}
             </span>
 

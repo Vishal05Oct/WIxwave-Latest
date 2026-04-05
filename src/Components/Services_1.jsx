@@ -82,7 +82,7 @@ export default function Services() {
               <div className="absolute top-5 left-5 w-2 h-2 bg-blue-600 rounded-full"></div>
 
               {/* NUMBER */}
-              <span className="absolute top-4 sm:top-5 right-4 sm:right-6 text-[44px] sm:text-[64px] font-semibold text-[#dcdce3] opacity-50">
+              <span className="absolute top-4 sm:top-5 right-4 sm:right-6 text-[44px] sm:text-[64px] font-semibold text-[#4a4a5a] opacity-70">
                 {String(i + 1).padStart(2, "0")}
               </span>
 
