@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { X, ArrowUpRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 export const StickyCtaBar = () => {
   const [dismissed, setDismissed] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [touchStartY, setTouchStartY] = useState(null);
+  const touchStartYRef = useRef(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,16 +30,20 @@ export const StickyCtaBar = () => {
   };
 
   const handleTouchStart = (e) => {
-    setTouchStartY(e.touches[0]?.clientY || null);
+    touchStartYRef.current = e.touches[0]?.clientY || null;
   };
 
   const handleTouchMove = (e) => {
-    if (touchStartY === null) return;
+    if (touchStartYRef.current === null) return;
     const currentY = e.touches[0]?.clientY;
-    if (currentY - touchStartY > 60) {
+    if (currentY && currentY - touchStartYRef.current > 80) {
       handleDismiss();
-      setTouchStartY(null);
+      touchStartYRef.current = null;
     }
+  };
+
+  const handleTouchEnd = () => {
+    touchStartYRef.current = null;
   };
 
   return (
@@ -50,6 +54,7 @@ export const StickyCtaBar = () => {
       transition={{ type: "spring", damping: 18, stiffness: 250 }}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
       className="fixed bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 w-[95%] sm:w-[92%] max-w-5xl z-50"
     >
       {/* Gradient Bar */}
