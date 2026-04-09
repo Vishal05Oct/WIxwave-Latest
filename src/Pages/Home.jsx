@@ -10,6 +10,7 @@ import Insight from '../Components/Insight'
 import CollaborationSection from '../Components/Collaboration'
 import HomepageForm from '../Components/HomepageForm';
 import useSeo from '../hooks/useSeo'
+import Testimonial from '../Components/Testimonial'
 
 function Home() {
   useSeo({
@@ -63,6 +64,7 @@ function Home() {
       <Concept />
       <WeAre />
       <Insight />
+      <Testimonial />
       <HCTA />
       <HomepageForm page="default" />
       <CollaborationSection />
