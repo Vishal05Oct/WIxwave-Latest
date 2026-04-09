@@ -42,11 +42,7 @@ const AboutWixwave = () => {
           ABOUT WIXWAVE
         </h2>
         <p className="text-lg sm:text-xl text-black leading-relaxed">
-          We are a digital studio specialized in web design and mobile apps. Our team
-          consists of experienced professionals who, over the years of working together,
-          have built a deep knowledge of designing and implementing innovative digital projects.
-          Our work is more than just work—it&apos;s our passion. That&apos;s why we create unique and
-          engaging solutions that have been recognized and rewarded by various authorities.
+          Wixwave is a digital studio focused on web design and mobile app development. Our experienced team combines creativity and technical skill to build unique digital projects that engage users and help your brand grow with modern online experiences.
         </p>
       </div>
     </section>

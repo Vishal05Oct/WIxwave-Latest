@@ -40,11 +40,8 @@ const SEOSection = () => {
         <h2 className="font-bold tracking-[0.2em] text-black mb-4 text-xl sm:text-2xl">
           SEO SERVICES
         </h2>
-        <p className="text-xl sm:text-xl text-black leading-relaxed mb-6">
-          Struggling to rank higher on Google? We help businesses boost online visibility, drive traffic, and increase conversions with tailored SEO strategies that work.
-        </p>
         <p className="text-xl sm:text-xl text-black leading-relaxed">
-          From keyword research and on-page optimization to technical SEO and link building, Wixwave ensures your site is optimized to perform and stand out in search results.
+          Want higher search visibility and more quality traffic from Google? Wixwave delivers focused SEO strategies, from keyword research and content optimization to technical fixes, so your website ranks better, attracts visitors, and grows your brand online every day.
         </p>
       </div>
     </section>

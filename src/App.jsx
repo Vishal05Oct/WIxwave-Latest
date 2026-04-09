@@ -5,6 +5,7 @@ import ScrollToTop from "./Components/ScrollToTop";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import CursorSpotlight from "./Components/CursorSpotlight";
+import WhatsappButton from "./Components/WhatsappButton";
 import useSeo from "./hooks/useSeo";
 import { usePerformanceMonitoring } from "./hooks/usePerformanceMonitoring";
 
@@ -73,7 +74,8 @@ function App() {
         <Navbar />
         <AnimatedRoutes />
         <Footer />
-        
+        <WhatsappButton />
+
         {/* Lazy-load non-critical modal components */}
         <Suspense fallback={null}>
           <ExitIntentModal />

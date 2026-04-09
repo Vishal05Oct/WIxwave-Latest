@@ -40,11 +40,8 @@ const PaidAds = () => {
         <h2 className="font-bold tracking-[0.2em] text-black mb-4 text-xl sm:text-2xl">
           PAID ADS & PERFORMANCE MARKETING
         </h2>
-        <p className="text-xl sm:text-xl text-black leading-relaxed mb-6">
-          Want instant visibility and conversions? Our ad specialists create ROI-focused campaigns across Google, Meta, and YouTube.
-        </p>
         <p className="text-xl sm:text-xl text-black leading-relaxed">
-          Wixwave ensures every rupee spent delivers results. We optimize targeting, creatives, and strategy to scale your revenue.
+          Looking for fast growth with measurable advertising results? Wixwave manages paid ads on Google, Meta, and YouTube, optimizing targeting, creatives, and bidding so campaigns perform strongly and deliver the revenue impact your business needs every month with confidence.
         </p>
       </div>
     </section>

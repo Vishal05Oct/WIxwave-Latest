@@ -40,11 +40,8 @@ const WebsiteDesignDevelopment = () => {
         <h2 className="font-bold tracking-[0.2em] text-black mb-4 text-xl sm:text-2xl">
           WEBSITE DESIGN & DEVELOPMENT
         </h2>
-        <p className="text-xl sm:text-xl text-black leading-relaxed mb-6">
-          Looking for a stunning website that’s fast, responsive, and designed to convert? You're in the right place. At Wixwave, we craft modern, intuitive websites that reflect your brand and engage your audience.
-        </p>
         <p className="text-xl sm:text-xl text-black leading-relaxed">
-          From static portfolios to dynamic e-commerce platforms, we specialize in building scalable digital experiences tailored to your business goals. Let’s bring your vision to life with the power of design and clean code.
+          Looking for a modern website that feels fast, polished, and easy to use? Wixwave builds responsive web experiences that reflect your brand, engage visitors, and support your business with professional design, clean code, and reliable performance every time.
         </p>
       </div>
     </section>

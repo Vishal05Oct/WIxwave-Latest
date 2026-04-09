@@ -48,10 +48,7 @@ const OurPortfolio = () => {
             OUR PORTFOLIO
           </h2>
           <p className="text-xl sm:text-xl text-black leading-relaxed">
-            Explore our diverse range of digital projects crafted with creativity and precision.
-            From visually stunning websites to intuitive mobile applications, our portfolio showcases
-            the innovation and excellence we bring to every project. Each design reflects our passion
-            for delivering impactful digital experiences that resonate with users and elevate brands.
+            Explore Wixwave’s portfolio of digital work across websites and apps. We create visually engaging projects with attention to detail, user experience, and performance so your brand is showcased confidently and your visitors enjoy every interaction across every device.
           </p>
         </div>
       </section>

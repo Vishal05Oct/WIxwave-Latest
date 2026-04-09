@@ -41,11 +41,8 @@ const AppDesignDevelopment = () => {
         <h2 className="font-bold tracking-[0.2em] text-black mb-4 text-xl sm:text-2xl">
           APP DESIGN & DEVELOPMENT
         </h2>
-        <p className="text-xl sm:text-xl text-black leading-relaxed mb-6">
-          Looking for a mobile app that’s fast, intuitive, and beautifully designed? You've come to the right place. At Wixwave, we specialize in building user-centric mobile applications that deliver exceptional experiences.
-        </p>
         <p className="text-xl sm:text-xl text-black leading-relaxed">
-          From simple utility apps to complex, feature-rich mobile solutions, we craft apps that not only meet your business needs but also engage users with sleek designs and smooth functionality.
+          Need a mobile app that looks great and works smoothly on every device? Wixwave creates intuitive apps with thoughtful design and robust functionality so your users enjoy seamless experiences and your business reaches new customers more effectively daily.
         </p>
       </div>
     </section>

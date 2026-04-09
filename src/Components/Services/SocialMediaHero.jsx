@@ -40,11 +40,8 @@ const SocialMediaMarketing = () => {
         <h2 className="font-bold tracking-[0.2em] text-black mb-4 text-xl sm:text-2xl">
           SOCIAL MEDIA MARKETING
         </h2>
-        <p className="text-xl sm:text-xl text-black leading-relaxed mb-6">
-          We create engaging social content that connects your brand with your audience across Instagram, Facebook, LinkedIn, and more.
-        </p>
         <p className="text-xl sm:text-xl text-black leading-relaxed">
-          Let Wixwave help you build a loyal community, boost brand visibility, and drive real business results through creative strategies and consistent posting.
+          Ready to make your brand more visible on social platforms like Instagram, Facebook, and LinkedIn? Wixwave crafts engaging social media content and strategic campaigns that build loyalty, increase awareness, and grow your audience with consistency and creativity everywhere.
         </p>
       </div>
     </section>

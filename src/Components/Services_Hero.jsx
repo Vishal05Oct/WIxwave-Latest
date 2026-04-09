@@ -40,13 +40,8 @@ const ServicesWixwave = () => {
         <h2 className="font-bold tracking-[0.2em] text-black mb-4 text-xl sm:text-2xl">
           OUR SERVICES
         </h2>
-        <p className="text-xl sm:text-xl text-black leading-relaxed mb-6">
-          Wixwave crafts tailored digital solutions that drive real business impact. We offer a full suite of services—from responsive website development
-          and custom mobile apps to high-performance UI/UX design and strategic branding.
-        </p>
         <p className="text-xl sm:text-xl text-black leading-relaxed">
-          Our team merges creativity with technology to build engaging, scalable digital experiences. Whether you're looking to launch, grow, or
-          rebrand, we’re here to deliver results that matter. Discover how our expertise can take your business to the next level.
+          Wixwave delivers digital services designed to grow your business and strengthen your brand. From websites and apps to SEO, social media, and performance marketing, we create seamless, scalable experiences that help your audience connect and your goals succeed.
         </p>
       </div>
     </section>

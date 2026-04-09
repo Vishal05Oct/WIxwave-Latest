@@ -40,14 +40,8 @@ const ContactWixwave = () => {
         <h2 className="font-bold tracking-[0.2em] text-black mb-4 text-xl sm:text-2xl">
           CONTACT US
         </h2>
-        <p className="text-xl sm:text-xl text-black leading-relaxed mb-6">
-          Have a brilliant idea or just want to say hello? We’re all ears! At Wixwave,
-          we turn your vision into digital reality—let's chat, collaborate, and make waves together.
-        </p>
         <p className="text-xl sm:text-xl text-black leading-relaxed">
-          Whether you're looking to build a stunning website, launch a mobile app, or reimagine your brand identity,
-          our team of passionate designers and developers is here to bring your ideas to life. We believe in meaningful
-          collaborations and groundbreaking digital experiences. Ready to start your journey? Drop us a message and let's shape the future together.
+          Start a conversation with Wixwave and discover how your ideas can become effective digital products. We combine creativity, strategy, and technical expertise to craft websites, apps, and brands that resonate with users and move your business forward today.
         </p>
       </div>
     </section>

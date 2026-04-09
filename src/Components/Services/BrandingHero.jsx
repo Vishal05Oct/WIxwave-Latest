@@ -40,11 +40,8 @@ const BrandingGraphics = () => {
         <h2 className="font-bold tracking-[0.2em] text-black mb-4 text-xl sm:text-2xl">
           BRANDING & GRAPHIC DESIGN
         </h2>
-        <p className="text-xl sm:text-xl text-black leading-relaxed mb-6">
-          At Wixwave, we build memorable brand identities that speak your story visually — from logos and brand kits to full-scale graphic systems.
-        </p>
         <p className="text-xl sm:text-xl text-black leading-relaxed">
-          Whether you’re launching a new venture or rebranding, our creative team ensures you stand out with bold, consistent, and elegant visuals.
+          Wixwave creates distinctive branding and graphic design that brings your story to life. From logos and visual systems to marketing visuals, we build memorable identities that connect with customers and help your business stand out confidently in every market.
         </p>
       </div>
     </section>
