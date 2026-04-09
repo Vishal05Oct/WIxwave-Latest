@@ -90,20 +90,20 @@ const ExitIntentModal = () => {
               </div>
             </div>
 
-            <div className="p-5 sm:p-8">
+            <div className="p-4 sm:p-8">
               <div className="space-y-5">
-                <p className="text-base leading-7 text-slate-700">
-                  Get a <span className="font-semibold text-slate-900">free growth consultation</span> from Wixwave, with a clear action plan for your website, brand, and marketing that helps you convert more visitors into paying customers.
+                <p className="text-sm sm:text-base leading-6 text-slate-700">
+                  Claim a <span className="font-semibold text-slate-900">free growth review</span> from Wixwave and get a simple action plan to improve website performance, leads, and conversions.
                 </p>
 
-                <div className="grid gap-3 sm:grid-cols-2">
+                <div className="hidden sm:grid gap-3 sm:grid-cols-2">
                   <div className="rounded-3xl border border-slate-200 bg-slate-50 p-4">
                     <p className="text-sm font-semibold text-slate-900">Fast lead wins</p>
-                    <p className="mt-1 text-sm text-slate-500">Discover the easiest improvements to increase conversions.</p>
+                    <p className="mt-1 text-sm text-slate-500">Discover easy improvements that boost conversions quickly.</p>
                   </div>
                   <div className="rounded-3xl border border-slate-200 bg-slate-50 p-4">
                     <p className="text-sm font-semibold text-slate-900">Revenue focus</p>
-                    <p className="mt-1 text-sm text-slate-500">Get suggestions designed to grow traffic and sales faster.</p>
+                    <p className="mt-1 text-sm text-slate-500">Receive recommendations designed to grow traffic and sales.</p>
                   </div>
                 </div>
 
@@ -111,7 +111,7 @@ const ExitIntentModal = () => {
                   onClick={handleCtaClick}
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
-                  className="w-full inline-flex items-center justify-center gap-3 rounded-full bg-slate-900 px-5 py-4 text-sm font-semibold text-white shadow-lg shadow-slate-900/20 transition hover:bg-slate-800"
+                  className="w-full inline-flex items-center justify-center gap-3 rounded-full bg-slate-900 px-5 py-3 sm:py-4 text-sm font-semibold text-white shadow-lg shadow-slate-900/20 transition hover:bg-slate-800"
                 >
                   Claim Your Free Review
                   <ArrowUpRight size={16} />
@@ -119,7 +119,7 @@ const ExitIntentModal = () => {
 
                 <button
                   onClick={() => setShowModal(false)}
-                  className="w-full rounded-full border border-slate-200 bg-white px-5 py-4 text-sm font-semibold text-slate-600 transition hover:border-slate-300 hover:text-slate-900"
+                  className="w-full rounded-full border border-slate-200 bg-white px-5 py-3 sm:py-4 text-sm font-semibold text-slate-600 transition hover:border-slate-300 hover:text-slate-900"
                 >
                   No thanks, maybe later
                 </button>
