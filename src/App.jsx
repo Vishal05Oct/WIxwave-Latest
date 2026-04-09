@@ -10,7 +10,7 @@ import useSeo from "./hooks/useSeo";
 import { usePerformanceMonitoring } from "./hooks/usePerformanceMonitoring";
 
 // Lazy load non-critical components to reduce initial bundle
-const ExitIntentModal = lazy(() => import("./Components/ExitIntentModal").then(m => ({ default: m.ExitIntentModal })));
+const ExitIntentModal = lazy(() => import("./Components/ExitIntentModal"));
 const StickyCtaBar = lazy(() => import("./Components/StickyCtaBar").then(m => ({ default: m.StickyCtaBar })));
 
 function App() {

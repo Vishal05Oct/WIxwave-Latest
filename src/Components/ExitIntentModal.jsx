@@ -1,16 +1,35 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useExitIntent } from "../hooks/useExitIntent";
 import { X, ArrowUpRight } from "lucide-react";
 
-export const ExitIntentModal = () => {
+const ExitIntentModal = () => {
   const [showModal, setShowModal] = useState(false);
+  const showModalRef = useRef(showModal);
   const navigate = useNavigate();
 
-  const lastShown = sessionStorage.getItem("exitIntentShown");
+  const lastShown = Number(sessionStorage.getItem("exitIntentShown"));
   const shouldShow =
     !lastShown || Date.now() - lastShown > 30 * 60 * 1000;
+
+  useEffect(() => {
+    showModalRef.current = showModal;
+  }, [showModal]);
+
+  useEffect(() => {
+    if (!shouldShow) return;
+
+    const timer = window.setTimeout(() => {
+      if (!showModalRef.current) {
+        setShowModal(true);
+        sessionStorage.setItem("exitIntentShown", Date.now());
+        window?.gtag?.("event", "exit_intent_timer_shown");
+      }
+    }, 15000);
+
+    return () => window.clearTimeout(timer);
+  }, [shouldShow]);
 
   useExitIntent(() => {
     if (shouldShow) {
@@ -33,62 +52,78 @@ export const ExitIntentModal = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/60 backdrop-blur-sm px-4"
+          className="fixed inset-0 z-[1000] flex items-center justify-center bg-slate-950/80 backdrop-blur-sm px-4 py-8"
           onClick={() => setShowModal(false)}
+          role="dialog"
+          aria-modal="true"
         >
           <motion.div
-            initial={{ scale: 0.85, opacity: 0, y: 40 }}
+            initial={{ scale: 0.9, opacity: 0, y: 40 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.85, opacity: 0, y: 40 }}
-            transition={{ type: "spring", damping: 18, stiffness: 200 }}
+            exit={{ scale: 0.9, opacity: 0, y: 40 }}
+            transition={{ type: "spring", damping: 18, stiffness: 190 }}
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden"
+            className="relative w-full max-w-xl overflow-hidden rounded-[32px] bg-white shadow-[0_35px_120px_rgba(15,23,42,0.25)]"
           >
-            {/* 🔥 Top Gradient */}
-            <div className="bg-gradient-to-r from-[#2d2dfc] to-[#066adc] p-5 text-white">
-              <h2 className="text-xl sm:text-2xl font-bold">
-                Wait! Before You Go 🚀
-              </h2>
-              <p className="text-sm text-white/80 mt-1">
-                Let’s help you grow your business faster
-              </p>
+            {/* Header */}
+            <div className="bg-gradient-to-r from-slate-900 via-blue-600 to-sky-500 p-6 sm:p-8 text-white">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <span className="inline-flex rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-white/90">
+                    Exclusive
+                  </span>
+                  <h2 className="mt-4 text-2xl sm:text-3xl font-semibold">
+                    Wait! Before You Leave
+                  </h2>
+                  <p className="mt-3 max-w-xl text-sm sm:text-base text-white/80 leading-6">
+                    Let Wixwave show you the fastest way to grow online with a free strategy session tailored to your business.
+                  </p>
+                </div>
+
+                <button
+                  onClick={() => setShowModal(false)}
+                  className="rounded-full border border-white/20 bg-white/10 p-2 text-white transition hover:bg-white/20"
+                  aria-label="Close exit intent modal"
+                >
+                  <X size={18} />
+                </button>
+              </div>
             </div>
 
-            {/* Close Button */}
-            <button
-              onClick={() => setShowModal(false)}
-              className="absolute top-4 right-4 text-white/80 hover:text-white"
-            >
-              <X size={18} />
-            </button>
+            <div className="p-6 sm:p-8">
+              <div className="space-y-5">
+                <p className="text-base leading-7 text-slate-700">
+                  Get a <span className="font-semibold text-slate-900">free consultation</span> from our experts, including a custom growth plan for your website, brand positioning, and digital marketing.
+                </p>
 
-            {/* Content */}
-            <div className="p-6 text-center">
-              <p className="text-gray-600 text-sm sm:text-base mb-6">
-                Get a <span className="font-semibold text-gray-900">free consultation</span> 
-                from our experts. We’ll guide you with the exact strategy to grow your brand online.
-              </p>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <div className="rounded-3xl border border-slate-200 bg-slate-50 p-4">
+                    <p className="text-sm font-semibold text-slate-900">Strategy review</p>
+                    <p className="mt-1 text-sm text-slate-500">Actionable recommendations that fit your goals.</p>
+                  </div>
+                  <div className="rounded-3xl border border-slate-200 bg-slate-50 p-4">
+                    <p className="text-sm font-semibold text-slate-900">Growth clarity</p>
+                    <p className="mt-1 text-sm text-slate-500">Understand your next best move online.</p>
+                  </div>
+                </div>
 
-              {/* CTA */}
-              <motion.button
-                onClick={handleCtaClick}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full flex items-center justify-center gap-2 bg-[#2d2dfc] text-white py-3 rounded-full font-semibold text-sm sm:text-base shadow-md hover:bg-[#1d1dd8] transition"
-              >
-                Get Free Consultation
-                <span className="w-6 h-6 bg-white text-[#2d2dfc] rounded-full flex items-center justify-center">
-                  <ArrowUpRight size={14} />
-                </span>
-              </motion.button>
+                <motion.button
+                  onClick={handleCtaClick}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="w-full inline-flex items-center justify-center gap-3 rounded-full bg-slate-900 px-5 py-4 text-sm font-semibold text-white shadow-lg shadow-slate-900/20 transition hover:bg-slate-800"
+                >
+                  Claim Free Consultation
+                  <ArrowUpRight size={16} />
+                </motion.button>
 
-              {/* Secondary */}
-              <button
-                onClick={() => setShowModal(false)}
-                className="mt-3 text-sm text-gray-500 hover:text-gray-700 transition"
-              >
-                No thanks, I’ll pass
-              </button>
+                <button
+                  onClick={() => setShowModal(false)}
+                  className="w-full rounded-full border border-slate-200 bg-white px-5 py-4 text-sm font-semibold text-slate-600 transition hover:border-slate-300 hover:text-slate-900"
+                >
+                  No thanks, I’ll pass
+                </button>
+              </div>
             </div>
           </motion.div>
         </motion.div>

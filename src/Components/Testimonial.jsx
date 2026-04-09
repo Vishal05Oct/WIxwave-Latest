@@ -68,7 +68,7 @@ const testimonials = [
     quote:
       "We wanted a clean and minimal digital presence, and Wixwave delivered exactly that. The performance is excellent, and the design feels very professional.",
     name: "Boston Levin",
-    title: "Corporate Brand",
+    title: "Fashion & Tech Brand",
   },
   {
     id: "10",

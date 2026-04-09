@@ -2,19 +2,31 @@ import { useEffect } from 'react';
 
 export const useExitIntent = (callback) => {
   useEffect(() => {
-    let hasExited = false;
+    let triggered = false;
 
-    const handleMouseLeave = (e) => {
-      if (e.clientY <= 0 && !hasExited) {
-        hasExited = true;
-        callback();
-
-        // Show modal, don't track again for 30 mins
-        sessionStorage.setItem('exitIntentShown', Date.now());
-      }
+    const shouldTrigger = (e) => {
+      const from = e.relatedTarget || e.toElement;
+      return !from && e.clientY <= 5;
     };
 
+    const handleMouseOut = (e) => {
+      if (triggered || !shouldTrigger(e)) return;
+      triggered = true;
+      callback();
+    };
+
+    const handleMouseLeave = (e) => {
+      if (triggered || !shouldTrigger(e)) return;
+      triggered = true;
+      callback();
+    };
+
+    document.addEventListener('mouseout', handleMouseOut);
     document.addEventListener('mouseleave', handleMouseLeave);
-    return () => document.removeEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      document.removeEventListener('mouseout', handleMouseOut);
+      document.removeEventListener('mouseleave', handleMouseLeave);
+    };
   }, [callback]);
 };
