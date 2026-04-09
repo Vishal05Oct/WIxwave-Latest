@@ -66,7 +66,7 @@ const ExitIntentModal = () => {
             className="relative w-full max-w-[min(95vw,46rem)] overflow-hidden rounded-[32px] bg-white shadow-[0_35px_120px_rgba(15,23,42,0.25)]"
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-slate-900 via-blue-600 to-sky-500 p-5 sm:p-8 text-white">
+            <div className="relative bg-gradient-to-r from-slate-900 via-blue-600 to-sky-500 p-5 sm:p-8 text-white">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                 <div>
                   <span className="inline-flex rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-white/90">
@@ -82,7 +82,7 @@ const ExitIntentModal = () => {
 
                 <button
                   onClick={() => setShowModal(false)}
-                  className="ml-auto rounded-full border border-white/20 bg-white/10 p-2 text-white transition hover:bg-white/20"
+                  className="absolute right-4 top-4 rounded-full border border-white/20 bg-white/10 p-2 text-white transition hover:bg-white/20 sm:relative sm:right-auto sm:top-auto"
                   aria-label="Close exit intent modal"
                 >
                   <X size={18} />

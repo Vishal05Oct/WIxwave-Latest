@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 export const StickyCtaBar = () => {
   const [dismissed, setDismissed] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [touchStartY, setTouchStartY] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -28,12 +29,27 @@ export const StickyCtaBar = () => {
     window?.gtag?.("event", "sticky_cta_dismissed");
   };
 
+  const handleTouchStart = (e) => {
+    setTouchStartY(e.touches[0]?.clientY || null);
+  };
+
+  const handleTouchMove = (e) => {
+    if (touchStartY === null) return;
+    const currentY = e.touches[0]?.clientY;
+    if (currentY - touchStartY > 60) {
+      handleDismiss();
+      setTouchStartY(null);
+    }
+  };
+
   return (
     <motion.div
       initial={{ y: 120, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: 120, opacity: 0 }}
       transition={{ type: "spring", damping: 18, stiffness: 250 }}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
       className="fixed bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 w-[95%] sm:w-[92%] max-w-5xl z-50"
     >
       {/* Gradient Bar */}
