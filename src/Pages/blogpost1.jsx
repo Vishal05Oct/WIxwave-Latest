@@ -200,16 +200,16 @@ export default function BlogPost1() {
           <div className="divide-y border rounded-xl overflow-hidden">
             {[
               {
-                q: "What is technical SEO?",
-                a: "Technical SEO focuses on performance, structure, and optimization.",
+                q: "What is technical SEO for a business website?",
+                a: "Technical SEO for a business website focuses on site speed, crawlability, mobile usability, structured data, and clean architecture so pages rank better on Google.",
               },
               {
-                q: "Why are Core Web Vitals important?",
-                a: "They measure user experience and impact rankings.",
+                q: "Why are Core Web Vitals important for website SEO?",
+                a: "Core Web Vitals matter for website SEO because faster loading, stable layouts, and better interaction improve user experience, organic rankings, and conversions.",
               },
               {
-                q: "What is structured data?",
-                a: "It helps search engines understand content better.",
+                q: "How does structured data help SEO rankings?",
+                a: "Structured data helps Google understand your website content, improve rich results visibility, and support higher click-through rates from search.",
               },
             ].map((item, i) => {
               const isOpen = activeIndex === i;

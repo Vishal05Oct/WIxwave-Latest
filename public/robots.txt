@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://wixwave.co/sitemap.xml 
+
+Sitemap: https://wixwave.co/sitemap.xml

@@ -1,6 +1,8 @@
 import Hero from '../Components/Services/SocialMediaHero'
 import Body from '../Components/Services/SocialMediaBody'
+import ServiceFaqSection from '../Components/Services/ServiceFaqSection'
 import useSeo from '../hooks/useSeo'
+import { buildFaqJsonLd, socialMediaFaqs } from '../data/serviceFaqs'
 
 function SocialMedia() {
   useSeo({
@@ -23,12 +25,14 @@ function SocialMedia() {
       image:
         'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1600&q=80',
     },
+    jsonLd: buildFaqJsonLd(socialMediaFaqs),
   });
 
   return (
     <main id="main" className="bg-white" aria-label="Main content">
       <Hero />
       <Body />
+      <ServiceFaqSection items={socialMediaFaqs} heading="Social Media Marketing FAQs" />
     </main>
   )
 }

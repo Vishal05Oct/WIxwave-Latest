@@ -1,6 +1,8 @@
 import Hero from '../Components/Services/WebDevHero'
 import Body from '../Components/Services/WebDevBody'
+import ServiceFaqSection from '../Components/Services/ServiceFaqSection'
 import useSeo from '../hooks/useSeo'
+import { buildFaqJsonLd, webDevFaqs } from '../data/serviceFaqs'
 
 function WebDev() {
   useSeo({
@@ -23,12 +25,14 @@ function WebDev() {
       siteName: 'Wixwave',
       locale: 'en_IN',
     },
+    jsonLd: buildFaqJsonLd(webDevFaqs),
   });
 
   return (
     <main id="main" className="bg-white" aria-label="Main content">
       <Hero />
       <Body />
+      <ServiceFaqSection items={webDevFaqs} heading="Website Development FAQs" />
     </main>
   )
 }

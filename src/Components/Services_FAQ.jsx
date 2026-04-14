@@ -5,63 +5,63 @@ import { motion } from "framer-motion";
 const faqItems = [
   {
     id: 1,
-    title: "What services do you offer?",
+    title: "What digital marketing and website development services do you offer?",
     content:
-      "We offer a wide range of digital services including website design and development, mobile app development, branding and graphics, SEO, social media management, and performance marketing.",
+      "We offer website design and development, mobile app development, branding and graphic design, SEO services, social media management, and performance marketing for business growth.",
   },
   {
     id: 2,
-    title: "How can I contact you for services?",
+    title: "How can I contact Wixwave for website development or SEO services?",
     content:
-      "You can reach us via our contact page, or directly email us at info@wixwave.com. You can also connect through our social media channels.",
+      "You can contact Wixwave through our contact page to discuss website development, SEO services, app development, branding, or digital marketing requirements.",
   },
   {
     id: 3,
-    title: "Do you offer custom website development?",
+    title: "Do you offer custom website development services?",
     content:
-      "Yes, we provide custom website development tailored to your specific business needs, whether it’s an e-commerce platform, a business website, or a portfolio website.",
+      "Yes, we provide custom website development services tailored to your business goals, whether you need an ecommerce website, business website, landing page, or portfolio website.",
   },
   {
     id: 4,
-    title: "What is SEO, and why is it important?",
+    title: "What is SEO and why is it important for website growth?",
     content:
-      "SEO (Search Engine Optimization) is the process of optimizing your website to rank higher in search engine results. It’s essential for driving organic traffic to your site and improving visibility.",
+      "SEO, or search engine optimization, is the process of improving your website structure, content, and authority so it ranks higher on Google and drives more organic traffic and leads.",
   },
   {
     id: 5,
-    title: "Do you offer mobile app development?",
+    title: "Do you offer mobile app development services?",
     content:
-      "Yes, we specialize in mobile app design and development for both iOS and Android platforms.",
+      "Yes, we offer mobile app development services for iOS and Android, with a focus on user experience, performance, and scalable business apps.",
   },
   {
     id: 6,
-    title: "What is branding and graphic design?",
+    title: "What is branding and graphic design for business growth?",
     content:
-      "Branding and graphic design involve creating visual elements that represent your brand identity, such as logos, color schemes, and promotional materials.",
+      "Branding and graphic design help shape your business identity through logos, visual systems, marketing creatives, and brand assets that improve recognition and trust.",
   },
   {
     id: 7,
-    title: "How long does it take to build a website?",
+    title: "How long does custom website development take?",
     content:
-      "The time it takes to build a website varies depending on the complexity and features. On average, it can take 4–8 weeks to complete a project.",
+      "Custom website development timelines depend on page count, features, content, and revisions, but most business websites take around 4 to 8 weeks to complete.",
   },
   {
     id: 8,
-    title: "Do you offer ongoing support after development?",
+    title: "Do you offer website maintenance and support after development?",
     content:
-      "Yes, we offer ongoing maintenance and support to ensure your website or app stays up-to-date and runs smoothly.",
+      "Yes, we offer website maintenance and support after development so your website or app stays updated, secure, fast, and optimized for growth.",
   },
   {
     id: 9,
-    title: "How do you handle SEO for my website?",
+    title: "How do you handle SEO for a business website?",
     content:
-      "We optimize your website’s content, structure, and technical aspects to improve search engine rankings. We also focus on keyword research, content optimization, and link building.",
+      "We handle SEO for a business website through keyword research, on-page optimization, technical SEO, content improvements, internal linking, and performance enhancements that support higher rankings.",
   },
   {
     id: 10,
-    title: "What is performance marketing?",
+    title: "What is performance marketing and how does it generate leads?",
     content:
-      "Performance marketing is an online advertising strategy where you pay only for the results achieved, such as clicks, leads, or sales. It’s a highly effective way to drive measurable ROI.",
+      "Performance marketing is a results-driven advertising strategy where you pay for actions like clicks, leads, or sales, making it an effective way to generate measurable ROI and business growth.",
   },
 ];
 

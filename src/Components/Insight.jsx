@@ -5,7 +5,7 @@ export default function Insight() {
 
   const latestPosts = [...blogPosts]
     .sort((a, b) => new Date(b.date) - new Date(a.date))
-    .slice(0, 2);
+    .slice(0, 3);
 
   return (
     <section className="py-12 md:py-16 px-4 md:px-16">
@@ -45,13 +45,13 @@ export default function Insight() {
       </div>
 
       {/* 🔹 BLOG CARDS */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6">
         {latestPosts.map((post) => (
           <article
             key={post.id}
-            className="group rounded-2xl border border-gray-200 overflow-hidden bg-white hover:shadow-lg transition"
+            className="group rounded-2xl border border-gray-200 overflow-hidden bg-white hover:shadow-lg transition h-full"
           >
-            <Link to={`/blog/${post.slug}`} className="block">
+            <Link to={`/blog/${post.slug}`} className="block h-full">
 
               {/* Image */}
               <img
@@ -62,7 +62,7 @@ export default function Insight() {
                 className="w-full h-40 object-cover group-hover:scale-105 transition duration-500"
               />
 
-              <div className="p-5">
+              <div className="p-5 flex flex-col">
                 
                 {/* Meta */}
                 <div className="flex items-center gap-2 flex-wrap">
@@ -75,7 +75,7 @@ export default function Insight() {
                 </div>
 
                 {/* Title */}
-                <h3 className="mt-2 text-[16px] md:text-[18px] font-semibold text-[#0b0b2c] group-hover:text-[#2d2dfc] transition leading-snug">
+                <h3 className="mt-2 text-[16px] md:text-[18px] font-semibold text-[#0b0b2c] group-hover:text-[#2d2dfc] transition leading-snug line-clamp-2">
                   {post.title}
                 </h3>
 

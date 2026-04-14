@@ -4,6 +4,18 @@ import useSeo from '../hooks/useSeo'
 
 export const blogPosts = [
   {
+    id: 3,
+    title: "How to Choose a Website Development Company in Patna",
+    date: "2026-04-14",
+    displayDate: "Apr 14, 2026",
+    tags: ["Website", "Patna", "SEO"],
+    excerpt:
+      "Compare website development companies in Patna with a simple checklist focused on quality, SEO readiness, and support.",
+    slug: "choose-website-development-company-patna",
+    image:
+      "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1600&q=80",
+  },
+  {
     id: 1,
     title: "Website + Technology: SEO Wins That Compound (A Practical Playbook)",
     date: "2026-03-19",
@@ -17,12 +29,12 @@ export const blogPosts = [
   },
   {
     id: 2,
-    title: "Top UI/UX Trends That Will Dominate 2026",
+    title: "Top UI/UX Trends That Will Dominate 2026 and Shape Digital Product Experiences",
     date: "2026-03-15",
     displayDate: "Mar 15, 2026",
     tags: ["UI/UX", "Design"],
     excerpt:
-      "Explore modern UI/UX trends that are shaping digital experiences.",
+      "Explore modern UI/UX trends that are shaping digital experiences across websites, apps, and customer journeys.",
     slug: "ui-ux-trends-2026",
     image:
       "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1600&q=80",

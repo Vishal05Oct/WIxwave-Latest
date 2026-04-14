@@ -1,6 +1,8 @@
 import Hero from '../Components/Services/AppDevHero'
 import Body from '../Components/Services/AppDevBody'
+import ServiceFaqSection from '../Components/Services/ServiceFaqSection'
 import useSeo from '../hooks/useSeo'
+import { appDevFaqs, buildFaqJsonLd } from '../data/serviceFaqs'
 
 function AppDev() {
   useSeo({
@@ -23,12 +25,14 @@ function AppDev() {
       image:
         'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1600&q=80',
     },
+    jsonLd: buildFaqJsonLd(appDevFaqs),
   });
 
   return (
     <main id="main" className="bg-white" aria-label="Main content">
       <Hero />
       <Body />
+      <ServiceFaqSection items={appDevFaqs} heading="App Development FAQs" />
     </main>
   )
 }

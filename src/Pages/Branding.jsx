@@ -1,6 +1,8 @@
 import Hero from '../Components/Services/BrandingHero'
 import Body from '../Components/Services/BrandingBody'
+import ServiceFaqSection from '../Components/Services/ServiceFaqSection'
 import useSeo from '../hooks/useSeo'
+import { brandingFaqs, buildFaqJsonLd } from '../data/serviceFaqs'
 
 function Branding() {
   useSeo({
@@ -22,12 +24,14 @@ function Branding() {
       image:
         'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1600&q=80',
     },
+    jsonLd: buildFaqJsonLd(brandingFaqs),
   });
 
   return (
     <main id="main" className="bg-white" aria-label="Main content">
       <Hero />
       <Body />
+      <ServiceFaqSection items={brandingFaqs} heading="Branding FAQs" />
     </main>
   )
 }

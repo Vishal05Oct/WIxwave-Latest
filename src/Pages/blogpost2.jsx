@@ -235,16 +235,16 @@ export default function BlogPost2() {
           <div className="divide-y border rounded-xl overflow-hidden">
             {[
               {
-                q: "What are UI/UX trends in 2026?",
-                a: "AI-driven design, immersive UX, and personalization are key trends.",
+                q: "What are the top UI/UX design trends in 2026?",
+                a: "Top UI/UX design trends in 2026 include AI-driven personalization, immersive product experiences, micro-interactions, accessibility, and privacy-first design.",
               },
               {
-                q: "Why is UI/UX important for SEO?",
-                a: "Better UX improves engagement, which helps rankings.",
+                q: "Why is UI/UX design important for SEO and conversions?",
+                a: "Strong UI/UX design improves engagement, reduces bounce rate, and helps websites convert more visitors, which supports SEO performance and business growth.",
               },
               {
-                q: "What is ethical UX?",
-                a: "Design focused on privacy, transparency, and user trust.",
+                q: "What is ethical UX design in modern websites?",
+                a: "Ethical UX design focuses on transparent interfaces, user privacy, accessible experiences, and trust-building patterns that improve long-term customer relationships.",
               },
             ].map((item, i) => {
               const isOpen = activeIndex === i;
