@@ -101,7 +101,7 @@ export default function AboutSection() {
           <div className="md:col-span-4 flex flex-col">
 
             {/* HEADING */}
-            <h1
+            <h2
               ref={headingRef}
               className={`font-medium tracking-tight text-[#0b0b2c] break-words transition-all duration-500 ${
                 expanded ? "" : "line-clamp-4 md:line-clamp-none"
@@ -112,7 +112,7 @@ export default function AboutSection() {
               }}
             >
               Wixwave crafts powerful digital solutions that help businesses grow, scale, and stand out in a competitive market. From innovative website development to data-driven marketing strategies, we combine creativity with technology to deliver impactful results that drive real growth.
-            </h1>
+            </h2>
 
             {/* 📱 READ MORE */}
             <button
