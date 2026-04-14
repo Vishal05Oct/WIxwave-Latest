@@ -70,13 +70,13 @@ const ExitIntentModal = () => {
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                 <div>
                   <span className="inline-flex rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-white/90">
-                    Free Offer
+                    25% Off Offer
                   </span>
                   <h2 className="mt-4 text-2xl sm:text-3xl font-semibold leading-tight">
-                    Ready to Boost Leads Fast?
+                    Get 25% Off Website, SEO & App Development
                   </h2>
                   <p className="mt-3 max-w-xl text-sm sm:text-base text-white/85 leading-6">
-                    Claim a free strategy review from Wixwave and discover how to turn more visitors into customers with a proven digital growth plan.
+                    Take advantage of a limited-time 25% discount on Wixwave's website development, SEO, and app development services built to grow your business faster.
                   </p>
                 </div>
 
@@ -93,17 +93,17 @@ const ExitIntentModal = () => {
             <div className="p-4 sm:p-8">
               <div className="space-y-5">
                 <p className="text-sm sm:text-base leading-6 text-slate-700">
-                  Claim a <span className="font-semibold text-slate-900">free growth review</span> from Wixwave and get a simple action plan to improve website performance, leads, and conversions.
+                  Claim <span className="font-semibold text-slate-900">25% off</span> on custom website development, SEO services, and app development and get a tailored growth plan for your brand.
                 </p>
 
                 <div className="hidden sm:grid gap-3 sm:grid-cols-2">
                   <div className="rounded-3xl border border-slate-200 bg-slate-50 p-4">
-                    <p className="text-sm font-semibold text-slate-900">Fast lead wins</p>
-                    <p className="mt-1 text-sm text-slate-500">Discover easy improvements that boost conversions quickly.</p>
+                    <p className="text-sm font-semibold text-slate-900">Website + SEO growth</p>
+                    <p className="mt-1 text-sm text-slate-500">Launch a fast, SEO-ready website that brings in more traffic and better-quality leads.</p>
                   </div>
                   <div className="rounded-3xl border border-slate-200 bg-slate-50 p-4">
-                    <p className="text-sm font-semibold text-slate-900">Revenue focus</p>
-                    <p className="mt-1 text-sm text-slate-500">Receive recommendations designed to grow traffic and sales.</p>
+                    <p className="text-sm font-semibold text-slate-900">Scalable app development</p>
+                    <p className="mt-1 text-sm text-slate-500">Build mobile and web apps designed for smoother user experiences and long-term growth.</p>
                   </div>
                 </div>
 
@@ -113,7 +113,7 @@ const ExitIntentModal = () => {
                   whileTap={{ scale: 0.97 }}
                   className="w-full inline-flex items-center justify-center gap-3 rounded-full bg-slate-900 px-5 py-3 sm:py-4 text-sm font-semibold text-white shadow-lg shadow-slate-900/20 transition hover:bg-slate-800"
                 >
-                  Claim Your Free Review
+                  Claim Your 25% Off
                   <ArrowUpRight size={16} />
                 </motion.button>
 
