@@ -6,7 +6,6 @@ import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import CursorSpotlight from "./Components/CursorSpotlight";
 import WhatsappButton from "./Components/WhatsappButton";
-import useSeo from "./hooks/useSeo";
 import { usePerformanceMonitoring } from "./hooks/usePerformanceMonitoring";
 
 // Lazy load non-critical components to reduce initial bundle
@@ -15,50 +14,6 @@ const StickyCtaBar = lazy(() => import("./Components/StickyCtaBar").then(m => ({
 
 function App() {
   usePerformanceMonitoring();
-  useSeo({
-    title: "Wixwave | The Digital Solutions",
-    description:
-      "Wixwave is a leading web and mobile app development agency in India. We deliver high-performance websites, SEO, and digital experiences that drive growth.",
-    canonical: "https://wixwave.co/",
-    keywords:
-      "Wixwave, web development, app development, SEO agency, digital agency, Patna, Gurugram",
-    og: {
-      siteName: "Wixwave",
-      type: "website",
-      image:
-        "https://res.cloudinary.com/dobbdtftp/image/upload/v1746202311/3_rgrvsx.png",
-      locale: "en_IN",
-    },
-    twitter: {
-      card: "summary_large_image",
-    },
-    jsonLd: {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      name: "Wixwave",
-      url: "https://wixwave.co/",
-      logo: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746202311/3_rgrvsx.png",
-      image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746202311/3_rgrvsx.png",
-      description:
-        "Wixwave builds high-performance websites and mobile apps, optimised for speed, SEO, and growth.",
-      telephone: "+91-XXXX-XXXXXX",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "Patna, Bihar",
-        addressLocality: "Patna",
-        addressRegion: "Bihar",
-        postalCode: "800001",
-        addressCountry: "IN",
-      },
-      openingHours: "Mo-Fr 09:00-18:00",
-      sameAs: [
-        "https://www.linkedin.com/company/wixwave/",
-        "https://www.facebook.com/people/WixWave-The-Digital-Solutions/61570872845668/",
-        "https://www.instagram.com/wixwave.co/",
-        "https://x.com/Wixwave?t=aNUW1kl498Ht4V-7vT3wuA&s=09",
-      ],
-    },
-  });
 
   return (
     <Router>

@@ -292,8 +292,8 @@ const navigate = useNavigate();
 
           {/* Right */}
           <div ref={subtitleRef} className="flex flex-col items-start gap-5 lg:max-w-sm xl:max-w-md">
-            <p className="text-gray-500 text-sm sm:text-[0.95rem] leading-relaxed"
-              style={{ fontFamily: "sans-serif" }}>
+            <p className="text-gray-500 text-sm sm:text-[0.95rem] leading-relaxed "
+             >
               Real feedback from real people. Discover how our design solutions have made a
               lasting impact on brands and businesses just like yours.
             </p>

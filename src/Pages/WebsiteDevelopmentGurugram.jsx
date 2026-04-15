@@ -3,20 +3,51 @@ import useSeo from "../hooks/useSeo";
 
 export default function WebsiteDevelopmentGurugram() {
   const canonical = "https://wixwave.co/website-development-gurugram";
-  const title = "Website Development Company in Gurugram (Gurgaon) | Wixwave";
+  const title = "Complete Digital Services Company in Gurugram (Gurgaon) | Wixwave";
   const description =
-    "Wixwave is a website development company in Gurugram (Gurgaon) building fast, SEO-ready websites, ecommerce stores, and web apps. Clear pricing, quick delivery, and ongoing support.";
+    "Wixwave is a complete digital services company in Gurugram (Gurgaon) offering website development, SEO, branding, app development, social media marketing, and paid ads. Comprehensive digital solutions for your business.";
+  const relatedLinks = [
+    {
+      to: "/services/web-dev",
+      label: "Website development services",
+      text: "See the delivery model behind our Gurugram and Gurgaon digital projects.",
+    },
+    {
+      to: "/services/seo",
+      label: "SEO services",
+      text: "Strengthen technical SEO, content quality, and conversion performance.",
+    },
+    {
+      to: "/services/branding",
+      label: "Branding services",
+      text: "Build a strong brand identity for your Gurugram business.",
+    },
+    {
+      to: "/services/app-dev",
+      label: "App development services",
+      text: "Create mobile apps to expand your reach in Gurugram.",
+    },
+    {
+      to: "/portfolio",
+      label: "Portfolio examples",
+      text: "Review execution quality, structure, and visual polish across live projects.",
+    },
+  ];
 
   useSeo({
     title,
     description,
     canonical,
     keywords: [
+      "digital services company in gurugram",
+      "digital services company in gurgaon",
       "website development company in gurugram",
       "website development company in gurgaon",
       "web design company gurugram",
-      "ecommerce website development gurgaon",
-      "seo friendly website gurugram",
+      "seo services gurgaon",
+      "branding company gurugram",
+      "app development gurgaon",
+      "social media marketing gurugram",
     ],
     robots: "index,follow",
     og: {
@@ -27,25 +58,21 @@ export default function WebsiteDevelopmentGurugram() {
     },
     jsonLd: {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      name: "Wixwave",
-      url: "https://wixwave.co",
+      "@type": "Service",
+      name: "Complete Digital Services in Gurugram",
+      url: canonical,
       description,
       areaServed: [
         { "@type": "City", name: "Gurugram" },
         { "@type": "City", name: "Gurgaon" },
       ],
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Gurugram",
-        addressRegion: "Haryana",
-        addressCountry: "IN",
+      serviceType: "Digital Services",
+      provider: {
+        "@type": "Organization",
+        name: "Wixwave",
+        url: "https://wixwave.co",
+        telephone: "+919470440744",
       },
-      makesOffer: [
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Website Development" } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Ecommerce Development" } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Technical SEO" } },
-      ],
     },
   });
 
@@ -54,7 +81,7 @@ export default function WebsiteDevelopmentGurugram() {
       <section className="max-w-6xl mx-auto px-4 pt-12 pb-10">
         <div className="flex items-center justify-between gap-4 flex-wrap">
           <span className="inline-flex items-center rounded-full bg-blue-50 text-blue-700 px-3 py-1 text-sm font-semibold">
-            Gurugram (Gurgaon) • Website Development
+            Gurugram (Gurgaon) • All Services
           </span>
           <Link to="/contact" className="text-blue-700 font-semibold hover:underline">
             Get a free consultation
@@ -62,11 +89,18 @@ export default function WebsiteDevelopmentGurugram() {
         </div>
 
         <h1 className="mt-6 text-3xl sm:text-5xl font-extrabold text-gray-900 leading-tight">
-          Website Development Company in Gurugram (Gurgaon)
+          Complete Digital Services Company in Gurugram (Gurgaon)
         </h1>
         <p className="mt-4 text-lg text-gray-700 leading-relaxed max-w-3xl">
-          We build fast, modern, SEO-ready websites for Gurugram businesses—focused on performance,
-          trust, and conversions.
+          We provide comprehensive digital solutions for Gurugram and Gurgaon businesses, including website development, SEO, branding, app development, social media marketing, and paid ads to drive growth and success.
+        </p>
+
+        <p className="mt-4 text-base text-gray-600 leading-relaxed max-w-3xl">
+          If you are comparing teams in Gurugram or Gurgaon, use our{" "}
+          <Link to="/blog/choose-website-development-company-gurugram" className="text-blue-700 font-semibold hover:underline">
+            local digital partner guide
+          </Link>{" "}
+          to evaluate each option on comprehensive service offerings, expertise, UX quality, and long-term support.
         </p>
 
         <div className="mt-8 flex gap-3 flex-wrap">
@@ -149,6 +183,36 @@ export default function WebsiteDevelopmentGurugram() {
                   integrations.
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="rounded-2xl border border-gray-200 p-6">
+            <h2 className="text-2xl font-extrabold text-gray-900">
+              What Gurugram businesses usually need from a website
+            </h2>
+            <ul className="mt-4 space-y-3 text-gray-700">
+              <li>Sharper positioning for competitive local and national search terms.</li>
+              <li>Faster performance that supports both paid and organic traffic.</li>
+              <li>Clean UX that moves visitors from research to enquiry quickly.</li>
+              <li>Technical foundations strong enough to scale with growth campaigns.</li>
+            </ul>
+          </div>
+
+          <div className="rounded-2xl border border-gray-200 p-6">
+            <h2 className="text-2xl font-extrabold text-gray-900">Related resources</h2>
+            <div className="mt-4 grid gap-4">
+              {relatedLinks.map((item) => (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  className="rounded-2xl border border-gray-200 p-4 transition hover:border-blue-300 hover:bg-blue-50/40"
+                >
+                  <h3 className="font-bold text-gray-900">{item.label}</h3>
+                  <p className="mt-1 text-sm text-gray-600 leading-relaxed">{item.text}</p>
+                </Link>
+              ))}
             </div>
           </div>
         </div>

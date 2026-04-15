@@ -86,6 +86,24 @@ export default function BlogPost3() {
     },
   ];
 
+  const relatedLinks = [
+    {
+      to: "/portfolio",
+      label: "Portfolio examples",
+      description: "Review live project work to compare quality, structure, and visual execution.",
+    },
+    {
+      to: "/services/web-dev",
+      label: "Website development services",
+      description: "Understand what an SEO-ready, conversion-focused development process should include.",
+    },
+    {
+      to: "/blog/website-technology-seo",
+      label: "Website technology and SEO guide",
+      description: "Learn how technical choices influence long-term rankings and growth.",
+    },
+  ];
+
   return (
     <main>
       <div className="fixed top-0 left-0 w-full h-[3px] bg-gray-200 z-50">
@@ -176,7 +194,11 @@ export default function BlogPost3() {
             A portfolio should show variety, polish, and usability. Look beyond
             screenshots and open the live websites if possible. Test them on
             mobile, check load speed, and see whether the structure feels clean
-            and professional.
+            and professional. You can also compare against a curated{" "}
+            <Link to="/portfolio" className="text-blue-600 hover:underline">
+              portfolio
+            </Link>{" "}
+            to judge how consistently a team delivers.
           </p>
 
           <ul className="list-disc pl-6 space-y-2 text-gray-700 text-sm sm:text-base">
@@ -310,6 +332,29 @@ export default function BlogPost3() {
             </Link>{" "}
             and compare the checklist against any company you are considering.
           </p>
+        </section>
+
+        <section className="space-y-5">
+          <h2 className="text-2xl sm:text-3xl font-bold">
+            Explore Related Resources
+          </h2>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            {relatedLinks.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                className="rounded-2xl border border-gray-200 p-5 transition hover:border-blue-300 hover:shadow-md"
+              >
+                <h3 className="text-lg font-semibold text-[#0b0b2c]">
+                  {item.label}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-gray-600">
+                  {item.description}
+                </p>
+              </Link>
+            ))}
+          </div>
         </section>
 
         <section className="mt-20">

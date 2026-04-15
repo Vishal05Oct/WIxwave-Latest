@@ -63,6 +63,24 @@ export default function BlogPost2() {
     setActiveIndex(activeIndex === i ? null : i);
   };
 
+  const relatedLinks = [
+    {
+      to: "/services/branding",
+      label: "Branding and design services",
+      description: "Shape a visual system that supports a stronger user experience across touchpoints.",
+    },
+    {
+      to: "/services/app-dev",
+      label: "App development services",
+      description: "Turn UX strategy into digital products that feel fast, useful, and intuitive.",
+    },
+    {
+      to: "/blog/website-technology-seo",
+      label: "Website technology and SEO guide",
+      description: "See how performance and technical quality amplify great design work.",
+    },
+  ];
+
   return (
     <main>
 
@@ -124,6 +142,17 @@ export default function BlogPost2() {
           <p className="text-base sm:text-lg leading-relaxed text-gray-700">
             Today’s users expect fast, intuitive, and personalized experiences. Businesses that embrace modern UI/UX trends are not just improving design — they are building digital ecosystems that convert visitors into customers.
           </p>
+          <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+            Teams that want stronger organic growth and clearer market positioning should pair UX improvements with{" "}
+            <Link to="/services/seo" className="text-blue-600 hover:underline">
+              SEO strategy
+            </Link>{" "}
+            and{" "}
+            <Link to="/services/branding" className="text-blue-600 hover:underline">
+              branding decisions
+            </Link>
+            .
+          </p>
         </section>
 
         {/* AI */}
@@ -138,6 +167,14 @@ export default function BlogPost2() {
 
           <p className="text-base sm:text-lg leading-relaxed text-gray-700">
             AI-driven UI/UX improves engagement, reduces friction, and enhances personalization — making it one of the most important design trends for businesses aiming to scale.
+          </p>
+
+          <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+            This has the biggest impact when those intelligent experiences are part of a broader{" "}
+            <Link to="/services/app-dev" className="text-blue-600 hover:underline">
+              app development roadmap
+            </Link>
+            , not just isolated UI experiments.
           </p>
 
           <ul className="list-disc pl-6 space-y-2 text-gray-700 text-sm sm:text-base">
@@ -224,6 +261,40 @@ export default function BlogPost2() {
           <p className="text-base sm:text-lg leading-relaxed text-gray-700">
             Businesses that invest in user experience today will dominate tomorrow’s digital landscape.
           </p>
+          <p className="text-base sm:text-lg leading-relaxed text-gray-700">
+            The strongest results happen when modern interfaces are supported by solid{" "}
+            <Link to="/services/web-dev" className="text-blue-600 hover:underline">
+              website development
+            </Link>{" "}
+            and the technical foundations covered in our{" "}
+            <Link to="/blog/website-technology-seo" className="text-blue-600 hover:underline">
+              website technology and SEO guide
+            </Link>
+            .
+          </p>
+        </section>
+
+        <section className="space-y-5">
+          <h2 className="text-2xl sm:text-3xl font-bold">
+            Explore Related Resources
+          </h2>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            {relatedLinks.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                className="rounded-2xl border border-gray-200 p-5 transition hover:border-blue-300 hover:shadow-md"
+              >
+                <h3 className="text-lg font-semibold text-[#0b0b2c]">
+                  {item.label}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-gray-600">
+                  {item.description}
+                </p>
+              </Link>
+            ))}
+          </div>
         </section>
 
         {/* FAQ */}

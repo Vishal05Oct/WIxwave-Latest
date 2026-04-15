@@ -32,24 +32,32 @@ function Home() {
     },
     jsonLd: {
       '@context': 'https://schema.org',
-      '@type': 'LocalBusiness',
+      '@type': 'Organization',
       name: 'Wixwave',
       url: 'https://wixwave.co',
       logo: 'https://wixwave.co/logo.png',
       description:
         'Wixwave is a full-service digital agency offering web design, app development, SEO, and digital marketing services in Patna and Gurugram.',
-      telephone: '+91-XXXXXXXXXX',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: '',
-        addressLocality: 'Patna',
-        addressRegion: 'Bihar',
-        postalCode: '800001',
-        addressCountry: 'IN',
-      },
+      telephone: '+919470440744',
       areaServed: [
         { '@type': 'City', name: 'Patna' },
         { '@type': 'City', name: 'Gurugram' },
+        { '@type': 'City', name: 'Gurgaon' },
+      ],
+      contactPoint: [
+        {
+          '@type': 'ContactPoint',
+          telephone: '+919470440744',
+          contactType: 'sales',
+          areaServed: ['Patna', 'Gurugram', 'Gurgaon'],
+          availableLanguage: ['English', 'Hindi'],
+        },
+      ],
+      sameAs: [
+        'https://www.linkedin.com/company/wixwave/',
+        'https://www.facebook.com/people/WixWave-The-Digital-Solutions/61570872845668/',
+        'https://www.instagram.com/wixwave.co/',
+        'https://x.com/Wixwave?t=aNUW1kl498Ht4V-7vT3wuA&s=09',
       ],
     },
   });

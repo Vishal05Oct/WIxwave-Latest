@@ -4,6 +4,18 @@ import useSeo from '../hooks/useSeo'
 
 export const blogPosts = [
   {
+    id: 4,
+    title: "How to Choose a Website Development Company in Gurugram",
+    date: "2026-04-15",
+    displayDate: "Apr 15, 2026",
+    tags: ["Website", "Gurugram", "SEO"],
+    excerpt:
+      "A practical guide for comparing website development companies in Gurugram and Gurgaon based on SEO readiness, performance, and support.",
+    slug: "choose-website-development-company-gurugram",
+    image:
+      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
+  },
+  {
     id: 3,
     title: "How to Choose a Website Development Company in Patna",
     date: "2026-04-14",
@@ -130,6 +142,7 @@ const Blogs = () => {
           ))}
         </div>
       </section>
+
     </main>
   )
 }

@@ -1,6 +1,5 @@
 import Hero from '../Components/Contact_Hero'; // Hero component
 import ContactForm from '../Components/HomepageForm'; // Form component (for Contact Page)
-import ContactInfo from '../Components/ContactInfo'; // Contact info section
 import useSeo from '../hooks/useSeo'
 
 function Contact() {
@@ -22,7 +21,6 @@ function Contact() {
     <main id="main" className="bg-white" aria-label="Main content">
       <Hero /> {/* Hero section at the top */}
       <ContactForm page="contact" /> {/* Contact form with 'contact' title */}
-      <ContactInfo /> {/* Contact information */}
     </main>
   );
 }

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FaFacebook, FaLinkedin, FaInstagram, FaTwitter, FaGoogle } from 'react-icons/fa';
+import { FaFacebook, FaLinkedin, FaInstagram, FaTwitter, } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -83,6 +83,26 @@ const Footer = () => {
             </ul>
           </div>
 
+          <div className="w-full sm:w-1/2 lg:w-1/4 mb-6 sm:mb-0">
+            <h3 className="text-lg font-semibold mb-4">Locations</h3>
+            <ul>
+              <li>
+                <Link to="/website-development-patna" className="text-gray-400 hover:text-white">
+                  Patna
+                </Link>
+              </li>
+              <li>
+                <Link to="/website-development-gurugram" className="text-gray-400 hover:text-white">
+                  Gurugram
+                </Link>
+              </li>
+            </ul>
+
+            <p className="mt-4 text-sm text-gray-400 leading-relaxed">
+              Serving businesses across Patna and Gurugram with comprehensive digital services including websites, SEO, branding, apps, social media, and paid ads.
+            </p>
+          </div>
+
           {/* Footer Social Media Section */}
           <div className="w-full sm:w-1/2 lg:w-1/4 mb-6 sm:mb-0">
             <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
@@ -130,7 +150,6 @@ const Footer = () => {
                 aria-label="Visit our Google Business profile"
                 className="text-gray-400 hover:text-white text-2xl focus:outline-none focus:ring-2 focus:ring-white rounded"
               >
-                <FaGoogle />
               </a>
             </div>
           </div>
