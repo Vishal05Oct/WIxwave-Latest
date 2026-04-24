@@ -123,7 +123,7 @@ const BrandingGraphicsSection = () => {
         </section>
 
         <ServiceBacklinksSection
-          heading="Internal links (backlinks) for this service"
+          heading=" Related links "
           subheading="Explore related services and resources to strengthen your brand and drive growth."
           primaryLinks={[
             { to: "/services/branding", label: "Branding & graphics service" },

@@ -40,7 +40,7 @@ export default function ServiceBacklinksSection({
   );
 
   return (
-    <section className="mt-12 sm:mt-16">
+    <section>
       <div className="rounded-2xl border border-gray-200 bg-[#f7f7fb] p-5 sm:p-6 md:p-8">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3">
           <div>

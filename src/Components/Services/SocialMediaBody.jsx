@@ -155,7 +155,7 @@ const SocialMediaManagementSection = () => {
         </section>
 
         <ServiceBacklinksSection
-          heading="Internal links (backlinks) for this service"
+          heading=" Related links "
           subheading="Explore related services and resources to strengthen your content and lead generation."
           primaryLinks={[
             { to: "/services/social-media", label: "Social media management service" },

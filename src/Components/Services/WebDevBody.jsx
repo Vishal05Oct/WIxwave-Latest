@@ -113,7 +113,7 @@ const WebDevEdgeSection = () => {
 </section>
 
         <ServiceBacklinksSection
-          heading="Internal links (backlinks) for this service"
+          heading=" Related links "
           subheading="Explore related services, resources, and location pages to help users navigate and strengthen internal linking."
           primaryLinks={[
             { to: "/services/web-dev", label: "Website design & development service" },

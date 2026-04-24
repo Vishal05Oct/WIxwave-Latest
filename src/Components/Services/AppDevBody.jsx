@@ -117,7 +117,7 @@ const AppDevEdgeSection = () => {
         </section>
 
         <ServiceBacklinksSection
-          heading="Internal links (backlinks) for this service"
+          heading=" Related links "
           subheading="Explore related services and resources to strengthen navigation and internal linking."
           primaryLinks={[
             { to: "/services/app-dev", label: "App design & development service" },

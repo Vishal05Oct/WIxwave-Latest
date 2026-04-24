@@ -115,7 +115,7 @@ const SeoEdgeSection = () => {
         </section>
 
         <ServiceBacklinksSection
-          heading="Internal links (backlinks) for this service"
+          heading=" Related links "
           subheading="Explore related services, resources, and location pages to support a complete growth strategy."
           primaryLinks={[
             { to: "/services/seo", label: "SEO service" },

@@ -160,7 +160,7 @@ const PerformanceMarketingSection = () => {
         </section>
 
         <ServiceBacklinksSection
-          heading="Internal links (backlinks) for this service"
+          heading=" Related links "
           subheading="Explore related services and resources that improve campaign performance and lead quality."
           primaryLinks={[
             { to: "/services/paid-ads", label: "Performance marketing service" },
