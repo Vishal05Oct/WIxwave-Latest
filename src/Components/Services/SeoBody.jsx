@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import ServiceBacklinksSection from "./ServiceBacklinksSection";
 
 const SeoEdgeSection = () => {
   return (
@@ -8,7 +9,7 @@ const SeoEdgeSection = () => {
       <div className="container mx-auto space-y-16">
         {/* Hero Section */}
         <section className="text-left">
-          <h1 className="text-4xl font-bold mb-4">Boost Your Visibility with Strategic SEO!</h1>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Boost Your Visibility with Strategic SEO!</h2>
           <p className="text-lg">
             At WixWave, we offer result-driven SEO services designed to increase your website's visibility,
             traffic, and conversions. From technical audits to powerful content strategies, our SEO experts
@@ -63,7 +64,7 @@ const SeoEdgeSection = () => {
         </section>
 
         {/* SEO Process Image */}
-        <h1 className="text-4xl font-bold">Our SEO Process</h1>
+        <h2 className="text-3xl sm:text-4xl font-bold">Our SEO Process</h2>
         <motion.div
           className="mt-6 w-full"
           initial={{ opacity: 0 }}
@@ -80,7 +81,7 @@ const SeoEdgeSection = () => {
         {/* Detailed Process Explanation */}
         <section className="bg-white">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center md:text-left">Process Breakdown</h2>
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 text-center md:text-left">Process Breakdown</h3>
             <ul className="list-disc pl-6 space-y-2 text-gray-700">
               <li>
                 <strong>SEO Audit & Research:</strong> Conduct a thorough website audit, analyze competitors,
@@ -112,6 +113,18 @@ const SeoEdgeSection = () => {
             </p>
           </div>
         </section>
+
+        <ServiceBacklinksSection
+          heading="Internal links (backlinks) for this service"
+          subheading="Explore related services, resources, and location pages to support a complete growth strategy."
+          primaryLinks={[
+            { to: "/services/seo", label: "SEO service" },
+            { to: "/services/web-dev", label: "Website development (technical foundation)" },
+            { to: "/services/paid-ads", label: "Performance marketing (quick demand)" },
+            { to: "/blog/local-seo-checklist-patna-gurugram", label: "Local SEO checklist" },
+            { to: "/blog/local-seo-mistakes-patna-gurugram", label: "Local SEO mistakes to avoid" },
+          ]}
+        />
       </div>
     </div>
   );

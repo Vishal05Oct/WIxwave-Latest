@@ -1,8 +1,10 @@
 import Hero from '../Components/Services/BrandingHero'
 import Body from '../Components/Services/BrandingBody'
 import ServiceFaqSection from '../Components/Services/ServiceFaqSection'
+import { ServiceLinks } from '../Components/ServiceLinks'
 import useSeo from '../hooks/useSeo'
 import { brandingFaqs, buildFaqJsonLd } from '../data/serviceFaqs'
+import { getOrganizationJsonLd, getWebsiteJsonLd } from '../seo/siteJsonLd'
 
 function Branding() {
   useSeo({
@@ -24,7 +26,7 @@ function Branding() {
       image:
         'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1600&q=80',
     },
-    jsonLd: buildFaqJsonLd(brandingFaqs),
+    jsonLdArray: [getOrganizationJsonLd(), getWebsiteJsonLd(), buildFaqJsonLd(brandingFaqs)],
   });
 
   return (
@@ -32,6 +34,7 @@ function Branding() {
       <Hero />
       <Body />
       <ServiceFaqSection items={brandingFaqs} heading="Branding FAQs" />
+      <ServiceLinks heading="Related services" />
     </main>
   )
 }

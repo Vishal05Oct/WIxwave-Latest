@@ -1,6 +1,7 @@
 import Hero from '../Components/Contact_Hero'; // Hero component
 import ContactForm from '../Components/HomepageForm'; // Form component (for Contact Page)
 import useSeo from '../hooks/useSeo'
+import { getOrganizationJsonLd, getWebsiteJsonLd } from '../seo/siteJsonLd'
 
 function Contact() {
   useSeo({
@@ -15,6 +16,7 @@ function Contact() {
       siteName: 'Wixwave',
       locale: 'en_IN',
     },
+    jsonLdArray: [getOrganizationJsonLd(), getWebsiteJsonLd()],
   });
 
   return (

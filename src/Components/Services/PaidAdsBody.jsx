@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import ServiceBacklinksSection from "./ServiceBacklinksSection";
 
 const PerformanceMarketingSection = () => {
   return (
@@ -8,7 +9,7 @@ const PerformanceMarketingSection = () => {
       <div className="container mx-auto space-y-16">
         {/* Hero Section */}
         <section className="text-left">
-          <h1 className="text-4xl font-bold mb-4">Drive Results with Targeted Performance Marketing!</h1>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Drive Results with Targeted Performance Marketing!</h2>
           <p className="text-lg">
             At WixWave, we specialize in performance marketing strategies designed to boost conversions and drive measurable results. 
             From paid search and display ads to affiliate marketing, we help your brand achieve tangible growth.
@@ -114,7 +115,7 @@ const PerformanceMarketingSection = () => {
         </section>
 
         {/* Performance Marketing Process Image */}
-        <h1 className="text-4xl font-bold">Our Performance Marketing Process</h1>
+        <h2 className="text-3xl sm:text-4xl font-bold">Our Performance Marketing Process</h2>
         <motion.div
           className="mt-6 w-full"
           initial={{ opacity: 0 }}
@@ -131,7 +132,7 @@ const PerformanceMarketingSection = () => {
         {/* Detailed Process Explanation */}
         <section className="bg-white">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center md:text-left">Process Breakdown</h2>
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 text-center md:text-left">Process Breakdown</h3>
             <ul className="list-disc pl-6 space-y-2 text-gray-700">
               <li>
                 <strong>Goal Setting & Strategy Development:</strong> Define clear, measurable marketing goals (e.g., leads, conversions, ROI) and develop a strategy that aligns with business objectives.
@@ -157,6 +158,17 @@ const PerformanceMarketingSection = () => {
             </p>
           </div>
         </section>
+
+        <ServiceBacklinksSection
+          heading="Internal links (backlinks) for this service"
+          subheading="Explore related services and resources that improve campaign performance and lead quality."
+          primaryLinks={[
+            { to: "/services/paid-ads", label: "Performance marketing service" },
+            { to: "/services/web-dev", label: "Website development (landing pages)" },
+            { to: "/services/seo", label: "SEO services (reduce long-term CAC)" },
+            { to: "/contact", label: "Request a campaign plan" },
+          ]}
+        />
       </div>
     </div>
   );

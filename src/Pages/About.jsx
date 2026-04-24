@@ -4,6 +4,7 @@ import About2 from '../Components/About_2'
 import About3 from '../Components/About_3'
 import About4 from '../Components/About_4'
 import useSeo from '../hooks/useSeo'
+import { getOrganizationJsonLd, getWebsiteJsonLd } from '../seo/siteJsonLd'
 
 export default function About() {
   useSeo({
@@ -18,6 +19,7 @@ export default function About() {
       siteName: 'Wixwave',
       locale: 'en_IN',
     },
+    jsonLdArray: [getOrganizationJsonLd(), getWebsiteJsonLd()],
   });
 
   return (

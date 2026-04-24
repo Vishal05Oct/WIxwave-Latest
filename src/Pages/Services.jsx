@@ -3,6 +3,7 @@ import Body from '../Components/Services_1'
 import FAQ from '../Components/Services_FAQ'
 import CTA from '../Components/Services_CTA'
 import useSeo from '../hooks/useSeo'
+import { getOrganizationJsonLd, getWebsiteJsonLd } from '../seo/siteJsonLd'
 
 function Services() {
   useSeo({
@@ -26,6 +27,7 @@ function Services() {
       siteName: 'Wixwave',
       locale: 'en_IN',
     },
+    jsonLdArray: [getOrganizationJsonLd(), getWebsiteJsonLd()],
   });
 
   return (

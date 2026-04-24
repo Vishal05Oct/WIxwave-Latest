@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import ServiceBacklinksSection from "./ServiceBacklinksSection";
 
 const SocialMediaManagementSection = () => {
   return (
@@ -8,7 +9,7 @@ const SocialMediaManagementSection = () => {
       <div className="container mx-auto space-y-16">
         {/* Hero Section */}
         <section className="text-left">
-          <h1 className="text-4xl font-bold mb-4">Elevate Your Brand with Expert Social Media Management!</h1>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Elevate Your Brand with Expert Social Media Management!</h2>
           <p className="text-lg">
             At WixWave, we offer comprehensive social media management services to build your online presence and connect with your audience.
             From content creation to strategic advertising, we make your brand’s voice heard across social platforms.
@@ -102,14 +103,14 @@ const SocialMediaManagementSection = () => {
             <p>
               From engagement rates to conversions, we provide comprehensive reports that allow you to assess the effectiveness of your social media efforts.
             </p>
-            <Link to="/Contact" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
-            Start Your Branding Journey
+            <Link to="/contact" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
+            Start Your Social Media Journey
             </Link>
           </div>
         </section>
 
         {/* Social Media Process Image */}
-        <h1 className="text-4xl font-bold">Our Social Media Management Process</h1>
+        <h2 className="text-3xl sm:text-4xl font-bold">Our Social Media Management Process</h2>
         <motion.div
           className="mt-6 w-full"
           initial={{ opacity: 0 }}
@@ -126,7 +127,7 @@ const SocialMediaManagementSection = () => {
         {/* Detailed Process Explanation */}
         <section className="bg-white">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center md:text-left">Process Breakdown</h2>
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 text-center md:text-left">Process Breakdown</h3>
             <ul className="list-disc pl-6 space-y-2 text-gray-700">
               <li>
                 <strong>Goal Setting:</strong> Define clear, measurable objectives that align with your brand’s marketing goals (e.g., brand awareness, lead generation).
@@ -152,6 +153,17 @@ const SocialMediaManagementSection = () => {
             </p>
           </div>
         </section>
+
+        <ServiceBacklinksSection
+          heading="Internal links (backlinks) for this service"
+          subheading="Explore related services and resources to strengthen your content and lead generation."
+          primaryLinks={[
+            { to: "/services/social-media", label: "Social media management service" },
+            { to: "/services/paid-ads", label: "Performance marketing (paid social)" },
+            { to: "/services/branding", label: "Branding & graphics (creative system)" },
+            { to: "/services/web-dev", label: "Website development (landing pages)" },
+          ]}
+        />
       </div>
     </div>
   );

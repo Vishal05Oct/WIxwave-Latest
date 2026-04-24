@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="w-full sm:w-1/4 mb-6 sm:mb-0">
             <img
               src="https://res.cloudinary.com/dobbdtftp/image/upload/v1746202311/3_rgrvsx.png"
-              alt="TechDev Solutions Logo"
+              alt="Wixwave logo"
               className="h-16 object-contain mx-auto sm:mx-0"
             />
           </div>
@@ -41,6 +41,11 @@ const Footer = () => {
               <li>
                 <Link to="/services/app-dev" className="text-gray-400 hover:text-white">
                   App Development
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/branding" className="text-gray-400 hover:text-white">
+                  Branding &amp; Graphics
                 </Link>
               </li>
               <li>

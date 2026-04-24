@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import ServiceBacklinksSection from "./ServiceBacklinksSection";
 
 const WebDevEdgeSection = () => {
   return (
     <div className="bg-white text-black px-6 py-10">
       <div className="container mx-auto space-y-16">
         <section className="text-left">
-          <h1 className="text-4xl font-bold mb-4">Welcome To The Digital Frontier!</h1>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Welcome To The Digital Frontier!</h2>
           <p className="text-lg">
             We thrive on transforming ideas into exceptional digital experiences. Our
             team explores innovative techniques in web design and development to build
@@ -76,12 +77,12 @@ const WebDevEdgeSection = () => {
               Whether it's a custom CMS, an e-commerce platform, or a dynamic web app,
               we deliver solutions that drive results.
             </p>
-            <Link to="/Contact" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
-            Start Your Branding Journey
+            <Link to="/contact" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
+            Start Your Website Project
             </Link>
           </div>
         </section>
-        <h1 className="text-4xl font-bold ">Our Website Development Process</h1>
+        <h2 className="text-3xl sm:text-4xl font-bold ">Our Website Development Process</h2>
         <motion.div
                        className="mt-6 w-full"
                         initial={{ opacity: 0 }}
@@ -94,10 +95,10 @@ const WebDevEdgeSection = () => {
                             className="w-full h-auto object-cover"
                         />
                     </motion.div>
-                    <section class="bg-white ">
-  <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center md:text-left">Process Explanation</h2>
-    <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                    <section className="bg-white ">
+  <div className="container mx-auto px-4">
+    <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 text-center md:text-left">Process Explanation</h3>
+    <ul className="list-disc pl-6 space-y-2 text-gray-700">
       <li><strong>Planning:</strong> Define project goals, scope, resources, and timelines to establish a solid foundation.</li>
       <li><strong>UX/UI Design:</strong> Create user-friendly interfaces and experiences through wireframes, prototypes, and design systems.</li>
       <li><strong>Development:</strong> Build the application’s frontend and backend functionalities, integrating necessary technologies and services.</li>
@@ -105,11 +106,21 @@ const WebDevEdgeSection = () => {
       <li><strong>Launch:</strong> Deploy the software to a live environment, making it accessible to users while monitoring for issues.</li>
       <li><strong>Maintenance:</strong> Provide ongoing updates, bug fixes, and improvements based on user feedback and system monitoring.</li>
     </ul>
-    <p class="text-gray-700 mt-4 text-center md:text-left">
+    <p className="text-gray-700 mt-4 text-center md:text-left">
       The process is typically iterative, allowing for feedback and improvements even after deployment.
     </p>
   </div>
 </section>
+
+        <ServiceBacklinksSection
+          heading="Internal links (backlinks) for this service"
+          subheading="Explore related services, resources, and location pages to help users navigate and strengthen internal linking."
+          primaryLinks={[
+            { to: "/services/web-dev", label: "Website design & development service" },
+            { to: "/portfolio", label: "Portfolio" },
+            { to: "/blog/website-design-development-guide", label: "Website design & development guide" },
+          ]}
+        />
 
       </div>
     </div>

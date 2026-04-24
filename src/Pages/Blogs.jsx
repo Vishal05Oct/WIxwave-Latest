@@ -1,8 +1,46 @@
 import { Link } from 'react-router-dom'
 import Hero from '../Components/Blogs_Hero'
 import useSeo from '../hooks/useSeo'
+import { ServiceLinks } from '../Components/ServiceLinks'
+import { getOrganizationJsonLd, getWebsiteJsonLd } from '../seo/siteJsonLd'
 
 export const blogPosts = [
+  {
+    id: 7,
+    title: "Website Design & Development (2026): How to Build Pages That Convert",
+    date: "2026-04-24",
+    displayDate: "Apr 24, 2026",
+    tags: ["Website", "Development", "Growth"],
+    excerpt:
+      "A practical blueprint for building a modern business website: architecture, performance, content structure, internal linking, and conversion-first UX.",
+    slug: "website-design-development-guide",
+    image:
+      "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1600&q=80",
+  },
+  {
+    id: 6,
+    title: "Local SEO Mistakes to Avoid (2026): Patna + Gurugram",
+    date: "2026-04-24",
+    displayDate: "Apr 24, 2026",
+    tags: ["Local SEO", "Patna", "Gurugram"],
+    excerpt:
+      "Avoid the local SEO mistakes that block rankings in Patna and Gurugram: GBP issues, weak service pages, inconsistent citations, review gaps, and slow websites.",
+    slug: "local-seo-mistakes-patna-gurugram",
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80",
+  },
+  {
+    id: 5,
+    title: "Local SEO Checklist (2026): Patna + Gurugram (Gurgaon)",
+    date: "2026-04-24",
+    displayDate: "Apr 24, 2026",
+    tags: ["Local SEO", "Patna", "Gurugram"],
+    excerpt:
+      "A step-by-step local SEO checklist for Patna and Gurugram businesses: GBP optimization, on-page SEO, citations, reviews, and content ideas.",
+    slug: "local-seo-checklist-patna-gurugram",
+    image:
+      "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1600&q=80",
+  },
   {
     id: 4,
     title: "How to Choose a Website Development Company in Gurugram",
@@ -74,6 +112,7 @@ const Blogs = () => {
       siteName: 'Wixwave',
       locale: 'en_IN',
     },
+    jsonLdArray: [getOrganizationJsonLd(), getWebsiteJsonLd()],
   })
 
   const sortedPosts = [...blogPosts].sort(
@@ -143,6 +182,7 @@ const Blogs = () => {
         </div>
       </section>
 
+      <ServiceLinks heading="Need help with your website or marketing?" />
     </main>
   )
 }

@@ -44,13 +44,16 @@ function setJsonLd(id, json) {
     script = document.createElement("script");
     script.id = id;
     script.type = "application/ld+json";
+    script.setAttribute("data-seo-jsonld", "true");
     document.head.appendChild(script);
   }
   script.textContent = jsonString;
 }
 
 function setMultipleJsonLd(jsonLdArray) {
-  const existingScripts = document.querySelectorAll('script[type="application/ld+json"]');
+  const existingScripts = document.querySelectorAll(
+    'script[type="application/ld+json"][data-seo-jsonld="true"]'
+  );
   existingScripts.forEach((script) => script.remove());
 
   if (!jsonLdArray || !Array.isArray(jsonLdArray)) return;
@@ -58,6 +61,7 @@ function setMultipleJsonLd(jsonLdArray) {
   jsonLdArray.forEach((jsonLd) => {
     const script = document.createElement("script");
     script.type = "application/ld+json";
+    script.setAttribute("data-seo-jsonld", "true");
     script.textContent = JSON.stringify(jsonLd);
     document.head.appendChild(script);
   });

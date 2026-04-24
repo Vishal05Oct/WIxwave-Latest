@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import ServiceBacklinksSection from "./ServiceBacklinksSection";
 
 const BrandingGraphicsSection = () => {
   return (
@@ -8,7 +9,7 @@ const BrandingGraphicsSection = () => {
       <div className="container mx-auto space-y-16">
         {/* Hero Section */}
         <section className="text-left">
-          <h1 className="text-4xl font-bold mb-4">Create a Powerful Identity with Impactful Branding!</h1>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Create a Powerful Identity with Impactful Branding!</h2>
           <p className="text-lg">
             At WixWave, we craft unforgettable brand identities and stunning graphic designs that speak your brand's language.
             From logos to full-scale visual communication strategies, we help your business leave a lasting impression.
@@ -69,7 +70,7 @@ const BrandingGraphicsSection = () => {
               We also focus on creating designs that are scalable and adaptable across different mediums, whether online or offline. The goal is to
               ensure that your brand consistently communicates the same message, regardless of the platform.
             </p>
-            <Link to="/Contact" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
+            <Link to="/contact" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
             Start Your Branding Journey
             </Link>
 
@@ -77,7 +78,7 @@ const BrandingGraphicsSection = () => {
         </section>
 
         {/* Branding Process Image */}
-        <h1 className="text-4xl font-bold">Our Branding Process</h1>
+        <h2 className="text-3xl sm:text-4xl font-bold">Our Branding Process</h2>
         <motion.div
           className="mt-6 w-full"
           initial={{ opacity: 0 }}
@@ -94,7 +95,7 @@ const BrandingGraphicsSection = () => {
         {/* Detailed Process Explanation */}
         <section className="bg-white">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center md:text-left">Process Breakdown</h2>
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 text-center md:text-left">Process Breakdown</h3>
             <ul className="list-disc pl-6 space-y-2 text-gray-700">
               <li>
                 <strong>Brand Research & Strategy:</strong> Understand the target audience, market trends, and competitors to define brand values, voice, and positioning.
@@ -120,6 +121,16 @@ const BrandingGraphicsSection = () => {
             </p>
           </div>
         </section>
+
+        <ServiceBacklinksSection
+          heading="Internal links (backlinks) for this service"
+          subheading="Explore related services and resources to strengthen your brand and drive growth."
+          primaryLinks={[
+            { to: "/services/branding", label: "Branding & graphics service" },
+            { to: "/services/web-dev", label: "Website development (brand implementation)" },
+            { to: "/services/social-media", label: "Social media management (brand consistency)" },
+          ]}
+        />
       </div>
     </div>
   );

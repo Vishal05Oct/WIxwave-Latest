@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
+import ServiceBacklinksSection from "./ServiceBacklinksSection";
 
 const AppDevEdgeSection = () => {
   return (
     <div className="bg-white text-black px-6 py-10">
       <div className="container mx-auto space-y-16">
         <section className="text-left">
-          <h1 className="text-4xl font-bold mb-4">Welcome To The Mobile Future!</h1>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Welcome To The Mobile Future!</h2>
           <p className="text-lg">
             We specialize in crafting intuitive and engaging mobile experiences. Our team is
             dedicated to designing and developing high-performance mobile apps that are not only
@@ -78,13 +79,13 @@ const AppDevEdgeSection = () => {
               Whether it's an e-commerce app, a social network, or a custom mobile solution, we
               deliver applications that cater to your unique needs.
             </p>
-            <Link to="/Contact" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
+            <Link to="/contact" className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium">
       Start Your App Development Journey
     </Link>
           </div>
         </section>
 
-        <h1 className="text-4xl font-bold">Our App Development Process</h1>
+        <h2 className="text-3xl sm:text-4xl font-bold">Our App Development Process</h2>
         <motion.div
           className="mt-6 w-full"
           initial={{ opacity: 0 }}
@@ -100,7 +101,7 @@ const AppDevEdgeSection = () => {
 
         <section className="bg-white">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center md:text-left">Process Explanation</h2>
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 text-center md:text-left">Process Explanation</h3>
             <ul className="list-disc pl-6 space-y-2 text-gray-700">
               <li><strong>Planning:</strong> Define project goals, target audience, features, and timeline to set the foundation.</li>
               <li><strong>UI/UX Design:</strong> Design intuitive, user-friendly interfaces with wireframes, prototypes, and high-fidelity visuals.</li>
@@ -114,6 +115,16 @@ const AppDevEdgeSection = () => {
             </p>
           </div>
         </section>
+
+        <ServiceBacklinksSection
+          heading="Internal links (backlinks) for this service"
+          subheading="Explore related services and resources to strengthen navigation and internal linking."
+          primaryLinks={[
+            { to: "/services/app-dev", label: "App design & development service" },
+            { to: "/services/web-dev", label: "Website development" },
+            { to: "/services/branding", label: "Branding & graphics" },
+          ]}
+        />
       </div>
     </div>
   );

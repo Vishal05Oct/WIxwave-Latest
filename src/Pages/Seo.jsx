@@ -1,8 +1,10 @@
 import Hero from '../Components/Services/SeoHero'
 import Body from '../Components/Services/SeoBody'
 import ServiceFaqSection from '../Components/Services/ServiceFaqSection'
+import { ServiceLinks } from '../Components/ServiceLinks'
 import useSeo from '../hooks/useSeo'
 import { buildFaqJsonLd, seoFaqs } from '../data/serviceFaqs'
+import { getOrganizationJsonLd, getWebsiteJsonLd } from '../seo/siteJsonLd'
 
 function Seo() {
   useSeo({
@@ -18,7 +20,7 @@ function Seo() {
       siteName: 'Wixwave',
       locale: 'en_IN',
     },
-    jsonLd: buildFaqJsonLd(seoFaqs),
+    jsonLdArray: [getOrganizationJsonLd(), getWebsiteJsonLd(), buildFaqJsonLd(seoFaqs)],
   });
 
   return (
@@ -26,6 +28,7 @@ function Seo() {
       <Hero />
       <Body />
       <ServiceFaqSection items={seoFaqs} heading="SEO Services FAQs" />
+      <ServiceLinks heading="Related services" />
     </main>
   )
 }

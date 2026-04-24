@@ -74,7 +74,7 @@ export default function WebsiteDevelopmentPatna() {
 
   return (
     <main className="bg-white">
-      <section className="max-w-6xl mx-auto px-4 pt-12 pb-10">
+      <section className="container mx-auto px-4 pt-12 pb-10">
         <div className="flex items-center justify-between gap-4 flex-wrap">
           <span className="inline-flex items-center rounded-full bg-blue-50 text-blue-700 px-3 py-1 text-sm font-semibold">
             Patna • All Services
@@ -114,7 +114,7 @@ export default function WebsiteDevelopmentPatna() {
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-4 pb-14">
+      <section className="container mx-auto px-4 pb-14">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {[
             {
