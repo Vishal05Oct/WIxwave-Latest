@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { SiNextdotjs, SiReact, SiShopify, SiWordpress } from "react-icons/si";
 import useSeo from "../hooks/useSeo";
 
 export default function WebsiteDevelopmentGurugram() {
@@ -141,6 +142,28 @@ export default function WebsiteDevelopmentGurugram() {
                     </div>
                   </div>
                 ))}
+              </div>
+
+              <div className="mt-6 max-w-2xl">
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                  Stacks we ship with
+                </p>
+                <div className="mt-3 flex flex-wrap gap-3">
+                  {[
+                    { Icon: SiNextdotjs, label: "Next.js", iconClass: "text-slate-900" },
+                    { Icon: SiReact, label: "React", iconClass: "text-[#087EA4]" },
+                    { Icon: SiWordpress, label: "WordPress", iconClass: "text-[#21759B]" },
+                    { Icon: SiShopify, label: "Shopify", iconClass: "text-[#7AB55C]" },
+                  ].map(({ Icon, label, iconClass }) => (
+                    <div
+                      key={label}
+                      className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white/70 px-3 py-2 shadow-sm backdrop-blur"
+                    >
+                      <Icon aria-hidden className={`h-6 w-6 shrink-0 ${iconClass}`} />
+                      <span className="text-sm font-semibold text-slate-800">{label}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               <p className="mt-6 text-base text-slate-700 leading-relaxed max-w-2xl">
