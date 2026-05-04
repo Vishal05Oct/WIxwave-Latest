@@ -93,12 +93,12 @@ const Footer = () => {
             <ul>
               <li>
                 <Link to="/website-development-patna" className="text-gray-400 hover:text-white">
-                  Patna
+                  Website Development Services in Patna
                 </Link>
               </li>
               <li>
                 <Link to="/website-development-gurugram" className="text-gray-400 hover:text-white">
-                  Gurugram
+                Website Development Services in Gurgaon 
                 </Link>
               </li>
             </ul>
