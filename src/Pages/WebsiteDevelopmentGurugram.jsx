@@ -82,7 +82,7 @@ export default function WebsiteDevelopmentGurugram() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.07),transparent_45%),radial-gradient(circle_at_80%_30%,rgba(99,102,241,0.06),transparent_45%),radial-gradient(circle_at_50%_80%,rgba(34,211,238,0.05),transparent_45%)]" />
         </div>
 
-        <div className="container mx-auto px-4 pt-14 pb-10 relative">
+        <div className="container mx-auto px-4 pt-24 sm:pt-28 pb-10 relative">
           <div className="flex items-center justify-between gap-4 flex-wrap">
             <span className="inline-flex items-center rounded-full border border-slate-200 bg-white/80 text-slate-700 px-3 py-1 text-sm font-semibold shadow-sm backdrop-blur">
               Gurgaon (Gurugram) • Website Development
@@ -101,9 +101,19 @@ export default function WebsiteDevelopmentGurugram() {
                 Website Development Services in Gurgaon
               </h1>
               <p className="mt-5 text-lg text-slate-700 leading-relaxed max-w-2xl">
-                Want a website that loads fast, looks premium, and actually converts? Wixwave builds
-                modern websites for Gurgaon (Gurugram) businesses with clean UX, performance-first
-                engineering, and an SEO-ready foundation.
+                Want a website that loads fast, looks premium, and actually converts? Wixwave is a
+                trusted{" "}
+                <a
+                  href="https://maps.app.goo.gl/YSQFAgevasfNKmaU6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-700 hover:text-blue-800 underline"
+                >
+                  website development company in Gurgaon (Gurugram)
+                </a>{" "}
+                offering modern business websites, ecommerce website development, and custom Shopify
+                store development with clean UX, performance-first engineering, and an SEO-ready
+                foundation.
               </p>
 
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl">
