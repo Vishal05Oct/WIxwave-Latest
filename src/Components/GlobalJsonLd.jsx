@@ -1,8 +1,13 @@
 import { useEffect } from "react";
-import { getOrganizationJsonLd, getWebsiteJsonLd } from "../seo/siteJsonLd";
+import {
+  getLocalBusinessJsonLd,
+  getOrganizationJsonLd,
+  getWebsiteJsonLd,
+} from "../seo/siteJsonLd";
 
 const ORG_SCRIPT_ID = "wixwave-schema-org-global";
 const WEB_SCRIPT_ID = "wixwave-schema-website-global";
+const LOCAL_SCRIPT_ID = "wixwave-schema-localbusiness-global";
 
 function upsertSiteScript(scriptId, data) {
   if (typeof document === "undefined") return;
@@ -26,6 +31,7 @@ export default function GlobalJsonLd() {
   useEffect(() => {
     upsertSiteScript(ORG_SCRIPT_ID, getOrganizationJsonLd());
     upsertSiteScript(WEB_SCRIPT_ID, getWebsiteJsonLd());
+    upsertSiteScript(LOCAL_SCRIPT_ID, getLocalBusinessJsonLd());
   }, []);
 
   return null;

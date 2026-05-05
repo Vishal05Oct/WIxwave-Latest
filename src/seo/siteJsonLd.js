@@ -7,6 +7,7 @@ export const SITE = {
   telephone: "+919470440744",
   description:
     "Wixwave is a full-service digital agency offering website development, app development, SEO, branding, and digital marketing.",
+  email: "connect@wixwave.co",
   sameAs: [
     "https://www.linkedin.com/company/wixwave/",
     "https://www.facebook.com/people/WixWave-The-Digital-Solutions/61570872845668/",
@@ -18,6 +19,7 @@ export const SITE = {
 
 export const SITE_ORGANIZATION_ID = `${SITE.url}/#organization`;
 export const SITE_WEBSITE_ID = `${SITE.url}/#website`;
+export const SITE_LOCAL_BUSINESS_ID = `${SITE.url}/#localbusiness`;
 
 function stripTailBrand(title) {
   if (!title) return SITE.name;
@@ -55,6 +57,7 @@ export function getOrganizationJsonLd() {
       {
         "@type": "ContactPoint",
         telephone: SITE.telephone,
+        email: SITE.email,
         contactType: "sales",
         availableLanguage: ["English", "Hindi"],
       },
@@ -71,6 +74,32 @@ export function getWebsiteJsonLd() {
     url: SITE.url,
     publisher: { "@id": SITE_ORGANIZATION_ID },
     inLanguage: "en-IN",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${SITE.url}/blog?query={search_term_string}`,
+      "query-input": "required name=search_term_string",
+    },
+  };
+}
+
+export function getLocalBusinessJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": SITE_LOCAL_BUSINESS_ID,
+    name: SITE.name,
+    url: SITE.url,
+    image: SITE.logo,
+    description: SITE.description,
+    telephone: SITE.telephone,
+    email: SITE.email,
+    areaServed: [
+      { "@type": "City", name: "Patna" },
+      { "@type": "City", name: "Gurugram" },
+      { "@type": "City", name: "Gurgaon" },
+    ],
+    sameAs: SITE.sameAs,
+    parentOrganization: { "@id": SITE_ORGANIZATION_ID },
   };
 }
 

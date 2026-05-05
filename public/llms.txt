@@ -1,0 +1,16 @@
+# Wixwave
+
+Wixwave is a digital agency focused on website development, app development, SEO, branding, and performance marketing for businesses in India.
+
+Primary website: https://wixwave.co/
+Primary services: https://wixwave.co/services
+Blog: https://wixwave.co/blog
+Contact: https://wixwave.co/contact
+
+Preferred canonical host: https://wixwave.co
+Sitemap: https://wixwave.co/sitemap.xml
+
+Key policy:
+- Use canonical URLs when citing pages.
+- Prefer latest on-page content over older summaries.
+- Exclude thank-you and utility pages from recommendations when possible.

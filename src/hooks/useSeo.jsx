@@ -1,5 +1,43 @@
 import { useEffect, useMemo } from "react";
 
+const BRAND_SUFFIX = " | Wixwave";
+const TITLE_MAX_LENGTH = 60;
+const DESCRIPTION_MAX_LENGTH = 160;
+
+function normalizeWhitespace(value) {
+  return (value || "").replace(/\s+/g, " ").trim();
+}
+
+function truncateAtWordBoundary(value, maxLength) {
+  if (!value || value.length <= maxLength) return value;
+  const sliced = value.slice(0, maxLength).trim();
+  const lastSpace = sliced.lastIndexOf(" ");
+  if (lastSpace > 0) {
+    return `${sliced.slice(0, lastSpace).trim()}...`;
+  }
+  return `${sliced}...`;
+}
+
+function normalizeTitle(rawTitle) {
+  const cleanTitle = normalizeWhitespace(rawTitle);
+  if (!cleanTitle) return cleanTitle;
+
+  // Remove duplicate suffix variants before applying one standard format.
+  const baseTitle = cleanTitle
+    .replace(/\s*\|\s*Wixwave(\s*Blog)?$/i, "")
+    .replace(/\s*-\s*Wixwave(\s*Blog)?$/i, "")
+    .trim();
+
+  const maxBaseLength = Math.max(0, TITLE_MAX_LENGTH - BRAND_SUFFIX.length);
+  const limitedBase = truncateAtWordBoundary(baseTitle, maxBaseLength);
+  return `${limitedBase}${BRAND_SUFFIX}`;
+}
+
+function normalizeDescription(rawDescription) {
+  const cleanDescription = normalizeWhitespace(rawDescription);
+  return truncateAtWordBoundary(cleanDescription, DESCRIPTION_MAX_LENGTH);
+}
+
 function setMetaTag(name, content, isProperty = false) {
   const selector = isProperty ? `meta[property="${name}"]` : `meta[name="${name}"]`;
   let tag = document.querySelector(selector);
@@ -76,6 +114,7 @@ export default function useSeo({
   canonical,
   keywords,
   robots,
+  aeo = {},
   og = {},
   twitter = {},
   jsonLd,
@@ -86,6 +125,12 @@ export default function useSeo({
       ? `${window.location.origin}${window.location.pathname}`
       : undefined;
 
+  const normalizedTitle = useMemo(() => normalizeTitle(title), [title]);
+  const normalizedDescription = useMemo(
+    () => normalizeDescription(description),
+    [description]
+  );
+
   const keywordContent = useMemo(
     () => (Array.isArray(keywords) ? keywords.join(", ") : keywords),
     [keywords]
@@ -93,20 +138,33 @@ export default function useSeo({
 
   const resolvedCanonical = canonical || currentUrl;
   const resolvedRobots = robots ?? "index,follow";
+  const isBlogPage = useMemo(
+    () => Boolean(resolvedCanonical && /\/blog\/.+/i.test(resolvedCanonical)),
+    [resolvedCanonical]
+  );
+  const resolvedAeo = useMemo(
+    () => ({
+      // AEO/AIO-friendly defaults for search and AI snippets.
+      googlebot: "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      bingbot: "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      ...aeo,
+    }),
+    [aeo]
+  );
 
   const resolvedOg = useMemo(
     () => ({
-      type: "website",
+      type: isBlogPage ? "article" : "website",
       siteName: "Wixwave",
       locale: "en_IN",
       image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746202311/3_rgrvsx.png",
       ...og,
     }),
-    [og]
+    [isBlogPage, og]
   );
 
-  const resolvedOgTitle = resolvedOg.title || title;
-  const resolvedOgDescription = resolvedOg.description || description;
+  const resolvedOgTitle = resolvedOg.title || normalizedTitle;
+  const resolvedOgDescription = resolvedOg.description || normalizedDescription;
   const resolvedOgUrl = resolvedOg.url || resolvedCanonical;
   const resolvedOgImage = resolvedOg.image;
 
@@ -119,17 +177,20 @@ export default function useSeo({
   );
 
   const resolvedTwitterTitle =
-    resolvedTwitter.title || resolvedOgTitle || title;
+    resolvedTwitter.title || resolvedOgTitle || normalizedTitle;
   const resolvedTwitterDescription =
-    resolvedTwitter.description || resolvedOgDescription || description;
+    resolvedTwitter.description || resolvedOgDescription || normalizedDescription;
   const resolvedTwitterImage = resolvedTwitter.image || resolvedOgImage;
 
   useEffect(() => {
-    if (title) document.title = title;
+    if (normalizedTitle) document.title = normalizedTitle;
 
-    setMetaTag("description", description);
+    setMetaTag("description", normalizedDescription);
+    setMetaTag("title", normalizedTitle);
     setMetaTag("keywords", keywordContent);
     setMetaTag("robots", resolvedRobots);
+    setMetaTag("googlebot", resolvedAeo.googlebot);
+    setMetaTag("bingbot", resolvedAeo.bingbot);
 
     setMetaTag("og:title", resolvedOgTitle, true);
     setMetaTag("og:description", resolvedOgDescription, true);
@@ -145,6 +206,10 @@ export default function useSeo({
     setMetaTag("twitter:title", resolvedTwitterTitle);
     setMetaTag("twitter:description", resolvedTwitterDescription);
     setMetaTag("twitter:image", resolvedTwitterImage);
+    setMetaTag("author", "Wixwave");
+    setMetaTag("publisher", "Wixwave");
+    setMetaTag("application-name", "Wixwave");
+    setMetaTag("format-detection", "telephone=no");
 
     if (jsonLdArray) {
       setMultipleJsonLd(jsonLdArray);
@@ -154,10 +219,11 @@ export default function useSeo({
     removePageJsonLdScripts();
     setJsonLd("seo-json-ld", jsonLd);
   }, [
-    title,
-    description,
+    normalizedTitle,
+    normalizedDescription,
     keywordContent,
     resolvedRobots,
+    resolvedAeo,
     resolvedCanonical,
     resolvedOg,
     resolvedOgTitle,
