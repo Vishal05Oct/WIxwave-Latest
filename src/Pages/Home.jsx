@@ -10,6 +10,7 @@ import Insight from '../Components/Insight'
 import CollaborationSection from '../Components/Collaboration'
 import HomepageForm from '../Components/HomepageForm';
 import useSeo from '../hooks/useSeo'
+import { buildWebPageJsonLd } from '../seo/siteJsonLd'
 import Testimonial from '../Components/Testimonial'
 
 function Home() {
@@ -30,36 +31,15 @@ function Home() {
       image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1600&q=80',
       type: 'website',
     },
-    jsonLd: {
-      '@context': 'https://schema.org',
-      '@type': 'Organization',
-      name: 'Wixwave',
-      url: 'https://wixwave.co',
-      logo: 'https://wixwave.co/logo.png',
-      description:
-        'Wixwave is a full-service digital agency offering web design, app development, SEO, and digital marketing services in Patna and Gurugram.',
-      telephone: '+919470440744',
-      areaServed: [
-        { '@type': 'City', name: 'Patna' },
-        { '@type': 'City', name: 'Gurugram' },
-        { '@type': 'City', name: 'Gurgaon' },
-      ],
-      contactPoint: [
-        {
-          '@type': 'ContactPoint',
-          telephone: '+919470440744',
-          contactType: 'sales',
-          areaServed: ['Patna', 'Gurugram', 'Gurgaon'],
-          availableLanguage: ['English', 'Hindi'],
-        },
-      ],
-      sameAs: [
-        'https://www.linkedin.com/company/wixwave/',
-        'https://www.facebook.com/people/WixWave-The-Digital-Solutions/61570872845668/',
-        'https://www.instagram.com/wixwave.co/',
-        'https://x.com/Wixwave?t=aNUW1kl498Ht4V-7vT3wuA&s=09',
-      ],
-    },
+    jsonLdArray: [
+      buildWebPageJsonLd({
+        canonical: 'https://wixwave.co/',
+        title:
+          'Wixwave | Web Design, App Development, SEO & Digital Marketing in Gurgaon & Patna',
+        description:
+          'Wixwave empowers businesses in Gurgaon and Patna with expert web design, app development, SEO, branding, and digital marketing. Start your digital journey with our local team.',
+      }),
+    ],
   });
 
   return (

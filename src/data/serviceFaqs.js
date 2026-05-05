@@ -1,5 +1,8 @@
-export function buildFaqJsonLd(items) {
-  return {
+import { absoluteUrl } from "../seo/siteJsonLd";
+
+/** @param {string} [pageCanonical] — adds stable @id for this URL */
+export function buildFaqJsonLd(items, pageCanonical) {
+  const base = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: items.map((item) => ({
@@ -11,6 +14,10 @@ export function buildFaqJsonLd(items) {
       },
     })),
   };
+  if (pageCanonical) {
+    base["@id"] = `${absoluteUrl(pageCanonical)}#faq`;
+  }
+  return base;
 }
 
 export const webDevFaqs = [

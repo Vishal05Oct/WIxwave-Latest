@@ -4,7 +4,7 @@ import ServiceFaqSection from '../Components/Services/ServiceFaqSection'
 import { ServiceLinks } from '../Components/ServiceLinks'
 import useSeo from '../hooks/useSeo'
 import { buildFaqJsonLd, webDevFaqs } from '../data/serviceFaqs'
-import { getOrganizationJsonLd, getWebsiteJsonLd } from '../seo/siteJsonLd'
+import { breadcrumbsFor, buildWebPageJsonLd } from '../seo/siteJsonLd'
 
 function WebDev() {
   useSeo({
@@ -27,7 +27,17 @@ function WebDev() {
       siteName: 'Wixwave',
       locale: 'en_IN',
     },
-    jsonLdArray: [getOrganizationJsonLd(), getWebsiteJsonLd(), buildFaqJsonLd(webDevFaqs)],
+    jsonLdArray: [
+      buildWebPageJsonLd({
+        canonical: 'https://wixwave.co/services/web-dev',
+        title:
+          'Website Development Company | Fast, SEO-Optimized Websites in Patna & Gurugram | Wixwave',
+        description:
+          'Wixwave builds fast, SEO-optimized websites for businesses in Patna and Gurugram (Gurgaon). Get a responsive, high-converting website designed for growth and online success.',
+      }),
+      breadcrumbsFor('web-dev', 'https://wixwave.co/services/web-dev'),
+      buildFaqJsonLd(webDevFaqs, 'https://wixwave.co/services/web-dev'),
+    ],
   });
 
   return (

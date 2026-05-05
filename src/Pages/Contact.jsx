@@ -1,7 +1,7 @@
 import Hero from '../Components/Contact_Hero'; // Hero component
 import ContactForm from '../Components/HomepageForm'; // Form component (for Contact Page)
 import useSeo from '../hooks/useSeo'
-import { getOrganizationJsonLd, getWebsiteJsonLd } from '../seo/siteJsonLd'
+import { breadcrumbsFor, buildWebPageJsonLd } from '../seo/siteJsonLd'
 
 function Contact() {
   useSeo({
@@ -16,7 +16,15 @@ function Contact() {
       siteName: 'Wixwave',
       locale: 'en_IN',
     },
-    jsonLdArray: [getOrganizationJsonLd(), getWebsiteJsonLd()],
+    jsonLdArray: [
+      buildWebPageJsonLd({
+        canonical: 'https://wixwave.co/contact',
+        title: 'Contact Wixwave | Website Development Company in Patna & Gurugram',
+        description:
+          'Ready to grow your business? Contact Wixwave for website development, app development, SEO, branding, and digital marketing in Patna and Gurugram (Gurgaon). Get a free consultation today.',
+      }),
+      breadcrumbsFor('contact', 'https://wixwave.co/contact'),
+    ],
   });
 
   return (

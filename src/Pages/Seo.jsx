@@ -4,7 +4,7 @@ import ServiceFaqSection from '../Components/Services/ServiceFaqSection'
 import { ServiceLinks } from '../Components/ServiceLinks'
 import useSeo from '../hooks/useSeo'
 import { buildFaqJsonLd, seoFaqs } from '../data/serviceFaqs'
-import { getOrganizationJsonLd, getWebsiteJsonLd } from '../seo/siteJsonLd'
+import { breadcrumbsFor, buildWebPageJsonLd } from '../seo/siteJsonLd'
 
 function Seo() {
   useSeo({
@@ -20,7 +20,16 @@ function Seo() {
       siteName: 'Wixwave',
       locale: 'en_IN',
     },
-    jsonLdArray: [getOrganizationJsonLd(), getWebsiteJsonLd(), buildFaqJsonLd(seoFaqs)],
+    jsonLdArray: [
+      buildWebPageJsonLd({
+        canonical: 'https://wixwave.co/services/seo',
+        title: 'SEO Services in Patna & Gurugram (Gurgaon) | Wixwave',
+        description:
+          "Boost rankings and leads with Wixwave's SEO services in Patna and Gurugram (Gurgaon): technical SEO, on-page optimization, content strategy, and performance improvements.",
+      }),
+      breadcrumbsFor('seo', 'https://wixwave.co/services/seo'),
+      buildFaqJsonLd(seoFaqs, 'https://wixwave.co/services/seo'),
+    ],
   });
 
   return (

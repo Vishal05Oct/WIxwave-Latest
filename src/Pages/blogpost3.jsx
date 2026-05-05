@@ -2,6 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import useSeo from "../hooks/useSeo";
+import {
+  blogHeadlineFromSeoTitle,
+  buildBlogBreadcrumbsJsonLd,
+  buildBlogPostingJsonLd,
+} from "../seo/siteJsonLd";
 
 export default function BlogPost3() {
   const [progress, setProgress] = useState(0);
@@ -22,6 +27,8 @@ export default function BlogPost3() {
   const heroImage =
     "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1600&q=80";
 
+  const datePublished = "2026-04-14";
+
   useSeo({
     title,
     description,
@@ -32,6 +39,19 @@ export default function BlogPost3() {
       "web design company in patna",
       "seo friendly website patna",
       "best website developer patna",
+    ],
+    jsonLdArray: [
+      buildBlogPostingJsonLd({
+        headline: blogHeadlineFromSeoTitle(title),
+        description,
+        url: canonicalUrl,
+        datePublished,
+        image: heroImage,
+      }),
+      buildBlogBreadcrumbsJsonLd({
+        articleName: blogHeadlineFromSeoTitle(title),
+        canonicalUrl,
+      }),
     ],
   });
 

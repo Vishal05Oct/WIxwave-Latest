@@ -4,7 +4,7 @@ import About2 from '../Components/About_2'
 import About3 from '../Components/About_3'
 import About4 from '../Components/About_4'
 import useSeo from '../hooks/useSeo'
-import { getOrganizationJsonLd, getWebsiteJsonLd } from '../seo/siteJsonLd'
+import { breadcrumbsFor, buildWebPageJsonLd } from '../seo/siteJsonLd'
 
 export default function About() {
   useSeo({
@@ -19,7 +19,15 @@ export default function About() {
       siteName: 'Wixwave',
       locale: 'en_IN',
     },
-    jsonLdArray: [getOrganizationJsonLd(), getWebsiteJsonLd()],
+    jsonLdArray: [
+      buildWebPageJsonLd({
+        canonical: 'https://wixwave.co/about',
+        title: 'About Wixwave | Website Development Company in Patna & Gurugram',
+        description:
+          'Meet Wixwave — a digital team helping businesses grow with website development, app development, SEO, and branding services in Patna and Gurugram (Gurgaon).',
+      }),
+      breadcrumbsFor('about', 'https://wixwave.co/about'),
+    ],
   });
 
   return (

@@ -2,6 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import useSeo from "../hooks/useSeo";
+import {
+  blogHeadlineFromSeoTitle,
+  buildBlogBreadcrumbsJsonLd,
+  buildBlogPostingJsonLd,
+} from "../seo/siteJsonLd";
 
 export default function BlogPost6() {
   const [progress, setProgress] = useState(0);
@@ -22,6 +27,8 @@ export default function BlogPost6() {
   const heroImage =
     "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80";
 
+  const datePublished = "2026-04-24";
+
   useSeo({
     title,
     description,
@@ -33,6 +40,19 @@ export default function BlogPost6() {
       "google business profile mistakes",
       "citations consistency",
       "local seo 2026",
+    ],
+    jsonLdArray: [
+      buildBlogPostingJsonLd({
+        headline: blogHeadlineFromSeoTitle(title),
+        description,
+        url: canonicalUrl,
+        datePublished,
+        image: heroImage,
+      }),
+      buildBlogBreadcrumbsJsonLd({
+        articleName: blogHeadlineFromSeoTitle(title),
+        canonicalUrl,
+      }),
     ],
   });
 

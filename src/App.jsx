@@ -3,6 +3,7 @@ import { lazy, Suspense } from "react";
 import AnimatedRoutes from "./Components/AnimatedRoutes";
 import ScrollToTop from "./Components/ScrollToTop";
 import Navbar from "./Components/Navbar";
+import GlobalJsonLd from "./Components/GlobalJsonLd";
 import Footer from "./Components/Footer";
 import CursorSpotlight from "./Components/CursorSpotlight";
 import WhatsappButton from "./Components/WhatsappButton";
@@ -26,6 +27,7 @@ function App() {
         </a>
 
         <ScrollToTop />
+        <GlobalJsonLd />
         <Navbar />
         <AnimatedRoutes />
         <Footer />

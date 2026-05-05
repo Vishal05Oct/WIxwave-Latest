@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 import { SiNextdotjs, SiReact, SiShopify, SiWordpress } from "react-icons/si";
 import useSeo from "../hooks/useSeo";
+import {
+  SITE_ORGANIZATION_ID,
+  breadcrumbsFor,
+  buildWebPageJsonLd,
+} from "../seo/siteJsonLd";
 
 export default function WebsiteDevelopmentPatna() {
   const canonical = "https://wixwave.co/website-development-patna";
@@ -53,21 +58,28 @@ export default function WebsiteDevelopmentPatna() {
       siteName: "Wixwave",
       locale: "en_IN",
     },
-    jsonLd: {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      name: "Website Development Services in Patna",
-      url: canonical,
-      description,
-      areaServed: [{ "@type": "City", name: "Patna" }],
-      serviceType: "Website Development",
-      provider: {
-        "@type": "Organization",
-        name: "Wixwave",
-        url: "https://wixwave.co",
-        telephone: "+919470440744",
+    jsonLdArray: [
+      buildWebPageJsonLd({
+        canonical,
+        title,
+        name: "Website Development Services in Patna",
+        description,
+        about: { "@id": `${canonical}#service` },
+      }),
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": `${canonical}#service`,
+        name: "Website Development Services in Patna",
+        url: canonical,
+        description,
+        serviceType: "Website Development",
+        areaServed: [{ "@type": "City", name: "Patna" }],
+        provider: { "@id": SITE_ORGANIZATION_ID },
+        mainEntityOfPage: { "@id": `${canonical}#webpage` },
       },
-    },
+      breadcrumbsFor("patna", canonical),
+    ],
   });
 
   return (

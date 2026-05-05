@@ -3,7 +3,7 @@ import Body from '../Components/Services_1'
 import FAQ from '../Components/Services_FAQ'
 import CTA from '../Components/Services_CTA'
 import useSeo from '../hooks/useSeo'
-import { getOrganizationJsonLd, getWebsiteJsonLd } from '../seo/siteJsonLd'
+import { breadcrumbsFor, buildWebPageJsonLd } from '../seo/siteJsonLd'
 
 function Services() {
   useSeo({
@@ -27,7 +27,16 @@ function Services() {
       siteName: 'Wixwave',
       locale: 'en_IN',
     },
-    jsonLdArray: [getOrganizationJsonLd(), getWebsiteJsonLd()],
+    jsonLdArray: [
+      buildWebPageJsonLd({
+        canonical: 'https://wixwave.co/services',
+        title:
+          'Wixwave Services | Web, App, SEO, Branding & Digital Marketing in Patna & Gurugram',
+        description:
+          "Discover Wixwave's full suite of digital services: website development, app development, SEO, branding, paid ads, and social media marketing for business growth in Patna and Gurugram (Gurgaon).",
+      }),
+      breadcrumbsFor('services', 'https://wixwave.co/services'),
+    ],
   });
 
   return (

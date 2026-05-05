@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 import { SiNextdotjs, SiReact, SiShopify, SiWordpress } from "react-icons/si";
 import useSeo from "../hooks/useSeo";
+import {
+  SITE_ORGANIZATION_ID,
+  breadcrumbsFor,
+  buildWebPageJsonLd,
+} from "../seo/siteJsonLd";
 
 export default function WebsiteDevelopmentGurugram() {
   const canonical = "https://wixwave.co/website-development-gurugram";
@@ -53,24 +58,31 @@ export default function WebsiteDevelopmentGurugram() {
       siteName: "Wixwave",
       locale: "en_IN",
     },
-    jsonLd: {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      name: "Website Development Services in Gurgaon (Gurugram)",
-      url: canonical,
-      description,
-      areaServed: [
-        { "@type": "City", name: "Gurugram" },
-        { "@type": "City", name: "Gurgaon" },
-      ],
-      serviceType: "Website Development",
-      provider: {
-        "@type": "Organization",
-        name: "Wixwave",
-        url: "https://wixwave.co",
-        telephone: "+919470440744",
+    jsonLdArray: [
+      buildWebPageJsonLd({
+        canonical,
+        title,
+        name: "Website Development Services in Gurgaon (Gurugram)",
+        description,
+        about: { "@id": `${canonical}#service` },
+      }),
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": `${canonical}#service`,
+        name: "Website Development Services in Gurgaon (Gurugram)",
+        url: canonical,
+        description,
+        serviceType: "Website Development",
+        areaServed: [
+          { "@type": "City", name: "Gurugram" },
+          { "@type": "City", name: "Gurgaon" },
+        ],
+        provider: { "@id": SITE_ORGANIZATION_ID },
+        mainEntityOfPage: { "@id": `${canonical}#webpage` },
       },
-    },
+      breadcrumbsFor("gurugram", canonical),
+    ],
   });
 
   return (
@@ -110,7 +122,7 @@ export default function WebsiteDevelopmentGurugram() {
                   rel="noopener noreferrer"
                   className="text-blue-700 hover:text-blue-800 underline"
                 >
-                  website development company in Gurgaon (Gurugram)
+                  website development company in Gurgaon
                 </a>{" "}
                 offering modern business websites, ecommerce website development, and custom Shopify
                 store development with clean UX, performance-first engineering, and an SEO-ready

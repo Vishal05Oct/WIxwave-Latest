@@ -4,7 +4,7 @@ import ServiceFaqSection from '../Components/Services/ServiceFaqSection'
 import { ServiceLinks } from '../Components/ServiceLinks'
 import useSeo from '../hooks/useSeo'
 import { brandingFaqs, buildFaqJsonLd } from '../data/serviceFaqs'
-import { getOrganizationJsonLd, getWebsiteJsonLd } from '../seo/siteJsonLd'
+import { breadcrumbsFor, buildWebPageJsonLd } from '../seo/siteJsonLd'
 
 function Branding() {
   useSeo({
@@ -26,7 +26,16 @@ function Branding() {
       image:
         'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1600&q=80',
     },
-    jsonLdArray: [getOrganizationJsonLd(), getWebsiteJsonLd(), buildFaqJsonLd(brandingFaqs)],
+    jsonLdArray: [
+      buildWebPageJsonLd({
+        canonical: 'https://wixwave.co/services/branding',
+        title: 'Branding & Logo Design | Creative Identity Solutions by Wixwave',
+        description:
+          "Stand out with Wixwave's branding, logo design, website, app development, SEO, and digital marketing services.",
+      }),
+      breadcrumbsFor('branding', 'https://wixwave.co/services/branding'),
+      buildFaqJsonLd(brandingFaqs, 'https://wixwave.co/services/branding'),
+    ],
   });
 
   return (

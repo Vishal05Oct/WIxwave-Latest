@@ -4,7 +4,7 @@ import ServiceFaqSection from '../Components/Services/ServiceFaqSection'
 import { ServiceLinks } from '../Components/ServiceLinks'
 import useSeo from '../hooks/useSeo'
 import { buildFaqJsonLd, paidAdsFaqs } from '../data/serviceFaqs'
-import { getOrganizationJsonLd, getWebsiteJsonLd } from '../seo/siteJsonLd'
+import { breadcrumbsFor, buildWebPageJsonLd } from '../seo/siteJsonLd'
 
 function PaidAds() {
   useSeo({
@@ -27,7 +27,16 @@ function PaidAds() {
       image:
         'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1600&q=80',
     },
-    jsonLdArray: [getOrganizationJsonLd(), getWebsiteJsonLd(), buildFaqJsonLd(paidAdsFaqs)],
+    jsonLdArray: [
+      buildWebPageJsonLd({
+        canonical: 'https://wixwave.co/services/paid-ads',
+        title: 'Paid Advertising Services | Google & Facebook Ads by Wixwave',
+        description:
+          "Maximize your ROI with Wixwave's paid ads, Google Ads, Facebook campaigns, and digital marketing expertise.",
+      }),
+      breadcrumbsFor('paid-ads', 'https://wixwave.co/services/paid-ads'),
+      buildFaqJsonLd(paidAdsFaqs, 'https://wixwave.co/services/paid-ads'),
+    ],
   });
 
   return (

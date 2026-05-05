@@ -4,7 +4,7 @@ import ServiceFaqSection from '../Components/Services/ServiceFaqSection'
 import { ServiceLinks } from '../Components/ServiceLinks'
 import useSeo from '../hooks/useSeo'
 import { buildFaqJsonLd, socialMediaFaqs } from '../data/serviceFaqs'
-import { getOrganizationJsonLd, getWebsiteJsonLd } from '../seo/siteJsonLd'
+import { breadcrumbsFor, buildWebPageJsonLd } from '../seo/siteJsonLd'
 
 function SocialMedia() {
   useSeo({
@@ -27,7 +27,16 @@ function SocialMedia() {
       image:
         'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1600&q=80',
     },
-    jsonLdArray: [getOrganizationJsonLd(), getWebsiteJsonLd(), buildFaqJsonLd(socialMediaFaqs)],
+    jsonLdArray: [
+      buildWebPageJsonLd({
+        canonical: 'https://wixwave.co/services/social-media',
+        title: 'Social Media Marketing | Grow Your Brand Online with Wixwave',
+        description:
+          'Wixwave’s social media marketing grows your audience and engagement. Content creation, strategy, and management for all platforms.',
+      }),
+      breadcrumbsFor('social-media', 'https://wixwave.co/services/social-media'),
+      buildFaqJsonLd(socialMediaFaqs, 'https://wixwave.co/services/social-media'),
+    ],
   });
 
   return (

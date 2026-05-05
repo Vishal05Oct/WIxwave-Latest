@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import Hero from '../Components/Blogs_Hero'
 import useSeo from '../hooks/useSeo'
 import { ServiceLinks } from '../Components/ServiceLinks'
-import { getOrganizationJsonLd, getWebsiteJsonLd } from '../seo/siteJsonLd'
+import { breadcrumbsFor, buildWebPageJsonLd } from '../seo/siteJsonLd'
 
 export const blogPosts = [
   {
@@ -112,7 +112,15 @@ const Blogs = () => {
       siteName: 'Wixwave',
       locale: 'en_IN',
     },
-    jsonLdArray: [getOrganizationJsonLd(), getWebsiteJsonLd()],
+    jsonLdArray: [
+      buildWebPageJsonLd({
+        canonical: 'https://wixwave.co/blog',
+        title: 'Wixwave Blog | Website Development & SEO Insights (Patna & Gurugram)',
+        description:
+          "Stay ahead with Wixwave's blog: practical insights on website development, technology, and SEO for businesses in Patna and Gurugram (Gurgaon).",
+      }),
+      breadcrumbsFor('blog', 'https://wixwave.co/blog'),
+    ],
   })
 
   const sortedPosts = [...blogPosts].sort(
