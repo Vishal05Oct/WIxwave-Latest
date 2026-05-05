@@ -36,6 +36,8 @@ const PerformanceMarketingSection = () => {
             <img
               src="https://res.cloudinary.com/dobbdtftp/image/upload/v1746890529/Data-Driven_Performance_Marketing_Strategy_hzkwkm.jpg"
               alt="Performance Marketing Strategy"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </section>
@@ -46,6 +48,8 @@ const PerformanceMarketingSection = () => {
             <img
               src="https://res.cloudinary.com/dobbdtftp/image/upload/v1746890528/Paid_Advertising_Campaigns_nxdqv4.jpg"
               alt="Paid Advertising Campaigns"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div className="space-y-6">
@@ -84,6 +88,8 @@ const PerformanceMarketingSection = () => {
             <img
               src="https://res.cloudinary.com/dobbdtftp/image/upload/v1746890528/Conversion_Rate_Optimization_CRO_ss7wzi.jpg"
               alt="Conversion Rate Optimization"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </section>
@@ -94,6 +100,8 @@ const PerformanceMarketingSection = () => {
             <img
               src="https://res.cloudinary.com/dobbdtftp/image/upload/v1746890528/Analytics_Performance_Tracking_x0p6k1.jpg"
               alt="Performance Analytics"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div className="space-y-6">
@@ -126,6 +134,8 @@ const PerformanceMarketingSection = () => {
             src="https://res.cloudinary.com/dobbdtftp/image/upload/v1746888265/Performance_Marketing_dydy3h.png"
             alt="Performance Marketing Process Illustration"
             className="w-full h-auto object-cover"
+            loading="lazy"
+            decoding="async"
           />
         </motion.div>
 

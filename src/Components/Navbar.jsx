@@ -45,6 +45,8 @@ const Navbar = memo(function Navbar() {
             src="https://res.cloudinary.com/dobbdtftp/image/upload/v1746202311/3_rgrvsx.png"
             alt="Company Logo"
             className="h-8 w-auto cursor-pointer"
+            loading="eager"
+            decoding="async"
           />
         </Link>
 

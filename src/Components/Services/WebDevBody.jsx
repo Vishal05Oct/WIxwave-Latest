@@ -50,6 +50,8 @@ const WebDevEdgeSection = () => {
       <img
         src="https://res.cloudinary.com/dobbdtftp/image/upload/v1748030245/budka-damdinsuren-xPjsMamUBK4-unsplash_smpxeh.jpg"
         alt="Web Design Illustration"
+        loading="lazy"
+        decoding="async"
       />
     </div>
   </div>
@@ -58,7 +60,12 @@ const WebDevEdgeSection = () => {
         <section className="grid md:grid-cols-2 gap-10 items-center">
           <div className="flex justify-center">
             <div className="">
-              <img src="https://res.cloudinary.com/dobbdtftp/image/upload/v1746872964/React_bdjjcr.png" alt="Web Development Illustration" />
+              <img
+                src="https://res.cloudinary.com/dobbdtftp/image/upload/v1746872964/React_bdjjcr.png"
+                alt="Web Development Illustration"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </div>
           <div className="space-y-6">
@@ -93,6 +100,8 @@ const WebDevEdgeSection = () => {
                             src="https://res.cloudinary.com/dobbdtftp/image/upload/v1746877508/Development_Process_ljgxa6.png"
                             alt="WixWave Team in Action"
                             className="w-full h-auto object-cover"
+                            loading="lazy"
+                            decoding="async"
                         />
                     </motion.div>
                     <section className="bg-white ">

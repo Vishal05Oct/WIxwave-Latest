@@ -35,6 +35,8 @@ const SeoEdgeSection = () => {
             <img
               src="https://res.cloudinary.com/dobbdtftp/image/upload/v1746891126/Comprehensive_SEO_Analysis_nu7rai.jpg" 
               alt="SEO Audit Illustration"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </section>
@@ -45,6 +47,8 @@ const SeoEdgeSection = () => {
             <img
               src="https://res.cloudinary.com/dobbdtftp/image/upload/v1746891126/Strategic_Content_Optimization_rzugmk.jpg"
               alt="SEO Strategy"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div className="space-y-6">
@@ -75,6 +79,8 @@ const SeoEdgeSection = () => {
             src="https://res.cloudinary.com/dobbdtftp/image/upload/v1746888264/SEO_zkdhol.png"
             alt="SEO Process Illustration"
             className="w-full h-auto object-cover"
+            loading="lazy"
+            decoding="async"
           />
         </motion.div>
 

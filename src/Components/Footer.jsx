@@ -13,6 +13,8 @@ const Footer = () => {
               src="https://res.cloudinary.com/dobbdtftp/image/upload/v1746202311/3_rgrvsx.png"
               alt="Wixwave logo"
               className="h-16 object-contain mx-auto sm:mx-0"
+              loading="lazy"
+              decoding="async"
             />
           </div>
 
