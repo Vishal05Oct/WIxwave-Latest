@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FaFacebook, FaLinkedin, FaInstagram, FaTwitter, } from 'react-icons/fa';
+import { FaTwitter, FaFacebook, FaLinkedin, FaInstagram, FaGoogle } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -149,7 +149,7 @@ const Footer = () => {
                 <FaInstagram />
               </a>
               <a
-                href="https://www.google.com/maps/place/Wixwave/"
+                href="https://maps.app.goo.gl/YSQFAgevasfNKmaU6"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit our Google Business profile"
