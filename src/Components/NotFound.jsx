@@ -13,6 +13,14 @@ const NotFound = () => {
     }
     metaDescription.setAttribute('content', 'The page you are looking for might have been removed, had its name changed, or is temporarily unavailable. Return to our homepage to continue your journey.');
 
+    let robotsMeta = document.querySelector('meta[name="robots"]');
+    if (!robotsMeta) {
+      robotsMeta = document.createElement('meta');
+      robotsMeta.setAttribute('name', 'robots');
+      document.head.appendChild(robotsMeta);
+    }
+    robotsMeta.setAttribute('content', 'noindex,nofollow');
+
     let canonicalLink = document.querySelector('link[rel="canonical"]');
     if (!canonicalLink) {
       canonicalLink = document.createElement('link');
@@ -24,6 +32,7 @@ const NotFound = () => {
     return () => {
       document.title = 'Wixwave - Web Development & Digital Solutions';
       metaDescription.setAttribute('content', 'Wixwave provides professional web development, mobile app development, and digital solutions to help businesses grow online.');
+      robotsMeta.setAttribute('content', 'index,follow');
       canonicalLink.setAttribute('href', window.location.origin);
     };
   }, []);

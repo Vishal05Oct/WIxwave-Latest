@@ -1,8 +1,17 @@
 {
-  "rewrites": [
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
     {
-      "source": "/((?!assets/|vite.svg|robots.txt|sitemap.xml|sw.js|Favicon.png|grid-pattern.svg).*)",
-      "destination": "/index.html"
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.wixwave.co"
+        }
+      ],
+      "destination": "https://wixwave.co/:path*",
+      "permanent": true
     }
   ],
   "headers": [

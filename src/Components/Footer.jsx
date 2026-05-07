@@ -157,6 +157,7 @@ const Footer = () => {
                 aria-label="Visit our Google Business profile"
                 className="text-gray-400 hover:text-white text-2xl focus:outline-none focus:ring-2 focus:ring-white rounded"
               >
+                <FaGoogle />
               </a>
             </div>
           </div>

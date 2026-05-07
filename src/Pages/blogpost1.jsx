@@ -22,7 +22,7 @@ export default function BlogPost1() {
     "Learn how website performance, Core Web Vitals, technical SEO, structured data, and scalable systems drive long-term SEO growth in 2026.";
 
   const canonicalUrl =
-    "https://wixwave.co/blog/website-technology-seo/";
+    "https://wixwave.co/blog/website-technology-seo";
 
   const heroImage =
     "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1600&q=80";

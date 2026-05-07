@@ -22,7 +22,7 @@ export default function BlogPost4() {
     "Learn how to choose a website development company in Gurugram by comparing SEO readiness, portfolio quality, UX thinking, pricing clarity, and support.";
 
   const canonicalUrl =
-    "https://wixwave.co/blog/choose-website-development-company-gurugram/";
+    "https://wixwave.co/blog/choose-website-development-company-gurugram";
 
   const heroImage =
     "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80";

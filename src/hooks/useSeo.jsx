@@ -137,7 +137,8 @@ export default function useSeo({
   );
 
   const resolvedCanonical = canonical || currentUrl;
-  const resolvedRobots = robots ?? "index,follow";
+  const resolvedRobots =
+    robots ?? "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
   const isBlogPage = useMemo(
     () => Boolean(resolvedCanonical && /\/blog\/.+/i.test(resolvedCanonical)),
     [resolvedCanonical]
@@ -158,6 +159,7 @@ export default function useSeo({
       siteName: "Wixwave",
       locale: "en_IN",
       image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746202311/3_rgrvsx.png",
+      imageAlt: "Wixwave digital agency logo",
       ...og,
     }),
     [isBlogPage, og]
@@ -197,6 +199,7 @@ export default function useSeo({
     setMetaTag("og:type", resolvedOg.type, true);
     setMetaTag("og:url", resolvedOgUrl, true);
     setMetaTag("og:image", resolvedOgImage, true);
+    setMetaTag("og:image:alt", resolvedOg.imageAlt, true);
     setMetaTag("og:site_name", resolvedOg.siteName, true);
     setMetaTag("og:locale", resolvedOg.locale, true);
 

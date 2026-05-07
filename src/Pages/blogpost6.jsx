@@ -22,7 +22,7 @@ export default function BlogPost6() {
     "Avoid the most common local SEO mistakes that block rankings in Patna and Gurugram: GBP issues, weak service pages, inconsistent citations, review gaps, and slow websites.";
 
   const canonicalUrl =
-    "https://wixwave.co/blog/local-seo-mistakes-patna-gurugram/";
+    "https://wixwave.co/blog/local-seo-mistakes-patna-gurugram";
 
   const heroImage =
     "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80";

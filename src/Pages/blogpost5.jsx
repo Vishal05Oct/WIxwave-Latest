@@ -22,7 +22,7 @@ export default function BlogPost5() {
     "A practical local SEO checklist for Patna and Gurugram businesses: Google Business Profile setup, on-page SEO, citations, reviews, and content ideas that drive leads.";
 
   const canonicalUrl =
-    "https://wixwave.co/blog/local-seo-checklist-patna-gurugram/";
+    "https://wixwave.co/blog/local-seo-checklist-patna-gurugram";
 
   const heroImage =
     "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1600&q=80";

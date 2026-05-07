@@ -6,6 +6,18 @@ import { breadcrumbsFor, buildWebPageJsonLd } from '../seo/siteJsonLd'
 
 export const blogPosts = [
   {
+    id: 8,
+    title: "Shopify Store Development Services: Custom Shopify Website Development Guide",
+    date: "2026-05-07",
+    displayDate: "May 7, 2026",
+    tags: ["Shopify", "Ecommerce", "Website"],
+    excerpt:
+      "A practical guide to Shopify Store Development Services, Custom Shopify Website Development, Shopify SEO, theme customization, and conversion-focused ecommerce stores.",
+    slug: "shopify-store-development-services",
+    image:
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=80",
+  },
+  {
     id: 7,
     title: "Website Design & Development (2026): How to Build Pages That Convert",
     date: "2026-04-24",

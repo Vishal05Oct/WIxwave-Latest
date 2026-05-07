@@ -22,7 +22,7 @@ export default function BlogPost2() {
     "Explore UI/UX trends in 2026 including AI-driven design, immersive UX, micro-interactions, and privacy-first experiences.";
 
   const canonicalUrl =
-    "https://wixwave.co/blog/ui-ux-trends-2026/";
+    "https://wixwave.co/blog/ui-ux-trends-2026";
 
   const heroImage =
     "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1600&q=80";

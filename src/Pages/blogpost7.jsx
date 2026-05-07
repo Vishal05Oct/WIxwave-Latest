@@ -22,7 +22,7 @@ export default function BlogPost7() {
     "Learn how to design and develop a modern website: information architecture, performance, Core Web Vitals, content structure, internal linking, and conversion-first UX.";
 
   const canonicalUrl =
-    "https://wixwave.co/blog/website-design-development-guide/";
+    "https://wixwave.co/blog/website-design-development-guide";
 
   const heroImage =
     "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1600&q=80";

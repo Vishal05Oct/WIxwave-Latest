@@ -3,4 +3,3 @@ Allow: /
 
 Sitemap: https://wixwave.co/sitemap.xml
 Host: wixwave.co
-llms.txt: https://wixwave.co/llms.txt

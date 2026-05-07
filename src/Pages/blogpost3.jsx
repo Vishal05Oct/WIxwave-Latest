@@ -22,7 +22,7 @@ export default function BlogPost3() {
     "Learn how to choose a website development company in Patna by comparing portfolio quality, SEO readiness, pricing clarity, timelines, support, and local business understanding.";
 
   const canonicalUrl =
-    "https://wixwave.co/blog/choose-website-development-company-patna/";
+    "https://wixwave.co/blog/choose-website-development-company-patna";
 
   const heroImage =
     "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1600&q=80";
