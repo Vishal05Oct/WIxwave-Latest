@@ -13,6 +13,7 @@ export default function AboutSection() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const el = headingRef.current;
+      if (!el) return;
       const text = el.textContent;
       const words = text.split(" ");
 
@@ -43,21 +44,23 @@ export default function AboutSection() {
       const wordElements = el.querySelectorAll(".word");
 
       // ✨ PREMIUM ANIMATION
-      gsap.to(wordElements, {
-        y: 0,
-        opacity: 1,
-        color: "#0b0b2c",
-        stagger: 0.03,
-        duration: 0.6,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: el,
-          start: "top 85%",
-        },
-      });
+      if (wordElements.length > 0) {
+        gsap.to(wordElements, {
+          y: 0,
+          opacity: 1,
+          color: "#0b0b2c",
+          stagger: 0.03,
+          duration: 0.6,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 85%",
+          },
+        });
+      }
 
       // 📊 STATS ANIMATION
-      statsRef.current.forEach((el) => {
+      statsRef.current.filter(Boolean).forEach((el) => {
         const endValue = parseInt(el.getAttribute("data-value"));
         let obj = { val: 0 };
 

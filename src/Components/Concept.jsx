@@ -19,9 +19,11 @@ export default function ClientsSection() {
 
   useEffect(() => {
     const el = trackRef.current;
+    if (!el) return;
 
     const ctx = gsap.context(() => {
       const totalWidth = el.scrollWidth;
+      if (!totalWidth) return;
 
       gsap.set(el, { x: 0 });
 

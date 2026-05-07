@@ -163,6 +163,7 @@ export default function TestimonialSection() {
   /* ── Entry animations ── */
   useEffect(() => {
     const ctx = gsap.context(() => {
+      if (!headerRef.current || !subtitleRef.current || !btnRef.current) return;
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
       tl.fromTo(headerRef.current,   { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, 0.1)
         .fromTo(subtitleRef.current, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9 }, 0.3)
@@ -173,9 +174,10 @@ export default function TestimonialSection() {
 
   /* ── Animate cards in after index change ── */
   const animateCardsIn = useCallback(() => {
-    if (!cardRefs.current.length) return;
+    const cards = cardRefs.current.filter(Boolean);
+    if (!cards.length) return;
     gsap.fromTo(
-      cardRefs.current.filter(Boolean),
+      cards,
       { y: 40, opacity: 0, scale: 0.97 },
       { y: 0, opacity: 1, scale: 1, duration: 0.55, stagger: 0.1, ease: "power3.out",
         onComplete: () => setIsAnimating(false) }
@@ -186,6 +188,7 @@ export default function TestimonialSection() {
   const animateSlide = useCallback(
     (direction, newIndex) => {
       if (isAnimating) return;
+      if (!trackRef.current) return;
       setIsAnimating(true);
       const outX = direction === "next" ? -50 : 50;
       gsap.to(trackRef.current, {
@@ -243,6 +246,7 @@ export default function TestimonialSection() {
 
   /* ── Card micro-interactions ── */
   const onCardEnter = (i) => {
+    if (!cardRefs.current[i]) return;
     gsap.to(cardRefs.current[i], {
       y: -8, scale: 1.025,
       boxShadow: "0 24px 56px rgba(0,0,0,0.12)",
@@ -250,6 +254,7 @@ export default function TestimonialSection() {
     });
   };
   const onCardLeave = (i) => {
+    if (!cardRefs.current[i]) return;
     gsap.to(cardRefs.current[i], {
       y: 0, scale: 1,
       boxShadow: "0 0px 0px rgba(0,0,0,0)",
@@ -257,8 +262,8 @@ export default function TestimonialSection() {
     });
   };
 
-  const onArrowEnter = (el) => gsap.to(el, { scale: 1.15, duration: 0.2, ease: "power1.out" });
-  const onArrowLeave = (el) => gsap.to(el, { scale: 1,    duration: 0.2, ease: "power1.in"  });
+  const onArrowEnter = (el) => el && gsap.to(el, { scale: 1.15, duration: 0.2, ease: "power1.out" });
+  const onArrowLeave = (el) => el && gsap.to(el, { scale: 1,    duration: 0.2, ease: "power1.in"  });
 
   const visibleCards = testimonials.slice(currentIndex, currentIndex + visibleCount);
 const navigate = useNavigate();

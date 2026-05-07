@@ -28,10 +28,12 @@ export default function TechStack() {
   const itemsRef = useRef([]);
 
   useEffect(() => {
-    itemsRef.current = [];
+    const section = sectionRef.current;
+    const items = itemsRef.current.filter(Boolean);
+    if (!section || items.length === 0) return;
 
     gsap.fromTo(
-      itemsRef.current,
+      items,
       { opacity: 0, y: 30 },
       {
         opacity: 1,
@@ -40,36 +42,38 @@ export default function TechStack() {
         duration: 0.7,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: sectionRef.current,
+            trigger: section,
           start: "top 90%",
         },
       }
     );
 
-    gsap.to(itemsRef.current, {
+    gsap.to(items, {
       y: -20,
       ease: "none",
       scrollTrigger: {
-        trigger: sectionRef.current,
+        trigger: section,
         start: "top bottom",
         end: "bottom top",
         scrub: true,
       },
     });
 
-    const words = sectionRef.current.querySelectorAll(".reveal-word");
+    const words = section.querySelectorAll(".reveal-word");
 
-    gsap.to(words, {
-      y: 0,
-      opacity: 1,
-      stagger: 0.04,
-      duration: 0.6,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 80%",
-      },
-    });
+    if (words.length > 0) {
+      gsap.to(words, {
+        y: 0,
+        opacity: 1,
+        stagger: 0.04,
+        duration: 0.6,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+        },
+      });
+    }
   }, []);
 
   const RowItem = ({ icons, text, color }) => (

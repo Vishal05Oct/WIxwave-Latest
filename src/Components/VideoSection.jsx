@@ -20,7 +20,7 @@ const VideoSection = () => {
         <motion.div
           ref={ref}
           style={{ opacity, scale }}
-          className="aspect-video rounded-2xl overflow-hidden shadow-2xl"
+          className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl"
         >
           <img
             src={imageUrl}
