@@ -50,6 +50,7 @@ export const indexableRoutes = [
     changefreq: "monthly",
     lastmod: "2026-05-19",
     breadcrumbKey: "web-dev",
+    faqKey: "web-dev",
     serviceType: "Website Development",
   },
   {
@@ -61,6 +62,7 @@ export const indexableRoutes = [
     changefreq: "monthly",
     lastmod: "2026-05-19",
     breadcrumbKey: "app-dev",
+    faqKey: "app-dev",
     serviceType: "App Development",
   },
   {
@@ -72,6 +74,7 @@ export const indexableRoutes = [
     changefreq: "monthly",
     lastmod: "2026-05-19",
     breadcrumbKey: "seo",
+    faqKey: "seo",
     serviceType: "SEO Services",
   },
   {

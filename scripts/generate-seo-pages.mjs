@@ -7,11 +7,17 @@ import {
   buildBlogPostingJsonLd,
   buildServiceJsonLd,
   buildWebPageJsonLd,
+  getOrganizationJsonLd,
+  getWebsiteJsonLd,
+  getLocalBusinessJsonLd,
 } from "../src/seo/siteJsonLd.js";
 import {
   aboutFaqs,
   buildFaqJsonLd,
   servicesHubFaqs,
+  webDevFaqs,
+  appDevFaqs,
+  seoFaqs,
 } from "../src/data/serviceFaqs.js";
 import {
   canonicalFor,
@@ -23,6 +29,9 @@ import {
 const FAQ_BY_KEY = {
   about: aboutFaqs,
   services: servicesHubFaqs,
+  "web-dev": webDevFaqs,
+  "app-dev": appDevFaqs,
+  seo: seoFaqs,
 };
 
 const distDir = "dist";
@@ -119,7 +128,13 @@ function metaFor(route) {
   const safeDescription = escapeHtml(route.description);
   const type = route.type === "article" ? "article" : "website";
   const image = escapeHtml(route.image || DEFAULT_OG_IMAGE);
-  const jsonLdBlocks = jsonLdForRoute(route);
+  const siteLevel = [
+    getOrganizationJsonLd(),
+    getWebsiteJsonLd(),
+    getLocalBusinessJsonLd(),
+  ];
+
+  const jsonLdBlocks = [...siteLevel, ...jsonLdForRoute(route)];
   const articleMeta =
     route.type === "article" && route.datePublished
       ? `
@@ -137,6 +152,7 @@ function metaFor(route) {
     <meta name="geo.region" content="IN-BR" />
     <meta name="geo.placename" content="Patna, Gurugram" />
     <link rel="canonical" href="${canonical}" />
+    <link rel="alternate" href="${canonical}" hreflang="en-IN" />
     <link rel="alternate" type="text/plain" title="LLM content guide" href="https://wixwave.co/llms.txt" />
     <meta property="og:type" content="${type}" />
     <meta property="og:title" content="${safeTitle}" />
@@ -225,3 +241,11 @@ ${indexableRoutes
 
 writeFileSync(join(distDir, "sitemap.xml"), sitemap);
 writeFileSync(join(publicDir, "sitemap.xml"), sitemap);
+
+// Ensure robots.txt is present in dist for crawlers
+try {
+  const robots = readFileSync(join(publicDir, "robots.txt"), "utf8");
+  writeFileSync(join(distDir, "robots.txt"), robots);
+} catch (e) {
+  // if public/robots.txt missing, skip silently
+}
