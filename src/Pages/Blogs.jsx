@@ -2,7 +2,11 @@ import { Link } from 'react-router-dom'
 import Hero from '../Components/Blogs_Hero'
 import useSeo from '../hooks/useSeo'
 import { ServiceLinks } from '../Components/ServiceLinks'
-import { breadcrumbsFor, buildWebPageJsonLd } from '../seo/siteJsonLd'
+import {
+  breadcrumbsFor,
+  buildBlogCollectionJsonLd,
+  buildWebPageJsonLd,
+} from '../seo/siteJsonLd'
 
 export const blogPosts = [
   {
@@ -132,6 +136,7 @@ const Blogs = () => {
           "Stay ahead with Wixwave's blog: practical insights on website development, technology, and SEO for businesses in Patna and Gurugram (Gurgaon).",
       }),
       breadcrumbsFor('blog', 'https://wixwave.co/blog'),
+      buildBlogCollectionJsonLd(blogPosts),
     ],
   })
 

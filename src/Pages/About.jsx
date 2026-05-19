@@ -3,30 +3,43 @@ import About1 from '../Components/About_1'
 import About2 from '../Components/About_2'
 import About3 from '../Components/About_3'
 import About4 from '../Components/About_4'
+import ServiceFaqSection from '../Components/Services/ServiceFaqSection'
 import useSeo from '../hooks/useSeo'
+import { aboutFaqs, buildFaqJsonLd } from '../data/serviceFaqs'
 import { breadcrumbsFor, buildWebPageJsonLd } from '../seo/siteJsonLd'
+
+const ABOUT_CANONICAL = 'https://wixwave.co/about'
+const ABOUT_TITLE = 'About Wixwave | Web & SEO Agency Patna & Gurugram'
+const ABOUT_DESCRIPTION =
+  'Meet Wixwave—a Patna & Gurugram digital agency for website development, app development, SEO & branding. Strategy-led, performance-first projects since 2020.'
 
 export default function About() {
   useSeo({
-    title: 'About Wixwave | Website Development Company in Patna & Gurugram',
-    description:
-      "Meet Wixwave — a digital team helping businesses grow with website development, app development, SEO, and branding services in Patna and Gurugram (Gurgaon).",
-    canonical: 'https://wixwave.co/about',
+    title: ABOUT_TITLE,
+    description: ABOUT_DESCRIPTION,
+    canonical: ABOUT_CANONICAL,
+    keywords: [
+      'about wixwave',
+      'website development company patna',
+      'digital agency gurugram',
+      'seo agency patna',
+      'best it company in patna',
+    ],
     robots: 'index,follow',
     og: {
-      url: 'https://wixwave.co/about',
+      url: ABOUT_CANONICAL,
       type: 'website',
       siteName: 'Wixwave',
       locale: 'en_IN',
     },
     jsonLdArray: [
       buildWebPageJsonLd({
-        canonical: 'https://wixwave.co/about',
-        title: 'About Wixwave | Website Development Company in Patna & Gurugram',
-        description:
-          'Meet Wixwave — a digital team helping businesses grow with website development, app development, SEO, and branding services in Patna and Gurugram (Gurgaon).',
+        canonical: ABOUT_CANONICAL,
+        title: ABOUT_TITLE,
+        description: ABOUT_DESCRIPTION,
       }),
-      breadcrumbsFor('about', 'https://wixwave.co/about'),
+      breadcrumbsFor('about', ABOUT_CANONICAL),
+      buildFaqJsonLd(aboutFaqs, ABOUT_CANONICAL),
     ],
   });
 
@@ -46,6 +59,10 @@ export default function About() {
         <div className="-mt-8 sm:-mt-6 md:-mt-4 pb-4 sm:pb-6">
           <About4 />
         </div>
+        <ServiceFaqSection
+          items={aboutFaqs}
+          heading="About Wixwave — Common Questions"
+        />
       </div>
     </main>
   )

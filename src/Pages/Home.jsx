@@ -10,7 +10,7 @@ import Insight from '../Components/Insight'
 import CollaborationSection from '../Components/Collaboration'
 import HomepageForm from '../Components/HomepageForm';
 import useSeo from '../hooks/useSeo'
-import { buildWebPageJsonLd } from '../seo/siteJsonLd'
+import { buildServicesItemListJsonLd, buildWebPageJsonLd } from '../seo/siteJsonLd'
 import Testimonial from '../Components/Testimonial'
 
 function Home() {
@@ -39,6 +39,7 @@ function Home() {
         description:
           'Wixwave empowers businesses in Gurgaon and Patna with expert web design, app development, SEO, branding, and digital marketing. Start your digital journey with our local team.',
       }),
+      buildServicesItemListJsonLd(),
     ],
   });
 

@@ -4,7 +4,7 @@ import ServiceFaqSection from '../Components/Services/ServiceFaqSection'
 import { ServiceLinks } from '../Components/ServiceLinks'
 import useSeo from '../hooks/useSeo'
 import { buildFaqJsonLd, socialMediaFaqs } from '../data/serviceFaqs'
-import { breadcrumbsFor, buildWebPageJsonLd } from '../seo/siteJsonLd'
+import { breadcrumbsFor, buildServiceJsonLd, buildWebPageJsonLd } from '../seo/siteJsonLd'
 
 function SocialMedia() {
   useSeo({
@@ -33,6 +33,13 @@ function SocialMedia() {
         title: 'Social Media Marketing | Grow Your Brand Online with Wixwave',
         description:
           'Wixwave’s social media marketing grows your audience and engagement. Content creation, strategy, and management for all platforms.',
+      }),
+      buildServiceJsonLd({
+        canonical: 'https://wixwave.co/services/social-media',
+        name: 'Social Media Marketing',
+        description:
+          'Wixwave’s social media marketing grows your audience and engagement. Content creation, strategy, and management for all platforms.',
+        serviceType: 'Social Media Marketing',
       }),
       breadcrumbsFor('social-media', 'https://wixwave.co/services/social-media'),
       buildFaqJsonLd(socialMediaFaqs, 'https://wixwave.co/services/social-media'),

@@ -1,4 +1,4 @@
-import { absoluteUrl } from "../seo/siteJsonLd";
+import { absoluteUrl } from "../seo/siteJsonLd.js";
 
 /** @param {string} [pageCanonical] — adds stable @id for this URL */
 export function buildFaqJsonLd(items, pageCanonical) {
@@ -185,5 +185,93 @@ export const paidAdsFaqs = [
     question: "Do you create landing pages and conversion tracking for paid campaigns?",
     answer:
       "Yes, we can help with landing page recommendations, conversion tracking, analytics setup, and campaign funnel improvements so paid ads deliver measurable results.",
+  },
+];
+
+/** Services hub (/services) — matches visible FAQ accordion */
+export const servicesHubFaqs = [
+  {
+    question: "What digital marketing and website development services do you offer?",
+    answer:
+      "We offer website design and development, mobile app development, branding and graphic design, SEO services, social media management, and performance marketing for business growth in Patna, Gurugram, and Gurgaon.",
+  },
+  {
+    question: "How can I contact Wixwave for website development or SEO services?",
+    answer:
+      "You can contact Wixwave through our contact page or call +917479787717 to discuss website development, SEO services, app development, branding, or digital marketing requirements.",
+  },
+  {
+    question: "Do you offer custom website development services in Patna and Gurugram?",
+    answer:
+      "Yes, we provide custom website development services tailored to your business goals in Patna and Gurugram, whether you need an ecommerce website, business website, landing page, or portfolio website.",
+  },
+  {
+    question: "What is SEO and why is it important for website growth?",
+    answer:
+      "SEO, or search engine optimization, improves your website structure, content, and authority so it ranks higher on Google and drives more organic traffic and leads for businesses in Patna and Gurugram.",
+  },
+  {
+    question: "Do you offer mobile app development services?",
+    answer:
+      "Yes, we offer mobile app development services for iOS and Android, with a focus on user experience, performance, and scalable business apps.",
+  },
+  {
+    question: "What is branding and graphic design for business growth?",
+    answer:
+      "Branding and graphic design help shape your business identity through logos, visual systems, marketing creatives, and brand assets that improve recognition and trust.",
+  },
+  {
+    question: "How long does custom website development take?",
+    answer:
+      "Custom website development timelines depend on page count, features, content, and revisions, but most business websites take around 4 to 8 weeks to complete.",
+  },
+  {
+    question: "Do you offer website maintenance and support after development?",
+    answer:
+      "Yes, we offer website maintenance and support after development so your website or app stays updated, secure, fast, and optimized for growth.",
+  },
+  {
+    question: "How do you handle SEO for a business website?",
+    answer:
+      "We handle SEO through keyword research, on-page optimization, technical SEO, content improvements, internal linking, and performance enhancements that support higher rankings.",
+  },
+  {
+    question: "What is performance marketing and how does it generate leads?",
+    answer:
+      "Performance marketing is a results-driven advertising strategy where you pay for actions like clicks, leads, or sales, making it an effective way to generate measurable ROI and business growth.",
+  },
+];
+
+/** About page (/about) */
+export const aboutFaqs = [
+  {
+    question: "What is Wixwave and what does the company do?",
+    answer:
+      "Wixwave is a digital agency that helps businesses grow online through website development, app development, SEO, branding, social media marketing, and paid advertising, with strong delivery in Patna and Gurugram (Gurgaon).",
+  },
+  {
+    question: "Where is Wixwave located and which cities do you serve?",
+    answer:
+      "Wixwave serves businesses across India with a focus on Patna, Gurugram, and Gurgaon. We work with startups, local businesses, and growing brands that need strategy-led digital execution.",
+  },
+  {
+    question: "Why choose Wixwave over other website development companies?",
+    answer:
+      "Wixwave combines strategy, design, development, and marketing in one workflow. Projects are built performance-first with SEO-ready structure, clear communication, and long-term support after launch.",
+  },
+  {
+    question: "What types of businesses does Wixwave work with?",
+    answer:
+      "We partner with startups, local service businesses, ecommerce brands, and established companies that need websites, apps, or marketing systems designed to generate leads and revenue.",
+  },
+  {
+    question: "Does Wixwave provide SEO and marketing after website launch?",
+    answer:
+      "Yes. We offer SEO services, content support, paid ads management, and social media marketing so your website continues to attract traffic and convert visitors after launch.",
+  },
+  {
+    question: "How do I start a project with Wixwave?",
+    answer:
+      "Share your goals through our contact page. We discuss scope, timeline, and budget, then propose a clear plan for website development, app development, or digital marketing.",
   },
 ];

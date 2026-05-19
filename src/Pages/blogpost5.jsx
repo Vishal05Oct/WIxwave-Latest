@@ -33,6 +33,14 @@ export default function BlogPost5() {
     title,
     description,
     canonical: canonicalUrl,
+    article: {
+      publishedTime: `${datePublished}T00:00:00+05:30`,
+    },
+    og: {
+      url: canonicalUrl,
+      type: "article",
+      image: heroImage,
+    },
     keywords: [
       "local seo checklist",
       "local seo patna",

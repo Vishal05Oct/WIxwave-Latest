@@ -4,18 +4,63 @@ export const SITE = {
   name: "Wixwave",
   url: "https://wixwave.co",
   logo: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746202311/3_rgrvsx.png",
-  telephone: "+919470440744",
+  telephone: "+917479787717",
   description:
-    "Wixwave is a full-service digital agency offering website development, app development, SEO, branding, and digital marketing.",
+    "Wixwave is a full-service digital agency offering website development, app development, SEO, branding, and digital marketing for businesses in Patna, Gurugram, and Gurgaon.",
   email: "connect@wixwave.co",
+  foundingDate: "2020",
+  knowsAbout: [
+    "Website Development",
+    "App Development",
+    "Search Engine Optimization",
+    "Branding",
+    "Social Media Marketing",
+    "Paid Advertising",
+    "Local SEO",
+    "Shopify Development",
+  ],
   sameAs: [
     "https://www.linkedin.com/company/wixwave/",
     "https://www.facebook.com/people/WixWave-The-Digital-Solutions/61570872845668/",
     "https://www.instagram.com/wixwave.co/",
-    "https://x.com/Wixwave?t=aNUW1kl498Ht4V-7vT3wuA&s=09",
+    "https://x.com/Wixwave",
     "https://maps.app.goo.gl/YSQFAgevasfNKmaU6",
   ],
 };
+
+/** Core service offerings for ItemList / AEO entity clarity */
+export const SERVICE_CATALOG = [
+  {
+    name: "Website Development",
+    path: "/services/web-dev",
+    description: "Fast, SEO-optimized business websites for Patna and Gurugram.",
+  },
+  {
+    name: "App Development",
+    path: "/services/app-dev",
+    description: "Custom mobile and web apps for startups and enterprises.",
+  },
+  {
+    name: "SEO Services",
+    path: "/services/seo",
+    description: "Technical SEO, on-page optimization, and local SEO in India.",
+  },
+  {
+    name: "Branding",
+    path: "/services/branding",
+    description: "Logo design and brand identity systems for growing businesses.",
+  },
+  {
+    name: "Social Media Marketing",
+    path: "/services/social-media",
+    description: "Content, strategy, and account management across major platforms.",
+  },
+  {
+    name: "Paid Advertising",
+    path: "/services/paid-ads",
+    description: "Google Ads and Meta campaigns optimized for ROI.",
+  },
+];
 
 export const SITE_ORGANIZATION_ID = `${SITE.url}/#organization`;
 export const SITE_WEBSITE_ID = `${SITE.url}/#website`;
@@ -47,11 +92,15 @@ export function getOrganizationJsonLd() {
     logo: SITE.logo,
     description: SITE.description,
     telephone: SITE.telephone,
+    email: SITE.email,
+    foundingDate: SITE.foundingDate,
+    knowsAbout: SITE.knowsAbout,
     sameAs: SITE.sameAs,
     areaServed: [
       { "@type": "City", name: "Patna" },
       { "@type": "City", name: "Gurugram" },
       { "@type": "City", name: "Gurgaon" },
+      { "@type": "Country", name: "India" },
     ],
     contactPoint: [
       {
@@ -59,6 +108,7 @@ export function getOrganizationJsonLd() {
         telephone: SITE.telephone,
         email: SITE.email,
         contactType: "sales",
+        areaServed: ["IN"],
         availableLanguage: ["English", "Hindi"],
       },
     ],
@@ -93,13 +143,41 @@ export function getLocalBusinessJsonLd() {
     description: SITE.description,
     telephone: SITE.telephone,
     email: SITE.email,
+    priceRange: "$$",
+    currenciesAccepted: "INR",
     areaServed: [
       { "@type": "City", name: "Patna" },
       { "@type": "City", name: "Gurugram" },
       { "@type": "City", name: "Gurgaon" },
+      { "@type": "Country", name: "India" },
     ],
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "IN",
+      addressRegion: "Bihar",
+      addressLocality: "Patna",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 25.5941,
+      longitude: 85.1376,
+    },
     sameAs: SITE.sameAs,
     parentOrganization: { "@id": SITE_ORGANIZATION_ID },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Digital Services",
+      itemListElement: SERVICE_CATALOG.map((s, i) => ({
+        "@type": "Offer",
+        position: i + 1,
+        itemOffered: {
+          "@type": "Service",
+          name: s.name,
+          url: `${SITE.url}${s.path}`,
+          description: s.description,
+        },
+      })),
+    },
   };
 }
 
@@ -131,9 +209,105 @@ export function buildWebPageJsonLd({
     inLanguage: "en-IN",
     isPartOf: { "@id": SITE_WEBSITE_ID },
     publisher: { "@id": SITE_ORGANIZATION_ID },
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", "main p"],
+    },
   };
   if (about) out.about = about;
   return out;
+}
+
+/** Service detail page schema (AEO-friendly entity) */
+export function buildServiceJsonLd({
+  canonical,
+  name,
+  description,
+  serviceType,
+  areaServed,
+}) {
+  const url = absoluteUrl(canonical);
+  const cities = areaServed
+    ? [{ "@type": "City", name: areaServed }]
+    : [
+        { "@type": "City", name: "Patna" },
+        { "@type": "City", name: "Gurugram" },
+        { "@type": "City", name: "Gurgaon" },
+      ];
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${url}#service`,
+    name,
+    url,
+    description,
+    serviceType: serviceType || name,
+    areaServed: cities,
+    provider: { "@id": SITE_ORGANIZATION_ID },
+    mainEntityOfPage: { "@id": `${url}#webpage` },
+  };
+}
+
+/** Services hub ItemList for answer engines */
+export function buildServicesItemListJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${SITE.url}/services#itemlist`,
+    name: "Wixwave Digital Services",
+    itemListElement: SERVICE_CATALOG.map((s, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: s.name,
+      url: `${SITE.url}${s.path}`,
+      description: s.description,
+    })),
+  };
+}
+
+/** Contact page schema */
+export function buildContactPageJsonLd({ canonical, title, description }) {
+  const url = absoluteUrl(canonical);
+  return {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "@id": `${url}#contactpage`,
+    url,
+    name: stripTailBrand(title),
+    description,
+    inLanguage: "en-IN",
+    isPartOf: { "@id": SITE_WEBSITE_ID },
+    publisher: { "@id": SITE_ORGANIZATION_ID },
+    mainEntity: {
+      "@type": "Organization",
+      "@id": SITE_ORGANIZATION_ID,
+      name: SITE.name,
+      telephone: SITE.telephone,
+      email: SITE.email,
+      url: SITE.url,
+    },
+  };
+}
+
+/** Blog index CollectionPage + blog post references */
+export function buildBlogCollectionJsonLd(posts) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${SITE.url}/blog#collection`,
+    name: "Wixwave Blog",
+    url: `${SITE.url}/blog`,
+    description:
+      "Practical insights on website development, SEO, and digital growth for businesses in Patna and Gurugram.",
+    isPartOf: { "@id": SITE_WEBSITE_ID },
+    publisher: { "@id": SITE_ORGANIZATION_ID },
+    hasPart: posts.map((post) => ({
+      "@type": "BlogPosting",
+      headline: post.title,
+      url: `${SITE.url}/blog/${post.slug}`,
+      datePublished: post.date,
+    })),
+  };
 }
 
 /** @param {{ name: string, item: string }[]} crumbs — `item` must be absolute URLs */

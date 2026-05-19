@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import { SiNextdotjs, SiReact, SiShopify, SiWordpress } from "react-icons/si";
 import useSeo from "../hooks/useSeo";
 import {
-  SITE_ORGANIZATION_ID,
   breadcrumbsFor,
+  buildServiceJsonLd,
   buildWebPageJsonLd,
 } from "../seo/siteJsonLd";
 
@@ -66,21 +66,13 @@ export default function WebsiteDevelopmentGurugram() {
         description,
         about: { "@id": `${canonical}#service` },
       }),
-      {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "@id": `${canonical}#service`,
+      buildServiceJsonLd({
+        canonical,
         name: "Website Development Services in Gurgaon (Gurugram)",
-        url: canonical,
         description,
         serviceType: "Website Development",
-        areaServed: [
-          { "@type": "City", name: "Gurugram" },
-          { "@type": "City", name: "Gurgaon" },
-        ],
-        provider: { "@id": SITE_ORGANIZATION_ID },
-        mainEntityOfPage: { "@id": `${canonical}#webpage` },
-      },
+        areaServed: "Gurugram",
+      }),
       breadcrumbsFor("gurugram", canonical),
     ],
   });

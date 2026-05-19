@@ -33,6 +33,14 @@ export default function BlogPost8() {
     title,
     description,
     canonical: canonicalUrl,
+    article: {
+      publishedTime: `${datePublished}T00:00:00+05:30`,
+    },
+    og: {
+      url: canonicalUrl,
+      type: "article",
+      image: heroImage,
+    },
     keywords: [
       "Shopify Store Development Services",
       "Custom Shopify Website Development",
@@ -51,11 +59,6 @@ export default function BlogPost8() {
       "Shopify website developers in Patna",
       "Shopify website developers in Gurugram",
     ],
-    og: {
-      url: canonicalUrl,
-      type: "article",
-      image: heroImage,
-    },
     jsonLdArray: [
       buildBlogPostingJsonLd({
         headline: blogHeadlineFromSeoTitle(title),

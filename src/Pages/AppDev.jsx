@@ -4,7 +4,7 @@ import ServiceFaqSection from '../Components/Services/ServiceFaqSection'
 import { ServiceLinks } from '../Components/ServiceLinks'
 import useSeo from '../hooks/useSeo'
 import { appDevFaqs, buildFaqJsonLd } from '../data/serviceFaqs'
-import { breadcrumbsFor, buildWebPageJsonLd } from '../seo/siteJsonLd'
+import { breadcrumbsFor, buildServiceJsonLd, buildWebPageJsonLd } from '../seo/siteJsonLd'
 
 function AppDev() {
   useSeo({
@@ -33,6 +33,13 @@ function AppDev() {
         title: 'App Development Services | Custom Mobile & Web Apps by Wixwave',
         description:
           'Wixwave builds custom mobile and web apps for startups and enterprises. Modern, scalable, and user-focused development that drives growth.',
+      }),
+      buildServiceJsonLd({
+        canonical: 'https://wixwave.co/services/app-dev',
+        name: 'App Development',
+        description:
+          'Wixwave builds custom mobile and web apps for startups and enterprises. Modern, scalable, and user-focused development that drives growth.',
+        serviceType: 'App Development',
       }),
       breadcrumbsFor('app-dev', 'https://wixwave.co/services/app-dev'),
       buildFaqJsonLd(appDevFaqs, 'https://wixwave.co/services/app-dev'),

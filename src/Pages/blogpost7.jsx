@@ -33,6 +33,14 @@ export default function BlogPost7() {
     title,
     description,
     canonical: canonicalUrl,
+    article: {
+      publishedTime: `${datePublished}T00:00:00+05:30`,
+    },
+    og: {
+      url: canonicalUrl,
+      type: "article",
+      image: heroImage,
+    },
     keywords: [
       "website design",
       "website development",

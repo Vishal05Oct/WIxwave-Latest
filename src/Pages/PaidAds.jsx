@@ -4,7 +4,7 @@ import ServiceFaqSection from '../Components/Services/ServiceFaqSection'
 import { ServiceLinks } from '../Components/ServiceLinks'
 import useSeo from '../hooks/useSeo'
 import { buildFaqJsonLd, paidAdsFaqs } from '../data/serviceFaqs'
-import { breadcrumbsFor, buildWebPageJsonLd } from '../seo/siteJsonLd'
+import { breadcrumbsFor, buildServiceJsonLd, buildWebPageJsonLd } from '../seo/siteJsonLd'
 
 function PaidAds() {
   useSeo({
@@ -33,6 +33,13 @@ function PaidAds() {
         title: 'Paid Advertising Services | Google & Facebook Ads by Wixwave',
         description:
           "Maximize your ROI with Wixwave's paid ads, Google Ads, Facebook campaigns, and digital marketing expertise.",
+      }),
+      buildServiceJsonLd({
+        canonical: 'https://wixwave.co/services/paid-ads',
+        name: 'Paid Advertising',
+        description:
+          "Maximize your ROI with Wixwave's paid ads, Google Ads, Facebook campaigns, and digital marketing expertise.",
+        serviceType: 'Paid Advertising',
       }),
       breadcrumbsFor('paid-ads', 'https://wixwave.co/services/paid-ads'),
       buildFaqJsonLd(paidAdsFaqs, 'https://wixwave.co/services/paid-ads'),

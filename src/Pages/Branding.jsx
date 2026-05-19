@@ -4,7 +4,7 @@ import ServiceFaqSection from '../Components/Services/ServiceFaqSection'
 import { ServiceLinks } from '../Components/ServiceLinks'
 import useSeo from '../hooks/useSeo'
 import { brandingFaqs, buildFaqJsonLd } from '../data/serviceFaqs'
-import { breadcrumbsFor, buildWebPageJsonLd } from '../seo/siteJsonLd'
+import { breadcrumbsFor, buildServiceJsonLd, buildWebPageJsonLd } from '../seo/siteJsonLd'
 
 function Branding() {
   useSeo({
@@ -32,6 +32,13 @@ function Branding() {
         title: 'Branding & Logo Design | Creative Identity Solutions by Wixwave',
         description:
           "Stand out with Wixwave's branding, logo design, website, app development, SEO, and digital marketing services.",
+      }),
+      buildServiceJsonLd({
+        canonical: 'https://wixwave.co/services/branding',
+        name: 'Branding',
+        description:
+          "Stand out with Wixwave's branding, logo design, website, app development, SEO, and digital marketing services.",
+        serviceType: 'Branding',
       }),
       breadcrumbsFor('branding', 'https://wixwave.co/services/branding'),
       buildFaqJsonLd(brandingFaqs, 'https://wixwave.co/services/branding'),

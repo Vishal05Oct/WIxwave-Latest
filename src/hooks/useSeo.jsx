@@ -1,6 +1,9 @@
 import { useEffect, useMemo } from "react";
+import { SITE } from "../seo/siteJsonLd";
 
 const BRAND_SUFFIX = " | Wixwave";
+const LLMS_TXT_URL = `${SITE.url}/llms.txt`;
+const AI_MD_URL = `${SITE.url}/AI.md`;
 const TITLE_MAX_LENGTH = 60;
 const DESCRIPTION_MAX_LENGTH = 160;
 
@@ -57,7 +60,7 @@ function setMetaTag(name, content, isProperty = false) {
   tag.setAttribute("content", content);
 }
 
-function setLinkRel(rel, href) {
+function setLinkRel(rel, href, extra = {}) {
   let link = document.querySelector(`link[rel='${rel}']`);
   if (!href) {
     if (link) link.remove();
@@ -69,6 +72,18 @@ function setLinkRel(rel, href) {
     document.head.appendChild(link);
   }
   link.setAttribute("href", href);
+  Object.entries(extra).forEach(([key, value]) => {
+    if (value) link.setAttribute(key, value);
+    else link.removeAttribute(key);
+  });
+}
+
+function setDiscoveryLinks() {
+  setLinkRel("alternate", LLMS_TXT_URL, {
+    type: "text/plain",
+    title: "LLM content guide",
+  });
+  setLinkRel("help", AI_MD_URL, { type: "text/markdown", title: "AI context" });
 }
 
 const PAGE_LD_ATTR = "data-seo-jsonld-page";
@@ -117,6 +132,8 @@ export default function useSeo({
   aeo = {},
   og = {},
   twitter = {},
+  article,
+  geo,
   jsonLd,
   jsonLdArray,
 }) {
@@ -184,8 +201,23 @@ export default function useSeo({
     resolvedTwitter.description || resolvedOgDescription || normalizedDescription;
   const resolvedTwitterImage = resolvedTwitter.image || resolvedOgImage;
 
+  const resolvedArticle = useMemo(() => article ?? {}, [article]);
+  const resolvedGeo = useMemo(
+    () => ({
+      region: "IN-BR",
+      placename: "Patna, Gurugram",
+      position: "25.5941;85.1376",
+      icbm: "25.5941, 85.1376",
+      ...geo,
+    }),
+    [geo]
+  );
+
   useEffect(() => {
     if (normalizedTitle) document.title = normalizedTitle;
+    if (typeof document !== "undefined") {
+      document.documentElement.lang = "en-IN";
+    }
 
     setMetaTag("description", normalizedDescription);
     setMetaTag("title", normalizedTitle);
@@ -203,12 +235,34 @@ export default function useSeo({
     setMetaTag("og:site_name", resolvedOg.siteName, true);
     setMetaTag("og:locale", resolvedOg.locale, true);
 
+    if (resolvedArticle.publishedTime) {
+      setMetaTag("article:published_time", resolvedArticle.publishedTime, true);
+      setMetaTag("article:author", resolvedArticle.author || "Wixwave", true);
+      setMetaTag("article:section", resolvedArticle.section || "Blog", true);
+    } else {
+      setMetaTag("article:published_time", null, true);
+      setMetaTag("article:author", null, true);
+      setMetaTag("article:section", null, true);
+    }
+    if (resolvedArticle.modifiedTime) {
+      setMetaTag("article:modified_time", resolvedArticle.modifiedTime, true);
+    } else {
+      setMetaTag("article:modified_time", null, true);
+    }
+
+    setMetaTag("geo.region", resolvedGeo.region);
+    setMetaTag("geo.placename", resolvedGeo.placename);
+    setMetaTag("geo.position", resolvedGeo.position);
+    setMetaTag("ICBM", resolvedGeo.icbm);
+
     setLinkRel("canonical", resolvedCanonical);
+    setDiscoveryLinks();
 
     setMetaTag("twitter:card", resolvedTwitter.card);
     setMetaTag("twitter:title", resolvedTwitterTitle);
     setMetaTag("twitter:description", resolvedTwitterDescription);
     setMetaTag("twitter:image", resolvedTwitterImage);
+    setMetaTag("twitter:site", "@Wixwave");
     setMetaTag("author", "Wixwave");
     setMetaTag("publisher", "Wixwave");
     setMetaTag("application-name", "Wixwave");
@@ -237,6 +291,8 @@ export default function useSeo({
     resolvedTwitterTitle,
     resolvedTwitterDescription,
     resolvedTwitterImage,
+    resolvedArticle,
+    resolvedGeo,
     jsonLd,
     jsonLdArray,
   ]);
