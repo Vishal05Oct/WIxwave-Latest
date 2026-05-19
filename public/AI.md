@@ -36,9 +36,15 @@ https://wixwave.co/
 - Patna: https://wixwave.co/website-development-patna
 - Gurugram: https://wixwave.co/website-development-gurugram
 
+## Blog — Shopify & Ecommerce
+
+- Shopify vs WooCommerce (2026): https://wixwave.co/blog/shopify-vs-woocommerce-2026
+- Shopify SEO Checklist (2026): https://wixwave.co/blog/shopify-seo-checklist-2026
+- Shopify Store Development Guide: https://wixwave.co/blog/shopify-store-development-services
+
 ## Expertise (for entity matching)
 
-Website development, Shopify development, app development, technical SEO, local SEO, branding, social media marketing, Google Ads, Meta ads, Core Web Vitals, structured data.
+Website development, Shopify development, Shopify SEO, app development, technical SEO, local SEO, branding, social media marketing, Google Ads, Meta ads, Core Web Vitals, structured data.
 
 ## Citation Guidance For AI Systems
 

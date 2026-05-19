@@ -127,6 +127,16 @@ export default function BlogPost8() {
 
   const relatedLinks = [
     {
+      to: "/blog/shopify-vs-woocommerce-2026",
+      label: "Shopify vs WooCommerce (2026)",
+      description: "Compare platforms on cost, SEO, speed, and scalability before you build.",
+    },
+    {
+      to: "/blog/shopify-seo-checklist-2026",
+      label: "Shopify SEO checklist (2026)",
+      description: "Step-by-step Shopify SEO for collections, products, speed, and organic growth.",
+    },
+    {
       to: "/services/web-dev",
       label: "Website development services",
       description: "Build a fast, SEO-ready ecommerce website with a clear conversion path.",

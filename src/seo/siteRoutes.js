@@ -128,6 +128,34 @@ export const indexableRoutes = [
     breadcrumbKey: "blog",
   },
   {
+    path: "/blog/shopify-vs-woocommerce-2026",
+    title:
+      "Shopify vs WooCommerce (2026): Which Ecommerce Platform Is Better? | Wixwave Blog",
+    description:
+      "Shopify vs WooCommerce compared for cost, SEO, speed, scalability, and ease of use. See which ecommerce platform fits your business in India—Patna, Gurugram, and beyond.",
+    priority: "0.6",
+    changefreq: "monthly",
+    lastmod: "2026-05-20",
+    type: "article",
+    datePublished: "2026-05-20",
+    image:
+      "https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=1600&q=80",
+  },
+  {
+    path: "/blog/shopify-seo-checklist-2026",
+    title:
+      "Shopify SEO Checklist (2026): Rank Your Store & Grow Organic Sales | Wixwave Blog",
+    description:
+      "A practical Shopify SEO checklist for 2026: technical setup, collection pages, product optimization, site speed, structured data, and content that drives organic ecommerce traffic.",
+    priority: "0.6",
+    changefreq: "monthly",
+    lastmod: "2026-05-19",
+    type: "article",
+    datePublished: "2026-05-19",
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
+  },
+  {
     path: "/blog/shopify-store-development-services",
     title:
       "Shopify Store Development Services: Custom Shopify Website Development Guide | Wixwave Blog",

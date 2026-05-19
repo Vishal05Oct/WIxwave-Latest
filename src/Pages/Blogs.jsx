@@ -10,6 +10,30 @@ import {
 
 export const blogPosts = [
   {
+    id: 10,
+    title: "Shopify vs WooCommerce (2026): Which Ecommerce Platform Is Better?",
+    date: "2026-05-20",
+    displayDate: "May 20, 2026",
+    tags: ["Shopify", "WooCommerce", "Ecommerce"],
+    excerpt:
+      "Shopify vs WooCommerce compared for cost, SEO, speed, customization, and scalability—plus which platform fits small businesses in India.",
+    slug: "shopify-vs-woocommerce-2026",
+    image:
+      "https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=1600&q=80",
+  },
+  {
+    id: 9,
+    title: "Shopify SEO Checklist (2026): Rank Your Store & Grow Organic Sales",
+    date: "2026-05-19",
+    displayDate: "May 19, 2026",
+    tags: ["Shopify", "SEO", "Ecommerce"],
+    excerpt:
+      "A practical Shopify SEO checklist for 2026: technical setup, collections, product pages, speed, structured data, and content that drives organic ecommerce traffic.",
+    slug: "shopify-seo-checklist-2026",
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
+  },
+  {
     id: 8,
     title: "Shopify Store Development Services: Custom Shopify Website Development Guide",
     date: "2026-05-07",

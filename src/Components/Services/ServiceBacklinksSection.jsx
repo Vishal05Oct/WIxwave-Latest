@@ -18,6 +18,9 @@ export default function ServiceBacklinksSection({
   ];
 
   const blogLinks = [
+    { to: "/blog/shopify-vs-woocommerce-2026", label: "Shopify vs WooCommerce (2026)" },
+    { to: "/blog/shopify-seo-checklist-2026", label: "Shopify SEO checklist (2026)" },
+    { to: "/blog/shopify-store-development-services", label: "Shopify store development guide" },
     { to: "/blog/website-technology-seo", label: "Website + technology guide" },
     { to: "/blog/local-seo-checklist-patna-gurugram", label: "Local growth checklist" },
     { to: "/blog/website-design-development-guide", label: "Website design & development guide" },
