@@ -1,5 +1,6 @@
 import React, { memo } from "react";
 import { motion } from "framer-motion";
+import { PAGE_HERO_BG_TEXT_CLASS, PAGE_HERO_TITLE_CLASS } from "../constants/heroStyles";
 
 const OurBlogs = () => {
   const animatedTexts = ["Our", "Insightful", "Blogs"];
@@ -25,7 +26,7 @@ const OurBlogs = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           style={{ willChange: "transform, opacity" }}
-          className="absolute inset-0 flex flex-col items-center justify-center z-10 leading-[1] text-center text-[#6699ff] font-extrabold text-[12vw] sm:text-[8vw] pointer-events-none select-none"
+          className={PAGE_HERO_BG_TEXT_CLASS}
         >
           {animatedTexts.map((text, i) => (
             <motion.span
@@ -41,7 +42,7 @@ const OurBlogs = () => {
 
         {/* Foreground Content */}
         <div className="relative z-20 max-w-3xl text-center px-2">
-          <h2 className="font-bold tracking-[0.2em] text-black mb-4 text-xl sm:text-2xl md:text-3xl lg:text-4xl">
+          <h2 className={PAGE_HERO_TITLE_CLASS}>
             OUR BLOGS
           </h2>
           <p className="text-lg sm:text-xl text-black leading-relaxed">

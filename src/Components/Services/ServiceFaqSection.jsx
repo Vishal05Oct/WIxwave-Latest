@@ -25,7 +25,7 @@ export default function ServiceFaqSection({ items, heading = "Frequently Asked Q
             return (
               <div
                 key={item.question}
-                className="rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden"
+                className="rounded-2xl border border-black/80 bg-white shadow-sm overflow-hidden"
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : index)}

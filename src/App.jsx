@@ -8,6 +8,7 @@ import Footer from "./Components/Footer";
 import CursorSpotlight from "./Components/CursorSpotlight";
 import WhatsappButton from "./Components/WhatsappButton";
 import { usePerformanceMonitoring } from "./hooks/usePerformanceMonitoring";
+import { FacebookPixelTracker } from "./hooks/useFacebookPixel";
 
 // Lazy load non-critical components to reduce initial bundle
 const ExitIntentModal = lazy(() => import("./Components/ExitIntentModal"));
@@ -28,6 +29,7 @@ function App() {
 
         <ScrollToTop />
         <GlobalJsonLd />
+        <FacebookPixelTracker />
         <Navbar />
         <AnimatedRoutes />
         <Footer />

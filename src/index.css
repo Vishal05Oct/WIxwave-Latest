@@ -9,10 +9,10 @@
 /* Import Tailwind */
 @import "tailwindcss";
 
-/* Apply Hagrid font globally with fallback to prevent CLS */
+/* Apply the loaded font globally so all text inherits it */
+html,
 body {
-  font-family: 'Hagrid', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-  font-display: swap;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 

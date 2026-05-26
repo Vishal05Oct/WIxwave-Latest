@@ -107,7 +107,7 @@ export default function AboutSection() {
             <h2
               ref={headingRef}
               className={`font-medium tracking-tight text-[#0b0b2c] break-words transition-all duration-500 ${
-                expanded ? "" : "line-clamp-4 md:line-clamp-none"
+                expanded ? "" : "line-clamp-1"
               }`}
               style={{
                 fontSize: "clamp(17px, 4.8vw, 44px)",
@@ -117,12 +117,12 @@ export default function AboutSection() {
               Wixwave crafts powerful digital solutions that help businesses grow, scale, and stand out in a competitive market. From innovative website development to data-driven marketing strategies, we combine creativity with technology to deliver impactful results that drive real growth.
             </h2>
 
-            {/* 📱 READ MORE */}
+            {/* 📱 VIEW MORE */}
             <button
               onClick={() => setExpanded(!expanded)}
-              className="mt-3 text-sm text-blue-600 font-medium md:hidden"
+              className="mt-3 text-sm text-blue-600 font-medium"
             >
-              {expanded ? "Show Less" : "Read More"}
+              {expanded ? "View Less" : "View More"}
             </button>
 
             {/* STATS */}

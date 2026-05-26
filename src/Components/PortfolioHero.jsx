@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { PAGE_HERO_BG_TEXT_CLASS, PAGE_HERO_TITLE_CLASS } from '../constants/heroStyles';
 
 const OurPortfolio = () => {
   return (
@@ -17,7 +18,7 @@ const OurPortfolio = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="absolute inset-0 flex flex-col items-center justify-center z-10 leading-[1] text-center text-[#6699ff] font-extrabold text-[12vw] sm:text-[8vw] pointer-events-none select-none"
+          className={PAGE_HERO_BG_TEXT_CLASS}
 >
           <motion.span
             initial={{ opacity: 0, y: 30 }}
@@ -44,7 +45,7 @@ const OurPortfolio = () => {
 
         {/* Foreground Content */}
         <div className="relative z-20 max-w-3xl text-center">
-          <h2 className="font-bold tracking-[0.2em] text-black mb-4">
+          <h2 className={PAGE_HERO_TITLE_CLASS}>
             OUR PORTFOLIO
           </h2>
           <p className="text-xl sm:text-xl text-black leading-relaxed">

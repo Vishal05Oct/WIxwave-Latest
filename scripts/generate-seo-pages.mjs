@@ -122,6 +122,112 @@ function stripTailBrand(title) {
   return title.replace(/\s*\|\s*Wixwave(\s*\|\s*Wixwave Blog)?\s*$/i, "").trim();
 }
 
+function bodyFallbackForRoute(route) {
+  const safeTitle = escapeHtml(route.title || "");
+  const safeDescription = escapeHtml(route.description || "");
+
+  // For homepage and other routes that don't have a faqKey, provide a default FAQ set.
+  const faqItems = (() => {
+    if (route.faqKey && FAQ_BY_KEY[route.faqKey]) return FAQ_BY_KEY[route.faqKey];
+    if (route.path === "/") return FAQ_BY_KEY.services;
+    return [];
+  })();
+
+  const safeFaqHtml = faqItems
+    .map(
+      (item) => `<section aria-label="FAQ item">
+      <h3>${escapeHtml(item.question)}</h3>
+      <p>${escapeHtml(item.answer)}</p>
+    </section>`
+    )
+    .join("\n");
+
+  const extraLine = route.areaServed
+    ? ` ${escapeHtml(route.serviceType || "")} ${escapeHtml(
+        route.areaServed
+      )}.`
+        .replace(/\s+/g, " ")
+        .trim()
+    : route.serviceType
+    ? ` ${escapeHtml(route.serviceType)}.`
+        .replace(/\s+/g, " ")
+        .trim()
+    : "";
+
+  // Insert outside #root so React won’t remove it when it mounts.
+  // Keep it readable to crawlers/auditors by avoiding offscreen positioning.
+  const genericOverview = `
+Wixwave is a digital agency delivering website development, app development, SEO, branding, social media marketing, and paid advertising for businesses across India, with strong delivery in Patna and Gurugram (Gurgaon). Our approach is strategy-led and performance-first: we plan site structure, build clean and scalable pages, optimize for speed and Core Web Vitals, and ensure SEO foundations like technical SEO, internal linking, structured data, and content that matches search intent.
+
+For each project, we focus on high-converting UX, mobile responsiveness, and implementation details that help your pages rank and stay competitive. We support businesses with technical SEO improvements, local SEO targeting, on-page optimization, keyword research, and reporting that tracks growth in rankings and leads. Whether you need a modern marketing website, a Shopify store build, a custom web or mobile app, or a complete digital marketing plan, Wixwave helps turn your goals into measurable outcomes.
+
+We can also support post-launch needs such as maintenance, updates, performance improvements, bug fixes, conversion-focused enhancements, and ongoing SEO support so your website and app keep growing after launch.
+`.trim();
+
+  return `    <section id="llm-fallback" data-llm-fallback="true" aria-label="Page summary and link structure" style="font-size:12px;line-height:1.4;opacity:0.95;max-width:980px;margin:24px auto;padding:12px 16px;border-top:1px solid rgba(0,0,0,0.08);">
+      <h1 style="margin:0 0 8px;">${safeTitle}</h1>
+
+      <h2 style="margin:12px 0 6px;">Overview</h2>
+      <p style="margin:0 0 8px;">${safeDescription}${extraLine}</p>
+      <p style="margin:0;">${escapeHtml(genericOverview)}</p>
+
+      <h2 style="margin:16px 0 6px;">Services</h2>
+      <h3 style="margin:10px 0 4px;">Website development</h3>
+      <h4 style="margin:8px 0 4px;">Deliverables</h4>
+      <ul style="margin:0 0 6px;padding-left:18px;">
+        <li>Responsive pages and conversion-first UX</li>
+        <li>Performance optimization and Core Web Vitals improvements</li>
+        <li>Technical SEO setup and SEO-ready structure</li>
+      </ul>
+      <h5 style="margin:8px 0 4px;">Quality checks</h5>
+      <p style="margin:0 0 6px;">Cross-device QA, accessibility basics, and content structure validation.</p>
+      <h6 style="margin:8px 0 4px;">Notes</h6>
+      <p style="margin:0 0 10px;">Timelines and scope depend on page count, features, and content readiness.</p>
+
+      <h3 style="margin:10px 0 4px;">App development</h3>
+      <p style="margin:0 0 10px;">Mobile and web apps with scalable architecture, integrations, testing, and post-launch support.</p>
+
+      <h3 style="margin:10px 0 4px;">SEO services</h3>
+      <p style="margin:0 0 10px;">Technical SEO, on-page optimization, local SEO for Patna and Gurugram, and performance-led improvements.</p>
+
+      <h3 style="margin:10px 0 4px;">Branding</h3>
+      <p style="margin:0 0 10px;">Logo design, brand identity systems, and visual direction that improves trust and consistency.</p>
+
+      <h3 style="margin:10px 0 4px;">Social media marketing</h3>
+      <p style="margin:0 0 10px;">Content planning, creatives, posting support, engagement, and performance reporting.</p>
+
+      <h3 style="margin:10px 0 4px;">Paid advertising</h3>
+      <p style="margin:0 0 10px;">Google Ads and Meta campaigns optimized for measurable ROI and lead generation.</p>
+
+      ${
+        safeFaqHtml
+          ? `<h2 style="margin:16px 0 6px;">FAQs</h2>
+      <div aria-label="Frequently asked questions">
+        ${safeFaqHtml}
+      </div>`
+          : ""
+      }
+      <nav aria-label="Primary pages">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/services/web-dev">Website Development</a></li>
+          <li><a href="/services/app-dev">App Development</a></li>
+          <li><a href="/services/seo">SEO Services</a></li>
+          <li><a href="/services/branding">Branding</a></li>
+          <li><a href="/services/social-media">Social Media</a></li>
+          <li><a href="/services/paid-ads">Paid Ads</a></li>
+          <li><a href="/portfolio">Portfolio</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/website-development-patna">Website Development Patna</a></li>
+          <li><a href="/website-development-gurugram">Website Development Gurugram</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+    </section>`;
+}
+
 function metaFor(route) {
   const canonical = canonicalFor(route.path);
   const safeTitle = escapeHtml(route.title);
@@ -190,7 +296,14 @@ function noIndexMetaFor(route) {
 }
 
 function htmlFor(route) {
-  return stripManagedHead(baseHtml).replace("</head>", `${metaFor(route)}  </head>`);
+  const htmlWithHead = stripManagedHead(baseHtml).replace(
+    "</head>",
+    `${metaFor(route)}  </head>`
+  );
+  return htmlWithHead.replace(
+    "</body>",
+    `${bodyFallbackForRoute(route)}\n  </body>`
+  );
 }
 
 function outputPathFor(routePath) {
@@ -210,7 +323,9 @@ for (const route of noIndexRoutes) {
   mkdirSync(dirname(outPath), { recursive: true });
   writeFileSync(
     outPath,
-    stripManagedHead(baseHtml).replace("</head>", `${noIndexMetaFor(route)}  </head>`)
+    stripManagedHead(baseHtml)
+      .replace("</head>", `${noIndexMetaFor(route)}  </head>`)
+      .replace("</body>", `${bodyFallbackForRoute(route)}\n  </body>`)
   );
 }
 

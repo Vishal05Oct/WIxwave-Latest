@@ -4,14 +4,15 @@ import ServiceFaqSection from '../Components/Services/ServiceFaqSection'
 import { ServiceLinks } from '../Components/ServiceLinks'
 import useSeo from '../hooks/useSeo'
 import { buildFaqJsonLd, socialMediaFaqs } from '../data/serviceFaqs'
-import { breadcrumbsFor, buildServiceJsonLd, buildWebPageJsonLd } from '../seo/siteJsonLd'
+import { breadcrumbsFor, buildServiceJsonLd, buildWebPageJsonLd, SITE } from '../seo/siteJsonLd'
 
 function SocialMedia() {
+  const canonical = 'https://wixwave.co/services/social-media'
   useSeo({
     title: 'Social Media Marketing | Grow Your Brand Online with Wixwave',
     description:
       'Wixwave’s social media marketing grows your audience and engagement. Content creation, strategy, and management for all platforms.',
-    canonical: 'https://wixwave.co/services/social-media',
+    canonical,
     keywords: [
       'social media marketing',
       'social media agency',
@@ -19,8 +20,19 @@ function SocialMedia() {
       'social media management',
       'social media strategy',
     ],
+    robots: 'index,follow',
+    aeo: {
+      googlebot: 'index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1',
+      bingbot: 'index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1',
+    },
+    geo: {
+      region: 'IN-BR',
+      placename: 'Patna, Gurugram, Gurgaon',
+      position: '25.5941;85.1376',
+      icbm: '25.5941, 85.1376',
+    },
     og: {
-      url: 'https://wixwave.co/services/social-media',
+      url: canonical,
       type: 'website',
       siteName: 'Wixwave',
       locale: 'en_IN',
@@ -29,20 +41,27 @@ function SocialMedia() {
     },
     jsonLdArray: [
       buildWebPageJsonLd({
-        canonical: 'https://wixwave.co/services/social-media',
+        canonical,
         title: 'Social Media Marketing | Grow Your Brand Online with Wixwave',
         description:
           'Wixwave’s social media marketing grows your audience and engagement. Content creation, strategy, and management for all platforms.',
+        about: [
+          { '@type': 'Thing', name: 'Social Media Marketing', url: canonical },
+          { '@type': 'Thing', name: 'Content Strategy' },
+          { '@type': 'Thing', name: 'Content Creation' },
+          { '@type': 'Place', name: 'Patna, Bihar, India', url: SITE.sameAs?.[4] },
+          { '@type': 'Place', name: 'Gurugram, Haryana, India' },
+        ],
       }),
       buildServiceJsonLd({
-        canonical: 'https://wixwave.co/services/social-media',
+        canonical,
         name: 'Social Media Marketing',
         description:
           'Wixwave’s social media marketing grows your audience and engagement. Content creation, strategy, and management for all platforms.',
         serviceType: 'Social Media Marketing',
       }),
-      breadcrumbsFor('social-media', 'https://wixwave.co/services/social-media'),
-      buildFaqJsonLd(socialMediaFaqs, 'https://wixwave.co/services/social-media'),
+      breadcrumbsFor('social-media', canonical),
+      buildFaqJsonLd(socialMediaFaqs, canonical),
     ],
   });
 

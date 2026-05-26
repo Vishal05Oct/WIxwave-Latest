@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from "framer-motion";
+import { PAGE_HERO_BG_TEXT_CLASS, PAGE_HERO_TITLE_CLASS } from "../../constants/heroStyles";
 
 const BrandingGraphics = () => {
   return (
@@ -17,7 +18,7 @@ const BrandingGraphics = () => {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="absolute inset-0 flex flex-col items-center justify-center z-10 leading-[1] text-center text-[#6699ff] font-extrabold text-[10vw] sm:text-[7vw] pointer-events-none select-none"
+        className={PAGE_HERO_BG_TEXT_CLASS}
       >
         <motion.span
           initial={{ opacity: 0, y: 30 }}
@@ -37,7 +38,7 @@ const BrandingGraphics = () => {
 
       {/* Foreground Content */}
       <div className="relative z-20 max-w-3xl text-center px-4 sm:px-6">
-        <h2 className="font-bold tracking-[0.2em] text-black mb-4 text-xl sm:text-2xl">
+        <h2 className={PAGE_HERO_TITLE_CLASS}>
           BRANDING & GRAPHIC DESIGN
         </h2>
         <p className="text-xl sm:text-xl text-black leading-relaxed">

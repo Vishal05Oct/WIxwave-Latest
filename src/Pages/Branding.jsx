@@ -4,22 +4,34 @@ import ServiceFaqSection from '../Components/Services/ServiceFaqSection'
 import { ServiceLinks } from '../Components/ServiceLinks'
 import useSeo from '../hooks/useSeo'
 import { brandingFaqs, buildFaqJsonLd } from '../data/serviceFaqs'
-import { breadcrumbsFor, buildServiceJsonLd, buildWebPageJsonLd } from '../seo/siteJsonLd'
+import { breadcrumbsFor, buildServiceJsonLd, buildWebPageJsonLd, SITE } from '../seo/siteJsonLd'
 
 function Branding() {
+  const canonical = 'https://wixwave.co/services/branding'
   useSeo({
     title: 'Branding & Logo Design | Creative Identity Solutions by Wixwave',
     description:
       "Stand out with Wixwave's branding, logo design, website, app development, SEO, and digital marketing services.",
-    canonical: 'https://wixwave.co/services/branding',
+    canonical,
     keywords: [
       'branding agency',
       'logo design services',
       'brand identity design',
       'digital agency branding',
     ],
+    robots: 'index,follow',
+    aeo: {
+      googlebot: 'index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1',
+      bingbot: 'index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1',
+    },
+    geo: {
+      region: 'IN-BR',
+      placename: 'Patna, Gurugram, Gurgaon',
+      position: '25.5941;85.1376',
+      icbm: '25.5941, 85.1376',
+    },
     og: {
-      url: 'https://wixwave.co/services/branding',
+      url: canonical,
       type: 'website',
       siteName: 'Wixwave',
       locale: 'en_IN',
@@ -28,20 +40,27 @@ function Branding() {
     },
     jsonLdArray: [
       buildWebPageJsonLd({
-        canonical: 'https://wixwave.co/services/branding',
+        canonical,
         title: 'Branding & Logo Design | Creative Identity Solutions by Wixwave',
         description:
           "Stand out with Wixwave's branding, logo design, website, app development, SEO, and digital marketing services.",
+        about: [
+          { '@type': 'Thing', name: 'Branding', url: canonical },
+          { '@type': 'Thing', name: 'Logo Design' },
+          { '@type': 'Thing', name: 'Brand Identity' },
+          { '@type': 'Place', name: 'Patna, Bihar, India', url: SITE.sameAs?.[4] },
+          { '@type': 'Place', name: 'Gurugram, Haryana, India' },
+        ],
       }),
       buildServiceJsonLd({
-        canonical: 'https://wixwave.co/services/branding',
+        canonical,
         name: 'Branding',
         description:
           "Stand out with Wixwave's branding, logo design, website, app development, SEO, and digital marketing services.",
         serviceType: 'Branding',
       }),
-      breadcrumbsFor('branding', 'https://wixwave.co/services/branding'),
-      buildFaqJsonLd(brandingFaqs, 'https://wixwave.co/services/branding'),
+      breadcrumbsFor('branding', canonical),
+      buildFaqJsonLd(brandingFaqs, canonical),
     ],
   });
 

@@ -7,6 +7,20 @@ import 'react-toastify/dist/ReactToastify.css';
 import emailjs from '@emailjs/browser';
 
 const ContactForm = ({ page = 'default' }) => {
+  const trackFbPixel = (eventName, params = {}) => {
+    if (typeof window === "undefined") return;
+    if (typeof window.fbq !== "function") return;
+    try {
+      window.fbq("track", eventName, {
+        ...params,
+        event_source_url: window.location?.href,
+        form_page: page,
+      });
+    } catch {
+      // ignore
+    }
+  };
+
   // Configuration
   const title = page === 'contact'
     ? 'Let’s Talk! Reach Out and Start the Conversation Today.'
@@ -106,6 +120,11 @@ const ContactForm = ({ page = 'default' }) => {
       });
 
       // Success flow
+      // Track conversions for Facebook Pixel (use a standard event).
+      trackFbPixel("Lead", {
+        content_name: selectedService,
+        lead_type: "ContactForm",
+      });
       toast.success('Submission successful! Redirecting...');
       setFormData({
         name: '',
