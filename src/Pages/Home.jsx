@@ -15,7 +15,7 @@ import Testimonial from '../Components/Testimonial'
 
 function Home() {
   useSeo({
-    title: 'Wixwave | Web Design, App Development, SEO & Digital Marketing in Gurgaon & Patna',
+    title: 'Wixwave | Web, App, SEO & Digital Marketing in Gurgaon & Patna',
     description:
       'Wixwave empowers businesses in Gurgaon and Patna with expert web design, app development, SEO, branding, and digital marketing. Start your digital journey with our local team.',
     canonical: 'https://wixwave.co/',
@@ -35,7 +35,7 @@ function Home() {
       buildWebPageJsonLd({
         canonical: 'https://wixwave.co/',
         title:
-          'Wixwave | Web Design, App Development, SEO & Digital Marketing in Gurgaon & Patna',
+          'Wixwave | Web, App, SEO & Digital Marketing in Gurgaon & Patna',
         description:
           'Wixwave empowers businesses in Gurgaon and Patna with expert web design, app development, SEO, branding, and digital marketing. Start your digital journey with our local team.',
       }),

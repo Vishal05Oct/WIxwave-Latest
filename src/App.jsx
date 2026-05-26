@@ -30,7 +30,9 @@ function App() {
         <ScrollToTop />
         <GlobalJsonLd />
         <FacebookPixelTracker />
-        <Navbar />
+        <header role="banner">
+          <Navbar />
+        </header>
         <AnimatedRoutes />
         <Footer />
         <WhatsappButton />

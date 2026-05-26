@@ -89,6 +89,45 @@ const WebDevEdgeSection = () => {
             </Link>
           </div>
         </section>
+
+        <section className="grid md:grid-cols-2 gap-10 items-start">
+          <div className="space-y-4">
+            <h2 className="text-2xl font-semibold">Shopify Website Development Services</h2>
+            <p>
+              Want to launch an <strong>online store</strong> that looks premium, loads fast, and converts?
+              We deliver <strong>shopify web development services</strong> for brands that want a{" "}
+              <strong>high performance shopify</strong> build that feels <strong>user friendly</strong> and
+              runs smoothly on mobile.
+            </p>
+            <p>
+              As a <strong>shopify development company in India</strong>, we handle end-to-end delivery:
+              <strong> store design</strong>, <strong>custom shopify</strong> builds, <strong>theme development</strong>,
+              and <strong>custom themes</strong> aligned with your brand. A dedicated <strong>shopify expert</strong>{" "}
+              helps you choose the right setup and ensures the storefront is reliable shopify-ready for growth.
+            </p>
+            <p>
+              We also implement <strong>payment gateways</strong>, product collections, and{" "}
+              <strong>app integration</strong> (shipping, CRM, reviews, analytics) so your store runs smoothly and
+              stays stable at scale. After launch, we provide <strong>ongoing support</strong> for updates, fixes,
+              and improvements.
+            </p>
+          </div>
+
+          <div className="space-y-3 rounded-2xl border border-[#e5e7eb] bg-white p-6">
+            <h3 className="text-lg font-semibold text-gray-900">Why brands choose Wixwave</h3>
+            <ul className="list-disc pl-6 space-y-2 text-gray-700">
+              <li><strong>Reliable Shopify</strong> builds focused on speed, UX, and clean implementation</li>
+              <li><strong>Development process</strong> that’s clear: plan → design → build → test → launch</li>
+              <li><strong>Custom themes</strong> and theme development without bloated code</li>
+              <li><strong>App integration</strong> and payment gateways configured for your market</li>
+              <li><strong>Ongoing support</strong> so your online store keeps improving</li>
+            </ul>
+            <p className="text-sm text-gray-600">
+              If you’re comparing teams, we’re a practical choice when you need a leading shopify development company
+              mindset: performance-first builds, transparent delivery, and stores that run smoothly.
+            </p>
+          </div>
+        </section>
         <h2 className="text-3xl sm:text-4xl font-bold ">Our Website Development Process</h2>
         <motion.div
                        className="mt-6 w-full"

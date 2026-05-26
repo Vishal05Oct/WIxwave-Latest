@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /thank-you
 
 # Answer engines & AI crawlers (GEO)
 User-agent: GPTBot
@@ -22,8 +23,6 @@ Allow: /
 
 User-agent: Applebot-Extended
 Allow: /
-
-Disallow: /thank-you
 
 Sitemap: https://wixwave.co/sitemap.xml
 Host: wixwave.co

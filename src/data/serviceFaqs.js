@@ -32,6 +32,16 @@ export const webDevFaqs = [
       "Custom website development usually takes 2 to 6 weeks depending on the number of pages, features, revisions, content readiness, and integrations required.",
   },
   {
+    question: "Do you offer Shopify website development services for online stores?",
+    answer:
+      "Yes. We provide Shopify website development services including store design, custom themes and theme development, product setup, payment gateways, and app integration so your online store runs smoothly and stays user friendly.",
+  },
+  {
+    question: "Do you provide ongoing support after launching a Shopify store?",
+    answer:
+      "Yes. We offer ongoing support after launch—bug fixes, updates, performance improvements, and reliable Shopify maintenance—so your store keeps improving as your business grows.",
+  },
+  {
     question: "Will my website be SEO-friendly and mobile responsive?",
     answer:
       "Yes, every website is built to be mobile responsive and SEO-friendly with clean code, strong page structure, fast loading, and technical SEO best practices.",
