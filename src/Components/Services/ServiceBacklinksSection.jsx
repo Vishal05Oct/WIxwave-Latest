@@ -18,6 +18,8 @@ export default function ServiceBacklinksSection({
   ];
 
   const blogLinks = [
+    { to: "/blog/shopify-expert-patna-store-development-guide", label: "Shopify expert in Patna" },
+    { to: "/blog/business-website-development-company-patna", label: "Business website development in Patna" },
     { to: "/blog/shopify-vs-woocommerce-2026", label: "Shopify vs WooCommerce (2026)" },
     { to: "/blog/shopify-seo-checklist-2026", label: "Shopify SEO checklist (2026)" },
     { to: "/blog/shopify-store-development-services", label: "Shopify store development guide" },

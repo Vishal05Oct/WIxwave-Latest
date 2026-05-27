@@ -20,6 +20,8 @@ const BlogPost7 = lazy(() => import('../Pages/blogpost7'));
 const BlogPost8 = lazy(() => import('../Pages/blogpost8'));
 const BlogPost9 = lazy(() => import('../Pages/blogpost9'));
 const BlogPost10 = lazy(() => import('../Pages/blogpost10'));
+const BlogPost11 = lazy(() => import('../Pages/blogpost11'));
+const BlogPost12 = lazy(() => import('../Pages/blogpost12'));
 const WebsiteDevelopmentPatna = lazy(() => import('../Pages/WebsiteDevelopmentPatna'));
 const WebsiteDevelopmentGurugram = lazy(() => import('../Pages/WebsiteDevelopmentGurugram'));
 const WebDev = lazy(() => import('../Pages/WebDev'));
@@ -100,6 +102,8 @@ function AnimatedRoutes() {
           <Route path="/blog/shopify-store-development-services" element={<PageWrapper><BlogPost8 /></PageWrapper>} />
           <Route path="/blog/shopify-seo-checklist-2026" element={<PageWrapper><BlogPost9 /></PageWrapper>} />
           <Route path="/blog/shopify-vs-woocommerce-2026" element={<PageWrapper><BlogPost10 /></PageWrapper>} />
+          <Route path="/blog/shopify-expert-patna-store-development-guide" element={<PageWrapper><BlogPost11 /></PageWrapper>} />
+          <Route path="/blog/business-website-development-company-patna" element={<PageWrapper><BlogPost12 /></PageWrapper>} />
           <Route path="/website-development-patna" element={<PageWrapper><WebsiteDevelopmentPatna /></PageWrapper>} />
           <Route path="/website-development-gurugram" element={<PageWrapper><WebsiteDevelopmentGurugram /></PageWrapper>} />
           <Route path="/services/web-dev" element={<PageWrapper><WebDev /></PageWrapper>} />

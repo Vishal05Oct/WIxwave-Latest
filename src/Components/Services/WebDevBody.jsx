@@ -160,12 +160,34 @@ const WebDevEdgeSection = () => {
   </div>
 </section>
 
+        <section className="rounded-2xl border border-[#e5e7eb] bg-slate-50 p-6 md:p-8">
+          <h2 className="text-2xl font-semibold mb-3">
+            Website development company in Patna
+          </h2>
+          <p className="text-gray-700 leading-relaxed mb-4">
+            Serving businesses in Bihar? Wixwave is a{" "}
+            <strong>website development company in Patna</strong> focused on fast, SEO-ready sites,
+            Shopify stores, and conversion-focused UX. Explore our dedicated Patna page for local
+            pricing context, FAQs, and project examples.
+          </p>
+          <Link
+            to="/website-development-patna"
+            className="inline-block bg-black text-white px-5 py-2 rounded-full font-medium"
+          >
+            Website development in Patna
+          </Link>
+        </section>
+
         <ServiceBacklinksSection
           heading=" Related links "
           subheading="Explore related services, resources, and location pages to help users navigate and strengthen internal linking."
           primaryLinks={[
+            { to: "/website-development-patna", label: "Website development company in Patna" },
             { to: "/services/web-dev", label: "Website design & development service" },
             { to: "/portfolio", label: "Portfolio" },
+            { to: "/blog/business-website-development-company-patna", label: "Business website development in Patna" },
+            { to: "/blog/shopify-expert-patna-store-development-guide", label: "Shopify expert in Patna guide" },
+            { to: "/blog/choose-website-development-company-patna", label: "How to choose a web dev company in Patna" },
             { to: "/blog/website-design-development-guide", label: "Website design & development guide" },
           ]}
         />

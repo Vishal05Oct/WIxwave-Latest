@@ -25,7 +25,7 @@ export default function BlogPost10() {
     "https://wixwave.co/blog/shopify-vs-woocommerce-2026";
 
   const heroImage =
-    "https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=1600&q=80";
+    "https://www.clapcreative.com/images/Shopify-vs-WooCommerce-Which-is-Better-for-Your-Business.jpg";
 
   const datePublished = "2026-05-20";
 

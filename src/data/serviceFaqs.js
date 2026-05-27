@@ -20,6 +20,30 @@ export function buildFaqJsonLd(items, pageCanonical) {
   return base;
 }
 
+/** Patna location landing (/website-development-patna) */
+export const patnaLandingFaqs = [
+  {
+    question: "Who is the best website development company in Patna?",
+    answer:
+      "The best website development company in Patna depends on your goals, budget, and timeline. Compare portfolio quality, SEO-ready builds, post-launch support, and local delivery experience. Wixwave serves Patna businesses with performance-first websites, Shopify stores, and ongoing support.",
+  },
+  {
+    question: "What does a website development company in Patna typically charge?",
+    answer:
+      "Pricing varies by pages, design complexity, ecommerce needs, and integrations. Most business websites in Patna range from affordable brochure sites to larger custom builds. Wixwave shares a clear scope and quote before development starts.",
+  },
+  {
+    question: "Do you offer SEO-friendly website development in Patna?",
+    answer:
+      "Yes. Wixwave builds SEO-friendly websites in Patna with fast load times, mobile-first layouts, clean code, metadata, internal linking, and content structure that supports local rankings on Google.",
+  },
+  {
+    question: "How long does website development take in Patna?",
+    answer:
+      "A focused business website often takes 1–3 weeks. Shopify or larger custom projects may take 2–6 weeks depending on content readiness, features, and revision rounds.",
+  },
+];
+
 export const webDevFaqs = [
   {
     question: "What is included in website development services?",

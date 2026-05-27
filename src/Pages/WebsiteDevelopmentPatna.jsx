@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { SiNextdotjs, SiReact, SiShopify, SiWordpress } from "react-icons/si";
 import useSeo from "../hooks/useSeo";
+import { buildFaqJsonLd, patnaLandingFaqs } from "../data/serviceFaqs";
 import {
   breadcrumbsFor,
   buildServiceJsonLd,
@@ -9,9 +10,9 @@ import {
 
 export default function WebsiteDevelopmentPatna() {
   const canonical = "https://wixwave.co/website-development-patna";
-  const title = "Website Development Services in Patna | Wixwave";
+  const title = "Website Development Company in Patna | Wixwave";
   const description =
-    "Wixwave provides website development services in Patna with Shopify store builds, custom Shopify website development, performance-first UX, and SEO-ready structure. Work with professional Shopify developers in Patna for scalable, conversion-focused ecommerce.";
+    "Looking for a website development company in Patna? Wixwave builds fast, SEO-ready business websites and Shopify stores with performance-first UX, local SEO, and ongoing support for Patna brands.";
   const relatedLinks = [
     {
       to: "/services/web-dev",
@@ -62,18 +63,19 @@ export default function WebsiteDevelopmentPatna() {
       buildWebPageJsonLd({
         canonical,
         title,
-        name: "Website Development Services in Patna",
+        name: "Website Development Company in Patna",
         description,
         about: { "@id": `${canonical}#service` },
       }),
       buildServiceJsonLd({
         canonical,
-        name: "Website Development Services in Patna",
+        name: "Website Development Company in Patna",
         description,
         serviceType: "Website Development",
         areaServed: "Patna",
       }),
       breadcrumbsFor("patna", canonical),
+      buildFaqJsonLd(patnaLandingFaqs, canonical),
     ],
   });
 
@@ -103,7 +105,7 @@ export default function WebsiteDevelopmentPatna() {
           <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7">
               <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-950 leading-tight tracking-tight">
-                Website Development Services in Patna
+                Website Development Company in Patna
               </h1>
               <p className="mt-5 text-lg text-slate-700 leading-relaxed max-w-2xl">
                 Want a website that loads fast, looks premium, and actually converts? Wixwave is a
@@ -196,12 +198,19 @@ export default function WebsiteDevelopmentPatna() {
               <p className="mt-6 text-sm text-slate-600 leading-relaxed max-w-2xl">
                 Comparing teams in Patna? Use our{" "}
                 <Link
-                  to="/blog/choose-website-development-company-patna"
+                  to="/blog/business-website-development-company-patna"
                   className="text-slate-900 font-semibold underline underline-offset-4 hover:text-blue-700 transition"
                 >
-                  local digital partner guide
+                  business website development guide
                 </Link>{" "}
-                to evaluate each option on process, UX quality, technical depth, and support maturity.
+                and our{" "}
+                <Link
+                  to="/blog/shopify-expert-patna-store-development-guide"
+                  className="text-slate-900 font-semibold underline underline-offset-4 hover:text-blue-700 transition"
+                >
+                  Shopify expert in Patna guide
+                </Link>{" "}
+                to evaluate partners on process, UX quality, technical depth, and support.
               </p>
             </div>
 
@@ -352,8 +361,20 @@ export default function WebsiteDevelopmentPatna() {
           </div>
 
           <div className="rounded-3xl border border-gray-200 bg-white p-7 shadow-sm">
-            <h2 className="text-2xl font-extrabold text-gray-900">FAQs</h2>
+            <h2 className="text-2xl font-extrabold text-gray-900">
+              Frequently asked questions
+            </h2>
             <div className="mt-4 space-y-4">
+              <div>
+                <h3 className="font-bold text-gray-900">
+                  Why choose Wixwave as your website development company in Patna?
+                </h3>
+                <p className="mt-1 text-gray-600">
+                  We combine strategy, design, development, and SEO in one team—so your site is
+                  built to rank locally, load fast on mobile, and convert visitors into leads. You
+                  also get clear timelines, transparent pricing, and post-launch support.
+                </p>
+              </div>
               <div>
                 <h3 className="font-bold text-gray-900">
                   Do you provide Shopify development in Patna?

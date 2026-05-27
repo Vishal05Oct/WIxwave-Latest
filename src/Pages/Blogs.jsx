@@ -10,6 +10,32 @@ import {
 
 export const blogPosts = [
   {
+    id: 12,
+    title:
+      "Business Website Development in Patna (2026): Cost, Features & Company Guide",
+    date: "2026-05-27",
+    displayDate: "May 27, 2026",
+    tags: ["Business Website", "Patna", "Development"],
+    excerpt:
+      "Plan a business website in Patna: must-have features, realistic costs, SEO structure, and how to choose the best website development company in Patna.",
+    slug: "business-website-development-company-patna",
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
+  },
+  {
+    id: 11,
+    title:
+      "Shopify Expert in Patna (2026): Store Setup, Custom Development & Pricing",
+    date: "2026-05-27",
+    displayDate: "May 27, 2026",
+    tags: ["Shopify", "Patna", "Ecommerce"],
+    excerpt:
+      "Hire a Shopify expert in Patna for store setup, custom development, theme customization, SEO, and scalable ecommerce growth for local brands.",
+    slug: "shopify-expert-patna-store-development-guide",
+    image:
+      "https://www.retail-insight-network.com/wp-content/uploads/sites/18/2024/09/shopify-shutterstock_2372402473.jpg",
+  },
+  {
     id: 10,
     title: "Shopify vs WooCommerce (2026): Which Ecommerce Platform Is Better?",
     date: "2026-05-20",
@@ -19,7 +45,7 @@ export const blogPosts = [
       "Shopify vs WooCommerce compared for cost, SEO, speed, customization, and scalability—plus which platform fits small businesses in India.",
     slug: "shopify-vs-woocommerce-2026",
     image:
-      "https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=1600&q=80",
+      "https://www.clapcreative.com/images/Shopify-vs-WooCommerce-Which-is-Better-for-Your-Business.jpg",
   },
   {
     id: 9,
@@ -139,6 +165,8 @@ const Blogs = () => {
     canonical: 'https://wixwave.co/blog',
     keywords: [
       'website development company patna',
+      'business website development patna',
+      'shopify expert patna',
       'website development company gurugram',
       'website development company gurgaon',
       'seo tips',

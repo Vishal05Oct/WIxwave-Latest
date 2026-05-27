@@ -127,8 +127,36 @@ export const indexableRoutes = [
       "Stay ahead with Wixwave's blog: practical insights on website development, technology, and SEO for businesses in Patna and Gurugram.",
     priority: "0.7",
     changefreq: "weekly",
-    lastmod: "2026-05-19",
+    lastmod: "2026-05-27",
     breadcrumbKey: "blog",
+  },
+  {
+    path: "/blog/business-website-development-company-patna",
+    title:
+      "Business Website Development in Patna (2026): Cost, Features & Company Guide | Wixwave Blog",
+    description:
+      "Plan your business website in Patna: must-have features, realistic costs, SEO-ready structure, and how to choose the best website development company in Patna.",
+    priority: "0.6",
+    changefreq: "monthly",
+    lastmod: "2026-05-27",
+    type: "article",
+    datePublished: "2026-05-27",
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
+  },
+  {
+    path: "/blog/shopify-expert-patna-store-development-guide",
+    title:
+      "Shopify Expert in Patna (2026): Store Setup, Custom Development & Pricing | Wixwave Blog",
+    description:
+      "Hire a Shopify expert in Patna for store setup, custom Shopify website development, theme customization, payments, SEO, and scalable ecommerce growth.",
+    priority: "0.6",
+    changefreq: "monthly",
+    lastmod: "2026-05-27",
+    type: "article",
+    datePublished: "2026-05-27",
+    image:
+      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1600&q=80",
   },
   {
     path: "/blog/shopify-vs-woocommerce-2026",
