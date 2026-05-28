@@ -35,6 +35,7 @@ https://wixwave.co/
 
 - Patna: https://wixwave.co/website-development-patna
 - Gurugram: https://wixwave.co/website-development-gurugram
+- This Patna landing page is optimized for queries like "website development company in Patna", "best website development company in Patna", "shopify development company in Patna", "best digital marketing agency in Patna", "website development agency in Patna", and "top 10 website development company in Patna".
 
 ## Blog — Shopify & Ecommerce
 

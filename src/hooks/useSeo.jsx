@@ -205,7 +205,7 @@ export default function useSeo({
   const resolvedGeo = useMemo(
     () => ({
       region: "IN-BR",
-      placename: "Patna, Gurugram",
+      placename: "Patna, Bihar, India",
       position: "25.5941;85.1376",
       icbm: "25.5941, 85.1376",
       ...geo,

@@ -6,7 +6,7 @@ export const SITE = {
   logo: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746202311/3_rgrvsx.png",
   telephone: "+917479787717",
   description:
-    "Wixwave is a full-service digital agency offering website development, app development, SEO, branding, and digital marketing for businesses in Patna, Gurugram, and Gurgaon.",
+    "Wixwave is a full-service digital agency offering website development, app development, SEO, branding, and digital marketing for businesses in Patna, Bihar, Gurugram, and Gurgaon.",
   email: "connect@wixwave.co",
   foundingDate: "2020",
   knowsAbout: [
@@ -98,6 +98,7 @@ export function getOrganizationJsonLd() {
     sameAs: SITE.sameAs,
     areaServed: [
       { "@type": "City", name: "Patna" },
+      { "@type": "AdministrativeArea", name: "Bihar" },
       { "@type": "City", name: "Gurugram" },
       { "@type": "City", name: "Gurgaon" },
       { "@type": "Country", name: "India" },
@@ -147,6 +148,7 @@ export function getLocalBusinessJsonLd() {
     currenciesAccepted: "INR",
     areaServed: [
       { "@type": "City", name: "Patna" },
+      { "@type": "AdministrativeArea", name: "Bihar" },
       { "@type": "City", name: "Gurugram" },
       { "@type": "City", name: "Gurgaon" },
       { "@type": "Country", name: "India" },
@@ -156,12 +158,14 @@ export function getLocalBusinessJsonLd() {
       addressCountry: "IN",
       addressRegion: "Bihar",
       addressLocality: "Patna",
+      streetAddress: "Patna, Bihar",
     },
     geo: {
       "@type": "GeoCoordinates",
       latitude: 25.5941,
       longitude: 85.1376,
     },
+    hasMap: "https://maps.app.goo.gl/YSQFAgevasfNKmaU6",
     sameAs: SITE.sameAs,
     parentOrganization: { "@id": SITE_ORGANIZATION_ID },
     hasOfferCatalog: {
@@ -228,7 +232,13 @@ export function buildServiceJsonLd({
 }) {
   const url = absoluteUrl(canonical);
   const cities = areaServed
-    ? [{ "@type": "City", name: areaServed }]
+    ? areaServed === "Patna"
+      ? [
+          { "@type": "City", name: "Patna" },
+          { "@type": "AdministrativeArea", name: "Bihar" },
+          { "@type": "Country", name: "India" },
+        ]
+      : [{ "@type": "City", name: areaServed }]
     : [
         { "@type": "City", name: "Patna" },
         { "@type": "City", name: "Gurugram" },

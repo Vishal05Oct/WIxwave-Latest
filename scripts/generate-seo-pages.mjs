@@ -164,12 +164,17 @@ For each project, we focus on high-converting UX, mobile responsiveness, and imp
 We can also support post-launch needs such as maintenance, updates, performance improvements, bug fixes, conversion-focused enhancements, and ongoing SEO support so your website and app keep growing after launch.
 `.trim();
 
+  const routeSearchIntent =
+    route.path === "/website-development-patna"
+      ? "This page is optimized for search intent like \"website development company in Patna\", \"best website development company in Patna\", \"shopify development company in Patna\", \"best digital marketing agency in Patna\", \"website development agency in Patna\", and \"top 10 website development company in Patna\"."
+      : "";
+
   return `    <section id="llm-fallback" data-llm-fallback="true" aria-label="Page summary and link structure" style="font-size:12px;line-height:1.4;opacity:0.95;max-width:980px;margin:24px auto;display: none;padding:12px 16px;border-top:1px solid rgba(0,0,0,0.08) display:none;">
       <h1 style="margin:0 0 8px;">${safeTitle}</h1>
 
       <h2 style="margin:12px 0 6px;">Overview</h2>
       <p style="margin:0 0 8px;">${safeDescription}${extraLine}</p>
-      <p style="margin:0;">${escapeHtml(genericOverview)}</p>
+      <p style="margin:0;">${escapeHtml(genericOverview)}${routeSearchIntent ? `\n\n${escapeHtml(routeSearchIntent)}` : ""}</p>
 
       <h2 style="margin:16px 0 6px;">Services</h2>
       <h3 style="margin:10px 0 4px;">Website development</h3>
@@ -256,7 +261,9 @@ function metaFor(route) {
     <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="geo.region" content="IN-BR" />
-    <meta name="geo.placename" content="Patna, Gurugram" />
+    <meta name="geo.placename" content="Patna, Bihar, India" />
+    <meta name="geo.position" content="25.5941;85.1376" />
+    <meta name="ICBM" content="25.5941, 85.1376" />
     <link rel="canonical" href="${canonical}" />
     <link rel="alternate" href="${canonical}" hreflang="en-IN" />
     <link rel="alternate" type="text/plain" title="LLM content guide" href="https://wixwave.co/llms.txt" />

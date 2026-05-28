@@ -294,9 +294,9 @@ export const indexableRoutes = [
   },
   {
     path: "/website-development-patna",
-    title: "Website Development Services in Patna | Wixwave",
+    title: "Best Website Development Company in Patna | Wixwave",
     description:
-      "Wixwave provides website development services in Patna with Shopify store builds, custom Shopify development, performance-first UX, and SEO-ready structure.",
+      "Wixwave is the best website development company in Patna and a top digital marketing agency in Patna, delivering fast business websites, custom Shopify development, local SEO optimization, and high-converting digital experiences.",
     priority: "0.7",
     changefreq: "monthly",
     lastmod: "2026-05-19",
