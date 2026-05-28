@@ -10,9 +10,9 @@ import {
 
 export default function WebsiteDevelopmentPatna() {
   const canonical = "https://wixwave.co/website-development-patna";
-  const title = "Best Website Development Company in Patna | Wixwave";
+  const title = "Best Website Development Company in Patna, Bihar | Wixwave";
   const description =
-    "Looking for the best website development company in Patna? Wixwave builds fast, SEO-ready business websites and Shopify stores with performance-first UX, local Patna SEO, and ongoing support for Patna brands.";
+    "Looking for the best website development company in Patna, Bihar? Wixwave builds fast, SEO-ready business websites and Shopify stores with performance-first UX, local Patna SEO, and ongoing support for Patna brands.";
   const relatedLinks = [
     {
       to: "/services/web-dev",
@@ -115,7 +115,7 @@ export default function WebsiteDevelopmentPatna() {
           <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7">
               <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-950 leading-tight tracking-tight">
-                Website Development Company in Patna
+                Website Development Company in Patna, Bihar
               </h1>
               <p className="mt-5 text-lg text-slate-700 leading-relaxed max-w-2xl">
                 Want a website that loads fast, looks premium, and actually converts? If you are
@@ -130,6 +130,12 @@ export default function WebsiteDevelopmentPatna() {
                 agency in Patna", "website development agency in Patna", or "top 10 website
                 development company in Patna", Wixwave supports Patna brands with website builds,
                 Shopify development, and locally-focused digital marketing readiness.
+              </p>
+
+              <p className="mt-6 text-lg text-slate-700 leading-relaxed max-w-2xl">
+                As a Patna, Bihar based digital partner, we help local stores, service businesses,
+                manufacturers, and education providers win more leads with strong UX, fast pages, and
+                content that matches buyer intent in Patna search results.
               </p>
 
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl">
@@ -169,13 +175,13 @@ export default function WebsiteDevelopmentPatna() {
                     { Icon: SiReact, label: "React", iconClass: "text-[#087EA4]" },
                     { Icon: SiWordpress, label: "WordPress", iconClass: "text-[#21759B]" },
                     { Icon: SiShopify, label: "Shopify", iconClass: "text-[#7AB55C]" },
-                  ].map(({ Icon, label, iconClass }) => (
+                  ].map((stack) => (
                     <div
-                      key={label}
+                      key={stack.label}
                       className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white/70 px-3 py-2 shadow-sm backdrop-blur"
                     >
-                      <Icon aria-hidden className={`h-6 w-6 shrink-0 ${iconClass}`} />
-                      <span className="text-sm font-semibold text-slate-800">{label}</span>
+                      <stack.Icon aria-hidden className={`h-6 w-6 shrink-0 ${stack.iconClass}`} />
+                      <span className="text-sm font-semibold text-slate-800">{stack.label}</span>
                     </div>
                   ))}
                 </div>

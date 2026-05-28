@@ -9,9 +9,9 @@ import {
 
 export default function WebsiteDevelopmentGurugram() {
   const canonical = "https://wixwave.co/website-development-gurugram";
-  const title = "Website Development Services in Gurgaon (Gurugram) | Wixwave";
+  const title = "Best Website Development Company in Gurgaon (Gurugram) | Wixwave";
   const description =
-    "Wixwave provides website development services in Gurgaon (Gurugram) with Shopify store builds, custom Shopify website development, performance-first UX, and SEO-ready structure. Work with professional Shopify developers in Gurgaon for scalable, conversion-focused ecommerce.";
+    "Looking for the best website development company in Gurgaon (Gurugram)? Wixwave delivers fast, SEO-ready websites and Shopify store builds with performance-first UX, local Gurugram SEO, and ongoing digital marketing support for Gurgaon businesses.";
   const relatedLinks = [
     {
       to: "/services/web-dev",
@@ -44,6 +44,10 @@ export default function WebsiteDevelopmentGurugram() {
       "website development services in gurugram",
       "website development company in gurgaon",
       "website development company in gurugram",
+      "website development agency in gurugram",
+      "best digital marketing agency in gurugram",
+      "shopify development company in gurugram",
+      "top 10 website development company in gurugram",
       "shopify store development services",
       "custom shopify website development",
       "professional shopify developers in gurgaon",
@@ -52,6 +56,12 @@ export default function WebsiteDevelopmentGurugram() {
       "ecommerce website development gurgaon",
     ],
     robots: "index,follow",
+    geo: {
+      region: "IN-HR",
+      placename: "Gurugram, Haryana, India",
+      position: "28.4595;77.0266",
+      icbm: "28.4595, 77.0266",
+    },
     og: {
       url: canonical,
       type: "website",
@@ -103,11 +113,11 @@ export default function WebsiteDevelopmentGurugram() {
           <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7">
               <h1 className="text-4xl sm:text-6xl font-extrabold text-slate-950 leading-tight tracking-tight">
-                Website Development Services in Gurgaon
+                Website Development Company in Gurgaon (Gurugram)
               </h1>
               <p className="mt-5 text-lg text-slate-700 leading-relaxed max-w-2xl">
                 Want a website that loads fast, looks premium, and actually converts? Wixwave is a
-                trusted{" "}
+                trusted
                 <a
                   href="https://maps.app.goo.gl/YSQFAgevasfNKmaU6"
                   target="_blank"
@@ -115,10 +125,23 @@ export default function WebsiteDevelopmentGurugram() {
                   className="text-blue-700 hover:text-blue-800 underline"
                 >
                   website development company in Gurgaon
-                </a>{" "}
+                </a>
                 offering modern business websites, ecommerce website development, and custom Shopify
                 store development with clean UX, performance-first engineering, and an SEO-ready
                 foundation.
+              </p>
+
+              <p className="mt-6 text-lg text-slate-700 leading-relaxed max-w-2xl">
+                Whether you search for "shopify development company in Gurugram", "best digital
+                marketing agency in Gurugram", "website development agency in Gurugram", or "top 10
+                website development company in Gurugram", Wixwave supports Gurgaon businesses with
+                website builds, Shopify development, and locally-focused SEO-ready campaigns.
+              </p>
+
+              <p className="mt-6 text-lg text-slate-700 leading-relaxed max-w-2xl">
+                As a Gurgaon-based digital partner, we help local service firms, startups, and
+                ecommerce stores win more leads with strong UX, faster pages, and content that matches
+                buyer intent in Gurgaon search results.
               </p>
 
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl">
@@ -158,13 +181,13 @@ export default function WebsiteDevelopmentGurugram() {
                     { Icon: SiReact, label: "React", iconClass: "text-[#087EA4]" },
                     { Icon: SiWordpress, label: "WordPress", iconClass: "text-[#21759B]" },
                     { Icon: SiShopify, label: "Shopify", iconClass: "text-[#7AB55C]" },
-                  ].map(({ Icon, label, iconClass }) => (
+                  ].map((stack) => (
                     <div
-                      key={label}
+                      key={stack.label}
                       className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white/70 px-3 py-2 shadow-sm backdrop-blur"
                     >
-                      <Icon aria-hidden className={`h-6 w-6 shrink-0 ${iconClass}`} />
-                      <span className="text-sm font-semibold text-slate-800">{label}</span>
+                      <stack.Icon aria-hidden className={`h-6 w-6 shrink-0 ${stack.iconClass}`} />
+                      <span className="text-sm font-semibold text-slate-800">{stack.label}</span>
                     </div>
                   ))}
                 </div>

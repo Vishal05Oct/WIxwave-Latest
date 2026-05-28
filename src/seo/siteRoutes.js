@@ -294,9 +294,9 @@ export const indexableRoutes = [
   },
   {
     path: "/website-development-patna",
-    title: "Best Website Development Company in Patna | Wixwave",
+    title: "Best Website Development Company in Patna, Bihar | Wixwave",
     description:
-      "Wixwave is the best website development company in Patna and a top digital marketing agency in Patna, delivering fast business websites, custom Shopify development, local SEO optimization, and high-converting digital experiences.",
+      "Wixwave is the best website development company in Patna, Bihar and a top digital marketing agency in Patna. We deliver fast business websites, custom Shopify development, local SEO optimization, and high-converting digital experiences.",
     priority: "0.7",
     changefreq: "monthly",
     lastmod: "2026-05-19",
@@ -306,9 +306,9 @@ export const indexableRoutes = [
   },
   {
     path: "/website-development-gurugram",
-    title: "Website Development Services in Gurgaon (Gurugram) | Wixwave",
+    title: "Best Website Development Company in Gurgaon (Gurugram) | Wixwave",
     description:
-      "Wixwave provides website development services in Gurgaon and Gurugram with Shopify builds, custom development, performance-first UX, and SEO-ready structure.",
+      "Wixwave is the best website development company in Gurgaon (Gurugram), delivering fast business websites, custom Shopify development, local Gurugram SEO optimization, and high-converting digital experiences.",
     priority: "0.7",
     changefreq: "monthly",
     lastmod: "2026-05-19",
