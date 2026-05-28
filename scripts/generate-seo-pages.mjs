@@ -180,9 +180,11 @@ function bodyFallbackForRoute(route) {
 
   const safeFaqHtml = faqItems
     .map(
-      (item) => `<section aria-label="FAQ item">
-      <h3>${escapeHtml(item.question)}</h3>
-      <p>${escapeHtml(item.answer)}</p>
+      (item) => `<section aria-label="FAQ item" itemscope itemtype="https://schema.org/Question">
+      <h3 itemprop="name">${escapeHtml(item.question)}</h3>
+      <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+        <p itemprop="text">${escapeHtml(item.answer)}</p>
+      </div>
     </section>`
     )
     .join("\n");
@@ -199,19 +201,15 @@ function bodyFallbackForRoute(route) {
         .trim()
     : "";
 
-  // Insert outside #root so React won’t remove it when it mounts.
-  // Keep it readable to crawlers/auditors by avoiding offscreen positioning.
-  const genericOverview = `
-Wixwave is a digital agency delivering website development, app development, SEO, branding, social media marketing, and paid advertising for businesses across India, with strong delivery in Patna and Gurugram (Gurgaon). Our approach is strategy-led and performance-first: we plan site structure, build clean and scalable pages, optimize for speed and Core Web Vitals, and ensure SEO foundations like technical SEO, internal linking, structured data, and content that matches search intent.
-
-For each project, we focus on high-converting UX, mobile responsiveness, and implementation details that help your pages rank and stay competitive. We support businesses with technical SEO improvements, local SEO targeting, on-page optimization, keyword research, and reporting that tracks growth in rankings and leads. Whether you need a modern marketing website, a Shopify store build, a custom web or mobile app, or a complete digital marketing plan, Wixwave helps turn your goals into measurable outcomes.
-
-We can also support post-launch needs such as maintenance, updates, performance improvements, bug fixes, conversion-focused enhancements, and ongoing SEO support so your website and app keep growing after launch.
-`.trim();
+  const genericOverview =
+    "Wixwave is a digital agency delivering website development, app development, SEO, branding, social media marketing, and paid advertising for businesses across India, with strong delivery in Patna and Gurugram (Gurgaon). Our approach is strategy-led and performance-first: we plan site structure, build clean and scalable pages, optimize for speed and Core Web Vitals, and ensure SEO foundations like technical SEO, internal linking, structured data, and content that matches search intent.\n\nFor each project, we focus on high-converting UX, mobile responsiveness, and implementation details that help your pages rank and stay competitive. We support businesses with technical SEO improvements, local SEO targeting, on-page optimization, keyword research, and reporting that tracks growth in rankings and leads. Whether you need a modern marketing website, a Shopify store build, a custom web or mobile app, or a complete digital marketing plan, Wixwave helps turn your goals into measurable outcomes.\n\nWe can also support post-launch needs such as maintenance, updates, performance improvements, bug fixes, conversion-focused enhancements, and ongoing SEO support so your website and app keep growing after launch."
+      .replace(/"/g, "&quot;");
 
   const routeSearchIntent =
     route.path === "/website-development-patna"
-      ? "This page is optimized for search intent like \"website development company in Patna\", \"best website development company in Patna\", \"shopify development company in Patna\", \"best digital marketing agency in Patna\", \"website development agency in Patna\", and \"top 10 website development company in Patna\"."
+      ? "This page is optimized for search intent like &quot;website development company in Patna&quot;, &quot;best website development company in Patna&quot;, &quot;shopify development company in Patna&quot;, &quot;best digital marketing agency in Patna&quot;, &quot;website development agency in Patna&quot;, and &quot;top 10 website development company in Patna&quot;."
+      : route.path === "/website-development-gurugram"
+      ? "This page is optimized for search intent like &quot;website development company in Gurugram&quot;, &quot;best website development company in Gurgaon&quot;, &quot;shopify development Gurgaon&quot;, &quot;digital marketing agency Gurugram&quot;, and related high-intent queries."
       : "";
 
   return `    <section id="llm-fallback" data-llm-fallback="true" aria-label="Page summary and link structure" style="font-size:12px;line-height:1.4;opacity:0.95;max-width:980px;margin:24px auto;display: none;padding:12px 16px;border-top:1px solid rgba(0,0,0,0.08) display:none;">
@@ -219,7 +217,7 @@ We can also support post-launch needs such as maintenance, updates, performance 
 
       <h2 style="margin:12px 0 6px;">Overview</h2>
       <p style="margin:0 0 8px;">${safeDescription}${extraLine}</p>
-      <p style="margin:0;">${escapeHtml(genericOverview)}${routeSearchIntent ? `\n\n${escapeHtml(routeSearchIntent)}` : ""}</p>
+      <p style="margin:0;">${genericOverview}${routeSearchIntent ? `\n\n${routeSearchIntent}` : ""}</p>
 
       <h2 style="margin:16px 0 6px;">Services</h2>
       <h3 style="margin:10px 0 4px;">Website development</h3>
@@ -304,7 +302,6 @@ function metaFor(route) {
         if (reviewsData.aggregateRating) lb.aggregateRating = reviewsData.aggregateRating;
         if (Array.isArray(reviewsData.reviews) && reviewsData.reviews.length) lb.review = reviewsData.reviews;
         siteLevel[lbIndex] = lb;
-        // overwrite siteLevel variable for downstream JSON-LD injection
       }
     }
   } catch (e) {
@@ -325,6 +322,13 @@ function metaFor(route) {
     <meta property="article:section" content="Blog" />`
       : "";
 
+  // AEO enhancements: author, publisher, content classification
+  const aeoBenefits = `
+    <meta name="author" content="Wixwave" />
+    <meta name="publisher" content="Wixwave" />
+    <meta name="article.author" content="Wixwave" />
+    <meta name="content-type" content="text/html; charset=UTF-8" />`;
+
   return `    <title>${safeTitle}</title>
     <meta name="title" content="${safeTitle}" />
     <meta name="description" content="${safeDescription}" />
@@ -337,7 +341,7 @@ function metaFor(route) {
     <meta name="geo.region" content="${geo.region}" />
     <meta name="geo.placename" content="${escapeHtml(geo.placename)}" />
     <meta name="geo.position" content="${geo.position}" />
-    <meta name="ICBM" content="${geo.icbm}" />
+    <meta name="ICBM" content="${geo.icbm}" />${aeoBenefits}
     <link rel="canonical" href="${canonical}" />
     <link rel="alternate" href="${canonical}" hreflang="en-IN" />
     <link rel="alternate" href="${canonical}" hreflang="hi-IN" />

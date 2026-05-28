@@ -107,6 +107,7 @@ export function getOrganizationJsonLd() {
     foundingDate: SITE.foundingDate,
     knowsAbout: SITE.knowsAbout,
     sameAs: SITE.sameAs,
+    slogan: "Award-winning digital solutions for growth-focused businesses across India",
     areaServed: [
       { "@type": "City", name: "Patna" },
       { "@type": "AdministrativeArea", name: "Bihar" },
@@ -122,6 +123,7 @@ export function getOrganizationJsonLd() {
         contactType: "sales",
         areaServed: ["IN"],
         availableLanguage: ["English", "Hindi"],
+        hoursAvailable: "Mo-Fr 09:30-18:30; Sa 10:00-16:00",
       },
     ],
   };
@@ -528,4 +530,64 @@ export function buildBlogBreadcrumbsJsonLd({ articleName, canonicalUrl }) {
     { name: "Blog", item: blogUrl },
     { name: articleName, item: article },
   ]);
+}
+
+/** FAQ schema for enhanced AEO (Answer Engine Optimization) */
+export function buildFaqJsonLd(faqs) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+}
+
+/** QAPage schema for service pages with Q&A content */
+export function buildQaPageJsonLd({ canonical, title, description, questions }) {
+  const url = absoluteUrl(canonical);
+  return {
+    "@context": "https://schema.org",
+    "@type": "QAPage",
+    "@id": `${url}#qapage`,
+    url,
+    name: stripTailBrand(title),
+    description,
+    inLanguage: "en-IN",
+    isPartOf: { "@id": SITE_WEBSITE_ID },
+    publisher: { "@id": SITE_ORGANIZATION_ID },
+    mainEntity: questions.map((q) => ({
+      "@type": "Question",
+      name: q.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: q.answer,
+      },
+    })),
+  };
+}
+
+/** HowTo schema for service process pages */
+export function buildHowToJsonLd({ canonical, title, description, steps }) {
+  const url = absoluteUrl(canonical);
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "@id": `${url}#howto`,
+    url,
+    name: stripTailBrand(title),
+    description,
+    step: steps.map((step, idx) => ({
+      "@type": "HowToStep",
+      position: idx + 1,
+      name: step.name,
+      text: step.description,
+      ...(step.image ? { image: step.image } : {}),
+    })),
+  };
 }
