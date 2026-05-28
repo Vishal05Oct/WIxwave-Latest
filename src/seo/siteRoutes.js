@@ -303,6 +303,7 @@ export const indexableRoutes = [
     breadcrumbKey: "patna",
     serviceType: "Website Development",
     areaServed: "Patna",
+    category: "Website Development",
   },
   {
     path: "/website-development-gurugram",
@@ -315,6 +316,7 @@ export const indexableRoutes = [
     breadcrumbKey: "gurugram",
     serviceType: "Website Development",
     areaServed: "Gurugram",
+    category: "Website Development",
   },
   {
     path: "/contact",

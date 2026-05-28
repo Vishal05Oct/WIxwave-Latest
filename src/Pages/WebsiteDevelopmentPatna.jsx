@@ -83,6 +83,7 @@ export default function WebsiteDevelopmentPatna() {
         description,
         serviceType: "Website Development",
         areaServed: "Patna",
+        category: "Website Development",
       }),
       breadcrumbsFor("patna", canonical),
       buildFaqJsonLd(patnaLandingFaqs, canonical),

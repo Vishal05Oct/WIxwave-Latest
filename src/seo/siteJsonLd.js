@@ -19,6 +19,14 @@ export const SITE = {
     "Local SEO",
     "Shopify Development",
   ],
+  keywords: [
+    "website development",
+    "shopify development",
+    "local SEO",
+    "digital marketing",
+    "branding",
+    "app development",
+  ],
   sameAs: [
     "https://www.linkedin.com/company/wixwave/",
     "https://www.facebook.com/people/WixWave-The-Digital-Solutions/61570872845668/",
@@ -26,6 +34,9 @@ export const SITE = {
     "https://x.com/Wixwave",
     "https://maps.app.goo.gl/YSQFAgevasfNKmaU6",
   ],
+  // Optional ratings / reviews - populate with real values if available
+  aggregateRating: null,
+  reviews: [],
 };
 
 /** Core service offerings for ItemList / AEO entity clarity */
@@ -125,11 +136,21 @@ export function getWebsiteJsonLd() {
     url: SITE.url,
     publisher: { "@id": SITE_ORGANIZATION_ID },
     inLanguage: "en-IN",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${SITE.url}/blog?query={search_term_string}`,
-      "query-input": "required name=search_term_string",
-    },
+    mainEntity: { "@id": SITE_ORGANIZATION_ID },
+    keywords: SITE.keywords,
+    potentialAction: [
+      {
+        "@type": "SearchAction",
+        target: `${SITE.url}/blog?query={search_term_string}`,
+        "query-input": "required name=search_term_string",
+      },
+      {
+        "@type": "SearchAction",
+        name: "Search services",
+        target: `${SITE.url}/?query={search_term_string}`,
+        "query-input": "required name=search_term_string",
+      }
+    ],
   };
 }
 
@@ -146,6 +167,26 @@ export function getLocalBusinessJsonLd() {
     email: SITE.email,
     priceRange: "$$",
     currenciesAccepted: "INR",
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        opens: "09:30",
+        closes: "18:30"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Saturday"],
+        opens: "10:00",
+        closes: "16:00"
+      }
+    ],
     areaServed: [
       { "@type": "City", name: "Patna" },
       { "@type": "AdministrativeArea", name: "Bihar" },
@@ -153,6 +194,14 @@ export function getLocalBusinessJsonLd() {
       { "@type": "City", name: "Gurgaon" },
       { "@type": "Country", name: "India" },
     ],
+    serviceArea: {
+      "@type": "ServiceArea",
+      areaServed: [
+        { "@type": "AdministrativeArea", name: "Bihar" },
+        { "@type": "AdministrativeArea", name: "Haryana" },
+        { "@type": "Country", name: "India" }
+      ]
+    },
     address: {
       "@type": "PostalAddress",
       addressCountry: "IN",
@@ -182,6 +231,8 @@ export function getLocalBusinessJsonLd() {
         },
       })),
     },
+    ...(SITE.aggregateRating ? { aggregateRating: SITE.aggregateRating } : {}),
+    ...(Array.isArray(SITE.reviews) && SITE.reviews.length > 0 ? { review: SITE.reviews } : {}),
   };
 }
 
@@ -229,6 +280,7 @@ export function buildServiceJsonLd({
   description,
   serviceType,
   areaServed,
+  category,
 }) {
   const url = absoluteUrl(canonical);
   const cities = areaServed
@@ -252,6 +304,9 @@ export function buildServiceJsonLd({
     url,
     description,
     serviceType: serviceType || name,
+    additionalType: "https://schema.org/Service",
+    ...(category ? { category } : {}),
+    serviceOutput: name,
     areaServed: cities,
     provider: { "@id": SITE_ORGANIZATION_ID },
     mainEntityOfPage: { "@id": `${url}#webpage` },
