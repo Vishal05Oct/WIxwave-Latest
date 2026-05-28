@@ -164,7 +164,7 @@ For each project, we focus on high-converting UX, mobile responsiveness, and imp
 We can also support post-launch needs such as maintenance, updates, performance improvements, bug fixes, conversion-focused enhancements, and ongoing SEO support so your website and app keep growing after launch.
 `.trim();
 
-  return `    <section id="llm-fallback" data-llm-fallback="true" aria-label="Page summary and link structure" style="font-size:12px;line-height:1.4;opacity:0.95;max-width:980px;margin:24px auto;padding:12px 16px;border-top:1px solid rgba(0,0,0,0.08);">
+  return `    <section id="llm-fallback" data-llm-fallback="true" aria-label="Page summary and link structure" style="font-size:12px;line-height:1.4;opacity:0.95;max-width:980px;margin:24px auto;padding:12px 16px;border-top:1px solid rgba(0,0,0,0.08) display:none;">
       <h1 style="margin:0 0 8px;">${safeTitle}</h1>
 
       <h2 style="margin:12px 0 6px;">Overview</h2>
