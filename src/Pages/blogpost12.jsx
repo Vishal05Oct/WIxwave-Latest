@@ -1,12 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import useSeo from "../hooks/useSeo";
-import {
-  blogHeadlineFromSeoTitle,
-  buildBlogBreadcrumbsJsonLd,
-  buildBlogPostingJsonLd,
-} from "../seo/siteJsonLd";
+import useRouteSeo from "../hooks/useRouteSeo";
 
 export default function BlogPost12() {
   const [progress, setProgress] = useState(0);
@@ -29,48 +24,8 @@ export default function BlogPost12() {
 
   const datePublished = "2026-05-27";
 
-  useSeo({
-    title,
-    description,
-    canonical: canonicalUrl,
-    article: {
-      publishedTime: `${datePublished}T00:00:00+05:30`,
-    },
-    og: {
-      url: canonicalUrl,
-      type: "article",
-      image: heroImage,
-    },
-    keywords: [
-      "business website development Patna",
-      "business website Patna",
-      "website development company in Patna",
-      "professional business website Patna",
-      "corporate website development Patna",
-      "small business website Patna",
-      "best website development company in Patna",
-      "affordable business website Patna",
-      "company website design Patna",
-      "SEO friendly business website Patna",
-      "web design company in Patna",
-      "custom business website Patna",
-      "website development services in Patna",
-      "business website cost Patna",
-    ],
-    jsonLdArray: [
-      buildBlogPostingJsonLd({
-        headline: blogHeadlineFromSeoTitle(title),
-        description,
-        url: canonicalUrl,
-        datePublished,
-        image: heroImage,
-      }),
-      buildBlogBreadcrumbsJsonLd({
-        articleName: blogHeadlineFromSeoTitle(title),
-        canonicalUrl,
-      }),
-    ],
-  });
+
+  useRouteSeo("/blog/business-website-development-company-patna");
 
   useEffect(() => {
     let cachedTotal = null;

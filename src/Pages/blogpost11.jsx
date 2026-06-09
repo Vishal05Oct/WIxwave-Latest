@@ -1,12 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import useSeo from "../hooks/useSeo";
-import {
-  blogHeadlineFromSeoTitle,
-  buildBlogBreadcrumbsJsonLd,
-  buildBlogPostingJsonLd,
-} from "../seo/siteJsonLd";
+import useRouteSeo from "../hooks/useRouteSeo";
 
 export default function BlogPost11() {
   const [progress, setProgress] = useState(0);
@@ -29,48 +24,8 @@ export default function BlogPost11() {
 
   const datePublished = "2026-05-27";
 
-  useSeo({
-    title,
-    description,
-    canonical: canonicalUrl,
-    article: {
-      publishedTime: `${datePublished}T00:00:00+05:30`,
-    },
-    og: {
-      url: canonicalUrl,
-      type: "article",
-      image: heroImage,
-    },
-    keywords: [
-      "Shopify expert Patna",
-      "Shopify website development Patna",
-      "Shopify store development Patna",
-      "hire Shopify developer Patna",
-      "Shopify development company Patna",
-      "Shopify ecommerce Patna",
-      "custom Shopify store Patna",
-      "Shopify store setup Patna",
-      "Shopify theme customization Patna",
-      "Shopify SEO Patna",
-      "best Shopify expert in Patna",
-      "Shopify consultants Patna",
-      "ecommerce website development Patna",
-      "online store development Patna",
-    ],
-    jsonLdArray: [
-      buildBlogPostingJsonLd({
-        headline: blogHeadlineFromSeoTitle(title),
-        description,
-        url: canonicalUrl,
-        datePublished,
-        image: heroImage,
-      }),
-      buildBlogBreadcrumbsJsonLd({
-        articleName: blogHeadlineFromSeoTitle(title),
-        canonicalUrl,
-      }),
-    ],
-  });
+
+  useRouteSeo("/blog/shopify-expert-patna-store-development-guide");
 
   useEffect(() => {
     let cachedTotal = null;

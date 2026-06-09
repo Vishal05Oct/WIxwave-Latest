@@ -10,13 +10,21 @@ export const indexableRoutes = [
   {
     path: "/",
     title:
-      "Wixwave | Web Design, App Development, SEO & Digital Marketing in Gurgaon & Patna",
+      "Wixwave | Web, App, SEO & Digital Marketing in Gurgaon & Patna",
     description:
       "Wixwave empowers businesses in Gurgaon and Patna with expert web design, app development, SEO, branding, and digital marketing. Start your digital journey with our local team.",
     priority: "1.0",
     changefreq: "weekly",
-    lastmod: "2026-05-19",
+    lastmod: "2026-06-09",
     breadcrumbKey: "home",
+    faqKey: "home",
+    keywords: [
+      "best it company in patna",
+      "website development company patna",
+      "website development company gurugram",
+      "digital marketing agency patna",
+      "seo agency gurugram",
+    ],
   },
   {
     path: "/about",
@@ -31,14 +39,21 @@ export const indexableRoutes = [
   },
   {
     path: "/services",
-    title: "Digital Agency Patna & Gurugram | Web, App, SEO & Marketing",
+    title: "Digital Agency Patna & Gurugram | Web, App, SEO, AEO & Marketing",
     description:
-      "Wixwave is a Patna and Gurugram digital agency for website development, app development, SEO, branding, social media, and paid ads. Strategy-led projects with free consultation.",
+      "Wixwave is a Patna and Gurugram digital agency for website development, app development, SEO, branding, social media, and paid ads. Strategy-led execution with free consultation and measurable growth.",
     priority: "0.8",
     changefreq: "monthly",
-    lastmod: "2026-05-19",
+    lastmod: "2026-06-09",
     breadcrumbKey: "services",
     faqKey: "services",
+    keywords: [
+      "website development company patna",
+      "website development company gurugram",
+      "seo services patna",
+      "answer engine optimization services india",
+      "digital marketing agency gurugram",
+    ],
   },
   {
     path: "/services/web-dev",
@@ -86,6 +101,7 @@ export const indexableRoutes = [
     changefreq: "monthly",
     lastmod: "2026-05-19",
     breadcrumbKey: "branding",
+    faqKey: "branding",
     serviceType: "Branding",
   },
   {
@@ -97,6 +113,7 @@ export const indexableRoutes = [
     changefreq: "monthly",
     lastmod: "2026-05-19",
     breadcrumbKey: "social-media",
+    faqKey: "social-media",
     serviceType: "Social Media Marketing",
   },
   {
@@ -108,6 +125,7 @@ export const indexableRoutes = [
     changefreq: "monthly",
     lastmod: "2026-05-19",
     breadcrumbKey: "paid-ads",
+    faqKey: "paid-ads",
     serviceType: "Paid Advertising",
   },
   {
@@ -301,22 +319,34 @@ export const indexableRoutes = [
     changefreq: "monthly",
     lastmod: "2026-05-19",
     breadcrumbKey: "patna",
+    faqKey: "patna",
     serviceType: "Website Development",
     areaServed: "Patna",
     category: "Website Development",
+    keywords: [
+      "website development company in patna",
+      "best website development company patna",
+      "shopify development company in patna",
+    ],
   },
   {
     path: "/website-development-gurugram",
     title: "Best Website Development Company in Gurgaon (Gurugram) | Wixwave",
     description:
-      "Wixwave is the best website development company in Gurgaon (Gurugram), delivering fast business websites, custom Shopify development, local Gurugram SEO optimization, and high-converting digital experiences.",
+      "Looking for the best website development company in Gurgaon (Gurugram)? Wixwave delivers fast, SEO-ready websites and Shopify store builds with performance-first UX, local Gurugram SEO, and ongoing digital marketing support.",
     priority: "0.7",
     changefreq: "monthly",
-    lastmod: "2026-05-19",
+    lastmod: "2026-06-09",
     breadcrumbKey: "gurugram",
+    faqKey: "gurugram",
     serviceType: "Website Development",
     areaServed: "Gurugram",
     category: "Website Development",
+    keywords: [
+      "website development company in gurugram",
+      "best website development company in gurgaon",
+      "shopify development company in gurugram",
+    ],
   },
   {
     path: "/contact",
@@ -341,4 +371,21 @@ export const noIndexRoutes = [
 
 export function canonicalFor(path) {
   return `${SITE_URL}${path === "/" ? "/" : path}`;
+}
+
+/** Look up indexable route config by pathname. */
+export function getRouteByPath(pathname) {
+  const normalized = pathname === "/" ? "/" : pathname.replace(/\/$/, "");
+  return indexableRoutes.find((route) => route.path === normalized) ?? null;
+}
+
+/** Look up noindex route config by pathname (e.g. /thank-you). */
+export function getNoIndexRouteByPath(pathname) {
+  const normalized = pathname === "/" ? "/" : pathname.replace(/\/$/, "");
+  return noIndexRoutes.find((route) => route.path === normalized) ?? null;
+}
+
+/** Indexable or noindex route — used by useRouteSeo. */
+export function getRouteConfig(pathname) {
+  return getRouteByPath(pathname) ?? getNoIndexRouteByPath(pathname);
 }

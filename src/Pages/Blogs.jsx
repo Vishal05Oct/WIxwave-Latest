@@ -1,12 +1,8 @@
 import { Link } from 'react-router-dom'
 import Hero from '../Components/Blogs_Hero'
-import useSeo from '../hooks/useSeo'
+import useRouteSeo from '../hooks/useRouteSeo'
 import { ServiceLinks } from '../Components/ServiceLinks'
-import {
-  breadcrumbsFor,
-  buildBlogCollectionJsonLd,
-  buildWebPageJsonLd,
-} from '../seo/siteJsonLd'
+import { buildBlogCollectionJsonLd } from '../seo/siteJsonLd'
 
 export const blogPosts = [
   {
@@ -158,38 +154,10 @@ export const blogPosts = [
 ]
 
 const Blogs = () => {
-  useSeo({
-    title: 'Wixwave Blog | Website Development & SEO Insights (Patna & Gurugram)',
-    description:
-      "Stay ahead with Wixwave's blog: practical insights on website development, technology, and SEO for businesses in Patna and Gurugram (Gurgaon).",
-    canonical: 'https://wixwave.co/blog',
-    keywords: [
-      'website development company patna',
-      'business website development patna',
-      'shopify expert patna',
-      'website development company gurugram',
-      'website development company gurgaon',
-      'seo tips',
-      'web development blog',
-    ],
-    robots: 'index,follow',
-    og: {
-      url: 'https://wixwave.co/blog',
-      type: 'website',
-      image: blogPosts[0]?.image,
-      siteName: 'Wixwave',
-      locale: 'en_IN',
-    },
-    jsonLdArray: [
-      buildWebPageJsonLd({
-        canonical: 'https://wixwave.co/blog',
-        title: 'Wixwave Blog | Website Development & SEO Insights (Patna & Gurugram)',
-        description:
-          "Stay ahead with Wixwave's blog: practical insights on website development, technology, and SEO for businesses in Patna and Gurugram (Gurgaon).",
-      }),
-      breadcrumbsFor('blog', 'https://wixwave.co/blog'),
-      buildBlogCollectionJsonLd(blogPosts),
-    ],
+  useRouteSeo({
+    path: '/blog',
+    extraJsonLd: [buildBlogCollectionJsonLd(blogPosts)],
+    og: { image: blogPosts[0]?.image },
   })
 
   const sortedPosts = [...blogPosts].sort(

@@ -1,17 +1,11 @@
 import { Link } from "react-router-dom";
 import { SiNextdotjs, SiReact, SiShopify, SiWordpress } from "react-icons/si";
-import useSeo from "../hooks/useSeo";
-import {
-  breadcrumbsFor,
-  buildServiceJsonLd,
-  buildWebPageJsonLd,
-} from "../seo/siteJsonLd";
+import useRouteSeo from "../hooks/useRouteSeo";
+import { gurugramLandingFaqs } from "../data/serviceFaqs";
 
 export default function WebsiteDevelopmentGurugram() {
-  const canonical = "https://wixwave.co/website-development-gurugram";
-  const title = "Best Website Development Company in Gurgaon (Gurugram) | Wixwave";
-  const description =
-    "Looking for the best website development company in Gurgaon (Gurugram)? Wixwave delivers fast, SEO-ready websites and Shopify store builds with performance-first UX, local Gurugram SEO, and ongoing digital marketing support for Gurgaon businesses.";
+  useRouteSeo("/website-development-gurugram");
+
   const relatedLinks = [
     {
       to: "/services/web-dev",
@@ -34,58 +28,6 @@ export default function WebsiteDevelopmentGurugram() {
       text: "Create mobile apps to expand your reach in Gurugram.",
     },
   ];
-
-  useSeo({
-    title,
-    description,
-    canonical,
-    keywords: [
-      "website development services in gurgaon",
-      "website development services in gurugram",
-      "website development company in gurgaon",
-      "website development company in gurugram",
-      "website development agency in gurugram",
-      "best digital marketing agency in gurugram",
-      "shopify development company in gurugram",
-      "top 10 website development company in gurugram",
-      "shopify store development services",
-      "custom shopify website development",
-      "professional shopify developers in gurgaon",
-      "shopify e-commerce website development company",
-      "shopify website development gurgaon",
-      "ecommerce website development gurgaon",
-    ],
-    robots: "index,follow",
-    geo: {
-      region: "IN-HR",
-      placename: "Gurugram, Haryana, India",
-      position: "28.4595;77.0266",
-      icbm: "28.4595, 77.0266",
-    },
-    og: {
-      url: canonical,
-      type: "website",
-      siteName: "Wixwave",
-      locale: "en_IN",
-    },
-    jsonLdArray: [
-      buildWebPageJsonLd({
-        canonical,
-        title,
-        name: "Website Development Services in Gurgaon (Gurugram)",
-        description,
-        about: { "@id": `${canonical}#service` },
-      }),
-      buildServiceJsonLd({
-        canonical,
-        name: "Website Development Services in Gurgaon (Gurugram)",
-        description,
-        serviceType: "Website Development",
-        areaServed: "Gurugram",
-      }),
-      breadcrumbsFor("gurugram", canonical),
-    ],
-  });
 
   return (
     <main className="bg-gradient-to-b from-white via-slate-50 to-white">
@@ -615,6 +557,20 @@ export default function WebsiteDevelopmentGurugram() {
                   </span>
                 </div>
               </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-12 rounded-3xl border border-gray-200 bg-white p-7 shadow-sm">
+          <h2 className="text-2xl font-extrabold text-gray-900">
+            Frequently asked questions
+          </h2>
+          <div className="mt-4 space-y-4">
+            {gurugramLandingFaqs.map((item) => (
+              <div key={item.question}>
+                <h3 className="font-bold text-gray-900">{item.question}</h3>
+                <p className="mt-1 text-gray-600">{item.answer}</p>
+              </div>
             ))}
           </div>
         </div>

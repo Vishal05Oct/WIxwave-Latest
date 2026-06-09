@@ -2,11 +2,14 @@ import { absoluteUrl } from "../seo/siteJsonLd.js";
 
 /** @param {string} [pageCanonical] — adds stable @id for this URL */
 export function buildFaqJsonLd(items, pageCanonical) {
+  const pageUrl = pageCanonical ? absoluteUrl(pageCanonical) : null;
   const base = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: items.map((item) => ({
+    inLanguage: "en-IN",
+    mainEntity: items.map((item, index) => ({
       "@type": "Question",
+      ...(pageUrl ? { "@id": `${pageUrl}#faq-q${index + 1}` } : {}),
       name: item.question,
       acceptedAnswer: {
         "@type": "Answer",
@@ -14,11 +17,65 @@ export function buildFaqJsonLd(items, pageCanonical) {
       },
     })),
   };
-  if (pageCanonical) {
-    base["@id"] = `${absoluteUrl(pageCanonical)}#faq`;
+  if (pageUrl) {
+    base["@id"] = `${pageUrl}#faq`;
+    base.url = pageUrl;
   }
   return base;
 }
+
+/** Home page entity FAQs for Google AI / answer engines. */
+export const homeEntityFaqs = [
+  {
+    question: "What is Wixwave?",
+    answer:
+      "Wixwave is a digital agency that helps businesses in Patna and Gurugram grow online through website development, app development, SEO, branding, social media, and paid advertising.",
+  },
+  {
+    question: "What services does Wixwave offer?",
+    answer:
+      "Wixwave offers website development, app development, SEO services, branding, social media marketing, and paid ads management for startups and established businesses in India.",
+  },
+  {
+    question: "Does Wixwave work with businesses in Patna and Gurugram?",
+    answer:
+      "Yes. Wixwave serves Patna, Gurugram (Gurgaon), and clients across India with local SEO, custom websites, Shopify stores, and digital marketing.",
+  },
+  {
+    question: "How can I contact Wixwave?",
+    answer:
+      "Reach Wixwave at connect@wixwave.co, +917479787717, or https://wixwave.co/contact for a free consultation.",
+  },
+];
+
+/** Gurugram location landing (/website-development-gurugram) */
+export const gurugramLandingFaqs = [
+  {
+    question: "Who is the best website development company in Gurugram (Gurgaon)?",
+    answer:
+      "The best website development company in Gurugram depends on your goals, budget, and timeline. Compare portfolio quality, SEO-ready builds, Shopify expertise, and post-launch support. Wixwave serves Gurugram and Gurgaon businesses with performance-first websites and ongoing digital marketing.",
+  },
+  {
+    question: "What does website development cost in Gurugram?",
+    answer:
+      "Website development pricing in Gurugram varies by pages, design complexity, ecommerce needs, and integrations. Business websites range from brochure sites to larger custom builds. Wixwave provides a clear scope and quote before development starts.",
+  },
+  {
+    question: "Do you offer SEO-friendly website development in Gurugram?",
+    answer:
+      "Yes. Wixwave builds SEO-friendly websites in Gurugram with fast load times, mobile-first layouts, clean code, metadata, internal linking, and content structure that supports local rankings on Google.",
+  },
+  {
+    question: "How long does website development take in Gurugram?",
+    answer:
+      "A focused business website often takes 1–3 weeks. Shopify or larger custom projects may take 2–6 weeks depending on content readiness, features, and revision rounds.",
+  },
+  {
+    question: "Do you provide Shopify development in Gurugram?",
+    answer:
+      "Yes. Wixwave offers Shopify store development in Gurugram including theme customization, product setup, payment gateways, app integrations, and performance optimization for ecommerce growth.",
+  },
+];
 
 /** Patna location landing (/website-development-patna) */
 export const patnaLandingFaqs = [

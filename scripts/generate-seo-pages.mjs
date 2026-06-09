@@ -12,28 +12,28 @@ import {
   getLocalBusinessJsonLd,
   SITE,
 } from "../src/seo/siteJsonLd.js";
-import {
-  aboutFaqs,
-  buildFaqJsonLd,
-  servicesHubFaqs,
-  webDevFaqs,
-  appDevFaqs,
-  seoFaqs,
-} from "../src/data/serviceFaqs.js";
+import { buildFaqJsonLd } from "../src/data/serviceFaqs.js";
 import {
   canonicalFor,
   DEFAULT_OG_IMAGE,
   indexableRoutes,
   noIndexRoutes,
 } from "../src/seo/siteRoutes.js";
-
-const FAQ_BY_KEY = {
-  about: aboutFaqs,
-  services: servicesHubFaqs,
-  "web-dev": webDevFaqs,
-  "app-dev": appDevFaqs,
-  seo: seoFaqs,
-};
+import {
+  DEFAULT_OG_IMAGE_ALT,
+  FAQ_BY_KEY,
+  geoForRoute,
+  hreflangLinksFor,
+  OG_IMAGE_DIMENSIONS,
+} from "../src/seo/seoConfig.js";
+import { jsonLdForRoute, stripTailBrand } from "../src/seo/routeSeo.js";
+import {
+  buildRobotsTxt,
+  getCrawlNavLinks,
+  INDEX_ROBOTS,
+  NOINDEX_ROBOTS,
+} from "../src/seo/crawlConfig.js";
+import { buildAeoHeadMetaHtml } from "../src/seo/aeoConfig.js";
 
 const distDir = "dist";
 const publicDir = "public";
@@ -52,119 +52,19 @@ function stripManagedHead(html) {
   return html
     .replace(/<title>[\s\S]*?<\/title>\s*/i, "")
     .replace(
-      /\s*<meta\s+(?:name|property)=["'](?:description|title|robots|googlebot|bingbot|author|publisher|application-name|geo\.[^"']+|ICBM|og:[^"']+|twitter:[^"']+|article:[^"']+)["'][\s\S]*?>/gi,
+      /\s*<meta\s+(?:name|property)=["'](?:description|title|robots|googlebot|bingbot|google-site-verification|author|publisher|application-name|geo\.[^"']+|ICBM|og:[^"']+|twitter:[^"']+|article:[^"']+)["'][\s\S]*?>/gi,
       ""
     )
-    .replace(/\s*<link\s+rel=["'](?:canonical|alternate|help)["'][\s\S]*?>/gi, "");
+    .replace(/\s*<link\s+rel=["'](?:canonical|alternate|help|sitemap)["'][\s\S]*?>/gi, "");
 }
 
-// Derive geo meta values from route.areaServed or route.geo when provided.
-function geoForRoute(route) {
-  // explicit per-route override
-  if (route && route.geo) return route.geo;
-
-  const area = (route && route.areaServed) ? String(route.areaServed).toLowerCase() : "";
-
-  // default to Patna
-  const defaults = {
-    region: "IN-BR",
-    placename: "Patna, Bihar, India",
-    position: "25.5941;85.1376",
-    icbm: "25.5941, 85.1376",
-  };
-
-  if (!area) return defaults;
-
-  if (area.includes("patna")) return defaults;
-
-  if (area.includes("gurugram") || area.includes("gurgaon") || area.includes("gurgaon")) {
-    return {
-      region: "IN-HR",
-      placename: "Gurugram (Gurgaon), Haryana, India",
-      position: "28.4595;77.0266",
-      icbm: "28.4595, 77.0266",
-    };
-  }
-
-  // fallback to defaults if unknown
-  return defaults;
-}
-
-function jsonLdForRoute(route) {
-  const canonical = canonicalFor(route.path);
-  const blocks = [];
-
-  // Build service block when route represents a service or area-specific page
-  let serviceBlock = null;
-  if (route.serviceType && route.path.startsWith("/services/")) {
-    serviceBlock = buildServiceJsonLd({
-      canonical,
-      name: route.serviceType,
-      description: route.description,
-      serviceType: route.serviceType,
-      category: route.category,
-    });
-  }
-  if (route.areaServed && route.path.includes("website-development")) {
-    serviceBlock = buildServiceJsonLd({
-      canonical,
-      name: stripTailBrand(route.title),
-      description: route.description,
-      serviceType: route.serviceType || "Website Development",
-      areaServed: route.areaServed,
-      category: route.category,
-    });
-  }
-
-  // Build the WebPage and attach `about` reference to the service when available
-  const webPageBlock = buildWebPageJsonLd({
-    canonical,
-    title: route.title,
-    description: route.description,
-  });
-  if (serviceBlock) webPageBlock.about = { "@id": serviceBlock["@id"] };
-  blocks.push(webPageBlock);
-
-  if (route.breadcrumbKey) {
-    blocks.push(breadcrumbsFor(route.breadcrumbKey, canonical));
-  }
-
-  if (route.serviceType && route.path.startsWith("/services/")) {
-    // push serviceBlock if created above
-    if (serviceBlock) blocks.push(serviceBlock);
-  }
-
-  if (route.areaServed && route.path.includes("website-development")) {
-    // push serviceBlock if created above
-    if (serviceBlock) blocks.push(serviceBlock);
-  }
-
-  if (route.faqKey && FAQ_BY_KEY[route.faqKey]) {
-    blocks.push(buildFaqJsonLd(FAQ_BY_KEY[route.faqKey], canonical));
-  }
-
-  if (route.type === "article" && route.datePublished) {
-    const headline = blogHeadlineFromSeoTitle(route.title);
-    blocks.push(
-      buildBlogPostingJsonLd({
-        headline,
-        description: route.description,
-        url: canonical,
-        datePublished: route.datePublished,
-        image: route.image || DEFAULT_OG_IMAGE,
-      }),
-      buildBlogBreadcrumbsJsonLd({
-        articleName: headline,
-        canonicalUrl: canonical,
-      })
-    );
-  }
-
-  return blocks;
-}
-
-function stripTailBrand(title) {
-  return title.replace(/\s*\|\s*Wixwave(\s*\|\s*Wixwave Blog)?\s*$/i, "").trim();
+function crawlNavHtml() {
+  return getCrawlNavLinks()
+    .map(
+      (link) =>
+        `          <li><a href="${escapeHtml(link.href)}">${escapeHtml(link.label)}</a></li>`
+    )
+    .join("\n");
 }
 
 function bodyFallbackForRoute(route) {
@@ -212,68 +112,28 @@ function bodyFallbackForRoute(route) {
       ? "This page is optimized for search intent like &quot;website development company in Gurugram&quot;, &quot;best website development company in Gurgaon&quot;, &quot;shopify development Gurgaon&quot;, &quot;digital marketing agency Gurugram&quot;, and related high-intent queries."
       : "";
 
-  return `    <section id="llm-fallback" data-llm-fallback="true" aria-label="Page summary and link structure" style="font-size:12px;line-height:1.4;opacity:0.95;max-width:980px;margin:24px auto;display: none;padding:12px 16px;border-top:1px solid rgba(0,0,0,0.08) display:none;">
-      <h1 style="margin:0 0 8px;">${safeTitle}</h1>
-
-      <h2 style="margin:12px 0 6px;">Overview</h2>
-      <p style="margin:0 0 8px;">${safeDescription}${extraLine}</p>
-      <p style="margin:0;">${genericOverview}${routeSearchIntent ? `\n\n${routeSearchIntent}` : ""}</p>
-
-      <h2 style="margin:16px 0 6px;">Services</h2>
-      <h3 style="margin:10px 0 4px;">Website development</h3>
-      <h4 style="margin:8px 0 4px;">Deliverables</h4>
-      <ul style="margin:0 0 6px;padding-left:18px;">
-        <li>Responsive pages and conversion-first UX</li>
-        <li>Performance optimization and Core Web Vitals improvements</li>
-        <li>Technical SEO setup and SEO-ready structure</li>
-      </ul>
-      <h5 style="margin:8px 0 4px;">Quality checks</h5>
-      <p style="margin:0 0 6px;">Cross-device QA, accessibility basics, and content structure validation.</p>
-      <h6 style="margin:8px 0 4px;">Notes</h6>
-      <p style="margin:0 0 10px;">Timelines and scope depend on page count, features, and content readiness.</p>
-
-      <h3 style="margin:10px 0 4px;">App development</h3>
-      <p style="margin:0 0 10px;">Mobile and web apps with scalable architecture, integrations, testing, and post-launch support.</p>
-
-      <h3 style="margin:10px 0 4px;">SEO services</h3>
-      <p style="margin:0 0 10px;">Technical SEO, on-page optimization, local SEO for Patna and Gurugram, and performance-led improvements.</p>
-
-      <h3 style="margin:10px 0 4px;">Branding</h3>
-      <p style="margin:0 0 10px;">Logo design, brand identity systems, and visual direction that improves trust and consistency.</p>
-
-      <h3 style="margin:10px 0 4px;">Social media marketing</h3>
-      <p style="margin:0 0 10px;">Content planning, creatives, posting support, engagement, and performance reporting.</p>
-
-      <h3 style="margin:10px 0 4px;">Paid advertising</h3>
-      <p style="margin:0 0 10px;">Google Ads and Meta campaigns optimized for measurable ROI and lead generation.</p>
-
-      ${
-        safeFaqHtml
-          ? `<h2 style="margin:16px 0 6px;">FAQs</h2>
+  const faqBlock = safeFaqHtml
+    ? `
+      <h2>FAQs</h2>
       <div aria-label="Frequently asked questions">
         ${safeFaqHtml}
       </div>`
-          : ""
-      }
-      <nav aria-label="Primary pages">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/services">Services</a></li>
-          <li><a href="/services/web-dev">Website Development</a></li>
-          <li><a href="/services/app-dev">App Development</a></li>
-          <li><a href="/services/seo">SEO Services</a></li>
-          <li><a href="/services/branding">Branding</a></li>
-          <li><a href="/services/social-media">Social Media</a></li>
-          <li><a href="/services/paid-ads">Paid Ads</a></li>
-          <li><a href="/portfolio">Portfolio</a></li>
-          <li><a href="/blog">Blog</a></li>
-          <li><a href="/website-development-patna">Website Development Patna</a></li>
-          <li><a href="/website-development-gurugram">Website Development Gurugram</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </ul>
-      </nav>
-    </section>`;
+    : "";
+
+  return `    <noscript id="crawl-fallback">
+      <article aria-label="Page summary" style="max-width:980px;margin:24px auto;padding:16px;font-family:system-ui,sans-serif;line-height:1.5;">
+        <h1>${safeTitle}</h1>
+        <p>${safeDescription}${extraLine}</p>
+        <p>${genericOverview}${routeSearchIntent ? ` ${routeSearchIntent}` : ""}</p>
+        ${faqBlock}
+        <nav aria-label="All site pages">
+          <h2>Site pages</h2>
+          <ul>
+${crawlNavHtml()}
+          </ul>
+        </nav>
+      </article>
+    </noscript>`;
 }
 
 function metaFor(route) {
@@ -311,7 +171,17 @@ function metaFor(route) {
   // Keywords meta: combine site-level AEO keywords and any route-level keywords
   const siteKeywords = Array.isArray(SITE.keywords) ? SITE.keywords.join(", ") : "";
   const routeKeywords = route.keywords ? String(route.keywords).trim() : "";
-  const keywordsContent = [siteKeywords, routeKeywords].filter(Boolean).join(", ");
+  const routeKeywordList = Array.isArray(route.keywords)
+    ? route.keywords.join(", ")
+    : routeKeywords;
+  const keywordsContent = [siteKeywords, routeKeywordList].filter(Boolean).join(", ");
+
+  const hreflangHtml = hreflangLinksFor(canonical)
+    .map(
+      (link) =>
+        `    <link rel="alternate" href="${link.href}" hreflang="${link.hreflang}" />`
+    )
+    .join("\n");
 
   const jsonLdBlocks = [...siteLevel, ...jsonLdForRoute(route)];
   const articleMeta =
@@ -322,12 +192,10 @@ function metaFor(route) {
     <meta property="article:section" content="Blog" />`
       : "";
 
-  // AEO enhancements: author, publisher, content classification
-  const aeoBenefits = `
+  const aeoBenefits = `${buildAeoHeadMetaHtml(route, escapeHtml)}
     <meta name="author" content="Wixwave" />
     <meta name="publisher" content="Wixwave" />
-    <meta name="article.author" content="Wixwave" />
-    <meta name="content-type" content="text/html; charset=UTF-8" />`;
+    <meta name="application-name" content="Wixwave" />`;
 
   return `    <title>${safeTitle}</title>
     <meta name="title" content="${safeTitle}" />
@@ -335,22 +203,25 @@ function metaFor(route) {
     ${keywordsContent ? `<meta name="keywords" content="${escapeHtml(
     keywordsContent
   )}" />` : ""}
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="robots" content="${INDEX_ROBOTS}" />
+    <meta name="googlebot" content="${INDEX_ROBOTS}" />
+    <meta name="bingbot" content="${INDEX_ROBOTS}" />
     <meta name="geo.region" content="${geo.region}" />
     <meta name="geo.placename" content="${escapeHtml(geo.placename)}" />
     <meta name="geo.position" content="${geo.position}" />
     <meta name="ICBM" content="${geo.icbm}" />${aeoBenefits}
     <link rel="canonical" href="${canonical}" />
-    <link rel="alternate" href="${canonical}" hreflang="en-IN" />
-    <link rel="alternate" href="${canonical}" hreflang="hi-IN" />
-    <link rel="alternate" href="${canonical}" hreflang="x-default" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://wixwave.co/sitemap.xml" />
+${hreflangHtml}
     <link rel="alternate" type="text/plain" title="LLM content guide" href="https://wixwave.co/llms.txt" />
+    <link rel="help" type="text/markdown" title="AI context" href="https://wixwave.co/AI.md" />
     <meta property="og:type" content="${type}" />
     <meta property="og:title" content="${safeTitle}" />
     <meta property="og:description" content="${safeDescription}" />
     <meta property="og:image" content="${image}" />
+    <meta property="og:image:alt" content="${escapeHtml(DEFAULT_OG_IMAGE_ALT)}" />
+    <meta property="og:image:width" content="${OG_IMAGE_DIMENSIONS.width}" />
+    <meta property="og:image:height" content="${OG_IMAGE_DIMENSIONS.height}" />
     <meta property="og:url" content="${canonical}" />
     <meta property="og:site_name" content="Wixwave" />
     <meta property="og:locale" content="en_IN" />${articleMeta}
@@ -376,12 +247,8 @@ function noIndexMetaFor(route) {
   return `    <title>${safeTitle}</title>
     <meta name="title" content="${safeTitle}" />
     <meta name="description" content="${safeDescription}" />
-    <meta name="robots" content="noindex, nofollow" />
-    <meta name="googlebot" content="noindex, nofollow" />
-    <link rel="canonical" href="${canonical}" />
-    <link rel="alternate" href="${canonical}" hreflang="en-IN" />
-    <link rel="alternate" href="${canonical}" hreflang="hi-IN" />
-    <link rel="alternate" href="${canonical}" hreflang="x-default" />
+    <meta name="robots" content="${NOINDEX_ROBOTS}" />
+    <meta name="googlebot" content="${NOINDEX_ROBOTS}" />
 `;
 }
 
@@ -422,12 +289,16 @@ for (const route of noIndexRoutes) {
 const notFoundHtml = stripManagedHead(baseHtml).replace(
   "</head>",
   `    <title>404 - Page Not Found | Wixwave</title>
-    <meta name="robots" content="noindex, nofollow" />
+    <meta name="robots" content="${NOINDEX_ROBOTS}" />
+    <meta name="googlebot" content="${NOINDEX_ROBOTS}" />
     <meta name="description" content="The page you are looking for could not be found." />
-    <link rel="canonical" href="${canonicalFor("/404")}" />
   </head>`
 );
 writeFileSync(join(distDir, "404.html"), notFoundHtml);
+
+const robotsTxt = buildRobotsTxt();
+writeFileSync(join(distDir, "robots.txt"), robotsTxt);
+writeFileSync(join(publicDir, "robots.txt"), robotsTxt);
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -447,10 +318,6 @@ ${indexableRoutes
 writeFileSync(join(distDir, "sitemap.xml"), sitemap);
 writeFileSync(join(publicDir, "sitemap.xml"), sitemap);
 
-// Ensure robots.txt is present in dist for crawlers
-try {
-  const robots = readFileSync(join(publicDir, "robots.txt"), "utf8");
-  writeFileSync(join(distDir, "robots.txt"), robots);
-} catch (e) {
-  // if public/robots.txt missing, skip silently
-}
+console.log(
+  `SEO prerender: ${indexableRoutes.length} indexable pages, sitemap.xml, robots.txt`
+);

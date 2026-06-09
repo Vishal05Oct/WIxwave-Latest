@@ -1,12 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import useSeo from "../hooks/useSeo";
-import {
-  blogHeadlineFromSeoTitle,
-  buildBlogBreadcrumbsJsonLd,
-  buildBlogPostingJsonLd,
-} from "../seo/siteJsonLd";
+import useRouteSeo from "../hooks/useRouteSeo";
 
 export default function BlogPost7() {
   const [progress, setProgress] = useState(0);
@@ -29,42 +24,8 @@ export default function BlogPost7() {
 
   const datePublished = "2026-04-24";
 
-  useSeo({
-    title,
-    description,
-    canonical: canonicalUrl,
-    article: {
-      publishedTime: `${datePublished}T00:00:00+05:30`,
-    },
-    og: {
-      url: canonicalUrl,
-      type: "article",
-      image: heroImage,
-    },
-    keywords: [
-      "website design",
-      "website development",
-      "business website",
-      "internal linking",
-      "website structure",
-      "core web vitals",
-      "website performance",
-      "conversion focused website",
-    ],
-    jsonLdArray: [
-      buildBlogPostingJsonLd({
-        headline: blogHeadlineFromSeoTitle(title),
-        description,
-        url: canonicalUrl,
-        datePublished,
-        image: heroImage,
-      }),
-      buildBlogBreadcrumbsJsonLd({
-        articleName: blogHeadlineFromSeoTitle(title),
-        canonicalUrl,
-      }),
-    ],
-  });
+
+  useRouteSeo("/blog/website-design-development-guide");
 
   useEffect(() => {
     let cachedTotal = null;

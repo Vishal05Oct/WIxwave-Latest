@@ -1,12 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import useSeo from "../hooks/useSeo";
-import {
-  blogHeadlineFromSeoTitle,
-  buildBlogBreadcrumbsJsonLd,
-  buildBlogPostingJsonLd,
-} from "../seo/siteJsonLd";
+import useRouteSeo from "../hooks/useRouteSeo";
 
 export default function BlogPost6() {
   const [progress, setProgress] = useState(0);
@@ -29,40 +24,8 @@ export default function BlogPost6() {
 
   const datePublished = "2026-04-24";
 
-  useSeo({
-    title,
-    description,
-    canonical: canonicalUrl,
-    article: {
-      publishedTime: `${datePublished}T00:00:00+05:30`,
-    },
-    og: {
-      url: canonicalUrl,
-      type: "article",
-      image: heroImage,
-    },
-    keywords: [
-      "local seo mistakes",
-      "local seo patna",
-      "local seo gurugram",
-      "google business profile mistakes",
-      "citations consistency",
-      "local seo 2026",
-    ],
-    jsonLdArray: [
-      buildBlogPostingJsonLd({
-        headline: blogHeadlineFromSeoTitle(title),
-        description,
-        url: canonicalUrl,
-        datePublished,
-        image: heroImage,
-      }),
-      buildBlogBreadcrumbsJsonLd({
-        articleName: blogHeadlineFromSeoTitle(title),
-        canonicalUrl,
-      }),
-    ],
-  });
+
+  useRouteSeo("/blog/local-seo-mistakes-patna-gurugram");
 
   useEffect(() => {
     let cachedTotal = null;

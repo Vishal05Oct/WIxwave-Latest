@@ -1,41 +1,17 @@
-import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import useSeo from '../hooks/useSeo';
 
 const NotFound = () => {
-  useEffect(() => {
-    document.title = '404 - Page Not Found | Wixwave';
-
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
-    }
-    metaDescription.setAttribute('content', 'The page you are looking for might have been removed, had its name changed, or is temporarily unavailable. Return to our homepage to continue your journey.');
-
-    let robotsMeta = document.querySelector('meta[name="robots"]');
-    if (!robotsMeta) {
-      robotsMeta = document.createElement('meta');
-      robotsMeta.setAttribute('name', 'robots');
-      document.head.appendChild(robotsMeta);
-    }
-    robotsMeta.setAttribute('content', 'noindex,nofollow');
-
-    let canonicalLink = document.querySelector('link[rel="canonical"]');
-    if (!canonicalLink) {
-      canonicalLink = document.createElement('link');
-      canonicalLink.setAttribute('rel', 'canonical');
-      document.head.appendChild(canonicalLink);
-    }
-    canonicalLink.setAttribute('href', window.location.origin + '/404');
-
-    return () => {
-      document.title = 'Wixwave - Web Development & Digital Solutions';
-      metaDescription.setAttribute('content', 'Wixwave provides professional web development, mobile app development, and digital solutions to help businesses grow online.');
-      robotsMeta.setAttribute('content', 'index,follow');
-      canonicalLink.setAttribute('href', window.location.origin);
-    };
-  }, []);
+  useSeo({
+    title: '404 - Page Not Found',
+    description:
+      'The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.',
+    robots: 'noindex, nofollow',
+    aeo: {
+      googlebot: 'noindex, nofollow',
+      bingbot: 'noindex, nofollow',
+    },
+  });
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#01001c] to-[#0c34e9] flex items-center justify-center px-4">
@@ -82,4 +58,4 @@ const NotFound = () => {
   );
 };
 
-export default NotFound; 
+export default NotFound;

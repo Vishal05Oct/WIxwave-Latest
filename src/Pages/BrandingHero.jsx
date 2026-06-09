@@ -1,13 +1,7 @@
-import useSeo from "../hooks/useSeo";
+import useRouteSeo from "../hooks/useRouteSeo";
 
 function BrandingHero() {
-  useSeo({
-    title: "Branding Services | Wixwave",
-    description:
-      "Build a memorable brand with Wixwave branding services, including identity design, brand messaging, and digital positioning.",
-    canonical: "https://wixwave.co/services/branding",
-    robots: "index,follow",
-  });
+  useRouteSeo("/services/branding");
 
   return (
     <div>

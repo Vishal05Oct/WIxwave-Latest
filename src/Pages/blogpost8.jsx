@@ -1,12 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import useSeo from "../hooks/useSeo";
-import {
-  blogHeadlineFromSeoTitle,
-  buildBlogBreadcrumbsJsonLd,
-  buildBlogPostingJsonLd,
-} from "../seo/siteJsonLd";
+import useRouteSeo from "../hooks/useRouteSeo";
 
 export default function BlogPost8() {
   const [progress, setProgress] = useState(0);
@@ -29,50 +24,8 @@ export default function BlogPost8() {
 
   const datePublished = "2026-05-07";
 
-  useSeo({
-    title,
-    description,
-    canonical: canonicalUrl,
-    article: {
-      publishedTime: `${datePublished}T00:00:00+05:30`,
-    },
-    og: {
-      url: canonicalUrl,
-      type: "article",
-      image: heroImage,
-    },
-    keywords: [
-      "Shopify Store Development Services",
-      "Custom Shopify Website Development",
-      "Shopify website development",
-      "Shopify ecommerce development",
-      "Shopify ecommerce website development",
-      "ecommerce website development services",
-      "custom Shopify store design",
-      "Shopify theme customization",
-      "Shopify SEO services",
-      "Shopify speed optimization",
-      "Shopify product page optimization",
-      "conversion focused Shopify store",
-      "Shopify developers",
-      "Shopify development company",
-      "Shopify website developers in Patna",
-      "Shopify website developers in Gurugram",
-    ],
-    jsonLdArray: [
-      buildBlogPostingJsonLd({
-        headline: blogHeadlineFromSeoTitle(title),
-        description,
-        url: canonicalUrl,
-        datePublished,
-        image: heroImage,
-      }),
-      buildBlogBreadcrumbsJsonLd({
-        articleName: blogHeadlineFromSeoTitle(title),
-        canonicalUrl,
-      }),
-    ],
-  });
+
+  useRouteSeo("/blog/shopify-store-development-services");
 
   useEffect(() => {
     let cachedTotal = null;

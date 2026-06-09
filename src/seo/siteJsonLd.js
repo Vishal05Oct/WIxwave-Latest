@@ -1,5 +1,7 @@
 /** Central Schema.org identifiers + builders for https://schema.org */
 
+import { canonicalFor, indexableRoutes } from "./siteRoutes.js";
+
 export const SITE = {
   name: "Wixwave",
   url: "https://wixwave.co",
@@ -13,11 +15,15 @@ export const SITE = {
     "Website Development",
     "App Development",
     "Search Engine Optimization",
+    "Answer Engine Optimization",
+    "Generative Engine Optimization",
     "Branding",
     "Social Media Marketing",
     "Paid Advertising",
     "Local SEO",
     "Shopify Development",
+    "Structured Data",
+    "Google Search Console",
   ],
   keywords: [
     "website development",
@@ -140,19 +146,22 @@ export function getWebsiteJsonLd() {
     inLanguage: "en-IN",
     mainEntity: { "@id": SITE_ORGANIZATION_ID },
     keywords: SITE.keywords,
-    potentialAction: [
-      {
-        "@type": "SearchAction",
-        target: `${SITE.url}/blog?query={search_term_string}`,
-        "query-input": "required name=search_term_string",
-      },
-      {
-        "@type": "SearchAction",
-        name: "Search services",
-        target: `${SITE.url}/?query={search_term_string}`,
-        "query-input": "required name=search_term_string",
-      }
-    ],
+    potentialAction: {
+      "@type": "CommunicateAction",
+      name: "Contact Wixwave",
+      target: `${SITE.url}/contact`,
+    },
+    hasPart: {
+      "@type": "ItemList",
+      name: "Wixwave site pages",
+      numberOfItems: indexableRoutes.length,
+      itemListElement: indexableRoutes.map((route, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: stripTailBrand(route.title),
+        url: canonicalFor(route.path),
+      })),
+    },
   };
 }
 
@@ -211,6 +220,38 @@ export function getLocalBusinessJsonLd() {
       addressLocality: "Patna",
       streetAddress: "Patna, Bihar",
     },
+    location: [
+      {
+        "@type": "Place",
+        name: "Wixwave — Patna",
+        address: {
+          "@type": "PostalAddress",
+          addressCountry: "IN",
+          addressRegion: "Bihar",
+          addressLocality: "Patna",
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: 25.5941,
+          longitude: 85.1376,
+        },
+      },
+      {
+        "@type": "Place",
+        name: "Wixwave — Gurugram",
+        address: {
+          "@type": "PostalAddress",
+          addressCountry: "IN",
+          addressRegion: "Haryana",
+          addressLocality: "Gurugram",
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: 28.4595,
+          longitude: 77.0266,
+        },
+      },
+    ],
     geo: {
       "@type": "GeoCoordinates",
       latitude: 25.5941,
@@ -252,6 +293,7 @@ export function buildWebPageJsonLd({
   name,
   description,
   about,
+  mainEntity,
 }) {
   const url = absoluteUrl(canonical);
   const pageName = name ?? stripTailBrand(title);
@@ -268,10 +310,11 @@ export function buildWebPageJsonLd({
     publisher: { "@id": SITE_ORGANIZATION_ID },
     speakable: {
       "@type": "SpeakableSpecification",
-      cssSelector: ["h1", "main p"],
+      cssSelector: ["h1", "main h1", "main p", "#crawl-fallback h1", "#crawl-fallback p"],
     },
   };
   if (about) out.about = about;
+  if (mainEntity) out.mainEntity = mainEntity;
   return out;
 }
 
@@ -495,12 +538,15 @@ export function buildBlogPostingJsonLd({
   const json = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
+    "@id": `${pageUrl}#article`,
     headline,
     description,
     url: pageUrl,
+    inLanguage: "en-IN",
+    isAccessibleForFree: true,
     datePublished,
     dateModified: dateModified || datePublished,
-    author: { "@type": "Organization", "@id": SITE_ORGANIZATION_ID },
+    author: { "@type": "Organization", "@id": SITE_ORGANIZATION_ID, name: SITE.name },
     publisher: {
       "@type": "Organization",
       "@id": SITE_ORGANIZATION_ID,
@@ -510,6 +556,10 @@ export function buildBlogPostingJsonLd({
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": `${pageUrl}#webpage`,
+    },
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["article h1", "main h1", "main p"],
     },
   };
   if (image) json.image = image;
@@ -533,8 +583,8 @@ export function buildBlogBreadcrumbsJsonLd({ articleName, canonicalUrl }) {
 }
 
 /** FAQ schema for enhanced AEO (Answer Engine Optimization) */
-export function buildFaqJsonLd(faqs) {
-  return {
+export function buildFaqJsonLd(faqs, pageCanonical) {
+  const base = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: faqs.map((faq) => ({
@@ -546,6 +596,10 @@ export function buildFaqJsonLd(faqs) {
       },
     })),
   };
+  if (pageCanonical) {
+    base["@id"] = `${absoluteUrl(pageCanonical)}#faq`;
+  }
+  return base;
 }
 
 /** QAPage schema for service pages with Q&A content */
@@ -582,6 +636,7 @@ export function buildHowToJsonLd({ canonical, title, description, steps }) {
     url,
     name: stripTailBrand(title),
     description,
+    inLanguage: "en-IN",
     step: steps.map((step, idx) => ({
       "@type": "HowToStep",
       position: idx + 1,
@@ -589,5 +644,6 @@ export function buildHowToJsonLd({ canonical, title, description, steps }) {
       text: step.description,
       ...(step.image ? { image: step.image } : {}),
     })),
+    provider: { "@id": SITE_ORGANIZATION_ID },
   };
 }

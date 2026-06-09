@@ -1,18 +1,10 @@
 import { Link } from "react-router-dom";
 import { SiNextdotjs, SiReact, SiShopify, SiWordpress } from "react-icons/si";
-import useSeo from "../hooks/useSeo";
-import { buildFaqJsonLd, patnaLandingFaqs } from "../data/serviceFaqs";
-import {
-  breadcrumbsFor,
-  buildServiceJsonLd,
-  buildWebPageJsonLd,
-} from "../seo/siteJsonLd";
+import useRouteSeo from "../hooks/useRouteSeo";
 
 export default function WebsiteDevelopmentPatna() {
-  const canonical = "https://wixwave.co/website-development-patna";
-  const title = "Best Website Development Company in Patna, Bihar | Wixwave";
-  const description =
-    "Looking for the best website development company in Patna, Bihar? Wixwave builds fast, SEO-ready business websites and Shopify stores with performance-first UX, local Patna SEO, and ongoing support for Patna brands.";
+  useRouteSeo("/website-development-patna");
+
   const relatedLinks = [
     {
       to: "/services/web-dev",
@@ -35,60 +27,6 @@ export default function WebsiteDevelopmentPatna() {
       text: "Create mobile apps to expand your reach in Patna.",
     },
   ];
-
-  useSeo({
-    title,
-    description,
-    canonical,
-    keywords: [
-      "website development services in patna",
-      "website development company in patna",
-      "web design company in patna",
-      "ecommerce website development patna",
-      "shopify development company in patna",
-      "best digital marketing agency in patna",
-      "website development agency in patna",
-      "top 10 website development company in patna",
-      "shopify store development services",
-      "custom shopify website development",
-      "professional shopify developers in patna",
-      "shopify e-commerce website development company",
-      "shopify website development patna",
-      "best website development company patna",
-    ],
-    robots: "index,follow",
-    geo: {
-      region: "IN-BR",
-      placename: "Patna",
-      position: "25.5941;85.1376",
-      icbm: "25.5941, 85.1376",
-    },
-    og: {
-      url: canonical,
-      type: "website",
-      siteName: "Wixwave",
-      locale: "en_IN",
-    },
-    jsonLdArray: [
-      buildWebPageJsonLd({
-        canonical,
-        title,
-        name: "Website Development Company in Patna",
-        description,
-        about: { "@id": `${canonical}#service` },
-      }),
-      buildServiceJsonLd({
-        canonical,
-        name: "Website Development Company in Patna",
-        description,
-        serviceType: "Website Development",
-        areaServed: "Patna",
-        category: "Website Development",
-      }),
-      breadcrumbsFor("patna", canonical),
-      buildFaqJsonLd(patnaLandingFaqs, canonical),
-    ],
-  });
 
   return (
     <main className="bg-gradient-to-b from-white via-slate-50 to-white">

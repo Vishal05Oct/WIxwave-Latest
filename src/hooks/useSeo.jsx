@@ -1,5 +1,12 @@
 import { useEffect, useMemo } from "react";
 import { SITE } from "../seo/siteJsonLd";
+import { GOOGLE_AI_BOT } from "../seo/aeoConfig";
+import { INDEX_ROBOTS } from "../seo/crawlConfig";
+import {
+  DEFAULT_OG_IMAGE_ALT,
+  hreflangLinksFor,
+  OG_IMAGE_DIMENSIONS,
+} from "../seo/seoConfig";
 
 const BRAND_SUFFIX = " | Wixwave";
 const LLMS_TXT_URL = `${SITE.url}/llms.txt`;
@@ -78,7 +85,29 @@ function setLinkRel(rel, href, extra = {}) {
   });
 }
 
+function removeHreflangLinks() {
+  document
+    .querySelectorAll("link[rel='alternate'][hreflang]")
+    .forEach((node) => node.remove());
+}
+
+function setHreflangLinks(canonical) {
+  removeHreflangLinks();
+  if (!canonical) return;
+  hreflangLinksFor(canonical).forEach(({ hreflang, href }) => {
+    const link = document.createElement("link");
+    link.setAttribute("rel", "alternate");
+    link.setAttribute("hreflang", hreflang);
+    link.setAttribute("href", href);
+    document.head.appendChild(link);
+  });
+}
+
 function setDiscoveryLinks() {
+  setLinkRel("sitemap", `${SITE.url}/sitemap.xml`, {
+    type: "application/xml",
+    title: "Sitemap",
+  });
   setLinkRel("alternate", LLMS_TXT_URL, {
     type: "text/plain",
     title: "LLM content guide",
@@ -154,17 +183,15 @@ export default function useSeo({
   );
 
   const resolvedCanonical = canonical || currentUrl;
-  const resolvedRobots =
-    robots ?? "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
+  const resolvedRobots = robots ?? INDEX_ROBOTS;
   const isBlogPage = useMemo(
     () => Boolean(resolvedCanonical && /\/blog\/.+/i.test(resolvedCanonical)),
     [resolvedCanonical]
   );
   const resolvedAeo = useMemo(
     () => ({
-      // AEO/AIO-friendly defaults for search and AI snippets.
-      googlebot: "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
-      bingbot: "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+      googlebot: GOOGLE_AI_BOT,
+      bingbot: GOOGLE_AI_BOT,
       ...aeo,
     }),
     [aeo]
@@ -176,7 +203,9 @@ export default function useSeo({
       siteName: "Wixwave",
       locale: "en_IN",
       image: "https://res.cloudinary.com/dobbdtftp/image/upload/v1746202311/3_rgrvsx.png",
-      imageAlt: "Wixwave digital agency logo",
+      imageAlt: DEFAULT_OG_IMAGE_ALT,
+      imageWidth: OG_IMAGE_DIMENSIONS.width,
+      imageHeight: OG_IMAGE_DIMENSIONS.height,
       ...og,
     }),
     [isBlogPage, og]
@@ -232,6 +261,8 @@ export default function useSeo({
     setMetaTag("og:url", resolvedOgUrl, true);
     setMetaTag("og:image", resolvedOgImage, true);
     setMetaTag("og:image:alt", resolvedOg.imageAlt, true);
+    setMetaTag("og:image:width", resolvedOg.imageWidth, true);
+    setMetaTag("og:image:height", resolvedOg.imageHeight, true);
     setMetaTag("og:site_name", resolvedOg.siteName, true);
     setMetaTag("og:locale", resolvedOg.locale, true);
 
@@ -256,6 +287,7 @@ export default function useSeo({
     setMetaTag("ICBM", resolvedGeo.icbm);
 
     setLinkRel("canonical", resolvedCanonical);
+    setHreflangLinks(resolvedCanonical);
     setDiscoveryLinks();
 
     setMetaTag("twitter:card", resolvedTwitter.card);
@@ -267,6 +299,13 @@ export default function useSeo({
     setMetaTag("publisher", "Wixwave");
     setMetaTag("application-name", "Wixwave");
     setMetaTag("format-detection", "telephone=no");
+
+    setMetaTag("abstract", resolvedAeo.abstract || normalizedDescription);
+    setMetaTag("summary", resolvedAeo.summary || normalizedDescription);
+    setMetaTag("topic", resolvedAeo.topic);
+    setMetaTag("pagetype", resolvedAeo.pagetype);
+    setMetaTag("coverage", resolvedAeo.coverage);
+    setMetaTag("audience", resolvedAeo.audience);
 
     if (jsonLdArray) {
       setMultipleJsonLd(jsonLdArray);

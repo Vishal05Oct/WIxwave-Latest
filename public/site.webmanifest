@@ -1,0 +1,17 @@
+{
+  "name": "Wixwave — Digital Agency",
+  "short_name": "Wixwave",
+  "description": "Website development, app development, SEO, branding, and digital marketing in Patna and Gurugram.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0b2c",
+  "theme_color": "#0b0b2c",
+  "lang": "en-IN",
+  "icons": [
+    {
+      "src": "/Favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,12 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import useSeo from "../hooks/useSeo";
-import {
-  blogHeadlineFromSeoTitle,
-  buildBlogBreadcrumbsJsonLd,
-  buildBlogPostingJsonLd,
-} from "../seo/siteJsonLd";
+import useRouteSeo from "../hooks/useRouteSeo";
 
 export default function BlogPost10() {
   const [progress, setProgress] = useState(0);
@@ -29,46 +24,8 @@ export default function BlogPost10() {
 
   const datePublished = "2026-05-20";
 
-  useSeo({
-    title,
-    description,
-    canonical: canonicalUrl,
-    article: {
-      publishedTime: `${datePublished}T00:00:00+05:30`,
-    },
-    og: {
-      url: canonicalUrl,
-      type: "article",
-      image: heroImage,
-    },
-    keywords: [
-      "Shopify vs WooCommerce",
-      "WooCommerce vs Shopify",
-      "Shopify vs WordPress WooCommerce",
-      "Shopify or WooCommerce which is better",
-      "Shopify vs WooCommerce cost",
-      "Shopify vs WooCommerce SEO",
-      "Shopify vs WooCommerce for small business",
-      "ecommerce platform comparison",
-      "WooCommerce website development",
-      "Shopify store development",
-      "best ecommerce platform India",
-      "Shopify vs WooCommerce 2026",
-    ],
-    jsonLdArray: [
-      buildBlogPostingJsonLd({
-        headline: blogHeadlineFromSeoTitle(title),
-        description,
-        url: canonicalUrl,
-        datePublished,
-        image: heroImage,
-      }),
-      buildBlogBreadcrumbsJsonLd({
-        articleName: blogHeadlineFromSeoTitle(title),
-        canonicalUrl,
-      }),
-    ],
-  });
+
+  useRouteSeo("/blog/shopify-vs-woocommerce-2026");
 
   useEffect(() => {
     let cachedTotal = null;

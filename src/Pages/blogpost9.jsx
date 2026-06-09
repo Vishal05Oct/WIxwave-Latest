@@ -1,12 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import useSeo from "../hooks/useSeo";
-import {
-  blogHeadlineFromSeoTitle,
-  buildBlogBreadcrumbsJsonLd,
-  buildBlogPostingJsonLd,
-} from "../seo/siteJsonLd";
+import useRouteSeo from "../hooks/useRouteSeo";
 
 export default function BlogPost9() {
   const [progress, setProgress] = useState(0);
@@ -28,46 +23,8 @@ export default function BlogPost9() {
 
   const datePublished = "2026-05-19";
 
-  useSeo({
-    title,
-    description,
-    canonical: canonicalUrl,
-    article: {
-      publishedTime: `${datePublished}T00:00:00+05:30`,
-    },
-    og: {
-      url: canonicalUrl,
-      type: "article",
-      image: heroImage,
-    },
-    keywords: [
-      "Shopify SEO",
-      "Shopify SEO checklist",
-      "Shopify SEO services",
-      "Shopify store SEO",
-      "ecommerce SEO",
-      "Shopify product page optimization",
-      "Shopify collection SEO",
-      "Shopify technical SEO",
-      "Shopify speed optimization",
-      "Shopify SEO 2026",
-      "Shopify SEO Patna",
-      "Shopify SEO Gurugram",
-    ],
-    jsonLdArray: [
-      buildBlogPostingJsonLd({
-        headline: blogHeadlineFromSeoTitle(title),
-        description,
-        url: canonicalUrl,
-        datePublished,
-        image: heroImage,
-      }),
-      buildBlogBreadcrumbsJsonLd({
-        articleName: blogHeadlineFromSeoTitle(title),
-        canonicalUrl,
-      }),
-    ],
-  });
+
+  useRouteSeo("/blog/shopify-seo-checklist-2026");
 
   useEffect(() => {
     let cachedTotal = null;
