@@ -23,6 +23,12 @@ const projects = [
     category: 'React',
   },
   {
+    title: "D'YOU",
+    url: 'https://www.dyou.co/',
+    image: 'https://res.cloudinary.com/dobbdtftp/image/upload/v1781892613/screencapture-dyou-co-2026-06-19-23_25_39_formphotoeditor.com_kyqe5r.jpg',
+    category: 'Shopify',
+  },
+  {
     title: 'Suta ',
     url: 'https://suta.in/',
     image: 'https://res.cloudinary.com/dobbdtftp/image/upload/v1751686816/Suta_qtq4xn.png',
